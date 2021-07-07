@@ -1,11 +1,15 @@
 // import Head from 'next/head'
 // import Image from 'next/image'
 // import styles from '../styles/Home.module.css'
-import {Wrapper, Title, InnerWrapper, Main_set, Box_big3, Photo_box, Left_div, Text, Small_input, Right_div, Index_div,Middle_input, Contents, Contents_input, Address_div, Address_inner_div, Search_address_div, Number_input, Search_button, Inner_div, Youtube, Photo_div, Photo_img ,Radio_div, Upload_div, Upload  } from '../../../styles/Home.styles'
+import {
+    Wrapper, 
+    Title,
+    InnerWrapper,
+    Main_set, Box_big3, Photo_box, Left_div, Text, Small_input, Right_div, Index_div,Middle_input, Contents, Contents_input, Address_div, Address_inner_div, Search_address_div, Number_input, Search_button, Inner_div, Youtube, Photo_div, Photo_img ,Radio_div, Upload_div, Upload  
+    } from '../../../styles/Home.styles'
 
 
 export default function aaa() {
-
 
 
 return (
@@ -46,14 +50,16 @@ return (
             </Address_div>
             <Youtube>
                 <Text>유뷰브</Text>
-                <Middle_input placeholder='링크를 복사해 주세요.'></Middle_input>
+                <Middle_input  placeholder='링크를 복사해 주세요.'></Middle_input>
             </Youtube>
             <Photo_div>
                 <Text>사진 첨부</Text>
                 <Photo_box>
-                    <Photo_img></Photo_img>
-                    <Photo_img></Photo_img>
-                    <Photo_img></Photo_img>
+                    <Photo_img src="/new/photo.png">
+                        
+                    </Photo_img>
+                    <Photo_img src="/new/photo.png"></Photo_img>
+                    <Photo_img src="/new/photo.png"></Photo_img>
                 </Photo_box>
             </Photo_div>
             <Main_set>
@@ -63,7 +69,7 @@ return (
             </Main_set>
 
             <Upload_div>
-            <Upload>등록하기</Upload>
+            <Upload >등록하기</Upload>
             </Upload_div>            
 
 

@@ -4,7 +4,6 @@ import styled from '@emotion/styled'
 export const Wrapper = styled.div`
 max-width: 1200px;
 width: 100%;
-height: 1847px;
 border: 2px solid;
 padding-right: 102px;
 padding-left:102px;
@@ -143,10 +142,11 @@ justify-content:space-between;
 width:100%;
 height:78px;
 `
-export const Photo_img = styled.div`
+export const Photo_img = styled.img`
 width:78px;
 height:78px;
-background-color:gray;
+background-color:red;
+background-image: url("/new/phpto.png");
 `
 
 export const Main_set = styled.div`
