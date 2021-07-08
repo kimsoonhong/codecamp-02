@@ -2,19 +2,17 @@
 // import Image from 'next/image'
 // import styles from '../styles/Home.module.css'
 import { useState } from 'react'
-import { useMutation, gql } from '@apollo/client'
-
 import {
-    Wrapper
-    , Title
-    , InnerWrapper
-    , Box_big3
+    Wrapper, 
+    Title,
+    InnerWrapper,
+    Main_set, Box_big3
     , Photo_box
     , Left_div
     , Text, Small_input
     , Right_div
     , Index_div
-    , Middle_input
+    ,Middle_input
     , Contents
     , Contents_input
     , Address_div
@@ -26,13 +24,11 @@ import {
     , Youtube
     , Photo_div
     , Photo_img
-    , Option_div
-    , Radio_button
-    , Radio_text
+    ,Radio_div
     , Upload_div
     , Upload
     ,Error 
-    } from '../../../styles/Home.styles'
+    } from '../../styles/Home.styles copy'
 
 
 export default function aaa() {
@@ -47,8 +43,6 @@ export default function aaa() {
     const [passwordError, setPasswordError] = useState('')
     const [titleError, setTitleError] = useState('')
     const [contentsError, setContentsError] = useState('')
-
-
 
     function onChangeWriter(event){
     setWriter(event.target.value)
@@ -78,7 +72,7 @@ export default function aaa() {
     }
     }
 
-    function onClick_error(){
+    function onClickSubmit(){
     if(writer === ""){
         setWriterError("작성자를 입력해주세요.")
     }
@@ -96,56 +90,7 @@ export default function aaa() {
     }
     }
 
-    const [send_product] = useMutation(
-        gql`
-        mutation createBoard($createBoardInput: CreateBoardInput!) {
-            createBoard(createBoardInput: $createBoardInput) {
-              title
-              writer
-              _id
-            }
-          }
-        `
-    )
-    
-    const [ test ] = useMutation(
-        gql`
-            mutation createUseditem($createUseditemInput : CreateUseditemInput!) {
-                createUseditem(createUseditemInput : $createUseditemInput) {
-                    _id
-                }
-            }
-        `
-    )
-
-    function testCreate() {
-        test({
-            variables : {
-                createUseditemInput : {
-                    name : "111",
-                    remarks : "222",
-                    contents : "333",
-                    price : 222
-                }
-            }
-        })
-    }
-    
-
-
-    async function onClick(){
-        console.log(send_product)
-    try{    
-        const result = await send_product({
-            variables:{
-                createBoardInput : {
-                    writer:writer,
-                    password:password,
-                    title:title,
-                    contents:contents
-                }
-            }
-        })
+    function onClick(){
         if(writer === ""){
         setWriterError("작성자를 입력해주세요.")
         }
@@ -161,16 +106,13 @@ export default function aaa() {
         if(writer !== "" && password !== "" && title !== "" && contents !== ""){
         alert('게시물을 등록합니다~')
         }
-
-        
-    }catch(error){
-        alert(error)
     }
-}
+
 
 
 
 return (
+
     <Wrapper>
         <Title>게시물 등록</Title>
         <InnerWrapper>
@@ -216,31 +158,31 @@ return (
             <Photo_div>
                 <Text>사진 첨부</Text>
                 <Photo_box>
-                    <Photo_img >
-                        <div>+</div>
-                        <div>Upload</div>
+                    <Photo_img src="/new/photo.png">
+                        
                     </Photo_img>
-                    <Photo_img>
-                        <div>+</div>
-                        <div>Upload</div>
-                    </Photo_img>
-                    <Photo_img >
-                        <div>+</div>
-                        <div>Upload</div>
-                    </Photo_img>
+                    <Photo_img src="/new/photo.png"></Photo_img>
+                    <Photo_img src="/new/photo.png"></Photo_img>
                 </Photo_box>
             </Photo_div>
-            <Option_div>
+            <Main_set>
                 <Text>메인설정</Text>
-                <Radio_button type="radio"></Radio_button>
-                <Radio_text>유튜브</Radio_text>
-                <Radio_button type="radio"></Radio_button>
-                <Radio_text>사진</Radio_text>
-            </Option_div>
+                <Radio_div itemType='radio'>dddd</Radio_div>
+
+            </Main_set>
+
             <Upload_div>
             <Upload onClick={onClick}>등록하기</Upload>
             </Upload_div>            
+
+
+
+
+
+
+
         </InnerWrapper>   
     </Wrapper>
+
 )
 }

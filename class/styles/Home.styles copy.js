@@ -28,7 +28,7 @@ export const Box_big3 = styled.div`
 display: flex;
 justify-content:space-between;
 width:100%;
-height:115px;
+height:92px;
 margin-bottom:40px;
 `
 
@@ -41,6 +41,7 @@ width: 462px;
 export const Text = styled.div`
 width:100%;
 height:24px;
+
 margin-bottom:16px;
 margin-top:4px;
 font-size:16px;
@@ -111,7 +112,6 @@ height: 52px;
 margin:0px;
 color:white;
 font-size:16px;
-background-color: black;
 `
 
 export const Inner_div = styled.div`
@@ -142,30 +142,24 @@ justify-content:space-between;
 width:100%;
 height:78px;
 `
-export const Photo_img = styled.button`
+export const Photo_img = styled.img`
 width:78px;
 height:78px;
-background-color:gray;
-cursor: pointer;
+background-color:red;
+background-image: url("/new/phpto.png");
 `
 
-export const Option_div = styled.div`
-	width: 100%;
-	padding-top: 40px;
-	margin-bottom: 55px;
+export const Main_set = styled.div`
+width:159px;
+height:64px;
+margin-top:40px;
+margin-bottom:80px;
 `
 
-export const Radio_button = styled.input`
-	cursor: pointer;
+export const Radio_div = styled.div`
+width:100%;
+height:24px%;
 `
-
-export const Radio_text = styled.label`
-	margin-left: 8px;
-	margin-right: 20px;
-	font-weight: 500;
-	cursor: pointer;
-`
-
 
 export const Upload_div = styled.div`
 width:100%;
@@ -180,8 +174,6 @@ width:179px;
 height:52px;
 font-size:16px;
 text-align:center;
-background-color: yellow;
-
 `
 
 export const Error = styled.div`
