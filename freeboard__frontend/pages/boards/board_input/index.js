@@ -3,6 +3,7 @@
 // import styles from '../styles/Home.module.css'
 import { useState } from 'react'
 import { useMutation, gql } from '@apollo/client'
+import router from 'next/router'
 
 import {
     Wrapper
@@ -32,7 +33,7 @@ import {
     , Upload_div
     , Upload
     ,Error 
-    } from '../../../styles/Home.styles'
+    } from '../../../styles/board_input.styles'
 
 
 export default function aaa() {
@@ -42,11 +43,13 @@ export default function aaa() {
     const [password, setPassword] = useState('')
     const [title, setTitle] = useState('')
     const [contents, setContents] = useState('')
+    const [address, setAddress] = useState('')
 
     const [writerError, setWriterError] = useState('')
     const [passwordError, setPasswordError] = useState('')
     const [titleError, setTitleError] = useState('')
     const [contentsError, setContentsError] = useState('')
+    const [addressError, setAddressError] = useState('')
 
 
 
@@ -78,6 +81,13 @@ export default function aaa() {
     }
     }
 
+    function onChangeAddress(event){
+    setAddress(event.target.value)
+    if(event.target.value !== ""){
+        setAddressError("")
+    }
+    }
+
     function onClick_error(){
     if(writer === ""){
         setWriterError("작성자를 입력해주세요.")
@@ -91,8 +101,12 @@ export default function aaa() {
     if(contents === ""){
         setContentsError("내용을 입력해주세요.")
     }
+    if(address === ""){
+        setAddressError("주소를 입력해주세요.")
+    }
     if(writer !== "" && password !== "" && title !== "" && contents !== ""){
         alert('게시물을 등록합니다~')
+        
     }
     }
 
@@ -100,41 +114,43 @@ export default function aaa() {
         gql`
         mutation createBoard($createBoardInput: CreateBoardInput!) {
             createBoard(createBoardInput: $createBoardInput) {
-              title
-              writer
-              _id
+            _id
+            writer
+            
+            title
+            contents
+            
             }
-          }
+        }
         `
     )
     
-    const [ test ] = useMutation(
-        gql`
-            mutation createUseditem($createUseditemInput : CreateUseditemInput!) {
-                createUseditem(createUseditemInput : $createUseditemInput) {
-                    _id
-                }
-            }
-        `
-    )
+    // const [ test ] = useMutation(
+    //     gql`
+    //         mutation createUseditem($createUseditemInput : CreateUseditemInput!) {
+    //             createUseditem(createUseditemInput : $createUseditemInput) {
+    //                 _id
+    //             }
+    //         }
+    //     `
+    // )
 
-    function testCreate() {
-        test({
-            variables : {
-                createUseditemInput : {
-                    name : "111",
-                    remarks : "222",
-                    contents : "333",
-                    price : 222
-                }
-            }
-        })
-    }
+    // function testCreate() {
+    //     test({
+    //         variables : {
+    //             createUseditemInput : {
+    //                 name : "111",
+    //                 remarks : "222",
+    //                 contents : "333",
+    //                 price : 222
+    //             }
+    //         }
+    //     })
+    // }
     
 
 
     async function onClick(){
-        console.log(send_product)
     try{    
         const result = await send_product({
             variables:{
@@ -143,6 +159,7 @@ export default function aaa() {
                     password:password,
                     title:title,
                     contents:contents
+                    // address:address
                 }
             }
         })
@@ -158,13 +175,17 @@ export default function aaa() {
         if(contents === ""){
         setContentsError("내용을 입력해주세요.")
         }
+        if(address === ""){
+        setAddressError("주소를 입력해주세요.")
+        }
         if(writer !== "" && password !== "" && title !== "" && contents !== ""){
         alert('게시물을 등록합니다~')
         }
-
+        alert(result.data.createBoard._id)
+        router.push(`/boards/board_input/${result.data.createBoard._id}`)
         
     }catch(error){
-        alert(error)
+        alert(error.message)
     }
 }
 
@@ -206,6 +227,7 @@ return (
                         <Inner_div>
                             <Middle_input></Middle_input>
                             <Middle_input></Middle_input>
+                            <Error>{addressError}</Error>
                         </Inner_div>
                 </Address_inner_div>
             </Address_div>
@@ -232,9 +254,9 @@ return (
             </Photo_div>
             <Option_div>
                 <Text>메인설정</Text>
-                <Radio_button type="radio"></Radio_button>
+                <Radio_button type="radio" name='radio_button'></Radio_button>
                 <Radio_text>유튜브</Radio_text>
-                <Radio_button type="radio"></Radio_button>
+                <Radio_button type="radio" name='radio_button'></Radio_button>
                 <Radio_text>사진</Radio_text>
             </Option_div>
             <Upload_div>
