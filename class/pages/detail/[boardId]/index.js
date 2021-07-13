@@ -1,39 +1,35 @@
 
-import { gql, useQuery } from '@apollo/client'
-import { useRouter } from 'next/router'
+import BoardDetailContainer from '../../../src/component/units/board/detail/boarddetail.container';
 
-const FETCH_BOARD = gql`
-query fetchBoard (     $boardId: ID!    ) {
-    fetchBoard(boardId:$boardId){
-        writer
-        title
-        contents
-    }
-}
-`
-
-
-export default function Detailpage (){
-    const router = useRouter()
-    const { data } = useQuery (
-        FETCH_BOARD,
-        {variables:{boardId: router.query.boardId}}
-    )
-
-        console.log(data)
-
-
+export default function BoardDetailPage() {
     return(
-        
-        <>
-
-            <div>작성자 :{data ? data.fetchBoard.writer : '222'}</div>
-            <div>글제목 :{data?.fetchBoard.title}</div>
-            <div>글내용 :{data && data.fetchBoard.contents}</div>
-
-
-
-        </>
-
+        <BoardDetailContainer />
     )
 }
+
+
+
+
+
+
+// export default function Detailpage (){
+//     const router = useRouter()
+
+
+//         console.log(data)
+
+
+//     return(
+        
+//         <>
+
+//             <div>작성자 :{data ? data.fetchBoard.writer : '222'}</div>
+//             <div>글제목 :{data?.fetchBoard.title}</div>
+//             <div>글내용 :{data && data.fetchBoard.contents}</div>
+
+
+
+//         </>
+
+//     )
+// }

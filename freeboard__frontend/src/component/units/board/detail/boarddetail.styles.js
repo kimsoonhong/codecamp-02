@@ -107,9 +107,7 @@ font-family: Noto Sans CJK KR;
 font-style: normal;
 font-weight: bold;
 font-size: 36px;
-line-height: 53px
-
-
+line-height: 53px;
 `
 export const Img_div = styled.img`
 width: 100%;
@@ -167,4 +165,21 @@ export const Down = styled.img`
 width: 40px;
 height: 100%;
 background-color: navajowhite;
+`
+export const Button_wapper= styled.div`
+width: 1200px;
+height: 212px;
+background-color: salmon;
+padding: 80px 300px;
+display: flex;
+justify-content: space-between;
+`
+export const Button_middle= styled.button`
+width: 180px;
+height: 100%;
+font-style: normal;
+font-weight: normal;
+font-size: 16px;
+line-height: 24px;
+text-align: center;
 `

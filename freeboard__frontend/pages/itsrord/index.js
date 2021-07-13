@@ -1,5 +1,5 @@
 import {useState} from 'react'
-import {} from '../../../styles/aaa'
+import {} from '../../styles/aaa'
 import { 
     Wrapper 
     ,Top
@@ -26,7 +26,7 @@ import {
     ,Password_input
 
 
-} from '../../../styles/aaa'
+} from '../../styles/aaa'
 export default function aaa() {
 
     const [input_email, setInput_email] = useState("")
