@@ -26,11 +26,19 @@ mutation createBoard($createBoardInput: CreateBoardInput!) {
     createBoard(createBoardInput: $createBoardInput) {
     _id
     writer
-    
     title
     contents
     
     }
 }
+`
+
+
+export const UPDATE_BOARD = gql`
+    mutation updateboard($boardId: ID!, $password:String, $updateBoardInput: UpdateBoardInput!){
+        updateBoard(boardId : $boardId, password : $password, updateBoardInput : $updateBoardInput){
+            _id
+        }
+    }
 `
 

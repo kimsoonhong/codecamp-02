@@ -67,11 +67,17 @@ export default function BoardDetailUI(
 
 
 <Button_wapper key = {props.data?.fetchBoard._id}>
-<Button_middle>목록으로</Button_middle>
-<Button_middle>수정하기</Button_middle>
-<Button_middle id = {props.data?.fetchBoard._id} onClick = {props.onClickDelete}>삭제하기</Button_middle>
+    <Button_middle onClick={props.onClickList}>목록으로</Button_middle>
+    <Button_middle id = {props.data?.fetchBoard._id} onClick = {props.onClickEdit} >수정하기</Button_middle>
+    <Button_middle id = {props.data?.fetchBoard._id} onClick = {props.onClickDelete}>삭제하기</Button_middle>
 </Button_wapper>
+
+
 
 </>
 )
 }
+
+
+// {!props.isEdit && <Mybutton onClick={props.onClickSubmit} active={props.active} > 데이터 입력하기</Mybutton>}
+// {props.isEdit && <Mybutton onClick={props.onClickEdit} active={props.active} > 데이터 수정하기</Mybutton>}

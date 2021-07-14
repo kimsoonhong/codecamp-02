@@ -1,6 +1,13 @@
 // import styled from '@emotion/styled'
 import styled from '@emotion/styled'
 
+
+interface IProps {
+    active : boolean
+}
+
+
+
 export const Wrapper = styled.div`
 max-width: 1200px;
 width: 100%;
@@ -182,7 +189,7 @@ height:52px;
 font-size:16px;
 text-align:center;
 background-color: yellow;
-opacity: ${props => props.active ? 1 : 0.1};
+opacity: ${(props:IProps) => props.active ? 1 : 0.1};
 
 `
 

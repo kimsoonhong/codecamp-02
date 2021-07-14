@@ -6,6 +6,7 @@ query fetchBoard (     $boardId: ID!    ) {
         writer
         title
         contents
+        _id
     }
 }
 `

@@ -31,3 +31,13 @@ export const FETCH_BOARDS = gql`
     }
 `
 
+
+
+export const UPDATE_BOARD = gql`
+    mutation updateboard($boardId: ID!, $password:String, $updateBoardInput: UpdateBoardInput!){
+        updateBoard(boardId : $boardId, password : $password, updateBoardInput : $updateBoardInput){
+            _id
+        }
+    }
+`
+
