@@ -1,4 +1,4 @@
-import {BoardwriteUI} from './boardWrite.types'
+import {IBoardPresenterProps} from './boardWrite.types'
 import {
     Wrapper
     , Title
@@ -32,33 +32,54 @@ import {
 
 
 
-    export default function BoardWriteUI (props : BoardwriteUI){
-
+    export default function BoardWriteUI (props : IBoardPresenterProps){
+        console.log(props)
         return(
             <Wrapper>
-            <Title>게시물 등록</Title>
+            <Title>{props.isEdit ? '게시물 수정 페이지':'게시물 등록 페이지'}</Title>
             <InnerWrapper>
                 <Box_big3>
                     <Left_div>
                         <Text>작성자</Text>
-                        <Small_input name='writer' placeholder={'이름을 입력해 주세요.'} onChange={props.onChangeInputs}></Small_input>
-                        <Error>{props.writerError}</Error>
+                        <Small_input 
+                            name='writer'  
+                            placeholder='이름을 입력해 주세요.' 
+                            defaultValue={props.data?.fetchBoard.writer}
+                            onChange={props.onChangeInputs} 
+                            readOnly={props.data?.fetchBoard.writer}>
+                        </Small_input>
+                        <Error>{props.inputsErrors.writer}</Error>
                     </Left_div>
                     <Right_div>
                         <Text>비밀번호</Text>
-                        <Small_input name='password' placeholder='비밀번호를 입력해 주세요' type='password' onChange={props.onChangeInputs}></Small_input>
-                        <Error>{props.passwordError}</Error>
+                        <Small_input 
+                            name='password' 
+                            placeholder='비밀번호를 입력해 주세요'  
+                            type='password' 
+                            onChange={props.onChangeInputs}>
+                        </Small_input>
+                        <Error>{props.inputsErrors.password}</Error>
                     </Right_div>
                 </Box_big3>
                 <Index_div>
                     <Text>제목</Text>
-                    <Middle_input name='title' placeholder='제목을 입력해주세요' onChange={props.onChangeInputs}></Middle_input>
-                    <Error>{props.titleError}</Error>
+                    <Middle_input 
+                        name='title' 
+                        placeholder='제목을 입력해주세요' 
+                        defaultValue={props.data?.fetchBoard.title} 
+                        onChange={props.onChangeInputs}>
+                    </Middle_input>
+                    <Error>{props.inputsErrors.title}</Error>
                 </Index_div>
                 <Contents>
                     <Text>내용</Text>
-                    <Contents_input name='contents' placeholder='내용을 입력해주세요' onChange={props.onChangeInputs}></Contents_input>
-                    <Error>{props.contentsError}</Error>
+                    <Contents_input 
+                        name='contents'
+                        placeholder='내용을 입력해주세요' 
+                        defaultValue={props.data?.fetchBoard.contents} 
+                        onChange={props.onChangeInputs}>
+                    </Contents_input>
+                    <Error>{props.inputsErrors.contents}</Error>
                 </Contents>
                 <Address_div>
                     <Text>주소</Text>
@@ -70,7 +91,6 @@ import {
                             <Inner_div>
                                 <Middle_input></Middle_input>
                                 <Middle_input></Middle_input>
-                                <Error>{props.addressError}</Error>
                             </Inner_div>
                     </Address_inner_div>
                 </Address_div>
@@ -103,8 +123,10 @@ import {
                     <Radio_text>사진</Radio_text>
                 </Option_div>
                 <Upload_div>
-                    {!props.isEdit && <Upload onClick={props.onClickSubmit} active={props.active}>등록하기</Upload>}
-                    {props.isEdit && <Upload onClick={props.onClickEdit} active={props.active} >수정하기</Upload>}
+                    {!props.isEdit && <Upload disabled={props.active} onClick={props.onClickSubmit} >등록하기</Upload>}
+                    {props.isEdit && <Upload onClick={props.onClickUpdate} disabled={props.active} >수정하기</Upload>}
+            
+
                 </Upload_div>            
             </InnerWrapper>   
         </Wrapper>

@@ -17,10 +17,8 @@ export interface IBoardPresenterProps {
         title: String
         contents: String
         }
-   
     onClickUpdate: () => void
- 
-   
+
 
     onClickSubmit : (event: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>)=> void
     active : boolean

@@ -1,5 +1,5 @@
 import {getDate} from '../../../../commons/libraries/utils'
-import {BoardwriteUI} from "./boardWrite.types"
+import {IBoardPresenterProps} from "./boardlist.types"
 import{ 
 Wapper
 ,Index_title
@@ -23,7 +23,7 @@ Wapper
 
 
 
-export default function Noticeboard(props : BoardwriteUI) {
+export default function Noticeboard(props : IBoardPresenterProps) {
 console.log(props.data)
 
     return(
@@ -36,10 +36,10 @@ console.log(props.data)
                     <Date_div>날짜</Date_div>
                     <Delete_div>삭제하기</Delete_div>
                 </Index_title>
-                {props.data?.fetchBoards.map((data, index) => (
-                <Content_wapper key = {data._id}>
+                {props.data?.fetchBoards.map((data:any, index:number) => (
+                <Content_wapper key = {data._id} onClick={props.onClickDetail}>
                     <Number_div>{index+1}</Number_div>
-                    <Title_div id = {data._id}onClick={props.onClick}>{data.title}</Title_div>
+                    <Title_div id = {data._id}>{data.title}</Title_div>
                     <Writer_div>{data.writer}</Writer_div>
                     <Date_div>{getDate(data.createdAt)}</Date_div>
                     <Delete_div><Delete_button id={data._id} onClick={props.onClickDelete}>삭제하기</Delete_button></Delete_div>
@@ -50,7 +50,7 @@ console.log(props.data)
                     <Left_button>왼쪽</Left_button>
                     <Pages_num >1  2</Pages_num>
                     <Right_button>오른쪽</Right_button>
-                    <Upload_button onClick={props.onClikWrite}>
+                    <Upload_button onClick={props.onClickWrite}>
                         <img src="/noticeboard/pan.png"/>게시물 등록하기
                     </Upload_button>
                 </Page_div>                

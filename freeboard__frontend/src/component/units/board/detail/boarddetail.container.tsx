@@ -1,8 +1,8 @@
 import { useQuery, useMutation} from '@apollo/client'
 import { FETCH_BOARD, DELETE_BOARD, FETCH_BOARDS, UPDATE_BOARD } from './boarddetail.querise'
-import BoardDetailUI from './boarddetail.presenter'
+import IBoardPresenterProps from './boarddetail.presenter'
 import { useRouter } from 'next/router';
-import { useState } from 'react'
+import {MouseEvent, MouseEventHandler} from'react'
 
 export default function BoardDetailContainer() {
 
@@ -15,16 +15,14 @@ export default function BoardDetailContainer() {
     )
     
     
-    async function onClickDelete(event) {
-        // alert('해당글삭제')
+
+    async function onClickDelete(event){
         try{
+
             await deleteBoard({
-                variables : {aaa : event.target.id },
-                refetchQueries:[{query:FETCH_BOARDS}]
-                
-            })
-            router.push('/boards/')
-            // alert('삭제가 완료 되었니다.')
+                variables : {aaa : (event.target as Element).id } })
+                alert('게시물이 삭제되었습니다.')
+                router.push('/boards')
         } catch(error){
             alert(error.message)
         }
@@ -44,7 +42,7 @@ export default function BoardDetailContainer() {
 
 
     return(
-        <BoardDetailUI
+        <IBoardPresenterProps
         data={data}
         onClickDelete = {onClickDelete}
         onClickList = {onClickList}

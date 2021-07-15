@@ -15,6 +15,12 @@ const inputsInit = {
 
 interface IProps {
     isEdit? : boolean
+    data? : IQuery
+}
+
+interface INewInputs {
+    title?: string 
+    contents?:string
 }
 
 export default function boardWrite (props: IProps) {
@@ -23,6 +29,7 @@ export default function boardWrite (props: IProps) {
     const [ createBoard ] = useMutation(CREATE_BOARD)
     const [updateBoard] = useMutation(UPDATE_BOARD)
     const [active, setActive] = useState(false)
+    const [inputsError, setInputsError] = useState(inputsInit)
 
     function onChangeInputs(event) {
         const newInputs = {
@@ -31,8 +38,6 @@ export default function boardWrite (props: IProps) {
             }
         setInputs(newInputs)
         if(Object.values(newInputs).every(data => data))setActive(true)
-        // 인풋 어디에 넣어 놨는데?
-        // 왜 하나만 넣어도 색이 변하지?
     }
 
     async function onClickSubmit(){
@@ -49,17 +54,22 @@ export default function boardWrite (props: IProps) {
 
     
     async function onClickEdit() {
+
+        const newInputs : INewInputs ={}
+            if (inputs.title) newInputs.title = inputs.title
+            if (inputs.contents) newInputs.contents = inputs.contents
+        
+        console.log(inputs.title)
+        console.log(inputs.contents)
+
         try{
             const result = await updateBoard({
             variables:{ 
-                    boardId:router.query.boardId,
+                    boardId:String(router.query.boardId),
                     password:inputs.password,
-                    updateBoardInput:{
-                        title:inputs.title,
-                        contents:  inputs.contents
-                    }
-                }
-            })            
+                    updateBoardInput:{...newInputs}
+            }
+        })            
             // alert(result.data.updateboard._id)
             router.push(`/detail/${result.data.updateBoard._id}`)           
         }catch(error){
@@ -76,6 +86,7 @@ export default function boardWrite (props: IProps) {
             onChangeInputs = {onChangeInputs}
             isEdit = {props.isEdit}
             onClickEdit = {onClickEdit}
+            data = {props.data}
         />
     )
 }

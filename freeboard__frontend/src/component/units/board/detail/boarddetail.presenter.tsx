@@ -1,5 +1,5 @@
 
-
+import { IBoardPresenterProps } from './boarddetail.types'
 import {
 Wrapper
 ,Top_wrapper
@@ -25,10 +25,7 @@ Wrapper
     } from './boarddetail.styles'
 
 
-
-
-export default function BoardDetailUI(
-    props  // prop 를 사용하지 않을때 사용해야 하며 컨네이너의 함수와 무조건 같아야 함
+export default function BoardDetailUI(props:IBoardPresenterProps  // prop 를 사용하지 않을때 사용해야 하며 컨네이너의 함수와 무조건 같아야 함
 ) {
     
     

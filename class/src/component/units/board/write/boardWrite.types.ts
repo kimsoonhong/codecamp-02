@@ -7,5 +7,11 @@ export interface BoardwriteUI {
     onChangeInputs : (event: ChangeEvent<HTMLInputElement>) => void
     isEdit? : boolean
     onClickEdit : ()=> void
+    data : any
+}
+
+interface INewInputs {
+    title?: string 
+    contents?:string
 }
 

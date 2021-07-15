@@ -80,7 +80,7 @@ height:520px;
 margin-bottom:16px;
 `
 
-export const Contents_input = styled.input`
+export const Contents_input = styled.textarea`
 width:100%;
 height:480px;
 line-height: 100%;
@@ -189,7 +189,7 @@ height:52px;
 font-size:16px;
 text-align:center;
 background-color: yellow;
-opacity: ${(props:IProps) => props.active ? 1 : 0.1};
+/* opacity: ${(props:IProps) => props.active ? 1 : 0.1}; */
 
 `
 

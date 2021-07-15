@@ -16,6 +16,20 @@ const FETCH_BOARDS = gql`
     }
 `
 
+
+
+export const FETCH_BOARDS = gql`
+    query fetchBoards{
+        fetchBoards{
+            _id
+            writer
+            title
+            contents
+            createdAt
+        }
+    }
+`
+
 const DELETE_BOARD = gql`
     mutation deleteBoard($aaa    : ID!){
         deleteBoard(boardId : $aaa)
@@ -28,12 +42,18 @@ const Row = styled.div`
     line-height: 40px;
     display:flex;
     flex-direction: row;
+
+    
 `
 
 const Column = styled.div`
     width : 20%;
     background-color: whitesmoke;
     text-align: center;
+
+    :hover {
+        background-color: blue;
+    }
 `
 
 export default function map3page() {

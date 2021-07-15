@@ -1,12 +1,13 @@
 
-import Noticeboard from './boardlist.presenter'
+import Boardlist from './boardlist.presenter'
 import {useQuery, useMutation} from '@apollo/client'
 import { useRouter } from 'next/router';
 // import { useState } from 'react'
 // import router from 'next/router'
 import {FETCH_BOARDS , DELETE_BOARD, CREATE_BOARD} from './boardlist.queries'
+import {MouseEvent} from "react"
 
-export default function noticeboard() {
+export default function boardlist() {
     const router = useRouter();
     const {data} = useQuery(
         FETCH_BOARDS,
@@ -17,27 +18,22 @@ export default function noticeboard() {
     const [send_product] = useMutation(CREATE_BOARD)
 
 
-    async function onClick(event) {
-            router.push(`/boards/board_input/${event.target.id}`)
+    async function onClickDetail(event: MouseEvent<HTMLDivElement>) {
+        // alert('dd')
+            router.push(`/boards/board_input/${(event.target as Element).id}`)
             // console.log(event.target.id)
         }
     
-        function onClikWrite() {
+        function onClickWrite() {
             router.push(`/boards/board_input/`)
         }
 
-        
-    
-
-
-
-
-    async function onClickDelete(event) {
+    async function onClickDelete(event: MouseEvent<HTMLButtonElement>) {
         // alert('해당글삭제')
         try{
 
             await deleteBoard({
-                variables : {aaa : event.target.id },
+                variables : {aaa : (event.target as Element).id },
                 refetchQueries:[{query:FETCH_BOARDS}]
             })
             // alert('삭제가 완료 되었니다.')
@@ -47,11 +43,11 @@ export default function noticeboard() {
     }
 
     return(
-        <Noticeboard 
+        <Boardlist 
         onClickDelete = {onClickDelete}
         data={data}
-        onClick = {onClick}
-        onClikWrite = {onClikWrite}
+        onClickDetail = {onClickDetail}
+        onClickWrite = {onClickWrite}
 
         />
     )
