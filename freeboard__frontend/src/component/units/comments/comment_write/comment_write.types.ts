@@ -12,7 +12,6 @@ export interface IBoardPresenterProps {
 		title: String;
 		contents: String;
 	};
-
 	onClickUpdate: () => void;
 
 	onClickSubmit: (

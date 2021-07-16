@@ -12,7 +12,6 @@ export interface IBoardPresenterProps {
 		title: String;
 		contents: String;
 	};
-
 	onClickUpdate: () => void;
 
 	onClickSubmit: (
@@ -22,7 +21,7 @@ export interface IBoardPresenterProps {
 	onChangeInputs: (event: ChangeEvent<HTMLInputElement>) => void;
 	isEdit?: boolean;
 	onClickEdit: () => void;
-	data: any;
+	commentsData: any;
 }
 
 export interface INewInputs {

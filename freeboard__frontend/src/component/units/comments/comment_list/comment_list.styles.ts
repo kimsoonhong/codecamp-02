@@ -55,6 +55,7 @@ width: 100px;
 background-color: brown;
 display: flex;
 
+
 `
 export const Star_view = styled.div`
 width: 20px;

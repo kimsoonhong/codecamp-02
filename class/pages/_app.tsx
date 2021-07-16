@@ -1,6 +1,7 @@
 import{ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client'
 import { AppProps } from 'next/dist/next-server/lib/router/router'
 
+
 import '../styles/globals.css'
 
 
