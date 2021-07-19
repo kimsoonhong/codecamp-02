@@ -21,8 +21,7 @@ export interface IBoardPresenterProps {
 	onChangeInputs: (event: ChangeEvent<HTMLInputElement>) => void;
 	isEdit?: boolean;
 	onClickEdit: () => void;
-	commentsData: any;
-	onClickDeleteComment: () => void;
+	data: any;
 }
 
 export interface INewInputs {

@@ -1,21 +1,13 @@
-
-import { ChangeEvent ,MouseEvent, MouseEventHandler} from 'react'
-
-
+import { ChangeEvent, MouseEvent, MouseEventHandler } from "react";
 
 export interface IBoardContainerProps {
-    
-    isEdit? : boolean
-
+	isEdit?: boolean;
 }
 
 export interface IBoardPresenterProps {
+	data: any;
 
-
-  
-    data : any
-    
-    onClickEdit: () => void
-    onClickList : () => void
-    onClickDelete: () => void
-} 
+	onClickEdit: () => void;
+	onClickList: () => void;
+	onClickDelete: () => void;
+}

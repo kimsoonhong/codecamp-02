@@ -11,20 +11,11 @@ export const INPUTS_INIT = {
 	title: "",
 	contents: "",
 };
-
-// export const inputsErrors ={
-//     writer: 'asdf',
-// password: 'asdf',
-// title: 'adsf',
-// contents: 'adsf'
-// }
-
 export default function BoardWrite(props: IBoardContainerProps) {
 	const router = useRouter();
 	const [active, setActive] = useState(true);
 	const [inputs, setInputs] = useState(INPUTS_INIT);
 	const [inputsErrors, setInputsErrors] = useState(INPUTS_INIT);
-
 	const [createBoard] = useMutation(CREATE_BOARD);
 	const [updateBoard] = useMutation(UPDATE_BOARD);
 

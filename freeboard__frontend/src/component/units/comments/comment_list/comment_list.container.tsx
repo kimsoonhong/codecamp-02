@@ -10,5 +10,18 @@ export default function CommentListContainer(props: IBoardContainerProps) {
 		variables: { boardId: router.query.board_detail },
 	});
 
-	return <CommentListUI commentsData={commentsData} />;
+	async function onClickEditComment() {
+		router.push(
+			`../comment_write/comment_write.presenter${router.query.board_detail}`
+		);
+	}
+
+	return (
+		<CommentListUI
+			commentsData={commentsData}
+			onClickEditComment={onClickEditComment}
+			isEdit={props.isEdit}
+			data={props.data}
+		/>
+	);
 }
