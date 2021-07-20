@@ -31,7 +31,7 @@ import {
 } from "./boardwrite.styles";
 
 export default function BoardWriteUI(props: IBoardPresenterProps) {
-	console.log(props);
+	console.log("sdf", props.data?.fetchBoard.youtubeUrl);
 	return (
 		<Wrapper>
 			<Title>
@@ -96,7 +96,12 @@ export default function BoardWriteUI(props: IBoardPresenterProps) {
 				</Address_div>
 				<Youtube>
 					<Text>유뷰브</Text>
-					<Middle_input placeholder="링크를 복사해 주세요."></Middle_input>
+					<Middle_input
+						name="youtubeUrl"
+						placeholder="링크를 복사해 주세요."
+						defaultValue={props.data?.fetchBoard.youtubeUrl}
+						onChange={props.onChangeInputs}
+					></Middle_input>
 				</Youtube>
 				<Photo_div>
 					<Text>사진 첨부</Text>

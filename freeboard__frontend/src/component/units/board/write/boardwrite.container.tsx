@@ -10,6 +10,7 @@ export const INPUTS_INIT = {
 	password: "",
 	title: "",
 	contents: "",
+	youtubeUrl: "",
 };
 export default function BoardWrite(props: IBoardContainerProps) {
 	const router = useRouter();
@@ -19,6 +20,7 @@ export default function BoardWrite(props: IBoardContainerProps) {
 	const [createBoard] = useMutation(CREATE_BOARD);
 	const [updateBoard] = useMutation(UPDATE_BOARD);
 
+	console.log(inputs);
 	function onChangeInputs(
 		event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
 	) {
@@ -31,6 +33,7 @@ export default function BoardWrite(props: IBoardContainerProps) {
 	}
 
 	async function onClickSubmit() {
+		console.log("d");
 		setInputsErrors({
 			writer: inputs.writer ? "" : "작성자를 입력해주세요.",
 			password: inputs.password ? "" : "비밀번호를 입력해주세요.",
@@ -54,6 +57,7 @@ export default function BoardWrite(props: IBoardContainerProps) {
 		const newInputs: INewInputs = {};
 		if (inputs.title) newInputs.title = inputs.title;
 		if (inputs.contents) newInputs.contents = inputs.contents;
+		if (inputs.youtubeUrl) newInputs.youtubeUrl = inputs.youtubeUrl;
 
 		setInputsErrors({
 			writer: inputs.writer ? "" : "작성자를 입력해주세요.",

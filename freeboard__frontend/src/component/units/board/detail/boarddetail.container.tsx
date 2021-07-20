@@ -1,14 +1,28 @@
 import { useQuery, useMutation } from "@apollo/client";
-import { FETCH_BOARD, DELETE_BOARD } from "./boarddetail.querise";
+import { FETCH_BOARD, DELETE_BOARD, LIKE_BOARD } from "./boarddetail.querise";
 import IBoardPresenterProps from "./boarddetail.presenter";
 import { useRouter } from "next/router";
+import { useState } from "react";
 
 export default function BoardDetailContainer() {
 	const router = useRouter();
 	const [deleteBoard] = useMutation(DELETE_BOARD);
+	const [likeBoard] = useMutation(LIKE_BOARD);
 	const { data } = useQuery(FETCH_BOARD, {
 		variables: { boardId: router.query.board_detail },
 	});
+
+	const [likes, setLikes] = useState(0);
+	const [dislikes, setDislikes] = useState(0);
+	const [action, setAction] = useState(null);
+
+	function onClicklike(event) {
+		setLikes(data?.fetchBoard.likeCount);
+		console.log(data?.fetchBoard.likeCount);
+		// const result = likeBoard({
+		// 	variables: { likes },
+		// });
+	}
 
 	async function onClickDelete(event) {
 		try {
@@ -36,6 +50,7 @@ export default function BoardDetailContainer() {
 			onClickDelete={onClickDelete}
 			onClickList={onClickList}
 			onClickEdit={onClickEdit}
+			onClicklike={onClicklike}
 		/>
 	);
 }

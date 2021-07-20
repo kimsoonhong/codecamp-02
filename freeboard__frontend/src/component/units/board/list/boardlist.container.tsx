@@ -5,6 +5,7 @@ import { FETCH_BOARDS } from "./boardlist.queries";
 import { MouseEvent } from "react";
 
 export default function boardlist() {
+	console.log();
 	const router = useRouter();
 	const { data } = useQuery(FETCH_BOARDS, {
 		variables: { boardId: router.query.board_detail },

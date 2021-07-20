@@ -11,9 +11,7 @@ export interface IBoardPresenterProps {
 		password: String;
 		title: String;
 		contents: String;
-		youtubeUrl: String;
 	};
-
 	onClickUpdate: () => void;
 
 	onClickSubmit: (
@@ -23,7 +21,8 @@ export interface IBoardPresenterProps {
 	onChangeInputs: (event: ChangeEvent<HTMLInputElement>) => void;
 	isEdit?: boolean;
 	onClickEdit: () => void;
-	data: any;
+	commentsData: any;
+	onClickDeleteComment: () => void;
 }
 
 export interface INewInputs {

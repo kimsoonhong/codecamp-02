@@ -11,9 +11,7 @@ export interface IBoardPresenterProps {
 		password: String;
 		title: String;
 		contents: String;
-		youtubeUrl: String;
 	};
-
 	onClickUpdate: () => void;
 
 	onClickSubmit: (

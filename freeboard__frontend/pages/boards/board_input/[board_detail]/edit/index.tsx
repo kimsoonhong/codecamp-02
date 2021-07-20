@@ -10,13 +10,14 @@ const FETCH_BOARD = gql`
 			title
 			contents
 			_id
+			youtubeUrl
 		}
 	}
 `;
 
 export default function Editboard() {
 	const isEdit = true;
-	const router = useRouter()
+	const router = useRouter();
 	const { data } = useQuery(FETCH_BOARD, {
 		variables: { boardId: router.query.board_detail },
 	});

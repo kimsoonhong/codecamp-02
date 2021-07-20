@@ -1,5 +1,6 @@
 // import styled from '@emotion/styled'
 import styled from "@emotion/styled";
+import ReactPlayer from "react-player";
 
 export const Wrapper = styled.div`
 	max-width: 1200px;
@@ -114,20 +115,18 @@ export const Contents_div = styled.div`
 	width: 100%;
 	height: 136px;
 	padding-top: 40px;
-
+	/* background-color: wheat; */
 	font-family: Noto Sans CJK KR;
 	font-style: normal;
 	font-weight: normal;
 	font-size: 16px;
 	line-height: 24px;
 `;
-export const YoutubeUrl = styled.img`
-	width: 486px;
-	height: 360px;
-	padding-top: 120px;
-	/* background-color: orange; */
+export const YoutubeUrl = styled.div`
+	width: 100%;
+
 	/* display: inline-block; */
-	margin: 0 auto;
+	/* margin: auto; */
 	/* background-image: url("/detail/video.png");
 background-size: 100%; */
 `;
@@ -148,13 +147,14 @@ export const Like_div = styled.div`
 	justify-content: space-between;
 `;
 export const UP = styled.img`
-	width: 40px;
-	height: 100%;
+	width: 22px;
+	height: 18px;
+
 	/* background-color: navajowhite; */
 `;
 export const Down = styled.img`
-	width: 40px;
-	height: 100%;
+	width: 22px;
+	height: 18px;
 	/* background-color: navajowhite; */
 `;
 export const Button_wapper = styled.div`
@@ -173,5 +173,19 @@ export const Button_middle = styled.button`
 	font-weight: normal;
 	font-size: 16px;
 	line-height: 24px;
+	text-align: center;
+`;
+
+export const Youtube = styled(ReactPlayer)`
+	border: none;
+	filter: drop-shadow(0px 5px 20px rgba(0, 0, 0, 0.2));
+	margin: auto;
+`;
+export const Count_Div = styled.div`
+	background-color: violet;
+	display: flex;
+	flex-direction: column;
+	width: 40px;
+	height: 50px;
 	text-align: center;
 `;
