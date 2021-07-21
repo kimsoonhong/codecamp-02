@@ -3,7 +3,7 @@ import BoardCommentListItem from "../comment_list_item/boardcommentlistitem.cont
 
 export default function CommentListUI(props: IBoardPresenterProps) {
 	// const [isEdit, setIsEdit] = useState([false, false, ...])
-	console.log(props.commentsData?.fetchBoardComments);
+	// console.log(props.commentsData?.fetchBoardComments);
 	return (
 		<div>
 			{props.commentsData?.fetchBoardComments.map(

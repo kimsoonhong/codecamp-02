@@ -16,12 +16,13 @@ export const INPUTS_INIT = {
 	writer: "",
 	password: "",
 	contents: "",
-	rating: 5,
+	rating: "",
 };
 
 export default function CommentWriteContainer() {
 	const router = useRouter();
 	const [inputs, setInputs] = useState(INPUTS_INIT);
+	const [inputs_rate, setInputs_rate] = useState(INPUTS_INIT);
 	const [createBoardComment] = useMutation<
 		IMutation,
 		IMutationCreateBoardCommentArgs
@@ -33,6 +34,11 @@ export default function CommentWriteContainer() {
 		const newInputs = { ...inputs, [event.target.name]: event.target.value };
 		setInputs(newInputs);
 		console.log(newInputs);
+	}
+
+	function onChangeRate(value) {
+		setInputs_rate(value);
+		console.log(value);
 	}
 
 	async function onClickSubmit() {
@@ -61,6 +67,8 @@ export default function CommentWriteContainer() {
 			inputs={inputs}
 			onClickSubmit={onClickSubmit}
 			onChangeInputs={onChangeInputs}
+			onChangeRate={onChangeRate}
+			inputs_rate={inputs_rate}
 		/>
 	);
 }

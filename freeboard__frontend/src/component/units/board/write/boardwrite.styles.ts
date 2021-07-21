@@ -1,5 +1,6 @@
 // import styled from '@emotion/styled'
 import styled from "@emotion/styled";
+// import Modal from "antd";
 
 interface IProps {
 	active: boolean;
@@ -185,6 +186,14 @@ export const Upload = styled.button`
 	background-color: yellow;
 	/* opacity: ${(props: IProps) => (props.active ? 1 : 0.1)}; */
 `;
+
+// export const Modal = styled(Modal)`
+// 	width: 179px;
+// 	height: 52px;
+// 	font-size: 16px;
+// 	text-align: center;
+// 	background-color: yellow;
+// `;
 
 export const Error = styled.div`
 	width: 100%;

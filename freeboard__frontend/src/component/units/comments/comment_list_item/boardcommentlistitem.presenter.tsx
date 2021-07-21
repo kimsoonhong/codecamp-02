@@ -1,4 +1,5 @@
 import { getDate } from "../../../../commons/libraries/utils";
+import { Modal, Rate } from "antd";
 // import CommentWriteContainer from "../comment_write/comment_write.container";
 // import CommentListContainer from "../comment_list/comment_list.container";
 
@@ -27,6 +28,7 @@ import {
 	Uploed_Button,
 } from "../comment_list/comment_list.styles";
 import { useState } from "react";
+import Password from "antd/lib/input/Password";
 
 export default function BoardCommentListItemUI(props) {
 	return (
@@ -38,9 +40,7 @@ export default function BoardCommentListItemUI(props) {
 						<Comment_box>
 							<Comment_top>
 								<Writer>{props.data.writer}</Writer>
-								<Star_input>
-									<Star_view>{props.data.rating}</Star_view>
-								</Star_input>
+								<Rate />
 							</Comment_top>
 							<Comment_middle>{props.data.contents}</Comment_middle>
 							<Comment_date>
@@ -51,14 +51,24 @@ export default function BoardCommentListItemUI(props) {
 						<Right_Wrapper>
 							<Edit_button
 								// id={index}
+
 								onClick={props.onClickEditComment}
 							></Edit_button>
 							<Delete_button
 								id={props.data._id}
-								onClick={props.onClickDeleteComment}
+								onClick={props.onClickModal_delete}
 							></Delete_button>
 						</Right_Wrapper>
 					</Comment_wrapper>
+
+					<Modal
+						visible={props.isopen_delete}
+						onOk={props.onClickDeleteComment}
+						onCancel={props.onClose_delete}
+						// okButtonProps={{ target: props.data._id }}
+					>
+						<input name="password" onChange={props.onChange_password}></input>
+					</Modal>
 				</Wrapper>
 			)}
 

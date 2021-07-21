@@ -1,4 +1,5 @@
 import { IBoardPresenterProps } from "./comment_write.container";
+import { Rate } from "antd";
 
 import {
 	Wrapper,
@@ -42,13 +43,7 @@ export default function CommentWriterUI(props: IBoardPresenterProps) {
 						value={props.inputs.password}
 						onChange={props.onChangeInputs}
 					></Password_input>
-					<Star_input>
-						<Star_view>*</Star_view>
-						<Star_view>*</Star_view>
-						<Star_view>*</Star_view>
-						<Star_view>*</Star_view>
-						<Star_view>*</Star_view>
-					</Star_input>
+					<Rate value={props.inputs.rating} onChange={props.onChangeRate} />
 				</Top_wrapper>
 				<Edit_wrapper>
 					<Edit_text

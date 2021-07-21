@@ -1,4 +1,6 @@
 import { IBoardPresenterProps } from "./boardWrite.types";
+import { Modal } from "antd";
+import DaumPostcode from "react-daum-postcode";
 import {
 	Wrapper,
 	Title,
@@ -28,10 +30,11 @@ import {
 	Upload_div,
 	Upload,
 	Error,
+	Test,
 } from "./boardwrite.styles";
-
+import Postcode from "../../../../commons/libraries/test";
 export default function BoardWriteUI(props: IBoardPresenterProps) {
-	console.log("sdf", props.data?.fetchBoard.youtubeUrl);
+	// console.log("sdf", props.data?.fetchBoard.youtubeUrl);
 	return (
 		<Wrapper>
 			<Title>
@@ -85,12 +88,27 @@ export default function BoardWriteUI(props: IBoardPresenterProps) {
 					<Text>주소</Text>
 					<Address_inner_div>
 						<Search_address_div>
-							<Number_input placeholder="09843"></Number_input>
-							<Search_button>우편번호 검색</Search_button>
+							<Number_input
+								onChange={props.onChangeInputs}
+								value={props.zonecode}
+								placeholder="우편번호"
+								name="zipcode"
+							></Number_input>
+							<Search_button onClick={props.onClickModal_address}>
+								우편번호 검색
+							</Search_button>
 						</Search_address_div>
 						<Inner_div>
-							<Middle_input></Middle_input>
-							<Middle_input></Middle_input>
+							<Middle_input
+								name="address"
+								onChange={props.onChangeInputs}
+								value={props.address}
+							></Middle_input>
+							<Middle_input
+								name="addressDetail"
+								onChange={props.onChangeInputs}
+								placeholder="상세주소를 기입해 주세요."
+							></Middle_input>
 						</Inner_div>
 					</Address_inner_div>
 				</Address_div>
@@ -129,7 +147,7 @@ export default function BoardWriteUI(props: IBoardPresenterProps) {
 				</Option_div>
 				<Upload_div>
 					{!props.isEdit && (
-						<Upload disabled={props.active} onClick={props.onClickSubmit}>
+						<Upload disabled={props.active} onClick={props.onClickModal_update}>
 							등록하기
 						</Upload>
 					)}
@@ -140,6 +158,26 @@ export default function BoardWriteUI(props: IBoardPresenterProps) {
 					)}
 				</Upload_div>
 			</InnerWrapper>
+
+			<Modal
+				visible={props.isopen_update === true}
+				onOk={props.onClickSubmit}
+				onCancel={props.onClose_update}
+			>
+				게시물 등록해?
+			</Modal>
+
+			{props.isopen_address && (
+				<Modal
+					title="주소검색하기"
+					visible={props.onClickModal_address}
+					onOk={props.onClickSubmit_address}
+					onCancel={props.onClose_address}
+				>
+					주소검색
+					<DaumPostcode onComplete={props.onComplete} />
+				</Modal>
+			)}
 		</Wrapper>
 	);
 }

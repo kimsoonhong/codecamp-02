@@ -182,7 +182,7 @@ export const Youtube = styled(ReactPlayer)`
 	margin: auto;
 `;
 export const Count_Div = styled.div`
-	background-color: violet;
+	/* background-color: violet; */
 	display: flex;
 	flex-direction: column;
 	width: 40px;

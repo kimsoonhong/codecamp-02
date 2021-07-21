@@ -1,4 +1,5 @@
 import { IBoardPresenterProps } from "./boarddetail.types";
+import { LikeOutlined, DislikeOutlined } from "@ant-design/icons";
 import ReactPlayer from "react-player";
 import {
 	Wrapper,
@@ -25,6 +26,7 @@ import {
 	Youtube,
 	Count_Div,
 } from "./boarddetail.styles";
+import { yellow } from "@material-ui/core/colors";
 
 export default function BoardDetailUI(
 	props: IBoardPresenterProps // prop 를 사용하지 않을때 사용해야 하며 컨네이너의 함수와 무조건 같아야 함
@@ -63,11 +65,11 @@ export default function BoardDetailUI(
 					<Like_button>
 						<Like_div>
 							<Count_Div onClick={props.onClicklike}>
-								<UP src="/detail/up.png"></UP>
+								<LikeOutlined style={{ fontSize: "30px" }} />
 								{props.data?.fetchBoard.likeCount}
 							</Count_Div>
-							<Count_Div>
-								<Down src="/detail/down.png"></Down>
+							<Count_Div onClick={props.onClickdislike}>
+								<DislikeOutlined style={{ fontSize: "30px" }} />
 								{props.data?.fetchBoard.dislikeCount}
 							</Count_Div>
 						</Like_div>
