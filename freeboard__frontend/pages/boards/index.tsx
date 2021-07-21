@@ -1,10 +1,5 @@
-import Noticeboard from '../../src/component/units/board/list/boardlist.container'
+import BoardList from "../../src/components/units/board/list/BoardList.container";
 
-export default function noticeboard() {
-    
-
-    return(
-
-        <Noticeboard />
-    )
+export default function BoardsPage() {
+  return <BoardList />;
 }
