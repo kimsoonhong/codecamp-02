@@ -1,33 +1,28 @@
 import { DatePicker, Rate } from "antd";
-import "antd/dist/antd.css";
 import ReactPlayer from "react-player";
 import styled from "@emotion/styled";
 
 const Youtube = styled(ReactPlayer)`
-  width: 100px;
-  height: 199px;
-  border: 10px solid blue;
+  border: 3px solid yellow;
+  background-size: 500px 500px;
 `;
 
-export default function libraries2() {
-  const desc = ["terrible", "bad", "normal", "good", "wwww"];
+const desc = ["terrible", "bad", "normal", "good", "wonderful"];
 
-  function onchangestar(value) {
+export default function Libraries2Page() {
+  function onChangeStar(value: number) {
     console.log(value);
   }
 
   return (
-    <>
-      <div>라이브러리 2페이지 입니다.</div>
+    <div>
       <DatePicker />
-      <Rate tooltips={desc} onChange={onchangestar} />
+      <Rate tooltips={desc} onChange={onChangeStar} />
       <Youtube
-        url="https://www.youtube.com/watch?v=6VCStEpYQPg"
+        url="https://www.youtube.com/watch?v=ysz5S6PUM-U"
         playing={true}
         muted={true}
       />
-    </>
+    </div>
   );
 }
-
-// Render a YouTube video player

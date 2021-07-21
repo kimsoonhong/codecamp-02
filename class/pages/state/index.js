@@ -1,46 +1,35 @@
-import {useState} from 'react'
-export default function StatePage(){
+// import {useState} from 'react'
 
+// export default function StatePage() {
+//     const [count, setCount] = useState(0)
 
-        const [count, setCount] = useState(0)
+//     const [hello, setHello] = useState('안녕하세요123')
 
-        function aaa(){
-            setCount(count + 1)
-        console.log(count)
-        
-    }
+//     function aaa() {
+//         setCount(count + 1)
+//         console.log(count)
+//     }
 
-        const[hello,setHello] = useState("안녕하세요") 
+//     function qqq(){
+//         setHello('반갑습니다~')
+//     }
 
-        function bbb(){
-            setHello('반갑습니다?')
+//     function ccc(){
+//         setToken()
+//         setActive()
+//     }
 
-        }
+//     return (
+//         <>
+//             <div>{count}</div>
+//             <button onClick={aaa}>+1</button>
 
+//             <div>{hello}</div>
+//             <button onClick={qqq}>클릭</button>
 
+//             <div>000000</div>
+//             <button onClick={ccc} disabled={false}>인증번호받기</button>
+//         </>
+//     )
 
-        const [num,setNum] = useState('000000')
-        const [rrr,setRrr] = useState(false)
-        
-        function ccd(){
-            setNum(String(Math.floor(Math.random()*1000000)).padStart(6,"0"))
-            setRrr(true)
-        }
-
-
-    return (
-        <div>
-            <div >{count}</div>
-            <button onClick={aaa}>+1</button>
-        
-
-        <div>{hello}</div>
-        <button onClick={bbb}>클릭</button>
-
-        <div>{num}</div>
-        <button onClick={ccd} disabled={rrr}>   인증 </button>
-        
-</div>
-    )
-    
-}
+// }

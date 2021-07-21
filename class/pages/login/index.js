@@ -1,42 +1,42 @@
-import { useState } from "react";
-export default function StatePage() {
-  const [id, setId] = useState("");
-  const [password, setPassword] = useState(" ");
-  const [idError, setIdError] = useState(" ");
-  const [passwordError, setPasswordError] = useState(" ");
+// import { useState } from "react";
 
-  function aaa(event) {
-    setId(event.target.value);
-    // setId()
-  }
+// export default function LoginPage() {
+//   const [id, setId] = useState("");
+//   const [password, setPassword] = useState("");
 
-  function bbb(event) {
-    setPassword(event.target.value);
-    // setPassword()
-  }
+//   // const [idError, setIdError] = useState('')
+//   // const [passwordError, setPasswordError] = useState('')
 
-  function ccc() {
-    if (id === "") {
-      setIdError("아이디를 입력해주세요");
-    }
-    if (password === " ") {
-      setPasswordError("비밀번호를 입력");
-    } else {
-      setIdError(""), setPasswordError("");
-      alert("dd");
-    }
-  }
+//   function aaa(event) {
+//     setId(event.target.value);
+//   }
 
-  return (
-    <div>
-      <h1>로그인dd</h1>
-      <div>아이디</div>
-      <input type="text" onChange={aaa}></input>
-      <div style={{ color: "red", fontSize: "5px" }}>{idError}</div>
-      <div>비밀번호</div>
-      <input type="password" onChange={bbb}></input>
-      <div style={{ color: "red", fontSize: "5px" }}>{passwordError}</div>
-      <button onClick={ccc}>로그인하기</button>
-    </div>
-  );
-}
+//   function bbb(event) {
+//     setPassword(event.target.value);
+//   }
+
+//   function ccc() {
+//     // if (id === "") {
+//     //   // id === ""     : id가 없다면
+//     //   // id !== ""     : id가 있다면
+//     // } else if (password === "") {
+//     // } else {
+//     //   alert("로그인을 해볼까요?!");
+//     //   // // 통신프로그램을 이용해서
+//     //   // id, password 백엔드컴퓨터의 API에 전송하기
+//     // }
+//   }
+
+//   return (
+//     <div>
+//       <h1>로그인</h1>
+//       <div>아이디</div>
+//       <input type="text" onChange={aaa} />
+//       <div>{idError}</div>
+//       <div>비밀번호</div>
+//       <input type="password" onChange={bbb} />
+//       <div>{passwordError}</div>
+//       <button onClick={ccc}>로그인하기</button>
+//     </div>
+//   );
+// }

@@ -1,28 +1,28 @@
 import { Modal } from "antd";
 import { useState } from "react";
 
-export default function li3() {
-  const [isopen, setIsopen] = useState(false);
+export default function Libraries3Page() {
+  const [isOpen, setIsOpen] = useState(false);
 
   function onClickSubmit() {
-    setIsopen(true);
+    setIsOpen(true);
   }
 
-  function OnClose() {
-    setIsopen(false);
+  function onClose() {
+    setIsOpen(false);
   }
+
   return (
-    <div>
+    <>
       <Modal
         title="게시글 등록"
-        visible={isopen}
-        onOk={OnClose}
-        onCancel={OnClose}
+        visible={isOpen}
+        onOk={onClose}
+        onCancel={onClose}
       >
-        <p>게시물이 정상적으로 등록되었습니다.</p>
+        <div>게시물이 정상적으로 등록되었습니다.</div>
       </Modal>
-
       <button onClick={onClickSubmit}>게시물 등록</button>
-    </div>
+    </>
   );
 }

@@ -1,61 +1,54 @@
 import styled from '@emotion/styled'
 
-const Myimg = styled.img`
-width:100px;
-height:100px;
-background-color: black;
-position:relative;
-display: flex;
+const MyImg = styled.img`
+    width: 100px;
+    height: 100px;
+    position: relative;
 `
 
-const Mydiv = styled.img`
-width:100px;
-height:100px;
-background-image: url("/image/profile.png");
-background-color: black;
+const MyImg2 = styled.img`
+    width: 30px;
+    height: 30px;
+    background-color: green;
+    position: absolute;
+    top: 0px;
+    left: 0px;
 `
 
-const Myimg2 = styled.img`
-width:50px;
-height:50px;
-background-color: blueviolet;
-position:absolute;
-top:0px;
-left: 0px;
+const MyDiv = styled.div`
+    width: 100px;
+    height: 100px;
+    /* background-color: red; */
+    background-image: url("/mypage/profile.png");
+    background-size: 100%;
 `
 
+const Background = styled.img`
+    width: 100px;
+    height: 100px;
+    position: relative;
+`
+
+const BackgroundTrans = styled.div`
+    background-color: rgba(0, 0, 0, 0.4) ;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+`
 
 export default function ImagePage(){
 
 
-
-
-
-    return(
-    <>
-    <Mydiv ></Mydiv>
-        <Myimg src="/image/profile.png"></Myimg>
-        
-        <Myimg2 src="/image/icon.png"></Myimg2>
-        
-        <div>이미지 연습</div>
-
-
-
-
-
-
-
-
-
-
-
-    </>
+    return (
+        <>
+            <MyImg src="/mypage/profile.png" />
+            <MyImg2 src="/mypage/marker.png"/>
+            <MyDiv />
+            <Background src="/mypage/profile.png"/>
+            <BackgroundTrans/>
+            <div>이미지연습</div>
+        </>
     )
-
-
-
-
-
-
 }

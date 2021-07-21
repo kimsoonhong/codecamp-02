@@ -1,18 +1,17 @@
-export default function StatePage(){
+export default function StatePage() {
 
-    let count = 5
-    function aaa(){
+    let count = 7
+
+    function aaa() {
         count = count + 1
         console.log(count)
-        
     }
 
     return (
-        <div>
-            <div>{count}</div>
+        <>
+            <div id="rrr">{count}</div>
             <button onClick={aaa}>+1</button>
-        </div>
-
+        </>
     )
-    
+
 }

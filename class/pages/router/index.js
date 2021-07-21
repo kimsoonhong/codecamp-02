@@ -1,11 +1,13 @@
-import { useRouter } from "next/router";
+import {useRouter} from 'next/router'
 
-export default function Routerpage() {
-  const router = useRouter();
+export default function RouterPage(){
+    const router = useRouter()
 
-  function onclick_move() {
-    router.push("/detail/6");
-  }
+    function onClickMove(){
+        router.push('/detail/10')
+    }
 
-  return <button onClick={onclick_move}>이동하기</button>;
+    return (
+        <button onClick={onClickMove}>이동하기</button>
+    )
 }
