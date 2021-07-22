@@ -11,13 +11,12 @@ export const INPUTS_INIT = {
   password: "",
   title: "",
   contents: "",
-  youtubeUrl: "",
 };
 
 export default function BoardWrite(props: IBoardWriteProps) {
   const router = useRouter();
+  const [active, setActive] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
-  const [active, setActive] = useState(false);
   const [inputs, setInputs] = useState(INPUTS_INIT);
   const [inputsErrors, setInputsErrors] = useState(INPUTS_INIT);
   const [createBoard] = useMutation(CREATE_BOARD);
@@ -32,12 +31,16 @@ export default function BoardWrite(props: IBoardWriteProps) {
 
   function onChangeInputs(
     event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) {
-    const newInputs = { ...inputs, [event.target.name]: event.target.value };
-    setInputs(newInputs);
-    setActive(Object.values(newInputs).every((data) => data));
-    setInputsErrors({ ...inputsErrors, [event.target.name]: "" });
+    ) {
+      const newInputs = { ...inputs, [event.target.name]: event.target.value };
+      setInputs(newInputs);
+      setActive(Object.values(inputs).every((data) => !data));
+      if (inputsErrors[event.target.name as keyof typeof INPUTS_INIT]) {
+        setInputsErrors({ ...inputsErrors, [event.target.name]: "" });
+      }
   }
+
+
 
   async function onClickSubmit() {
     setInputsErrors({
@@ -45,7 +48,6 @@ export default function BoardWrite(props: IBoardWriteProps) {
       password: inputs.password ? "" : "비밀번호를 입력해주세요.",
       title: inputs.title ? "" : "제목을 입력해주세요.",
       contents: inputs.contents ? "" : "내용을 입력해주세요.",
-      youtubeUrl: "",
     });
 
     const isEvery = Object.values(inputs)
@@ -72,33 +74,27 @@ export default function BoardWrite(props: IBoardWriteProps) {
   }
 
   async function onClickUpdate() {
-    setInputsErrors({
-      writer: inputs.writer ? "" : "작성자를 입력해주세요.",
-      password: inputs.password ? "" : "비밀번호를 입력해주세요.",
-      title: inputs.title ? "" : "제목을 입력해주세요.",
-      contents: inputs.contents ? "" : "내용을 입력해주세요.",
-      youtubeUrl: "",
-    });
-    if (Object.values(inputs).every((data) => data)) {
+    
       try {
         const result = await updateBoard({
           variables: {
             boardId: router.query.boardId,
             password: inputs.password,
             updateBoardInput: {
-              title: inputs.title,
-              contents: inputs.contents,
-              youtubeUrl: inputs.youtubeUrl,
+              title: inputs.title||props.data?.title,
+              contents: inputs.contents||props.data?.contents,
+              boardAddress: { zipcode, address, addressDetail },
             },
           },
         });
         Modal.confirm({
           content: "게시물이 성공적으로 수정되었습니다.",
           onOk: () => router.push(`/boards/${result.data.updateBoard._id}`),
+          
         });
       } catch (error) {
         alert(error.message);
-      }
+      
     }
   }
 
@@ -112,10 +108,15 @@ export default function BoardWrite(props: IBoardWriteProps) {
     setIsOpen(false);
   }
 
+  function onCancel (){
+    setIsOpen(false);
+  }
+
   return (
     <BoardWriteUI
       isOpen={isOpen}
       isEdit={props.isEdit}
+      data={props.data}
       active={active}
       zipcode={zipcode}
       address={address}
@@ -126,6 +127,8 @@ export default function BoardWrite(props: IBoardWriteProps) {
       onClickAddressSearch={onClickAddressSearch}
       onCompleteAddressSearch={onCompleteAddressSearch}
       onChangeAddressDetail={onChangeAddressDetail}
+      inputs={inputs}
+      onCancel={onCancel}
     />
   );
 }

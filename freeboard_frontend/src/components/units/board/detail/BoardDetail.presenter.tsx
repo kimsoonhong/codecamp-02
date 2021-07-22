@@ -27,6 +27,7 @@ import { IBoardDetailUIProps } from "./BoardDetail.types";
 
 export default function BoardDetailUI(props: IBoardDetailUIProps) {
   return (
+    
     <Wrapper>
       <CardWrapper>
         <Header>
@@ -34,7 +35,7 @@ export default function BoardDetailUI(props: IBoardDetailUIProps) {
             <Avatar src="/images/avatar.png" />
             <Info>
               <Writer>{props.data?.fetchBoard.writer}</Writer>
-              <CreatedAt>{props.data?.fetchBoard.createdAt}</CreatedAt>
+              <CreatedAt>{String(props.data?.fetchBoard.createdAt).slice(0,10)}</CreatedAt>
             </Info>
           </AvatarWrapper>
           <IconWrapper>
@@ -54,6 +55,8 @@ export default function BoardDetailUI(props: IBoardDetailUIProps) {
             url={props.data?.fetchBoard.youtubeUrl}
             width="486px"
             height="240px"
+            muted
+            playing
           />
           <LikeWrapper>
             <IconWrapper>

@@ -125,3 +125,9 @@ export const LikeCount = styled.div`
 export const DislikeCount = styled.div`
   color: #828282;
 `;
+
+export const PasswordInput = styled.input`
+  width: 100%;
+  margin-top: 10px;
+`;
+

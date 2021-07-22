@@ -53,15 +53,16 @@ export default function BoardCommentWrite(props: IBoardCommentWriteProps) {
   }
 
   async function onClickUpdate(event: MouseEvent<HTMLButtonElement>) {
-    if (!inputs.contents || !inputs.password) {
-      alert("내용을 모두 입력해 주세요.");
+    if (inputs.password == '') {
+      alert("비밀번호를 입력해주세요.");
       return;
     }
-
+    const newInputs= {};
+    if (inputs.contents) newInputs.contents = inputs.contents;
     try {
       await updateBoardComment({
         variables: {
-          updateBoardCommentInput: { contents: inputs.contents },
+          updateBoardCommentInput: { contents: inputs.contents||props.data?.contents, rating : inputs.rating||props.data?.rating },
           password: inputs.password,
           boardCommentId: (event.target as Element).id,
         },
