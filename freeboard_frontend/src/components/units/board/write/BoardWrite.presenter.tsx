@@ -22,11 +22,11 @@ import {
   Youtube,
   Zipcode,
   ZipcodeWrapper,
+  CancelBoutton,
 } from "./BoardWrite.styles";
 import { INPUTS_INIT } from "./BoardWrite.container";
 import Modal from "antd/lib/modal/Modal";
 import DaumPostcode from "react-daum-postcode";
-
 
 interface IBoardWriteUIProps {
   isOpen: boolean;
@@ -40,19 +40,18 @@ interface IBoardWriteUIProps {
   ) => void;
   onClickSubmit: () => void;
   onClickUpdate: () => void;
-  onCancel:()=> void;
-  data:any
+  onCancel: () => void;
+  data: any;
   onClickAddressSearch: () => void;
   onCompleteAddressSearch: (data: any) => void;
   onChangeAddressDetail: (event: ChangeEvent<HTMLInputElement>) => void;
 }
 export default function BoardWriteUI(props: IBoardWriteUIProps) {
- 
   return (
     <>
       {props.isOpen && (
         <Modal visible={true} onCancel={props.onCancel}>
-          <DaumPostcode onComplete={props.onCompleteAddressSearch} autoClose  />
+          <DaumPostcode onComplete={props.onCompleteAddressSearch} autoClose />
         </Modal>
       )}
       <Wrapper>
@@ -62,12 +61,12 @@ export default function BoardWriteUI(props: IBoardWriteUIProps) {
             <Label>작성자</Label>
             <Writer
               name="writer"
-							placeholder="이름을 입력해 주세요."
-							defaultValue={props.data?.fetchBoard.writer}
-							onChange={props.onChangeInputs}
-							readOnly={props.data?.fetchBoard.writer}
+              placeholder="이름을 입력해 주세요."
+              defaultValue={props.data?.fetchBoard.writer}
+              onChange={props.onChangeInputs}
+              readOnly={props.data?.fetchBoard.writer}
             />
-            <Error>{props.inputsErrors.writer }</Error>
+            <Error>{props.inputsErrors.writer}</Error>
           </InputWrapper>
           <InputWrapper>
             <Label>비밀번호</Label>
@@ -88,7 +87,6 @@ export default function BoardWriteUI(props: IBoardWriteUIProps) {
             placeholder="제목을 작성해주세요."
             onChange={props.onChangeInputs}
             defaultValue={props.data?.fetchBoard.title}
-
           />
           <Error>{props.inputsErrors.title}</Error>
         </InputWrapper>
@@ -105,17 +103,26 @@ export default function BoardWriteUI(props: IBoardWriteUIProps) {
         <InputWrapper>
           <Label>주소</Label>
           <ZipcodeWrapper>
-            <Zipcode name="zipcode" placeholder="98977" value={props.zipcode} 
-            defaultValue={props.data?.fetchBoard.boardAddress?.zipcode} />
+            <Zipcode
+              name="zipcode"
+              placeholder="98977"
+              value={props.zipcode}
+              defaultValue={props.data?.fetchBoard.boardAddress?.zipcode}
+            />
             <SearchButton onClick={props.onClickAddressSearch}>
               우편번호 검색
             </SearchButton>
           </ZipcodeWrapper>
-          <Address value={props.address || props.data?.fetchBoard.boardAddress?.address} readOnly 
-          // defaultValue={props.data?.fetchBoard.boardAddress?.address}
+          <Address
+            value={
+              props.address || props.data?.fetchBoard.boardAddress?.address
+            }
+            readOnly
+            // defaultValue={props.data?.fetchBoard.boardAddress?.address}
           />
-          <Address onChange={props.onChangeAddressDetail}        
-          defaultValue ={props.data?.fetchBoard.boardAddress?.addressDetail}
+          <Address
+            onChange={props.onChangeAddressDetail}
+            defaultValue={props.data?.fetchBoard.boardAddress?.addressDetail}
           />
         </InputWrapper>
         <InputWrapper>
@@ -125,7 +132,6 @@ export default function BoardWriteUI(props: IBoardWriteUIProps) {
             placeholder="링크를 복사해주세요."
             defaultValue={props.data?.fetchBoard.youtubeUrl}
             onChange={props.onChangeInputs}
-          
           />
         </InputWrapper>
         <ImageWrapper>
@@ -159,10 +165,12 @@ export default function BoardWriteUI(props: IBoardWriteUIProps) {
           <SubmitButton
             onClick={props.isEdit ? props.onClickUpdate : props.onClickSubmit}
             // disabled={props.active}
-           
           >
             {props.isEdit ? "수정하기" : "등록하기"}
           </SubmitButton>
+          <CancelBoutton onClick={props.onClickMoveToList}>
+            돌아가기
+          </CancelBoutton>
         </ButtonWrapper>
       </Wrapper>
     </>

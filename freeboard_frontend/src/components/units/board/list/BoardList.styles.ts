@@ -3,6 +3,7 @@ import styled from "@emotion/styled";
 export const Wrapper = styled.div`
   width: 1200px;
   margin: 100px;
+  margin: auto;
 `;
 
 export const TableTop = styled.div`
@@ -19,6 +20,11 @@ export const Row = styled.div`
   height: 52px;
   line-height: 52px;
   border-bottom: 1px solid gray;
+
+  :hover {
+    color: #2a653f;
+    background-color: whitesmoke;
+  }
 `;
 
 export const ColumnHeaderBasic = styled.div`
@@ -42,7 +48,8 @@ export const ColumnTitle = styled.div`
   cursor: pointer;
 
   :hover {
-    color: blue;
+    color: #2a653f;
+    background-color: whitesmoke;
   }
 `;
 
@@ -56,6 +63,7 @@ export const Footer = styled.div`
 export const Button = styled.button`
   width: 171px;
   height: 52px;
+  border: 2px solid #142b12;
   background-color: white;
   border-radius: 15px;
   display: flex;
@@ -65,6 +73,27 @@ export const Button = styled.button`
   cursor: pointer;
 
   :hover {
-    background-color: gold;
+    background-color: whitesmoke;
+    font-weight: bold;
+    animation: all 3000ms ease-in;
+  }
+`;
+
+export const WrapperList = styled.div`
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+`;
+
+export const Page = styled.div`
+  margin: 0px 15px;
+  cursor: pointer;
+  font-size: 22px;
+  width: 20px;
+  text-align: center;
+
+  :hover {
+    font-weight: bold;
+    animation: all 3000ms ease-in;
   }
 `;

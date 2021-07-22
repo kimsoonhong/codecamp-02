@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import { ChangeEvent, useState } from "react";
 import { getDate } from "../../../../commons/libraries/utils";
 import BoardCommentWrite from "../write/BoardCommentWrite.container";
+import { EditOutlined, CloseOutlined } from "@ant-design/icons";
 import {
   DELETE_BOARD_COMMENT,
   FETCH_BOARD_COMMENTS,
@@ -42,7 +43,7 @@ export default function BoardCommentListUIItem(
     setIsOpenDeleteModal(true);
   }
 
-  function onCancel(){
+  function onCancel() {
     setIsOpenDeleteModal(false);
   }
 
@@ -86,13 +87,13 @@ export default function BoardCommentListUIItem(
               <Contents>{props.data.contents}</Contents>
             </MainWrapper>
             <OptionWrapper>
-              <UpdateIcon
-                src="/images/boardComment/list/option_update_icon.png/"
+              <EditOutlined
                 onClick={onClickUpdate}
+                style={{ fontSize: "20px" }}
               />
-              <DeleteIcon
-                src="/images/boardComment/list/option_delete_icon.png/"
+              <CloseOutlined
                 onClick={onClickOpenDeleteModal}
+                style={{ fontSize: "20px" }}
               />
             </OptionWrapper>
           </FlexWrapper>

@@ -15,6 +15,7 @@ export const Wrapper = styled.div`
   align-items: center;
   border: none;
   box-shadow: 0px 0px 10px gray;
+  margin: auto;
 `;
 
 export const Title = styled.div`
@@ -86,9 +87,14 @@ export const SearchButton = styled.button`
   width: 124px;
   height: 52px;
   margin-left: 16px;
-  background-color: black;
+  background-color: #2a652f;
+  border: none;
   cursor: pointer;
   color: white;
+  :hover {
+    background-color: #142b12;
+    border-color: white;
+  }
 `;
 
 export const Address = styled.input`
@@ -160,13 +166,35 @@ export const SubmitButton = styled.button`
   width: 179px;
   height: 52px;
   background-color: ${(props: ISubmitButtonProps) =>
-    props.active ? "#ffd600" : ""};
+    props.active ? "#2a652f" : ""};
   border: none;
   font-size: 16px;
   font-weight: 500;
   margin-left: 12px;
   margin-right: 12px;
   cursor: pointer;
+  :hover {
+    color: #2a653f;
+    background-color: whitesmoke;
+    font-weight: bold;
+  }
+`;
+export const CancelBoutton = styled.button`
+  width: 179px;
+  height: 52px;
+  background-color: ${(props: ISubmitButtonProps) =>
+    props.active ? "#2a652f" : ""};
+  border: none;
+  font-size: 16px;
+  font-weight: 500;
+  margin-left: 12px;
+  margin-right: 12px;
+  cursor: pointer;
+  :hover {
+    color: #2a653f;
+    background-color: whitesmoke;
+    font-weight: bold;
+  }
 `;
 
 export const Error = styled.div`

@@ -1,3 +1,5 @@
+import { FormOutlined } from "@ant-design/icons";
+
 import {
   BottomWrapper,
   Button,
@@ -17,8 +19,8 @@ export default function BoardCommentWriteUI(props: IBoardCommentWriteUIProps) {
     <Wrapper>
       {!props.isEdit && (
         <>
-          <PencilIcon src="/images/boardComment/write/pencil.png" />
-          <span>댓글</span>
+          <FormOutlined style={{ fontSize: "20px" }} />
+          <span style={{ fontSize: "20px" }}>댓글</span>
         </>
       )}
       <InputWrapper>
@@ -36,7 +38,11 @@ export default function BoardCommentWriteUI(props: IBoardCommentWriteUIProps) {
           value={props.inputs.password}
           onChange={props.onChangeInput}
         />
-        <Star onChange={props.onChangeStar} defaultValue={props.inputs.rating || props.data?.rating}/>
+        <Star
+          onChange={props.onChangeStar}
+          defaultValue={props.inputs.rating || props.data?.rating}
+          style={{ color: "white", backgroundColor: "white" }}
+        />
       </InputWrapper>
       <ContentsWrapper>
         <Contents

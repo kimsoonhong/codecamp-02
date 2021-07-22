@@ -3,7 +3,7 @@ import { Rate } from "antd";
 
 export const ItemWrapper = styled.div`
   width: 1200px;
-  margin: 0px 100px;
+  margin: auto;
   padding-top: 20px;
   height: 128px;
   border-bottom: 1px solid lightgray;
@@ -37,16 +37,9 @@ export const Contents = styled.div``;
 export const OptionWrapper = styled.div`
   display: flex;
   flex-direction: row;
-`;
-export const UpdateIcon = styled.img`
-  width: 24px;
-  height: 24px;
-  cursor: pointer;
-`;
-export const DeleteIcon = styled.img`
-  width: 24px;
-  height: 24px;
-  cursor: pointer;
+  width: 60px;
+  justify-content: space-between;
+  /* background-color: violet; */
 `;
 
 export const DateString = styled.div`
@@ -57,6 +50,9 @@ export const DateString = styled.div`
 
 export const Star = styled(Rate)`
   padding-left: 20px;
+  color: white;
+  background-color: white;
+  display: block;
 `;
 
 export const PasswordInput = styled.input`

@@ -5,7 +5,8 @@ import { LikeOutlined, DislikeOutlined } from "@ant-design/icons";
 
 export const Wrapper = styled.div`
   width: 1200px;
-  margin: 100px;
+  margin: auto;
+  padding-bottom: 60px;
 `;
 
 export const CardWrapper = styled.div`
@@ -34,10 +35,14 @@ export const Header = styled.div`
 export const AvatarWrapper = styled.div`
   display: flex;
   flex-direction: row;
+  /* background-color: darkolivegreen; */
 `;
 
 export const Avatar = styled.img`
   margin-right: 10px;
+  width: 50%;
+  height: 50%;
+  margin: auto;
 `;
 
 export const Info = styled.div`
@@ -46,15 +51,28 @@ export const Info = styled.div`
   justify-content: center;
 `;
 
-export const Writer = styled.div``;
-
-export const CreatedAt = styled.div``;
-
-export const IconWrapper = styled.div`
-  text-align: center;
+export const Writer = styled.div`
+  font-size: 20px;
+  padding-left: 20px;
 `;
 
-export const LinkIcon = styled.img``;
+export const CreatedAt = styled.div`
+  font-size: 16px;
+  padding-left: 20px;
+  /* background-color: cadetblue; */
+  width: 150px;
+`;
+
+export const IconWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 100px;
+  /* background-color: darkblue; */
+`;
+
+export const LinkIcon = styled.img`
+  color: darkblue;
+`;
 
 export const LocationIcon = styled.img``;
 
@@ -85,14 +103,17 @@ export const BottomWrapper = styled.div`
 
 export const Button = styled.button`
   width: 179px;
-  height: 45px;
-  background-color: white;
+  height: 52px;
+  background-color: #2a652f;
   border: 1px solid gray;
   margin: 0px 12px;
+  font-size: 16px;
+  font-weight: 500;
   cursor: pointer;
+  color: white;
 
   :hover {
-    background-color: gold;
+    background-color: #142b12;
     border-color: white;
   }
 `;
@@ -101,33 +122,47 @@ export const LikeWrapper = styled.div`
   padding-top: 160px;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
+  /* background-color: darkblue; */
+  width: 180px;
+  margin: auto;
+`;
+
+export const LikeIconWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 130px;
 `;
 
 export const LikeIcon = styled(LikeOutlined)`
-  font-size: 24px;
+  font-size: 40px;
   color: #ffd600;
-  margin: 0px 20px;
+  margin-left: 0px;
+
   cursor: pointer;
+  /* background-color: darkgray; */
 `;
 
 export const DislikeIcon = styled(DislikeOutlined)`
-  font-size: 24px;
+  font-size: 40px;
   color: #828282;
-  margin: 0px 20px;
+
   cursor: pointer;
+  /* background-color: darkkhaki; */
 `;
 
 export const LikeCount = styled.div`
-  color: #ffd600;
+  font-size: 30px;
+  margin: auto;
+  /* background-color: darkmagenta; */
 `;
 
 export const DislikeCount = styled.div`
-  color: #828282;
+  font-size: 30px;
+  margin: auto;
 `;
 
 export const PasswordInput = styled.input`
   width: 100%;
   margin-top: 10px;
 `;
-

@@ -31,23 +31,27 @@ export default function BoardWrite(props: IBoardWriteProps) {
 
   function onChangeInputs(
     event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-    ) {
-      const newInputs = { ...inputs, [event.target.name]: event.target.value };
-      setInputs(newInputs);
-      setActive(Object.values(inputs).every((data) => !data));
-      if (inputsErrors[event.target.name as keyof typeof INPUTS_INIT]) {
-        setInputsErrors({ ...inputsErrors, [event.target.name]: "" });
-      }
+  ) {
+    const newInputs = { ...inputs, [event.target.name]: event.target.value };
+    setInputs(newInputs);
+    setActive(Object.values(inputs).every((data) => !data));
+    if (inputsErrors[event.target.name as keyof typeof INPUTS_INIT]) {
+      setInputsErrors({ ...inputsErrors, [event.target.name]: "" });
+    }
   }
 
-
-
   async function onClickSubmit() {
+    // setInputsErrors({
+    //   writer: inputs.writer ? "" : "작성자를 입력해주세요.",
+    //   password: inputs.password ? "" : "비밀번호를 입력해주세요.",
+    //   title: inputs.title ? "" : "제목을 입력해주세요.",
+    //   contents: inputs.contents ? "" : "내용을 입력해주세요.",
+    // });
     setInputsErrors({
-      writer: inputs.writer ? "" : "작성자를 입력해주세요.",
-      password: inputs.password ? "" : "비밀번호를 입력해주세요.",
-      title: inputs.title ? "" : "제목을 입력해주세요.",
-      contents: inputs.contents ? "" : "내용을 입력해주세요.",
+      writer: inputs.writer ? "" : alert("작성자를 입력해주세요."),
+      password: inputs.password ? "" : alert("비밀번호를 입력해주세요."),
+      title: inputs.title ? "" : alert("제목을 입력해주세요."),
+      contents: inputs.contents ? "" : alert("내용을 입력해주세요."),
     });
 
     const isEvery = Object.values(inputs)
@@ -74,28 +78,29 @@ export default function BoardWrite(props: IBoardWriteProps) {
   }
 
   async function onClickUpdate() {
-    
-      try {
-        const result = await updateBoard({
-          variables: {
-            boardId: router.query.boardId,
-            password: inputs.password,
-            updateBoardInput: {
-              title: inputs.title||props.data?.title,
-              contents: inputs.contents||props.data?.contents,
-              boardAddress: { zipcode, address, addressDetail },
-            },
+    try {
+      const result = await updateBoard({
+        variables: {
+          boardId: router.query.boardId,
+          password: inputs.password,
+          updateBoardInput: {
+            title: inputs.title || props.data?.title,
+            contents: inputs.contents || props.data?.contents,
+            boardAddress: { zipcode, address, addressDetail },
           },
-        });
-        Modal.confirm({
-          content: "게시물이 성공적으로 수정되었습니다.",
-          onOk: () => router.push(`/boards/${result.data.updateBoard._id}`),
-          
-        });
-      } catch (error) {
-        alert(error.message);
-      
+        },
+      });
+      Modal.confirm({
+        content: "게시물이 성공적으로 수정되었습니다.",
+        onOk: () => router.push(`/boards/${result.data.updateBoard._id}`),
+      });
+    } catch (error) {
+      alert(error.message);
     }
+  }
+
+  function onClickMoveToList() {
+    router.push("/boards");
   }
 
   function onClickAddressSearch() {
@@ -108,7 +113,7 @@ export default function BoardWrite(props: IBoardWriteProps) {
     setIsOpen(false);
   }
 
-  function onCancel (){
+  function onCancel() {
     setIsOpen(false);
   }
 
@@ -129,6 +134,7 @@ export default function BoardWrite(props: IBoardWriteProps) {
       onChangeAddressDetail={onChangeAddressDetail}
       inputs={inputs}
       onCancel={onCancel}
+      onClickMoveToList={onClickMoveToList}
     />
   );
 }
