@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
+  position: ${(props) => (props.scrollY >= 376 ? "fixed" : "")};
   height: 64px;
   background-image: url(/images/gc/a.png);
   background-size: cover;
@@ -30,4 +31,14 @@ export const MenuItem = styled.div`
     border: 2px solid white;
     box-sizing: unset;
   }
+`;
+
+// const Testdiv = styled.div`
+//   color: ${Number(scrollY) > 200 ? "blue" : "green"};
+// `;
+
+export const Testdiv = styled.div`
+  color: ${(props) => (props.scrollY < 200 ? "blue" : "red")};
+  /* position: ${(props) => (props.scrollY > 340 ? "static" : "fixed")}; */
+  /* position: ; */
 `;

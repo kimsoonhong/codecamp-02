@@ -8,7 +8,7 @@ import { Footer } from "../../units/board/list/BoardList.styles";
 
 const Wrapper = styled.div`
   /* background-image: url(/images/gc/1.jpeg); */
-  background-repeat: no-repeat;
+  /* background-repeat: no-repeat; */
   /* background-size: contain; */
   background-color: #f8fff552;
 `;
