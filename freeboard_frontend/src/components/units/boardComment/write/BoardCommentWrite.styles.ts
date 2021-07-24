@@ -12,7 +12,7 @@ export const PencilIcon = styled.img``;
 
 export const Star = styled(Rate)`
   background-color: white;
-  color: white;
+  color: transparent;
 `;
 
 export const InputWrapper = styled.div`

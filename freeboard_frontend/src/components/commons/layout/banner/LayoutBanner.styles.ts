@@ -4,6 +4,7 @@ export const Wrapper = styled.div`
   /* height: 400px; */
   /* margin-top: 100px; */
   display: block;
+  padding-top: 100px;
   height: auto;
   width: 100%;
   margin-bottom: 34px;
@@ -14,9 +15,9 @@ export const SliderItem = styled.img`
   width: 100%;
   margin: auto;
 
-  height: 500px;
+  height: 400px;
 
-  opacity: ${(props) => 1 - props.scrollY / 430};
+  opacity: ${(props) => 1.1 - props.scrollY / 430};
 `;
 
 // export const Slider = styled(slider)`

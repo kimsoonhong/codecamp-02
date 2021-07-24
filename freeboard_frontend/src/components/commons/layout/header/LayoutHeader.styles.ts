@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
-  height: ${(props) => (props.scrollY > 350 ? 64 : 100)}px;
+  height: ${(props) => (props.scrollY > 50 ? 64 : 100)}px;
   /* background-color: red; */
   display: flex;
   flex-direction: row;
@@ -12,13 +12,14 @@ export const Wrapper = styled.div`
   z-index: 1;
   position: fixed;
   /* opacity: ${(props) => 1 - props.scrollY / 350}; */
-  animation: 200ms ease-in all;
-
+  /* animation: 200ms ease-in all; */
+  transition: ease-in 200ms all;
   /* transition: 350ms all ease-in-out; */
 `;
 
 export const InnerWrapper = styled.div`
-  width: 1200px;
+  width: 1400px;
+  padding: 0px 100px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
