@@ -13,11 +13,14 @@ export const Wrapper = styled.div`
 
 export const SliderItem = styled.img`
   width: 100%;
-  margin: auto;
-
+  /* margin: auto; */
   height: 400px;
-
-  opacity: ${(props) => 1.1 - props.scrollY / 430};
+  opacity: ${(props) => 1.2 - props.scrollY / 430};
+  /* background-size: cover; */
+  /* background-position-y: 1000px; */
+  /* overflow: hidden; */
+  object-fit: none;
+  object-position: ${(props) => props.scrollY / 50}%;
 `;
 
 // export const Slider = styled(slider)`

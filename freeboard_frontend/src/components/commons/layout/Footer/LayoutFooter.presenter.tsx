@@ -1,8 +1,23 @@
 import { GithubOutlined, UpCircleFilled } from "@ant-design/icons";
-
-import { Wrapper, Title, Email, Bottom } from "./LayoutHeader.styles";
+import { useState, useEffect } from "react";
+import { Wrapper, Title, Email, Bottom, ArrowUP } from "./LayoutHeader.styles";
 
 export default function LayoutFooterUI() {
+  const [scrollY, setScrollY] = useState<number>(0);
+  const listener = () => {
+    setScrollY(window.pageYOffset);
+  };
+  useEffect(() => {
+    window.addEventListener("scroll", listener);
+    return () => {
+      window.removeEventListener("scroll", listener);
+    };
+  });
+
+  function scrollToTop(event) {
+    window.scrollTo(0, 1);
+  }
+
   return (
     <Wrapper>
       <Title>Let's talk</Title>
@@ -11,14 +26,7 @@ export default function LayoutFooterUI() {
       <GithubOutlined style={{ fontSize: "28px" }} />
 
       <Bottom>2021 shong - All rights reserved</Bottom>
-      <UpCircleFilled
-        style={{
-          position: "fixed",
-          fontSize: "40px",
-          bottom: "40px",
-          right: "40px",
-        }}
-      />
+      <ArrowUP scrollY={scrollY} onClick={scrollToTop} />
     </Wrapper>
   );
 }

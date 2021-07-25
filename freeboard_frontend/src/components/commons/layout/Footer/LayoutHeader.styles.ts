@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { UpCircleFilled } from "@ant-design/icons";
 
 export const Wrapper = styled.div`
   display: flex;
@@ -28,4 +29,17 @@ export const Bottom = styled.div`
   margin: auto;
   font-size: 12px;
   padding: 20px 0px;
+`;
+
+export const ArrowUP = styled(UpCircleFilled)`
+  position: fixed;
+  font-size: 40px;
+  bottom: 40px;
+  right: 40px;
+  opacity: ${(props) => props.scrollY - 530};
+  pointer-events: ${(props) => (props.scrollY >= 477 ? "auto" : "none")};
+  cursor: pointer;
+  border-radius: 50%;
+  border: none;
+  transition: all 200ms ease-in;
 `;

@@ -1,6 +1,6 @@
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 import { AppProps } from "next/dist/next-server/lib/router/router";
-import "../styles/globals.css";
+// import "../styles/globals.css";
 import "antd/dist/antd.css";
 import Layout from "../src/components/commons/layout";
 import { Global } from "@emotion/react";
@@ -14,10 +14,10 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <ApolloProvider client={client}>
-      <Layout>
-        <Global styles={globalStyles} />
-        <Component {...pageProps} />
-      </Layout>
+      {/* <Layout> */}
+      <Global styles={globalStyles} />
+      <Component {...pageProps} />
+      {/* </Layout> */}
     </ApolloProvider>
   );
 }

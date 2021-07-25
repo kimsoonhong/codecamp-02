@@ -5,6 +5,28 @@ export const globalStyles = css`
   * {
     margin: 0px;
     color: #142b12;
+    input:focus,
+    select:focus,
+    textarea:focus,
+    button:focus {
+      outline: none;
+    }
+    input,
+    textarea,
+    button {
+      padding: 0;
+    }
+    button {
+      display: inline-block;
+      font-family: inherit;
+      vertical-align: middle;
+      cursor: pointer;
+      white-space: nowrap;
+      text-decoration: none;
+      background: transparent;
+      border: none;
+      outline: 0;
+    }
   }
 
   @font-face {
@@ -16,9 +38,4 @@ export const globalStyles = css`
     font-family: "live";
     src: url("/fonts/header.ttf");
   }
-`;
-
-export const B_img = styled.div`
-  /* background-image: url("/images/globalcomponent/background.jpeg"); */
-  background-color: blue;
 `;

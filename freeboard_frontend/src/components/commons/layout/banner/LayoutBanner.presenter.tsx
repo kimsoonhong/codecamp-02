@@ -15,7 +15,7 @@ export default function LayoutBannerUI() {
     slidesToShow: 1,
     slidesToScroll: 1,
     arrows: false,
-    // centerMode: true,
+    centerMode: false,
   };
 
   const [scrollY, setScrollY] = useState<number>(0);
@@ -36,16 +36,37 @@ export default function LayoutBannerUI() {
     <Wrapper>
       <Slider {...settings}>
         <div>
-          <SliderItem scrollY={scrollY} src="/images/layout/no_1.jpeg" />
+          <SliderItem
+            // style={{ backgroundPositionY: scrollY / 20 }}
+            scrollY={scrollY}
+            src="/images/layout/no_1.jpg"
+          />
         </div>
         <div>
-          <SliderItem scrollY={scrollY} src="/images/layout/no_2.jpeg" />
+          <SliderItem
+            // style={{ backgroundPositionY: scrollY / 20 }}
+            scrollY={scrollY}
+            src="/images/layout/no_2.jpg"
+          />
         </div>
         <div>
-          <SliderItem scrollY={scrollY} src="/images/layout/no_3.jpeg" />
+          <SliderItem
+            style={
+              {
+                // backgroundImage:url("/images/layout/no_3.jpg"),
+                // backgroundPositionY: scrollY / -200,
+              }
+            }
+            scrollY={scrollY}
+            src="/images/layout/no_3.jpg"
+          />
         </div>
         <div>
-          <SliderItem scrollY={scrollY} src="/images/layout/no_4.jpeg" />
+          <SliderItem
+            // style={{ backgroundPositionY: scrollY / 20 }}
+            scrollY={scrollY}
+            src="/images/layout/no_4.jpg"
+          />
         </div>
       </Slider>
     </Wrapper>

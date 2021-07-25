@@ -1,153 +1,76 @@
-// @ts-ignore
-
 import styled from "@emotion/styled";
+
 export const Wrapper = styled.div`
+  background-image: url(/images/landingpage/main.png);
   width: 100%;
-  height: 1000px;
-  /* background-color: blue; */
+  height: 100vh;
   display: flex;
-  flex-direction: row;
 `;
-
 export const LeftWrapper = styled.div`
-  width: 50%;
-  /* background-color: tomato; */
-  /* box-sizing: border-box; */
-  display: flex;
-  align-items: center;
-  padding: 0px 100px;
-  background-image: url(/images/gc/a.png);
+  background-image: url(/images/layout/no_3.jpg);
+  width: 40%;
+  height: 100vh;
 `;
-
-export const RightWrapper = styled.div`
-  width: 50%;
-  /* background-color: tomato; */
-  /* box-sizing: border-box; */
-  display: flex;
-  align-items: center;
-  padding: 0px 100px;
-`;
-
 export const ShowPage = styled.div`
-  width: 100%;
-  text-align: center;
-
-  /* background-color: brown; */
-  /* position: absolute;
+  width: 30%;
+  height: 70%;
+  position: absolute;
   top: 50%;
-  transform: translate(-50%); */
+  right: 60%;
+  transform: translate(0, -50%);
+  background: none;
+  z-index: 1;
+  background-color: red;
+  padding: 60px;
+`;
+export const RightWrapper = styled.div`
+  background-color: green;
+  width: 60%;
+  height: 100vh;
+`;
+export const ShowLoginPage = styled.div`
+  background-color: gray;
+  width: 50%;
+  height: 70%;
+  position: absolute;
+  top: 50%;
+  left: 40%;
+  transform: translate(0, -50%);
 `;
 
 export const Mant = styled.div`
-  font-size: 68px;
-  text-align: center;
-  font-family: "live";
   color: white;
-  /* background-color: yellow; */
-  font-weight: bolder;
-  padding-bottom: 60px;
-  /* padding-right: 30px; */
-  position: relative;
-  margin: auto;
+  background-color: black;
+  font-size: 40px;
   display: inline-block;
-
+  position: relative;
   :after {
-    /* animation: 0.5s; */
     content: "";
     display: block;
     position: absolute;
-    top: 25px;
+    bottom: 3px;
     right: -30px;
-    height: 65px;
+    height: 60px;
     width: 3px;
     border-radius: 15px;
     display: ${(props) => (props.isActive ? "block" : "none")};
     background-color: white;
-    /* animation: 0.5s; */
-    /* animation-iteration-count: infinite; */
-  }
 `;
-
-// export const #active = styled.div`
-//   display: none;
-// `;
-
 export const Banner = styled.div`
-  font-size: 30px;
   color: white;
-  /* background-color: violet; */
-  font-family: "normal";
-  text-align: center;
 `;
 export const Title = styled.div`
-  font-size: 82px;
-  font-weight: bold;
-  color: #132b12;
-  cursor: pointer;
-  font-weight: bold;
-  font-family: "live";
-  font-style: italic;
   color: white;
-  /* background-color: beige; */
-  text-align: center;
 `;
-
 export const InnerText = styled.div`
-  text-align: end;
-  margin: auto;
   color: white;
-  padding-right: 15%;
 `;
 
-export const Login = styled.div`
-  width: 100%;
-  /* background-color: wheat; */
-  display: flex;
-  flex-direction: column;
-`;
+export const Login = styled.div``;
+export const LoginWrapper = styled.div``;
+export const LoginInput = styled.input``;
+export const LoginButton = styled.button``;
+export const ButtonWrapper = styled.div``;
+export const Image = styled.div``;
 
-export const LoginWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin: auto;
-  width: 80%;
-`;
-
-export const Image = styled.img`
-  width: 200px;
-  margin: auto;
-  padding-bottom: 50px;
-`;
-
-export const LoginInput = styled.input`
-  border: none;
-
-  height: 52px;
-  border-bottom: 2px solid;
-
-  margin: 20px 0px;
-`;
-
-export const ButtonWrapper = styled.div`
-  /* background-color: honeydew; */
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  margin-top: 30px;
-`;
-
-export const LoginButton = styled.button`
-  width: 172px;
-  height: 51px;
-  background-color: #2a652f;
-  color: white;
-  cursor: pointer;
-  border: none;
-  border-radius: 2px;
-  margin: 0px 20px;
-
-  :hover {
-    background-color: #142b12;
-    border-color: white;
-  }
-`;
+export const Active = styled.div``;
