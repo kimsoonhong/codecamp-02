@@ -39,7 +39,7 @@ export default function LayoutBannerUI() {
           <SliderItem
             // style={{ backgroundPositionY: scrollY / 20 }}
             scrollY={scrollY}
-            src="/images/layout/no_1.jpg"
+            src="/images/layout/no_3.jpg"
           />
         </div>
         <div>
@@ -58,7 +58,7 @@ export default function LayoutBannerUI() {
               }
             }
             scrollY={scrollY}
-            src="/images/layout/no_3.jpg"
+            src="/images/layout/no_1.jpg"
           />
         </div>
         <div>

@@ -19,8 +19,14 @@ import {
   LoginButton,
   ButtonWrapper,
   Image,
-  Active,
-} from "./LandingPage.styles";
+  BlockDiv,
+  Footer,
+  ShowFooter,
+  InnerDiv,
+  HiddenDiv,
+  FooterTitle,
+  FooterDivText,
+} from "./LandingPage1.styles";
 
 export default function LandingPageUI() {
   const string = [
@@ -80,49 +86,74 @@ export default function LandingPageUI() {
     setIsOpen(false);
   }
 
+  // useEffect(() => {
+  //   if (scrollY > 300) {
+  //     window.scrollTo(0, 460);
+  //   }
+  // }, []);
+
   return (
     <Wrapper>
       {/* <Navigator></Navigator> */}
       <LeftWrapper isOpen={isOpen} scrollY={scrollY}>
         <ShowPage>
-          <Mant isActive={isActive}>{Text}</Mant>
-          <Banner>중고마켓</Banner>
+          <Mant scrollY={scrollY} isActive={isActive}>
+            {Text}
+          </Mant>
+          <Banner scrollY={scrollY}>중고마켓</Banner>
           <Title>ㅅㅜ ㅣ ㅁ </Title>
-          <InnerText>
+          <InnerText scrollY={scrollY}>
+            당신의 추억이 담긴 그 물건 말이예요.
             <p />
             당신의 추억이 담긴 그 물건 말이예요.
             <p />
-            이는 국가보훈처의 유권해석이다. <p />
-            관련 법령만 없을 뿐이지 역사적으로도 한국을 상징하는 노래로 오랫동안
-            쓰였고 <p />
-            현재도 공식행사나 스포츠대회 등에서 국가가 필요하면 애국가를
-            사용한다는 점에서 사실상 국가라고 볼 수 있다
+            당신의 추억이 담긴 그 물건 말이예요.당신의 추억이 담긴 그 물건
             <p />
             진녹색 난로 '쉼'입니다.
             {scrollY}
           </InnerText>
-          {/* <EnterBtn isOpen={isOpen} onClick={onClickEnter}> */}
-          {/* 입장하기
-          </EnterBtn> */}
         </ShowPage>
       </LeftWrapper>
+      <Footer>
+        <BlockDiv>
+          <RightWrapper scrollY={scrollY} isOpen={isOpen}>
+            <ShowLoginPage>
+              <Login>
+                <Image scrollY={scrollY} src="/images/icon/myicon.png" />
+                <LoginWrapper>
+                  <LoginInput placeholder="아이디 "></LoginInput>
+                  <LoginInput placeholder="비밀번호"></LoginInput>
+                </LoginWrapper>
 
-      <RightWrapper scrollY={scrollY} isOpen={isOpen}>
-        <ShowLoginPage>
-          <Login>
-            <Image src="/images/icon/myicon.png" />
-            <LoginWrapper>
-              <LoginInput placeholder="아이디"></LoginInput>
-              <LoginInput placeholder="비밀번호"></LoginInput>
-            </LoginWrapper>
+                <ButtonWrapper>
+                  <LoginButton>로그인하기</LoginButton>
+                  <LoginButton>회원가입</LoginButton>
+                  <LoginButton>비회원 로그인</LoginButton>
+                </ButtonWrapper>
+                <ButtonWrapper></ButtonWrapper>
+              </Login>
+            </ShowLoginPage>
+          </RightWrapper>
+        </BlockDiv>
 
-            <ButtonWrapper>
-              <LoginButton>로그인하기</LoginButton>
-              <LoginButton>회원가입</LoginButton>
-            </ButtonWrapper>
-          </Login>
-        </ShowLoginPage>
-      </RightWrapper>
+        <ShowFooter>
+          <InnerDiv>
+            <HiddenDiv> 접속하기</HiddenDiv>
+            <FooterTitle>자유게시판</FooterTitle>
+            <FooterDivText>이러이러이러한 이야기를 나누어 보세요</FooterDivText>
+          </InnerDiv>
+          <InnerDiv>
+            <HiddenDiv></HiddenDiv>
+            <FooterTitle>중고 장터 </FooterTitle>
+            <FooterDivText>이런 저런 물건을 팔아보세요</FooterDivText>
+          </InnerDiv>
+          <InnerDiv>
+            <HiddenDiv></HiddenDiv>
+            <FooterTitle></FooterTitle>
+            <FooterDivText></FooterDivText>
+          </InnerDiv>
+        </ShowFooter>
+      </Footer>
     </Wrapper>
   );
 }

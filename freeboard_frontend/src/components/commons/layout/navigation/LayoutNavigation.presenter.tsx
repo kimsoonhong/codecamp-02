@@ -8,6 +8,7 @@ export default function LayoutNavigationUI(props) {
   const listener = () => {
     setScrollY(window.pageYOffset);
   };
+
   useEffect(() => {
     window.addEventListener("scroll", listener);
     return () => {
@@ -17,14 +18,16 @@ export default function LayoutNavigationUI(props) {
 
   return (
     <Wrapper>
+      <MenuItem onClick={props.EnterToOpenAPI}>Open API</MenuItem>
+      <>|</>
       <MenuItem>자유게시판</MenuItem>
       <>|</>
       <MenuItem>중고마켓</MenuItem>
       <>|</>
       <MenuItem>마이페이지</MenuItem>
-      <div>{scrollY}</div>
+      {/* <div>{scrollY}</div> */}
 
-      <Testdiv scrollY={scrollY}>dd</Testdiv>
+      {/* <Testdiv scrollY={scrollY}>dd</Testdiv> */}
     </Wrapper>
   );
 }

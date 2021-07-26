@@ -50,6 +50,7 @@ export default function BoardList() {
       onClickPrevPage={onClickPrevPage}
       onClickNextPage={onClickNextPage}
       onClickPage={onClickPage}
+      // activePage={activePage}
     />
   );
 }

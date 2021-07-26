@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 export const Wrapper = styled.div`
   position: ${(props) => (props.scrollY >= 376 ? "" : "sticky")};
   top: 64px;
-
+  width: 100%;
   height: 64px;
   background-image: url(/images/gc/a.png);
   background-size: cover;
@@ -11,29 +11,33 @@ export const Wrapper = styled.div`
   /* background-color: #2a652f; */
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   font-size: 18px;
   color: white;
   margin-bottom: 90px;
-  width: 100%;
+
+  padding: 0 20%;
 `;
 
 export const MenuItem = styled.div`
-  margin: 0px 150px;
   cursor: pointer;
   color: white;
-  padding: 6px 24px;
-  display: flex;
-  box-sizing: unset;
+  padding: 3px 24px;
+  /* display: flex; */
+  /* box-sizing: unset; */
   border: 2px solid transparent;
-  /* width: 120px; */
+  /* width: 50%; */
+  /* margin: auto; */
+  /* justify-content: center; */
+  /* border-bottom: 2px; */
 
   :hover {
     /* background-color: #142b1244; */
     border-bottom: 2px solid white;
     box-sizing: unset;
     transition: all 400ms ease;
+    /* border-bottom-width: 20%; */
   }
 `;
 
