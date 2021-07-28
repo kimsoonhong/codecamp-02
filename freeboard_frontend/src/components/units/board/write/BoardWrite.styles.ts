@@ -115,9 +115,15 @@ export const Youtube = styled.input`
 export const ImageWrapper = styled.div`
   width: 996px;
   padding-top: 40px;
+  display: flex;
+  flex-direction: column;
 `;
 
-export const UploadButton = styled.button`
+export const ImgButtonWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
+export const UploadButton = styled.div`
   width: 78px;
   height: 78px;
   background-color: #bdbdbd;
@@ -125,6 +131,18 @@ export const UploadButton = styled.button`
   outline: none;
   border: none;
   cursor: pointer;
+  text-align: center;
+  padding-top: 15px;
+  position: relative;
+`;
+
+export const UploadImg = styled.img`
+  width: 78px;
+  height: 78px;
+
+  opacity: 0.6;
+  position: absolute;
+  transform: translate(-40px, -15px);
 `;
 
 export const OptionWrapper = styled.div`
@@ -201,4 +219,11 @@ export const Error = styled.div`
   padding-top: 10px;
   font-size: 14px;
   color: red;
+`;
+
+export const UploadClickbtn = styled.div`
+  height: 78px;
+  width: 78px;
+  position: absolute;
+  z-index: 999;
 `;

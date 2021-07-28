@@ -103,17 +103,17 @@ const resolvers = {
 
 		createProduct: async (_: any, args: any) => {
 			try {
-				await Product.insert(
-					{ seller: args.seller },
-					{
-						name: args.CreateProductInput.name,
-						detail: args.CreateProductInput.detail,
-						price: args.CreateProductInput.price,
-					}
-				);
+				await Product.insert({
+					seller: args.seller,
+					name: args.createProductInput.name,
+					detail: args.createProductInput.detail,
+					price: args.createProductInput.price,
+				});
 				return true;
 			} catch (error) {
-				console.log("error.message");
+				console.log(error);
+
+				throw new Error("sfasf");
 			}
 			return true;
 		},
@@ -132,11 +132,11 @@ const resolvers = {
 
 		updateProduct: (_: any, args: any) => {
 			Product.update(
-				{ productId: args.productId },
+				{ _id: args.productId },
 				{
-					name: args.UpdateProductInput.name,
-					detail: args.UpdateProductInput.detail,
-					price: args.UpdateProductInput.pric,
+					name: args.updateProductInput.name,
+					detail: args.updateProductInput.detail,
+					price: args.updateProductInput.pric,
 				}
 			);
 			return true;
@@ -149,7 +149,8 @@ const resolvers = {
 		},
 
 		deleteProduct: (_: any, args: any) => {
-			Product.update({ productId: args.productId }, { deletedAt: new Date() });
+			Product.update({ _id: args.productId }, { deletedAt: new Date() });
+			return true;
 		},
 	},
 };
@@ -166,7 +167,7 @@ createConnection({
 	password: "postgres2021",
 	port: 5008,
 	host: "34.64.71.71",
-	entities: [__dirname + "/*.postgres.ts"],
+	entities: [__dirname + "/postgres/*.postgres.ts"],
 	logging: true,
 	synchronize: true,
 }).then(() => {

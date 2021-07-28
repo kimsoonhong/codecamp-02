@@ -2,9 +2,7 @@ import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
 export default class Product extends BaseEntity {
-	@PrimaryGeneratedColumn("increment")
-	productId!: string;
-	@Column({ type: "text" })
+	@PrimaryGeneratedColumn("uuid")
 	_id!: string;
 	@Column({ type: "text" })
 	seller!: string;
@@ -14,6 +12,6 @@ export default class Product extends BaseEntity {
 	detail!: string;
 	@Column({ type: "integer" })
 	price!: number;
-	@Column({ type: "timestamp" })
-	createAt?: Date;
+	@Column({ type: "timestamp", default: null, nullable: true })
+	deletedAt?: Date;
 }

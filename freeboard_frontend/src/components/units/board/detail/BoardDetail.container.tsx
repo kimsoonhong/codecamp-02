@@ -54,6 +54,7 @@ export default function BoardDetail() {
     });
   }
 
+  console.log(data?.fetchBoard.images);
   return (
     <BoardDetailUI
       data={data}

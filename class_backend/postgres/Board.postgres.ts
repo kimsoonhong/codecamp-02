@@ -13,3 +13,6 @@ export default class Board extends BaseEntity {
 	@Column({ type: "timestamp", default: null, nullable: true })
 	deletedAt?: Date;
 }
+
+
+`

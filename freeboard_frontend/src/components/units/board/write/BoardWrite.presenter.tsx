@@ -15,6 +15,8 @@ import {
   Subject,
   SubmitButton,
   Title,
+  ImgButtonWrapper,
+  UploadImg,
   UploadButton,
   Wrapper,
   Writer,
@@ -45,7 +47,9 @@ interface IBoardWriteUIProps {
   onClickAddressSearch: () => void;
   onCompleteAddressSearch: (data: any) => void;
   onChangeAddressDetail: (event: ChangeEvent<HTMLInputElement>) => void;
+  onClickGreyBox: () => void;
 }
+
 export default function BoardWriteUI(props: IBoardWriteUIProps) {
   return (
     <>
@@ -136,23 +140,44 @@ export default function BoardWriteUI(props: IBoardWriteUIProps) {
         </InputWrapper>
         <ImageWrapper>
           <Label>사진첨부</Label>
-          <UploadButton>
-            {/* <input
-                    type="file"
-                    style={{ display: "none" }}
-                    ref={fileRef}
-                /> */}
-            <div>+</div>
-            <div>Upload</div>
-          </UploadButton>
-          <UploadButton>
-            <div>+</div>
-            <div>Upload</div>
-          </UploadButton>
-          <UploadButton>
-            <div>+</div>
-            <div>Upload</div>
-          </UploadButton>
+          <ImgButtonWrapper>
+            {props.imgUrl.map((data, index) => (
+              <UploadButton
+                onClick={() => props.onClickDeleteImg(index)}
+                key={index}
+              >
+                <UploadImg
+                  src={`https://storage.googleapis.com/${props.imgUrl[index]}`}
+                />
+                <div>-</div>
+                <div>Delete</div>
+                <input type="file" multiple style={{ display: "none" }} />
+              </UploadButton>
+            ))}
+            {new Array(3 ? 3 - props.imgUrl.length : 3)
+              .fill(1)
+              .map((_, index) => {
+                return (
+                  <UploadButton onClick={props.onClickGreyBox}>
+                    <label htmlFor={index}>
+                      <div>
+                        <div>+</div>
+                        <div>Upload</div>
+                      </div>
+
+                      <input
+                        id={index}
+                        ref={props.fileRef}
+                        type="file"
+                        onChange={props.onChangeFile}
+                        multiple
+                        style={{ display: "none" }}
+                      />
+                    </label>
+                  </UploadButton>
+                );
+              })}
+          </ImgButtonWrapper>
         </ImageWrapper>
         <OptionWrapper>
           <Label>메인설정</Label>

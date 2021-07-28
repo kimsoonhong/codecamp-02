@@ -16,6 +16,7 @@ import {
   Wrapper,
   Writer,
   CardWrapper,
+  ImgWrapper,
   Youtube,
   LikeIcon,
   DislikeIcon,
@@ -52,6 +53,14 @@ export default function BoardDetailUI(props: IBoardDetailUIProps) {
         <Body>
           <Title>{props.data?.fetchBoard.title}</Title>
           <Contents>{props.data?.fetchBoard.contents}</Contents>
+
+          {props.data?.fetchBoard.images.map((date, index) => (
+            <ImgWrapper
+              key={index}
+              src={`https://storage.googleapis.com/${props.data?.fetchBoard?.images[index]}`}
+            />
+          ))}
+
           <Youtube
             url={props.data?.fetchBoard.youtubeUrl}
             width="486px"

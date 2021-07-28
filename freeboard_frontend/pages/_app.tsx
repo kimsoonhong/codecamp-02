@@ -1,4 +1,10 @@
-import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
+import {
+  ApolloClient,
+  InMemoryCache,
+  ApolloProvider,
+  ApolloLink,
+} from "@apollo/client";
+import { createUploadLink } from "apollo-upload-client";
 import { AppProps } from "next/dist/next-server/lib/router/router";
 // import "../styles/globals.css";
 import "antd/dist/antd.css";
@@ -7,17 +13,21 @@ import { Global } from "@emotion/react";
 import { globalStyles } from "../src/commons/styles/globalStyles";
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const client = new ApolloClient({
+  const uploadLink = createUploadLink({
     uri: "http://backend02.codebootcamp.co.kr/graphql",
-    cache: new InMemoryCache(),
   });
 
+  const client = new ApolloClient({
+    uri: "http://backend02.codebootcamp.co.kr/graphql",
+    link: ApolloLink.from([uploadLink as unknown as ApolloLink]),
+    cache: new InMemoryCache(),
+  });
   return (
     <ApolloProvider client={client}>
-      {/* <Layout> */}
-      <Global styles={globalStyles} />
-      <Component {...pageProps} />
-      {/* </Layout> */}
+      <Layout>
+        <Global styles={globalStyles} />
+        <Component {...pageProps} />
+      </Layout>
     </ApolloProvider>
   );
 }

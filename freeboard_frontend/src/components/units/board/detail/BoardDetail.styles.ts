@@ -90,6 +90,11 @@ export const Contents = styled.div`
   padding-bottom: 120px;
 `;
 
+export const ImgWrapper = styled.img`
+  background-color: red;
+  width: 100%;
+`;
+
 export const Youtube = styled(ReactPlayer)`
   margin: auto;
 `;
