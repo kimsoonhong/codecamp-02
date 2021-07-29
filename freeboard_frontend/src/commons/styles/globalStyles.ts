@@ -4,7 +4,7 @@ import styled from "@emotion/styled";
 export const globalStyles = css`
   * {
     margin: 0px;
-    color: #142b12;
+    /* color: #142b12; */
     input:focus,
     select:focus,
     textarea:focus,

@@ -21,16 +21,21 @@ export const Wrapper = styled.div`
 `;
 
 export const MenuItem = styled.div`
-  cursor: pointer;
+  /* cursor: pointer; */
   color: white;
   padding: 3px 24px;
   /* display: flex; */
   /* box-sizing: unset; */
   border: 2px solid transparent;
+
   /* width: 50%; */
   /* margin: auto; */
   /* justify-content: center; */
   /* border-bottom: 2px; */
+  /* font-weight: ${(props) => (props.isClickd ? "bold" : "normal")}; */
+  cursor: ${(props) => (props.isClickd ? "" : "pointer")};
+  color: ${(props) => (props.isClickd ? "#84b96e" : "")};
+  pointer-events: ${(props) => (props.isClickd ? "none" : "")};
 
   :hover {
     /* background-color: #142b1244; */

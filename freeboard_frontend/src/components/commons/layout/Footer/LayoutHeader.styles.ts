@@ -14,7 +14,7 @@ export const Wrapper = styled.div`
 
 export const Title = styled.div`
   margin: auto;
-  font-size: 44px;
+  font-size: 50px;
   font-family: "live";
   font-weight: bold;
 `;

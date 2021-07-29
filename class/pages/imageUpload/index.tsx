@@ -27,35 +27,6 @@ export default function imageUpload() {
   const [title, setTitle] = useState("");
   const [contents, setContents] = useState("");
 
-  async function onChangeFile(event: ChangeEvent<HTMLInputElement>) {
-    const file = event.target.files?.[0];
-
-    if (!file?.size) {
-      alert("파이리 없습니다.");
-      return;
-    }
-    if (file?.size > 5 * 1024 * 1024) {
-      alert("파일 사이즈가 5mb보다 큽니다.");
-      return;
-    }
-    if (!file?.type.includes("png") && !file?.type.includes("jpeg")) {
-      alert("png또는 jpeg 파일만 전송 가능합니다.");
-      return;
-    }
-
-    try {
-      const result = await uploadfile({
-        variables: {
-          file: file,
-        },
-      });
-      console.log(result.data.uploadFile.url);
-      setImgUrl(result.data.uploadFile.url);
-    } catch (error) {
-      alert(error.massage);
-    }
-  }
-
   function onClickGreyBox() {
     fileRef.current?.click();
   }

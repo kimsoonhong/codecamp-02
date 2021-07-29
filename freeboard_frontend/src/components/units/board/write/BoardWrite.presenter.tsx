@@ -141,20 +141,29 @@ export default function BoardWriteUI(props: IBoardWriteUIProps) {
         <ImageWrapper>
           <Label>사진첨부</Label>
           <ImgButtonWrapper>
-            {props.imgUrl.map((data, index) => (
+            {/* =
+= */}
+
+            {props.resultImgUrl.map((data, index) => (
               <UploadButton
                 onClick={() => props.onClickDeleteImg(index)}
                 key={index}
               >
                 <UploadImg
-                  src={`https://storage.googleapis.com/${props.imgUrl[index]}`}
+                  src={
+                    props.isEdit
+                      ? data.fetchBoard.image[index]
+                      : `${props.resultImgUrl[index]}`
+                  }
                 />
                 <div>-</div>
                 <div>Delete</div>
                 <input type="file" multiple style={{ display: "none" }} />
               </UploadButton>
             ))}
-            {new Array(3 ? 3 - props.imgUrl.length : 3)
+            {/* =
+= */}
+            {new Array(3 ? 3 - props.resultImgUrl.length : 3)
               .fill(1)
               .map((_, index) => {
                 return (
@@ -177,6 +186,8 @@ export default function BoardWriteUI(props: IBoardWriteUIProps) {
                   </UploadButton>
                 );
               })}
+            {/* =
+ = */}
           </ImgButtonWrapper>
         </ImageWrapper>
         <OptionWrapper>
@@ -187,15 +198,15 @@ export default function BoardWriteUI(props: IBoardWriteUIProps) {
           <RadioLabel htmlFor="image">사진</RadioLabel>
         </OptionWrapper>
         <ButtonWrapper>
+          <CancelBoutton onClick={props.onClickMoveToList}>
+            돌아가기
+          </CancelBoutton>
           <SubmitButton
             onClick={props.isEdit ? props.onClickUpdate : props.onClickSubmit}
             // disabled={props.active}
           >
             {props.isEdit ? "수정하기" : "등록하기"}
           </SubmitButton>
-          <CancelBoutton onClick={props.onClickMoveToList}>
-            돌아가기
-          </CancelBoutton>
         </ButtonWrapper>
       </Wrapper>
     </>

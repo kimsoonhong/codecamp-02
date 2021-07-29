@@ -87,10 +87,13 @@ export const WrapperList = styled.div`
 
 export const Page = styled.div`
   margin: 0px 15px;
-  cursor: pointer;
+
   font-size: 22px;
   width: 20px;
   text-align: center;
+  font-weight: ${(props) => (props.isActive ? "bold" : "normal")};
+  cursor: ${(props) => (props.isActive ? "" : "pointer")};
+  color: ${(props) => (props.isActive ? "#84b96e" : "")};
 
   :hover {
     font-weight: bold;

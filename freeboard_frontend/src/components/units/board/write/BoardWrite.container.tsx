@@ -13,6 +13,7 @@ export const INPUTS_INIT = {
   password: "",
   title: "",
   contents: "",
+  youtubeUrl: "",
 };
 
 export default function BoardWrite(props: IBoardWriteProps) {
@@ -30,10 +31,13 @@ export default function BoardWrite(props: IBoardWriteProps) {
   const [imgUrl, setImgUrl] = useState<string[]>([]);
   const fileRef = useRef<HTMLInputElement>(null);
   const [isUpload, setIsUpload] = useState(true);
+  const [resultImgUrl, setResultimgUrl] = useState([]);
+  const [file, setFile] = useState([]);
 
   function onChangeAddressDetail(event: ChangeEvent<HTMLInputElement>) {
     setAddressDetail(event.target.value);
   }
+  // console.log(imgUrl);
 
   function onChangeInputs(
     event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -60,6 +64,46 @@ export default function BoardWrite(props: IBoardWriteProps) {
       contents: inputs.contents ? "" : alert("내용을 입력해주세요."),
     });
 
+    const resultFiles = await Promise.all(
+      file.map((data) => {
+        // console.log(data);
+        return uploadfile({ variables: { file: data } });
+      })
+
+      //   [
+      //   uploadfile({
+      //     variables: {
+      //       file: file,
+      //     },
+      //   }),
+      // ]
+    );
+
+    // const realImg = [...file];
+    // realImg.push(fileInfo);
+    // setFile(realImg);
+
+    const aa = resultFiles.map((data) => {
+      return data.data.uploadFile.url;
+    }); // ["https://123123", "https://3343434"]
+
+    // try {
+    //   const result = await uploadfile({
+    //     variables: {
+    //       file: file,
+    //     },
+    //   });
+    // console.log(result.data.uploadFile.url);
+    // setImgUrl(result.data.uploadFile.url);
+
+    //   const imageArr = [...imgUrl];
+    //   imageArr.push(result?.data?.uploadFile.url);
+    //   setImgUrl(imageArr);
+    //   console.log(imageArr);
+    // } catch (error) {
+    //   alert(error.massage);
+    // }
+
     const isEvery = Object.values(inputs)
       .filter((data) => data !== "yourubeUrl")
       .every((data) => data);
@@ -70,7 +114,7 @@ export default function BoardWrite(props: IBoardWriteProps) {
             createBoardInput: {
               ...inputs,
               boardAddress: { zipcode, address, addressDetail },
-              images: [...imgUrl],
+              images: aa, //["https://2111", "https://22222"],
             },
           },
         });
@@ -85,6 +129,17 @@ export default function BoardWrite(props: IBoardWriteProps) {
   }
 
   async function onClickUpdate() {
+    const resultFiles = await Promise.all(
+      file.map((data) => {
+        // console.log(data);
+        return uploadfile({ variables: { file: data } });
+      })
+    );
+
+    const aa = resultFiles.map((data) => {
+      return data.data.uploadFile.url;
+    });
+
     try {
       const result = await updateBoard({
         variables: {
@@ -94,6 +149,7 @@ export default function BoardWrite(props: IBoardWriteProps) {
             title: inputs.title || props.data?.title,
             contents: inputs.contents || props.data?.contents,
             boardAddress: { zipcode, address, addressDetail },
+            image: aa,
           },
         },
       });
@@ -125,56 +181,73 @@ export default function BoardWrite(props: IBoardWriteProps) {
   }
 
   async function onChangeFile(event: ChangeEvent<HTMLInputElement>) {
-    const file = event.target.files?.[0];
+    const fileInfo = event.target.files?.[0];
     setIsUpload(false);
-    // console.log("일단된다.");
-    if (!file?.size) {
+    // console.log(event.target.files?.[0]);
+    if (!fileInfo?.size) {
       alert("파이리 없습니다.");
       return;
     }
-    if (file?.size > 5 * 1024 * 1024) {
+    if (fileInfo?.size > 5 * 1024 * 1024) {
       alert("파일 사이즈가 5mb보다 큽니다.");
       return;
     }
-    if (!file?.type.includes("png") && !file?.type.includes("jpeg")) {
+    if (!fileInfo?.type.includes("png") && !fileInfo?.type.includes("jpeg")) {
       alert("png또는 jpeg 파일만 전송 가능합니다.");
       return;
     }
 
-    try {
-      const result = await uploadfile({
-        variables: {
-          file: file,
-        },
-      });
-      // console.log(result.data.uploadFile.url);
-      // setImgUrl(result.data.uploadFile.url);
+    // try {
+    //   const result = await uploadfile({
+    //     variables: {
+    //       file: file,
+    //     },
+    //   });
+    //   // console.log(result.data.uploadFile.url);
+    //   // setImgUrl(result.data.uploadFile.url);
 
-      const imageArr = [...imgUrl];
-      imageArr.push(result?.data?.uploadFile.url);
-      setImgUrl(imageArr);
-      console.log(imageArr);
-    } catch (error) {
-      alert(error.massage);
-    }
+    //   const imageArr = [...imgUrl];
+    //   imageArr.push(result?.data?.uploadFile.url);
+    //   setImgUrl(imageArr);
+    //   console.log(imageArr);
+    // } catch (error) {
+    //   alert(error.massage);
+    // }
+
+    const fileReader = new FileReader();
+    fileReader.readAsDataURL(fileInfo);
+    fileReader.onload = (data) => {
+      // console.log(data.target.result);
+      // data >읽힌 결과물
+
+      const resultImgArr = [...resultImgUrl];
+      resultImgArr.push(data.target.result);
+      setResultimgUrl(resultImgArr); // 임시주소
+
+      const realImg = [...file];
+      realImg.push(fileInfo);
+      setFile(realImg);
+    };
   }
 
+  // console.log(file);
+
   function onClickGreyBox(event) {
-    console.log(event.target?.children);
+    // console.log(event.target?.children);
     event.target?.children[2]?.click();
     // fileRef.current?.click();
   }
 
   function onClickDeleteImg(index) {
-    const imgArr = [...imgUrl];
+    const imgArr = [...resultImgUrl];
     imgArr.splice(index, 1);
     // imgUrl.splice(index, 1);
-    console.log(imgUrl);
+    // console.log(imgUrl);
 
-    setImgUrl(imgArr);
+    setResultimgUrl(imgArr);
     // setImgUrl([""]);
   }
-
+  // resultImgUrl, setResultimgUrl;
   return (
     <BoardWriteUI
       isOpen={isOpen}
@@ -200,6 +273,7 @@ export default function BoardWrite(props: IBoardWriteProps) {
       setImgUrl={setImgUrl}
       isUpload={isUpload}
       onClickDeleteImg={onClickDeleteImg}
+      resultImgUrl={resultImgUrl}
     />
   );
 }

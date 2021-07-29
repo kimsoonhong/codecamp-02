@@ -53,7 +53,7 @@ export default function BoardListUI(props: IBoardListUIProps) {
                   key={currentPage}
                   onClick={props.onClickPage}
                   id={String(currentPage)}
-                  // isActive={currentPage === props.activePage}
+                  isActive={currentPage === props.activedPage}
                 >
                   {currentPage}
                 </Page>

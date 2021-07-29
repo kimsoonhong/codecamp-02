@@ -15,16 +15,30 @@ export default function LayoutNavigationUI(props) {
       window.removeEventListener("scroll", listener);
     };
   });
+  const openAPIs = "openAPI";
+  const boardss = "boards";
 
   return (
     <Wrapper>
-      <MenuItem onClick={props.EnterToOpenAPI}>Open API</MenuItem>
+      <MenuItem
+        id="openAPI"
+        onClick={props.EnterToMenu}
+        isClickd={openAPIs === props.isClick}
+      >
+        Open API
+      </MenuItem>
       <>|</>
-      <MenuItem>자유게시판</MenuItem>
+      <MenuItem
+        id="boards"
+        onClick={props.EnterToMenu}
+        isClickd={boardss === props.isClick}
+      >
+        자유게시판
+      </MenuItem>
       <>|</>
-      <MenuItem>중고마켓</MenuItem>
+      <MenuItem id="products">중고마켓</MenuItem>
       <>|</>
-      <MenuItem>마이페이지</MenuItem>
+      <MenuItem id="mypages">마이페이지</MenuItem>
       {/* <div>{scrollY}</div> */}
 
       {/* <Testdiv scrollY={scrollY}>dd</Testdiv> */}

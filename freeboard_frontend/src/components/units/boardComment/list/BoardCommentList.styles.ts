@@ -50,8 +50,7 @@ export const DateString = styled.div`
 
 export const Star = styled(Rate)`
   padding-left: 20px;
-  color: white;
-  background-color: white;
+
   display: block;
 `;
 

@@ -41,7 +41,7 @@ export default function BoardCommentWriteUI(props: IBoardCommentWriteUIProps) {
         <Star
           onChange={props.onChangeStar}
           defaultValue={props.inputs.rating || props.data?.rating}
-          style={{ color: "white", backgroundColor: "white" }}
+          // style={{ color: "white", backgroundColor: "white" }}
         />
       </InputWrapper>
       <ContentsWrapper>
