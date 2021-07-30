@@ -17,6 +17,7 @@ export const INPUTS_INIT = {
 };
 
 export default function BoardWrite(props: IBoardWriteProps) {
+  const [visible, setVisible] = useState(false);
   const router = useRouter();
   const [active, setActive] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
@@ -50,82 +51,86 @@ export default function BoardWrite(props: IBoardWriteProps) {
     }
   }
 
-  async function onClickSubmit() {
-    // setInputsErrors({
-    //   writer: inputs.writer ? "" : "작성자를 입력해주세요.",
-    //   password: inputs.password ? "" : "비밀번호를 입력해주세요.",
-    //   title: inputs.title ? "" : "제목을 입력해주세요.",
-    //   contents: inputs.contents ? "" : "내용을 입력해주세요.",
-    // });
-    setInputsErrors({
-      writer: inputs.writer ? "" : alert("작성자를 입력해주세요."),
-      password: inputs.password ? "" : alert("비밀번호를 입력해주세요."),
-      title: inputs.title ? "" : alert("제목을 입력해주세요."),
-      contents: inputs.contents ? "" : alert("내용을 입력해주세요."),
+  function onClickSubmit() {
+    Modal.confirm({
+      content: "게시물이 성공적으로 등록되었습니다.",
+      onOk: async () => {
+        // setInputsErrors({
+        //   writer: inputs.writer ? "" : "작성자를 입력해주세요.",
+        //   password: inputs.password ? "" : "비밀번호를 입력해주세요.",
+        //   title: inputs.title ? "" : "제목을 입력해주세요.",
+        //   contents: inputs.contents ? "" : "내용을 입력해주세요.",
+        // });
+        setInputsErrors({
+          writer: inputs.writer ? "" : alert("작성자를 입력해주세요."),
+          password: inputs.password ? "" : alert("비밀번호를 입력해주세요."),
+          title: inputs.title ? "" : alert("제목을 입력해주세요."),
+          contents: inputs.contents ? "" : alert("내용을 입력해주세요."),
+        });
+
+        const resultFiles = await Promise.all(
+          file.map((data) => {
+            // console.log(data);
+            return uploadfile({ variables: { file: data } });
+          })
+
+          //   [
+          //   uploadfile({
+          //     variables: {
+          //       file: file,
+          //     },
+          //   }),
+          // ]
+        );
+
+        // const realImg = [...file];
+        // realImg.push(fileInfo);
+        // setFile(realImg);
+
+        const aa = resultFiles.map((data) => {
+          return data.data.uploadFile.url;
+        }); // ["https://123123", "https://3343434"]
+
+        // try {
+        //   const result = await uploadfile({
+        //     variables: {
+        //       file: file,
+        //     },
+        //   });
+        // console.log(result.data.uploadFile.url);
+        // setImgUrl(result.data.uploadFile.url);
+
+        //   const imageArr = [...imgUrl];
+        //   imageArr.push(result?.data?.uploadFile.url);
+        //   setImgUrl(imageArr);
+        //   console.log(imageArr);
+        // } catch (error) {
+        //   alert(error.massage);
+        // }
+
+        const isEvery = Object.values(inputs)
+          .filter((data) => data !== "yourubeUrl")
+          .every((data) => data);
+        if (isEvery) {
+          try {
+            const result = await createBoard({
+              variables: {
+                createBoardInput: {
+                  ...inputs,
+                  boardAddress: { zipcode, address, addressDetail },
+                  images: aa, //["https://2111", "https://22222"],
+                },
+              },
+            });
+
+            router.push(`/boards/${result.data.createBoard._id}`);
+          } catch (error) {
+            alert(error.message);
+          }
+        }
+      },
+      onCancel: () => setVisible(false),
     });
-
-    const resultFiles = await Promise.all(
-      file.map((data) => {
-        // console.log(data);
-        return uploadfile({ variables: { file: data } });
-      })
-
-      //   [
-      //   uploadfile({
-      //     variables: {
-      //       file: file,
-      //     },
-      //   }),
-      // ]
-    );
-
-    // const realImg = [...file];
-    // realImg.push(fileInfo);
-    // setFile(realImg);
-
-    const aa = resultFiles.map((data) => {
-      return data.data.uploadFile.url;
-    }); // ["https://123123", "https://3343434"]
-
-    // try {
-    //   const result = await uploadfile({
-    //     variables: {
-    //       file: file,
-    //     },
-    //   });
-    // console.log(result.data.uploadFile.url);
-    // setImgUrl(result.data.uploadFile.url);
-
-    //   const imageArr = [...imgUrl];
-    //   imageArr.push(result?.data?.uploadFile.url);
-    //   setImgUrl(imageArr);
-    //   console.log(imageArr);
-    // } catch (error) {
-    //   alert(error.massage);
-    // }
-
-    const isEvery = Object.values(inputs)
-      .filter((data) => data !== "yourubeUrl")
-      .every((data) => data);
-    if (isEvery) {
-      try {
-        const result = await createBoard({
-          variables: {
-            createBoardInput: {
-              ...inputs,
-              boardAddress: { zipcode, address, addressDetail },
-              images: aa, //["https://2111", "https://22222"],
-            },
-          },
-        });
-        Modal.confirm({
-          content: "게시물이 성공적으로 등록되었습니다.",
-          onOk: () => router.push(`/boards/${result.data.createBoard._id}`),
-        });
-      } catch (error) {
-        alert(error.message);
-      }
-    }
   }
 
   async function onClickUpdate() {

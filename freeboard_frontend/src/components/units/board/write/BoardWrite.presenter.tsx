@@ -51,6 +51,8 @@ interface IBoardWriteUIProps {
 }
 
 export default function BoardWriteUI(props: IBoardWriteUIProps) {
+  console.log(props.isEdit);
+  console.log(props.data);
   return (
     <>
       {props.isOpen && (
@@ -152,7 +154,7 @@ export default function BoardWriteUI(props: IBoardWriteUIProps) {
                 <UploadImg
                   src={
                     props.isEdit
-                      ? data.fetchBoard.image[index]
+                      ? props.data?.fetchBoard.images[index]
                       : `${props.resultImgUrl[index]}`
                   }
                 />

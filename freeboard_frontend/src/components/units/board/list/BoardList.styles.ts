@@ -100,3 +100,30 @@ export const Page = styled.div`
     animation: all 3000ms ease-in;
   }
 `;
+
+export const SearchWrapper = styled.div`
+  width: 100%;
+  /* background-color: red; */
+  margin-bottom: 20px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+`;
+export const SearchInput = styled.input`
+  width: 200px;
+  height: 52px;
+  padding-left: 16px;
+  border: none;
+  font-size: 20px;
+  border-bottom: 2px gray solid;
+  /* text-align: center; */
+  flood-color: gray;
+  /* margin-left: 80%; */
+`;
+
+export const Image = styled.img`
+  width: 60px;
+  height: 40px;
+  display: none;
+`;
