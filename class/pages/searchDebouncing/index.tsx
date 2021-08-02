@@ -31,6 +31,10 @@ const Page = styled.span`
 `;
 
 export default function search() {
+
+
+
+  
   const { data, refetch } = useQuery<
     Pick<IQuery, "fetchBoards">,
     IQueryFetchBoardsArgs
