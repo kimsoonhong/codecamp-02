@@ -53,7 +53,7 @@ export default function BoardWrite(props: IBoardWriteProps) {
 
   function onClickSubmit() {
     Modal.confirm({
-      content: "게시물이 성공적으로 등록되었습니다.",
+      content: "게시물을 등록 하시겠습니까?",
       onOk: async () => {
         // setInputsErrors({
         //   writer: inputs.writer ? "" : "작성자를 입력해주세요.",

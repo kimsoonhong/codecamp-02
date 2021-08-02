@@ -74,7 +74,7 @@ export default function BoardList() {
     setKeyword(event.target.value);
   }
 
-  console.log(keyword, searchPage);
+  // console.log(keyword, searchPage);
   return (
     <BoardListUI
       data={data}

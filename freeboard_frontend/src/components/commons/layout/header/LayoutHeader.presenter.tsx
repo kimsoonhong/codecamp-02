@@ -7,7 +7,7 @@ import {
 import { useState } from "react";
 import { useEffect } from "react";
 
-export default function LayoutHeaderUI() {
+export default function LayoutHeaderUI(props) {
   const [scrollY, setScrollY] = useState<number>(0);
   const listener = () => {
     setScrollY(window.pageYOffset);
@@ -24,7 +24,7 @@ export default function LayoutHeaderUI() {
       <InnerWrapper>
         <InnerLogo>ㅅㅜ ㅣ ㅁ</InnerLogo>
         <div>
-          <InnerButton>로그인</InnerButton>
+          <InnerButton onClick={props.onClickLogin}>로그인</InnerButton>
           <InnerButton>회원가입</InnerButton>
         </div>
       </InnerWrapper>
