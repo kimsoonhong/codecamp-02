@@ -51,8 +51,8 @@ interface IBoardWriteUIProps {
 }
 
 export default function BoardWriteUI(props: IBoardWriteUIProps) {
-  console.log(props.isEdit);
-  console.log(props.data);
+  // console.log(props.isEdit);
+  // console.log(props.data);
   return (
     <>
       {props.isOpen && (

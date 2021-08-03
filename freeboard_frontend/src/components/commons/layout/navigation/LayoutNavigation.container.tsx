@@ -5,8 +5,6 @@ export default function LayoutNavigation() {
   const router = useRouter();
   const [isClick, setIsClick] = useState("");
 
-  console.log(isClick);
-
   // function EnterToBoard() {
   //   router.push("/boards");
   // }

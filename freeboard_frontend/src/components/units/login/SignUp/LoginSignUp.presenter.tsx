@@ -11,7 +11,7 @@ import {
   SignUpButton,
 } from "./LoginSignUp.styles";
 
-export default function LoginSignUpUI(props) {
+export default function LoginSignUpUI(props: any) {
   return (
     <Wrapper>
       <Img>ㅅㅜ ㅣ ㅁ </Img>
@@ -23,9 +23,7 @@ export default function LoginSignUpUI(props) {
           placeholder="이메일을 입력해주세요"
           onChange={props.onChangeInputs}
         />
-        <ErrorTextDiv isActive={props.isActive}>
-          이메일을 입력해주세요.
-        </ErrorTextDiv>
+        <ErrorTextDiv>{props.inputsErrors.email}</ErrorTextDiv>
         <TextDiv>이름</TextDiv>
         <NameInput
           name="name"
@@ -33,9 +31,7 @@ export default function LoginSignUpUI(props) {
           placeholder="이름을 입력해주세요"
           onChange={props.onChangeInputs}
         />
-        <ErrorTextDiv isActive={props.isActive}>
-          이름을 입력해주세요.
-        </ErrorTextDiv>
+        <ErrorTextDiv>{props.inputsErrors.name}</ErrorTextDiv>
         <TextDiv>비밀번호</TextDiv>
         <PasswordInput
           name="password"
@@ -43,14 +39,10 @@ export default function LoginSignUpUI(props) {
           placeholder="비밀번호를 입력해주세요"
           onChange={props.onChangeInputs}
         />
-        <ErrorTextDiv isActive={props.isActive}>
-          비밀번호는 8자리 이상, 특수문자 1회를 입력 하여야 합니다.
-        </ErrorTextDiv>
+        <ErrorTextDiv>{props.inputsErrors.password}</ErrorTextDiv>
         <TextDiv>비밀번호확인</TextDiv>
         <PasswordInput type="password" placeholder="비밀번호를 확인해주세요" />
-        <ErrorTextDiv isActive={props.isActive}>
-          비밀번호를 확인해주세요.
-        </ErrorTextDiv>
+        <ErrorTextDiv> {props.inputsErrors.password}</ErrorTextDiv>
       </InputWrapper>
       <KeepLonin></KeepLonin>
       <SignUpButton onClick={props.onClickCreateUser}>

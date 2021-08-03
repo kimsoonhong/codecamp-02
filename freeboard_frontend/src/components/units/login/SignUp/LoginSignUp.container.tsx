@@ -1,4 +1,5 @@
 import { useMutation } from "@apollo/client";
+import { useRouter } from "next/router";
 import { ChangeEvent, useState } from "react";
 import SignUpUI from "./LoginSignUp.presenter";
 import { CREATE_USER } from "./LoginSignUp.queries";
@@ -12,31 +13,44 @@ export const INPUTS_INIT = {
 export default function signUp() {
   const [createUser] = useMutation(CREATE_USER);
   const [inputs, setInputs] = useState(INPUTS_INIT);
-  const [isActive, setIsActive] = useState(INPUTS_INIT);
+  const [inputsErrors, setInputsErrors] = useState(INPUTS_INIT);
+  const router = useRouter();
 
   function onChangeInputs(event: ChangeEvent<HTMLInputElement>) {
     const newInputs = { ...inputs, [event.target.name]: event.target.value };
     setInputs(newInputs);
   }
 
-  async function onClickCreateUser(event: ChangeEvent<HTMLInputElement>) {
-    setIsActive({
-      email: inputs.email ? "" : alert("작성자를 입력해주세요."),
-      password: inputs.password ? "" : alert("비밀번호를 입력해주세요."),
-      name: inputs.name ? "" : alert("제목을 입력해주세요."),
-    });
+  async function onClickCreateUser() {
+    const newInputsErrors = {
+      email: /\w+@\w+\.\w+/.test(inputs.email) ? "" : "이메일을 확인해주세요",
+      password:
+        /^(?=.*[a-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,20}$/.test(
+          inputs.password
+        )
+          ? ""
+          : "비밀번호 입력해주세요",
+      name: inputs.name ? "" : "이름을 입력해주세요",
+    };
+    setInputsErrors(newInputsErrors);
 
-    try {
-      const result = await createUser({
-        variables: {
-          createUserInput: {
-            ...inputs,
+    if (Object.values(newInputsErrors).every((data) => !data)) {
+      try {
+        const result = await createUser({
+          variables: {
+            createUserInput: {
+              email: inputs.email,
+              password: inputs.password,
+              name: inputs.name,
+            },
           },
-        },
-      });
-      console.log(result);
-    } catch (error) {
-      alert(error.message);
+        });
+        console.log(result.data?.createUser._id);
+        router.push("/login");
+        alert("회원가입");
+      } catch (error) {
+        alert(error.message);
+      }
     }
   }
 
@@ -44,7 +58,7 @@ export default function signUp() {
     <SignUpUI
       onClickCreateUser={onClickCreateUser}
       onChangeInputs={onChangeInputs}
-      isActive={isActive}
+      inputsErrors={inputsErrors}
     />
   );
 }

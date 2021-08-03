@@ -59,9 +59,14 @@ export default function BoardListUI(props: IBoardListUIProps) {
             {data.title
               .replaceAll(props.keyword, `$!${props.keyword}$!`)
               .split("$!")
-              .map((data, index) => (
-                <Word key={index} isMatched={props.keyword === data}>
-                  {data}
+              .map((data2, index) => (
+                <Word
+                  id={data._id}
+                  key={index}
+                  isMatched={props.keyword === data2}
+                  onClick={props.onClickMoveToBoardDetail}
+                >
+                  {data2}
                 </Word>
               ))}
           </ColumnTitle>

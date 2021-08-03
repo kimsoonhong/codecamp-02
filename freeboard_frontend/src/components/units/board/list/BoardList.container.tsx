@@ -29,8 +29,6 @@ export default function BoardList() {
     : Math.ceil(Number(dataBoardCount?.fetchBoardsCount) / 10);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  console.log(lastPage);
-
   useEffect(() => {
     inputRef.current?.focus();
   });

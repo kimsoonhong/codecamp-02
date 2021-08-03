@@ -6,7 +6,6 @@ import { CREATE_BOARD, UPDATE_BOARD, UPLOAD_FILE } from "./BoardWrite.queries";
 import { IBoardWriteProps } from "./BoardWrite.types";
 import { Modal } from "antd";
 import { useRef } from "react";
-import { tuple } from "antd/lib/_util/type";
 
 export const INPUTS_INIT = {
   writer: "",
@@ -108,9 +107,8 @@ export default function BoardWrite(props: IBoardWriteProps) {
         //   alert(error.massage);
         // }
 
-        const isEvery = Object.values(inputs)
-          .filter((data) => data !== "yourubeUrl")
-          .every((data) => data);
+        const { youtubeUrl, ...rest } = inputs;
+        const isEvery = Object.values(rest).every((data) => data);
         if (isEvery) {
           try {
             const result = await createBoard({
@@ -154,10 +152,11 @@ export default function BoardWrite(props: IBoardWriteProps) {
             title: inputs.title || props.data?.title,
             contents: inputs.contents || props.data?.contents,
             boardAddress: { zipcode, address, addressDetail },
-            image: aa,
+            images: inputs.images || aa,
           },
         },
       });
+      console.log(result);
       Modal.confirm({
         content: "게시물이 성공적으로 수정되었습니다.",
         onOk: () => router.push(`/boards/${result.data.updateBoard._id}`),

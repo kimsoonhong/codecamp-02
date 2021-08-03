@@ -36,7 +36,7 @@ export default function loginUI(props) {
         <Checkbox style={{ color: "#142b12" }} />
         로그인 상태 유지
       </KeepLonin>
-      <LoginButton>로그인하기</LoginButton>
+      <LoginButton onClick={props.onClickLogin}>로그인하기</LoginButton>
       <FindWrapper>
         <Clickdiv>이메일 찾기</Clickdiv>
         <>|</>

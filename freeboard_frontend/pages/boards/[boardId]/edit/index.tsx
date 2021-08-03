@@ -11,6 +11,11 @@ const FETCH_BOARD = gql`
       _id
       youtubeUrl
       images
+      boardAddress {
+        zipcode
+        address
+        addressDetail
+      }
     }
   }
 `;
@@ -21,6 +26,6 @@ export default function BoardsEditPage() {
     variables: { boardId: router.query.boardId },
   });
   const isEdit = true;
-  console.log(data);
+  console.log("dsfsdf", data);
   return <BoardWrite isEdit={isEdit} data={data} />;
 }
