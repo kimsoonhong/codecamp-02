@@ -4,6 +4,7 @@ import {
   IMutation,
   IMutationCreateUserArgs,
 } from "../../src/commons/types/generated/types";
+import withAuth from "../../src/components/commons/withAuth";
 
 export const CREATE_USER = gql`
   mutation createUser($createUserInput: CreateUserInput!) {
@@ -13,7 +14,9 @@ export const CREATE_USER = gql`
   }
 `;
 
-export default function signupPage() {
+export default withAuth(signupPage);
+
+function signupPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
