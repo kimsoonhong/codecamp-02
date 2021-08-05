@@ -7,8 +7,6 @@ import { LOGIN_USER } from "./MarketWrite.queries";
 
 import { yupResolver } from "@hookform/resolvers/yup";
 import { schemaSubmit } from "./MarketWrite.validation";
-import { useRef } from "react";
-import ImgFilesValidations from "../../../../commons/libraries/ImgFiles_validations";
 
 export default function marketList() {
   const { register, handleSubmit, formState } = useForm({
@@ -16,7 +14,6 @@ export default function marketList() {
     resolver: yupResolver(schemaSubmit),
   });
   const [loginUser] = useMutation(LOGIN_USER);
-  const fileRef = useRef<HTMLInputElement>(null);
 
   async function onSubmit(data) {
     try {
@@ -30,19 +27,6 @@ export default function marketList() {
     }
   }
 
-  async function onChangeFile(event: ChangeEvent<HTMLInputElement>) {
-    const file: any = event.target.files?.[0];
-    if (!ImgFilesValidations(file)) return;
-
-    const fileReader = new FileReader();
-    fileReader.readAsDataURL(file);
-    fileReader.onload = (data) => {
-      const resultImgArr = [...resultImgUrl];
-      resultImgArr.push(data.target.result);
-      setResultimgUrl(resultImgArr);
-    };
-  }
-
   return (
     <div>
       <MarketWriteUI
@@ -51,8 +35,6 @@ export default function marketList() {
         onSubmit={onSubmit}
         isActive={formState.isValid}
         errors={formState.errors}
-        fileRef={fileRef}
-        onChangeFile={onChangeFile}
       />
     </div>
   );
