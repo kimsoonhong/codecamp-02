@@ -119,6 +119,33 @@ export default function marketListUI() {
             </ProductListbottomDetail>
             <ProductListbottomPrice>234,234원</ProductListbottomPrice>
           </ProductListbottomWrapper>
+          <ProductListbottomWrapper>
+            <ProductListbottomPicture>d</ProductListbottomPicture>
+            <ProductListbottomDetail>
+              <ProductListbottomDetailName>
+                삼성전자 갤럭시탭
+              </ProductListbottomDetailName>
+              <ProductListbottomDetailSummary>
+                2958년 tle
+              </ProductListbottomDetailSummary>
+              <ProductListbottomDetailTag>
+                #삼성전자 # 갤럭시텝
+              </ProductListbottomDetailTag>
+              <ProductListbottomFloorDiv>
+                <ProductListbottomFloorAvatar>
+                  사진
+                </ProductListbottomFloorAvatar>
+                <ProductListbottomFloorSeller>
+                  판매자
+                </ProductListbottomFloorSeller>
+                <ProductListbottomFloorLike>하트</ProductListbottomFloorLike>
+                <ProductListbottomFloorLikeNumber>
+                  93
+                </ProductListbottomFloorLikeNumber>
+              </ProductListbottomFloorDiv>
+            </ProductListbottomDetail>
+            <ProductListbottomPrice>234,234원</ProductListbottomPrice>
+          </ProductListbottomWrapper>
         </ProductListWrapper>
       </Wrapper>
       {/* -오늘본상품-? */}

@@ -1,6 +1,6 @@
 import { useMutation } from "@apollo/client";
 import { useRouter } from "next/router";
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import BoardWriteUI from "./BoardWrite.presenter";
 import { CREATE_BOARD, UPDATE_BOARD, UPLOAD_FILE } from "./BoardWrite.queries";
 import { IBoardWriteProps } from "./BoardWrite.types";
@@ -16,6 +16,7 @@ export const INPUTS_INIT = {
 };
 
 export default function BoardWrite(props: IBoardWriteProps) {
+  console.log("asdf", props.data);
   const [visible, setVisible] = useState(false);
   const router = useRouter();
   const [active, setActive] = useState(true);
@@ -34,10 +35,19 @@ export default function BoardWrite(props: IBoardWriteProps) {
   const [resultImgUrl, setResultimgUrl] = useState([]);
   const [file, setFile] = useState([]);
 
+  useEffect(() => {
+    if (props.data?.fetchBoard?.images?.length)
+      setResultimgUrl(
+        [...props.data?.fetchBoard.images].map(
+          (data) => `https://storage.googleapis.com/${data}`
+        )
+      );
+  }, [props.data?.fetchBoard.images]);
+
   function onChangeAddressDetail(event: ChangeEvent<HTMLInputElement>) {
     setAddressDetail(event.target.value);
   }
-  // console.log(imgUrl);
+  console.log(imgUrl);
 
   function onChangeInputs(
     event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -152,7 +162,16 @@ export default function BoardWrite(props: IBoardWriteProps) {
             title: inputs.title || props.data?.title,
             contents: inputs.contents || props.data?.contents,
             boardAddress: { zipcode, address, addressDetail },
-            images: inputs.images || aa,
+            images: [
+              ...resultImgUrl
+                .filter((data) =>
+                  data.includes("https://storage.googleapis.com/")
+                )
+                .map((data) =>
+                  data.replace("https://storage.googleapis.com/", "")
+                ),
+              ...aa,
+            ],
           },
         },
       });

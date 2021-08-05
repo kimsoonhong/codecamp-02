@@ -153,9 +153,9 @@ export default function BoardWriteUI(props: IBoardWriteUIProps) {
               >
                 <UploadImg
                   src={
-                    props.isEdit
-                      ? props.data?.fetchBoard.images[index]
-                      : `${props.resultImgUrl[index]}`
+                    // props.isEdit
+                    //   ? props.data?.fetchBoard.images[index]
+                    `${props.resultImgUrl[index]}`
                   }
                 />
                 <div>-</div>
@@ -165,7 +165,7 @@ export default function BoardWriteUI(props: IBoardWriteUIProps) {
             ))}
             {/* =
 = */}
-            {new Array(3 ? 3 - props.resultImgUrl.length : 3)
+            {new Array(3 - props.resultImgUrl.length)
               .fill(1)
               .map((_, index) => {
                 return (

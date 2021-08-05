@@ -1,24 +1,129 @@
 import styled from "@emotion/styled";
 
-export const Wrapper = styled.div``;
-export const Header = styled.div``;
-export const HeaderText = styled.div``;
-export const Body = styled.div``;
-export const Label = styled.div``;
-export const Input_1 = styled.div``;
-export const Textarea_1 = styled.div``;
-export const MapWrapper = styled.div``;
-export const MapPosition = styled.div``;
-export const MapRightWrapper = styled.div``;
-export const GPSWrapper = styled.div``;
-export const LATDiv = styled.div``;
-export const PositionIcon = styled.div``;
-export const LNGDiv = styled.div``;
-export const AddressWrapper = styled.div``;
-export const Input_2 = styled.div``;
-export const ImgWrapper = styled.div``;
-export const ImgUpload = styled.div``;
-export const RadioButtonWrapper = styled.div``;
-export const RadioButton = styled.div``;
-export const RadioLabel = styled.div``;
-export const SubmitButton = styled.div``;
+export const Wrapper = styled.div`
+  width: 1200px;
+  background-color: bisque;
+  padding: 80px 120px;
+  border: 2px gray solid;
+  margin: auto;
+`;
+export const Header = styled.div`
+  width: 100%;
+  background-color: yellow;
+`;
+export const HeaderText = styled.div`
+  font-weight: bolder;
+  font-size: 60px;
+  text-align: center;
+  font-family: "live";
+`;
+export const Body = styled.div`
+  width: 100%;
+  background-color: yellowgreen;
+`;
+export const Label = styled.div`
+  font-weight: 500;
+  font-size: 16px;
+  padding-top: 40px;
+  background-color: grey;
+`;
+export const MapWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
+export const MapPositionWrapper = styled.div``;
+export const MapPosition = styled.div`
+  width: 385px;
+  height: 252px;
+  background-color: hotpink;
+`;
+export const MapRightWrapper = styled.div`
+  background-color: white;
+  width: 100%;
+  padding-left: 20px;
+`;
+export const GPSWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  background-color: yellowgreen;
+`;
+export const LATDiv = styled.div`
+  width: 108px;
+  height: 52px;
+  background-color: violet;
+`;
+export const PositionIcon = styled.div`
+  width: 30px;
+  height: 30px;
+  margin: 0px 20px;
+  text-align: center;
+  background-color: wheat;
+`;
+export const LNGDiv = styled.div`
+  width: 108px;
+  height: 52px;
+  background-color: violet;
+`;
+export const AddressWrapper = styled.div`
+  width: 100%;
+  height: 63%;
+  background-color: beige;
+  background-color: yellow;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+`;
+export const Input_2 = styled.input`
+  margin-top: 16px;
+  width: 100%;
+  height: 52px;
+`;
+export const ImgWrapper = styled.div`
+  width: 100%;
+  background-color: chocolate;
+  display: flex;
+  flex-direction: row;
+  padding-top: 16px;
+`;
+export const ImgUpload = styled.div`
+  width: 180px;
+  height: 180px;
+  background-color: #bdbdbd;
+  margin-right: 24px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  padding-top: 15px;
+  position: relative;
+`;
+
+export const UploadImg = styled.img`
+  width: 78px;
+  height: 78px;
+
+  opacity: 0.6;
+  position: absolute;
+  transform: translate(-40px, -15px);
+`;
+export const RadioButtonWrapper = styled.div`
+  background-color: beige;
+
+  display: flex;
+  flex-direction: row;
+`;
+export const RadioButton = styled.div`
+  width: 30px;
+  height: 30px;
+  background-color: bisque;
+`;
+export const RadioLabel = styled.div`
+  font-weight: 500;
+  font-size: 16px;
+  margin-right: 24px;
+`;
+
+export const ButtonWrapper = styled.button`
+  width: 100%;
+  margin-top: 80px;
+`;
