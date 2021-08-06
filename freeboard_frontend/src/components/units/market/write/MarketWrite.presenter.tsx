@@ -1,6 +1,7 @@
 import Input100 from "../../../commons/Inputs/Input_width_100";
 import InputTextarea from "../../../commons/Inputs/Input_Textarea_01";
 import Button01 from "../../../commons/Buttons/Button-Middle-01";
+import ImgFileUploads from "../../../../components/commons/ImgFile_Uploads01/Uploads01.container";
 
 import {
   Wrapper,
@@ -98,8 +99,9 @@ export default function marketWriteUI(props) {
           </MapWrapper>
           <Label>사진첨부</Label>
           <ImgWrapper>
-            <ImgUpload>제품사진</ImgUpload>
-            <ImgUpload>제품사진</ImgUpload>
+            {/* <ImgUpload>제품사진</ImgUpload>
+            <ImgUpload>제품사진</ImgUpload> */}
+            <ImgFileUploads size={180} number={3} setFiles={props.setFiles} />
           </ImgWrapper>
           <Label>메인 사진 설정</Label>
           <RadioButtonWrapper>

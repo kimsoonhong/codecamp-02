@@ -24,15 +24,7 @@ export default function input100(props) {
   return (
     <div>
       {props.InputName && <Label>{props?.InputName}</Label>}
-      <Input
-        type={props.type}
-        {...props.register}
-        style={props.style}
-        multiple={props.multiple}
-        ref={props.fileRef}
-        id={props.index}
-        onChange={props.onChangeFile}
-      />
+      <Input type={props.type} {...props.register} style={props.style} />
       <ErrorMessage>{props?.errorMessage}</ErrorMessage>
     </div>
   );

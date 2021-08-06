@@ -16,7 +16,6 @@ export const INPUTS_INIT = {
 };
 
 export default function BoardWrite(props: IBoardWriteProps) {
-  console.log("asdf", props.data);
   const [visible, setVisible] = useState(false);
   const router = useRouter();
   const [active, setActive] = useState(true);
@@ -253,7 +252,7 @@ export default function BoardWrite(props: IBoardWriteProps) {
     };
   }
 
-  // console.log(file);
+  console.log(file);
 
   function onClickGreyBox(event) {
     // console.log(event.target?.children);

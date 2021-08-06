@@ -36,7 +36,9 @@ export default function LayoutNavigationUI(props) {
         자유게시판
       </MenuItem>
       <>|</>
-      <MenuItem id="products">중고마켓</MenuItem>
+      <MenuItem id="market/" onClick={props.EnterToMenu}>
+        중고마켓
+      </MenuItem>
       <>|</>
       <MenuItem id="mypages">마이페이지</MenuItem>
       {/* <div>{scrollY}</div> */}

@@ -1,44 +1,32 @@
 import styled from "@emotion/styled";
 
-export const UploadImage = styled.img`
-  width: 78px;
-  height: 78px;
-  margin-right: 24px;
-  cursor: pointer;
-`;
-
-export const UploadButton = styled.button`
-  width: 78px;
-  height: 78px;
-  background-color: #bdbdbd;
-  margin-right: 24px;
-  outline: none;
-  border: none;
-  cursor: pointer;
-`;
-
-export const UploadFileHidden = styled.input`
-  display: none;
+export const Wrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  width: 100%;
 `;
 
 export const ImgUpload = styled.div`
-  width: 180px;
-  height: 180px;
+  width: ${(props) => props.size}px;
+  height: ${(props) => props.size}px;
   background-color: #bdbdbd;
   margin-right: 24px;
   outline: none;
   border: none;
   cursor: pointer;
   text-align: center;
-  padding-top: 15px;
   position: relative;
+  background-color: beige;
 `;
 
 export const UploadImg = styled.img`
-  width: 78px;
-  height: 78px;
-
+  width: ${(props) => props.size}px;
+  height: ${(props) => props.size}px;
   opacity: 0.6;
   position: absolute;
-  transform: translate(-40px, -15px);
+  transform: translate(-50%, 0%);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 `;

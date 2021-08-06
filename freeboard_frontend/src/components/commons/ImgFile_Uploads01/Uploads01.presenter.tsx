@@ -1,51 +1,33 @@
-import {
-  UploadButton,
-  UploadFileHidden,
-  UploadImage,
-  UploadImg,
-} from "./Uploads01.styles";
+import { Wrapper, UploadImg, ImgUpload } from "./Uploads01.styles";
 import { IUploads01UIProps } from "./Uploads01.types";
 
 export default function Uploads01UI(props: IUploads01UIProps) {
   return (
-    <>
-      {/* {props.fileUrl ? (
-        <UploadImage onClick={props.onClickUpload} src={props.fileUrl} />
-      ) : (
-        <UploadButton onClick={props.onClickUpload}>
-          <>+++</>
-          <>Upload</>
-        </UploadButton>
-      )}
-      <UploadFileHidden
-        type="file"
-        ref={props.fileRef}
-        onChange={props.onChangeFile}
-      /> */}
-
+    <Wrapper>
       {props.fileUrl.map((data, index) => (
-        <UploadButton onClick={() => props.onClickDeleteImg(index)} key={index}>
+        <ImgUpload
+          onClick={() => props.onClickDeleteImg(index)}
+          key={index}
+          size={props.size}
+          number={props.number}
+        >
           <UploadImg
-            src={
-              // props.isEdit
-              //   ? props.data?.fetchBoard.images[index]
-              `${props.fileUrl[index]}`
-            }
+            src={`${props.fileUrl[index]}`}
+            size={props.size}
+            number={props.number}
           />
-          <div>-</div>
+          <div style={{ paddingTop: "70px" }}>-</div>
           <div>Delete</div>
           <input type="file" multiple style={{ display: "none" }} />
-        </UploadButton>
+        </ImgUpload>
       ))}
 
       {new Array(3 - props.fileUrl.length).fill(1).map((_, index) => {
         return (
-          <UploadButton>
+          <ImgUpload size={props.size} number={props.number}>
             <label htmlFor={index}>
-              <div>
-                <div>+</div>
-                <div>Upload</div>
-              </div>
+              <div style={{ paddingTop: "40%" }}>+</div>
+              <div>Upload</div>
 
               <input
                 id={index}
@@ -54,11 +36,13 @@ export default function Uploads01UI(props: IUploads01UIProps) {
                 onChange={props.onChangeFile}
                 multiple
                 style={{ display: "none" }}
+                size={props.size}
+                number={props.number}
               />
             </label>
-          </UploadButton>
+          </ImgUpload>
         );
       })}
-    </>
+    </Wrapper>
   );
 }

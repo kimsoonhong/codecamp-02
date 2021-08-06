@@ -1,9 +1,7 @@
 import styled from "@emotion/styled";
 
 const MyBtn = styled.button`
-  background-color: ${(props) => (props.isActive ? "aqua" : "")};
   width: 380px;
-
   background-color: #2a652f;
   color: white;
   font-weight: bolder;
@@ -21,5 +19,9 @@ const MyBtn = styled.button`
 `;
 
 export default function button01(props) {
-  return <MyBtn>로그인버튼</MyBtn>;
+  return (
+    <MyBtn type={props.type} isActive={props.isActive}>
+      {props.buttonName}
+    </MyBtn>
+  );
 }

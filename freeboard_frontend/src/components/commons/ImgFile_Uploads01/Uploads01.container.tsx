@@ -6,6 +6,8 @@ import { IUploads01Props } from "./Uploads01.types";
 export default function Uploads01(props: IUploads01Props) {
   const fileRef = useRef<HTMLInputElement>(null);
   const [fileUrl, setFileUrl] = useState([]);
+  // const [file, setFile] = useState([]);
+  // const [file, setFile] = useState([]);
 
   function onClickUpload() {
     fileRef.current?.click();
@@ -13,18 +15,26 @@ export default function Uploads01(props: IUploads01Props) {
 
   async function onChangeFile(event: ChangeEvent<HTMLInputElement>) {
     const file: any = event.target.files?.[0];
-    if (!imgFilesValidation(file)) return;
 
+    if (!imgFilesValidation(file)) return;
     const fileReader = new FileReader();
     fileReader.readAsDataURL(file);
     fileReader.onload = (data) => {
       const fileURlArr = [...fileUrl];
       fileURlArr.push(data.target.result);
       setFileUrl(fileURlArr);
+      // props.onChangeFile(file, index)
+      props.setFiles((prev) => {
+        return [...prev, file];
+      });
     };
-  }
-  console.log(fileUrl);
 
+    // const realImg = [...file];
+    //   realImg.push(file);
+    //   setFile(realImg);
+  }
+
+  // console.log(fileUrl);
   function onClickDeleteImg(index) {
     const imgArr = [...fileUrl];
     imgArr.splice(index, 1);
@@ -46,6 +56,8 @@ export default function Uploads01(props: IUploads01Props) {
       onClickUpload={onClickUpload}
       onChangeFile={onChangeFile}
       onClickDeleteImg={onClickDeleteImg}
+      size={props.size}
+      number={props.number}
     />
   );
 }
