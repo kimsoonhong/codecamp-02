@@ -118,9 +118,12 @@ export const BodyMiddleWrapper = styled.div`
 
 export const BodyMiddleImgWrapper = styled.div`
   background-color: chartreuse;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 `;
 
-export const BodyMiddleImgMain = styled.div`
+export const BodyMiddleImgMain = styled.img`
   background-color: green;
   margin: auto;
   width: 383px;
@@ -129,17 +132,19 @@ export const BodyMiddleImgMain = styled.div`
 `;
 
 export const BodyMiddleImgPreviewWrapper = styled.div`
-  width: 100%;
-  background-color: hotpink;
+  width: 384px;
+  background-color: orange;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-evenly;
   padding-top: 20px;
+  margin: auto;
 `;
 
-export const BodyMiddleImgPreview = styled.div`
+export const BodyMiddleImgPreview = styled.img`
   width: 80px;
   height: 80px;
+
   background-color: honeydew;
 `;
 
@@ -174,11 +179,14 @@ export const BodyBottomMap = styled.div`
 
 // __
 export const BodyButtonWrapper = styled.div`
+  width: 400px;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
   padding-top: 80px;
   padding-bottom: 80px;
+  margin: auto;
+  background-color: orchid;
 `;
 
 export const Button = styled.button`

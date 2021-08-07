@@ -19,6 +19,7 @@ export default function BoardList() {
   const { data, refetch } = useQuery<IQuery>(FETCH_BOARDS, {
     variables: { aaa: startpage },
   });
+  console.log(data);
   const { data: dataBoardCount, refetch: searchRefetch } =
     useQuery<IQuery>(FETCH_BOARDS_COUNT);
   const lastPage = Math.ceil(Number(dataBoardCount?.fetchBoardsCount) / 10);

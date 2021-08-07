@@ -19,5 +19,9 @@ const MyBtn = styled.button`
 `;
 
 export default function button02(props) {
-  return <MyBtn>버튼미들2</MyBtn>;
+  return (
+    <MyBtn type={props.type} isActive={props.isActive} onClick={props.onClick}>
+      {props.buttonName}
+    </MyBtn>
+  );
 }

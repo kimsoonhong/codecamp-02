@@ -1,4 +1,8 @@
+import Button01 from "../../../commons/Buttons/Button-Middle-01";
+import Button02 from "../../../commons/Buttons/Button-Middle-02";
+
 import { Tooltip } from "antd";
+import { IMarketDetailUIProps } from "./MarketDetail.types";
 import { LinkOutlined, AimOutlined } from "@ant-design/icons";
 import {
   Wrapper,
@@ -33,16 +37,17 @@ import {
   Button,
 } from "./MarketDetail.styles";
 
-export default function MarketDetailUI(props) {
+export default function MarketDetailUI(props: IMarketDetailUIProps) {
+  console.log(props.data);
   return (
     <Wrapper>
       <Header>
         <HeaderAvatarWrapper>
           <HeaderAvatar src="/images/avatar.png" />
           <HeaderWirterWrapper>
-            <HeaderWriter>김순홍</HeaderWriter>
+            <HeaderWriter>{props.data?.fetchUseditem.name}</HeaderWriter>
             <HeaderCreatedAt>
-              {String(props.data?.fetchBoard.createdAt).slice(0, 10)}
+              {String(props.data?.fetchUseditem.createdAt).slice(0, 10)}
             </HeaderCreatedAt>
           </HeaderWirterWrapper>
         </HeaderAvatarWrapper>
@@ -50,7 +55,7 @@ export default function MarketDetailUI(props) {
           <LinkOutlined style={{ fontSize: "30px" }} />
           <Tooltip
             placement="topRight"
-            title={`${props.data?.fetchBoard.boardAddress?.address} ${props.data?.fetchBoard.boardAddress?.addressDetail}`}
+            title={`${props.data?.fetchUseditem.boardAddress?.address} ${props.data?.fetchUseditem.boardAddress?.addressDetail}`}
           >
             <AimOutlined style={{ fontSize: "30px" }} />
           </Tooltip>
@@ -60,9 +65,9 @@ export default function MarketDetailUI(props) {
         {/* -- */}
         <BodyTopWrapper>
           <BodyTopTextWrapper>
-            <BodyTopRemark> 2018 lte</BodyTopRemark>
-            <BodyTopName>겔럭시텝 10.1</BodyTopName>
-            <BodyTopPrice>123,345원</BodyTopPrice>
+            <BodyTopRemark> {props.data?.fetchUseditem.remarks}</BodyTopRemark>
+            <BodyTopName>{props.data?.fetchUseditem.name}</BodyTopName>
+            <BodyTopPrice>{props.data?.fetchUseditem.price}</BodyTopPrice>
           </BodyTopTextWrapper>
 
           <BodyTopPickWrapper>
@@ -73,20 +78,28 @@ export default function MarketDetailUI(props) {
 
         <BodyMiddleWrapper>
           <BodyMiddleImgWrapper>
-            <BodyMiddleImgMain>메인사진</BodyMiddleImgMain>
+            <BodyMiddleImgMain
+              src={`https://storage.googleapis.com/${props.data?.fetchUseditem?.images[0]}`}
+            />
+
+            {/* <BodyMiddleImgMain /> */}
             <BodyMiddleImgPreviewWrapper>
-              <BodyMiddleImgPreview>미리보기 4장</BodyMiddleImgPreview>
+              {props.data?.fetchUseditem.images.map((date, index) => (
+                <BodyMiddleImgPreview
+                  key={index}
+                  src={`https://storage.googleapis.com/${props.data?.fetchUseditem?.images[index]}`}
+                />
+              ))}
+
+              {/* <BodyMiddleImgPreview>미리보기 4장</BodyMiddleImgPreview> */}
             </BodyMiddleImgPreviewWrapper>
           </BodyMiddleImgWrapper>
 
           <BodyMiddleContent>
-            액정에 잔기스랑 주변부 스크레치있습니다만 예민하신분아니면 전혀
-            신경쓰이지않을정도입니다 박스 보관중입니다 메모용과
-            넷플릭스용으로만쓰던거라 뭘 해보질 않아 기능이나 문제점을 못느꼈네요
-            잘 안써서 싸게넘깁니다 택배거래안합니다
+            {props.data?.fetchUseditem.contents}
           </BodyMiddleContent>
 
-          <BodyMiddleTags>#삼성전자 #갓성비</BodyMiddleTags>
+          <BodyMiddleTags>{props.data?.fetchUseditem.tags}</BodyMiddleTags>
         </BodyMiddleWrapper>
 
         <BodyMapWrapper>
@@ -94,8 +107,20 @@ export default function MarketDetailUI(props) {
         </BodyMapWrapper>
 
         <BodyButtonWrapper>
-          <Button>목록으로</Button>
-          <Button>구매하기</Button>
+          <Button02
+            buttonName="목록으로"
+            isActive={props.isActive}
+            onClick={props.onClickMoveToList}
+          >
+            목록으로
+          </Button02>
+          <Button01
+            buttonName="구매하기"
+            type="submit"
+            isActive={props.isActive}
+          >
+            구매하기
+          </Button01>
         </BodyButtonWrapper>
       </Body>
     </Wrapper>

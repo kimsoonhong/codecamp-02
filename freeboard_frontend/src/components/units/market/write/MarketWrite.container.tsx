@@ -8,17 +8,18 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { schemaSubmit } from "./MarketWrite.validation";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
+import { useRouter } from "next/router";
 
 export default function marketList() {
   const [files, setFiles] = useState([]);
   const [uploadfile] = useMutation(UPLOAD_FILE);
-  console.log("sdfsf", files);
   const { register, handleSubmit, formState } = useForm({
     mode: "onChange",
     resolver: yupResolver(schemaSubmit),
   });
   const [createUseditem] = useMutation(CREATE_USED_ITEM);
   const [sendImg, setSendImg] = useState([]);
+  const router = useRouter();
 
   async function onSubmit(data) {
     console.log("dsafadsf", data);
@@ -34,16 +35,20 @@ export default function marketList() {
 
     delete data.address;
     delete data.addressDetail;
-    console.log(images);
 
     try {
       const result = await createUseditem({
         variables: {
-          createUseditemInput: { ...data, images: images },
+          createUseditemInput: {
+            ...data,
+            images: images,
+            // useditemAddress: { ...data.address, ...data.addressDetail },
+          },
         },
       });
-      console.log(result.data?.createUseditem._id);
+
       Modal.info({ content: "등록되었습니다." });
+      router.push(`/market/${result.data?.createUseditem._id}`);
     } catch (error) {
       Modal.error({ content: error.message });
     }
