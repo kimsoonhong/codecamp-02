@@ -8,8 +8,6 @@ export const Wrapper = styled.div`
 `;
 
 export const ImgUpload = styled.div`
-  width: ${(props) => props.size}px;
-  height: ${(props) => props.size}px;
   background-color: #bdbdbd;
   margin-right: 24px;
   outline: none;
@@ -17,12 +15,14 @@ export const ImgUpload = styled.div`
   cursor: pointer;
   text-align: center;
   position: relative;
-  background-color: beige;
+  /* background-color: beige; */
+  width: ${(props) => props.width}px;
+  height: ${(props) => props.height}px;
 `;
 
 export const UploadImg = styled.img`
-  width: ${(props) => props.size}px;
-  height: ${(props) => props.size}px;
+  width: ${(props) => props.width}px;
+  height: ${(props) => props.height}px;
   opacity: 0.6;
   position: absolute;
   transform: translate(-50%, 0%);

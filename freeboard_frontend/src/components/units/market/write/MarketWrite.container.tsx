@@ -1,4 +1,5 @@
 import MarketWriteUI from "./MarketWrite.presenter";
+import withAuth from "../../../commons/withAuth";
 
 import { useMutation } from "@apollo/client";
 import { Modal } from "antd";
@@ -10,7 +11,7 @@ import { useForm } from "react-hook-form";
 import { useState } from "react";
 import { useRouter } from "next/router";
 
-export default function marketList() {
+const marketWrite = () => {
   const [files, setFiles] = useState([]);
   const [uploadfile] = useMutation(UPLOAD_FILE);
   const { register, handleSubmit, formState } = useForm({
@@ -24,6 +25,10 @@ export default function marketList() {
   async function onSubmit(data) {
     console.log("dsafadsf", data);
 
+    if (!files.length) {
+      alert("이미지를 최소 1개 이상 넣어주세요");
+      return;
+    }
     const resultFiles = await Promise.all(
       files.map((data) => {
         return uploadfile({ variables: { file: data } });
@@ -33,22 +38,38 @@ export default function marketList() {
       return data.data.uploadFile.url;
     });
 
-    delete data.address;
-    delete data.addressDetail;
+    // const profile = {
+    //   name: "철수",
+    //   age: 13
+
+    // }
+
+    // const name = profile.name
+    // const age = profile.age
+
+    // const {name, age, ...rest } = profile
+
+    // // delete data.address;
+    // // delete data.addressDetail;
+    const { address, addressDetail, ...rest } = data;
 
     try {
       const result = await createUseditem({
         variables: {
           createUseditemInput: {
-            ...data,
+            ...rest,
             images: images,
-            // useditemAddress: { ...data.address, ...data.addressDetail },
+            // useditemAddress: {
+            //   address: address,
+            //   addressDetail: addressDetail,
+            // },
           },
         },
       });
 
       Modal.info({ content: "등록되었습니다." });
       router.push(`/market/${result.data?.createUseditem._id}`);
+      // router.push(`/market/`);
     } catch (error) {
       Modal.error({ content: error.message });
     }
@@ -71,4 +92,6 @@ export default function marketList() {
       />
     </div>
   );
-}
+};
+
+export default withAuth(marketWrite);

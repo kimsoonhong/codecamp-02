@@ -2,14 +2,14 @@ import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
   width: 1200px;
-  background-color: bisque;
+  /* background-color: bisque; */
   padding: 80px 120px;
   border: 2px gray solid;
   margin: auto;
 `;
 export const Header = styled.div`
   width: 100%;
-  background-color: yellow;
+  /* background-color: yellow; */
 `;
 export const HeaderText = styled.div`
   font-weight: bolder;
@@ -19,13 +19,13 @@ export const HeaderText = styled.div`
 `;
 export const Body = styled.div`
   width: 100%;
-  background-color: yellowgreen;
+  /* background-color: yellowgreen; */
 `;
 export const Label = styled.div`
   font-weight: 500;
   font-size: 16px;
   padding-top: 40px;
-  background-color: grey;
+  /* background-color: grey; */
 `;
 export const MapWrapper = styled.div`
   display: flex;
@@ -35,40 +35,40 @@ export const MapPositionWrapper = styled.div``;
 export const MapPosition = styled.div`
   width: 385px;
   height: 252px;
-  background-color: hotpink;
+  /* background-color: hotpink; */
 `;
 export const MapRightWrapper = styled.div`
-  background-color: white;
+  /* background-color: white; */
   width: 100%;
   padding-left: 20px;
 `;
 export const GPSWrapper = styled.div`
   display: flex;
   flex-direction: row;
-  background-color: yellowgreen;
+  /* background-color: yellowgreen; */
 `;
 export const LATDiv = styled.div`
   width: 108px;
   height: 52px;
-  background-color: violet;
+  /* background-color: violet; */
 `;
 export const PositionIcon = styled.div`
   width: 30px;
   height: 30px;
   margin: 0px 20px;
   text-align: center;
-  background-color: wheat;
+  /* background-color: wheat; */
 `;
 export const LNGDiv = styled.div`
   width: 108px;
   height: 52px;
-  background-color: violet;
+  /* background-color: violet; */
 `;
 export const AddressWrapper = styled.div`
   width: 100%;
   height: 63%;
-  background-color: beige;
-  background-color: yellow;
+  /* background-color: beige; */
+  /* background-color: yellow; */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -80,7 +80,7 @@ export const Input_2 = styled.input`
 `;
 export const ImgWrapper = styled.div`
   width: 100%;
-  background-color: chocolate;
+  /* background-color: chocolate; */
   display: flex;
   flex-direction: row;
   padding-top: 16px;
@@ -88,7 +88,7 @@ export const ImgWrapper = styled.div`
 export const ImgUpload = styled.div`
   width: 180px;
   height: 180px;
-  background-color: #bdbdbd;
+  /* background-color: #bdbdbd; */
   margin-right: 24px;
   outline: none;
   border: none;
@@ -107,7 +107,7 @@ export const UploadImg = styled.img`
   transform: translate(-40px, -15px);
 `;
 export const RadioButtonWrapper = styled.div`
-  background-color: beige;
+  /* background-color: beige; */
 
   display: flex;
   flex-direction: row;
@@ -115,7 +115,7 @@ export const RadioButtonWrapper = styled.div`
 export const RadioButton = styled.div`
   width: 30px;
   height: 30px;
-  background-color: bisque;
+  /* background-color: bisque; */
 `;
 export const RadioLabel = styled.div`
   font-weight: 500;

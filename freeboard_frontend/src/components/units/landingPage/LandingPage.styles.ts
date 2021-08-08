@@ -1,137 +1,173 @@
 import styled from "@emotion/styled";
-
 export const Wrapper = styled.div`
-  background-image: url(/images/landingpage/main.png);
-  width: 100%;
-  height: 100vh;
-  display: flex;
-`;
-export const LeftWrapper = styled.div`
-  background-image: url(/images/layout/no_3.jpg);
-  width: 40%;
-  height: 100vh;
-`;
-export const ShowPage = styled.div`
-  width: 30%;
-  height: 70%;
-  position: absolute;
-  top: 50%;
-  right: 60%;
-  transform: translate(0, -50%);
-  background: none;
-  z-index: 1;
-  background-color: red;
-  padding: 60px;
-  padding-top: 5%;
-`;
-export const RightWrapper = styled.div`
-  background-color: green;
-  width: 60%;
-  height: 100vh;
-`;
-export const ShowLoginPage = styled.div`
-  background-color: gray;
-  width: 50%;
-  height: 70%;
-  position: absolute;
-  top: 50%;
-  left: 40%;
-  padding: 60px;
-  padding-top: 5%;
-  transform: translate(0, -50%);
-`;
-
-export const Mant = styled.div`
-  color: white;
-  background-color: black;
-  font-size: 40px;
-  display: inline-block;
-  position: relative;
-  margin: auto;
-  font-family: "live";
-  font-weight: bolder;
-  text-align: center;
-  /* width: 70%; */
-
-  :after {
-    content: "";
-    display: block;
-    position: absolute;
-    bottom: 2px;
-    right: -20px;
-    height: 60px;
-    width: 3px;
-    border-radius: 15px;
-    display: ${(props) => (props.isActive ? "block" : "none")};
-    background-color: white;
-  }
-`;
-
-export const Banner = styled.div`
-  padding-top: 10%;
-  color: white;
-  background-color: blueviolet;
-  text-align: center;
-  font-family: "normal";
-  font-size: 25px;
-`;
-export const Title = styled.div`
-  color: white;
-  width: 100%;
-  background-color: brown;
-  font-family: "live";
-  text-align: center;
-  font-size: 80px;
-`;
-export const InnerText = styled.div`
-  color: white;
-  background-color: cadetblue;
-  text-align: end;
-`;
-
-export const Login = styled.div`
   width: 100%;
   height: 100%;
-  background-color: lemonchiffon;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-`;
-export const Image = styled.img`
-  width: 200px;
-  margin: auto;
-  padding-bottom: 50px;
-`;
-export const LoginWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 70%;
-  height: 130px;
-  margin: auto;
-  background-color: lightblue;
-`;
-export const LoginInput = styled.input`
-  border: none;
-  height: 52px;
-`;
-
-export const ButtonWrapper = styled.div`
+  background-color: #f5f5f5;
+  /* background-color: red; */
+  z-index: 99;
   display: flex;
   flex-direction: row;
   justify-content: center;
-  margin-top: 30px;
-  width: 70%;
-  background-color: violet;
 `;
-export const LoginButton = styled.button`
-  width: 102px;
-  height: 52px;
-  background-color: #2a652f;
-  color: white;
-  cursor: pointer;
-  border: none;
-  border-radius: 2px;
+export const FilterColor = styled.div`
+  /* background-color: #6d8fff; */
+  opacity: 0.05;
+
+  position: fixed;
+  width: 100%;
+  height: 100%;
 `;
 
-export const Div = styled.div``;
+export const BackgroundImg = styled.img`
+  width: 100vh;
+  height: 100vh;
+  margin: auto;
+`;
+
+export const MainWrapper = styled.div`
+  width: 70%;
+  height: 70%;
+  min-width: 1500px;
+  display: flex;
+  /* background-color: blanchedalmond; */
+
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+`;
+export const LiftWrapper = styled.div`
+  width: 40%;
+  padding: 40px;
+  /* background-color: #edebf8;
+  opacity: 0.2; */
+  /* backdrop-filter: brightness(1.1); */
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(10px);
+`;
+export const MainText = styled.div`
+  color: #2c2942;
+  /* color: black; */
+  font-size: 80px;
+  font-weight: bolder;
+  text-align: center;
+  padding-bottom: 40px;
+  margin-bottom: 40px;
+  border-bottom: 2px solid black;
+  height: 40%;
+`;
+export const Contack = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: blueviolet;
+  height: 60%;
+`;
+export const ContackText = styled.div`
+  /* border-top: 2px solid black; */
+  font-size: 40px;
+  font-weight: bolder;
+  margin-bottom: 40px;
+  text-align: center;
+`;
+export const Email = styled.div`
+  font-size: 30px;
+  text-align: center;
+  /* font-weight: bolder; */
+`;
+
+export const IconDiv = styled.div`
+  padding-top: 40px;
+
+  width: 80%;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  /* background-color: lavender; */
+`;
+
+export const Git = styled.div`
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: khaki;
+`;
+export const Blog = styled.div`
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: khaki;
+`;
+export const RightWrapper = styled.div`
+  background: rgba(0, 0, 0, 0.3);
+  padding: 40px;
+
+  width: 70%;
+
+  overflow: scroll;
+`;
+export const ProjectImg = styled.div`
+  width: 100%;
+  background-color: green;
+  height: 70%;
+`;
+export const ProjectTitle = styled.div`
+  width: 100%;
+  height: 15%;
+  background-color: greenyellow;
+  text-align: center;
+  font-size: 80px;
+`;
+export const ProjectContent = styled.div`
+  height: 40%;
+  padding: 40px;
+  background-color: hotpink;
+  font-size: 30px;
+`;
+export const ProjectStack = styled.div`
+  padding: 40px;
+  height: 30%;
+  font-size: 30px;
+`;
+
+export const EnterToProJect = styled.div`
+  padding-top: 40px;
+  height: 15%;
+  background-color: ivory;
+  font-size: 30px;
+  text-align: center;
+  padding: 40px;
+`;
+export const SideWrapper = styled.div`
+  width: 10%;
+  margin-left: 10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+`;
+export const Project1 = styled.div`
+  width: 100px;
+  height: 100px;
+  background-color: rosybrown;
+  border-radius: 50%;
+`;
+export const Project2 = styled.div`
+  width: 100px;
+  height: 100px;
+  background-color: rosybrown;
+  border-radius: 50%;
+`;
+export const Project3 = styled.div`
+  width: 100px;
+  height: 100px;
+  background-color: rosybrown;
+  border-radius: 50%;
+`;
+export const Project4 = styled.div`
+  width: 100px;
+  height: 100px;
+  background-color: rosybrown;
+  border-radius: 50%;
+`;

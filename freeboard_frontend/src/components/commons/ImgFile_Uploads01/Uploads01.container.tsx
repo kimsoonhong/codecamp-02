@@ -56,8 +56,9 @@ export default function Uploads01(props: IUploads01Props) {
       onClickUpload={onClickUpload}
       onChangeFile={onChangeFile}
       onClickDeleteImg={onClickDeleteImg}
-      size={props.size}
       number={props.number}
+      width={props.width}
+      height={props.height}
     />
   );
 }

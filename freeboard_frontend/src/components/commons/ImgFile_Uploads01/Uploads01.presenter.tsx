@@ -8,12 +8,14 @@ export default function Uploads01UI(props: IUploads01UIProps) {
         <ImgUpload
           onClick={() => props.onClickDeleteImg(index)}
           key={index}
-          size={props.size}
+          width={props.width}
+          height={props.height}
           number={props.number}
         >
           <UploadImg
             src={`${props.fileUrl[index]}`}
-            size={props.size}
+            width={props.width}
+            height={props.height}
             number={props.number}
           />
           <div style={{ paddingTop: "70px" }}>-</div>
@@ -22,27 +24,30 @@ export default function Uploads01UI(props: IUploads01UIProps) {
         </ImgUpload>
       ))}
 
-      {new Array(3 - props.fileUrl.length).fill(1).map((_, index) => {
-        return (
-          <ImgUpload size={props.size} number={props.number}>
-            <label htmlFor={index}>
-              <div style={{ paddingTop: "40%" }}>+</div>
-              <div>Upload</div>
+      {new Array(props.number - props.fileUrl.length)
+        .fill(1)
+        .map((_, index) => {
+          return (
+            <ImgUpload width={props.width} height={props.height}>
+              <label htmlFor={index}>
+                <div style={{ paddingTop: "40%" }}>+</div>
+                <div>Upload</div>
 
-              <input
-                id={index}
-                ref={props.fileRef}
-                type="file"
-                onChange={props.onChangeFile}
-                multiple
-                style={{ display: "none" }}
-                size={props.size}
-                number={props.number}
-              />
-            </label>
-          </ImgUpload>
-        );
-      })}
+                <input
+                  id={index}
+                  ref={props.fileRef}
+                  type="file"
+                  onChange={props.onChangeFile}
+                  multiple
+                  style={{ display: "none" }}
+                  width={props.width}
+                  height={props.height}
+                  number={props.number}
+                />
+              </label>
+            </ImgUpload>
+          );
+        })}
     </Wrapper>
   );
 }

@@ -169,7 +169,7 @@ export default function BoardWriteUI(props: IBoardWriteUIProps) {
               .fill(1)
               .map((_, index) => {
                 return (
-                  <UploadButton onClick={props.onClickGreyBox}>
+                  <UploadButton onClick={props.onClickGreyBox} key={_}>
                     <label htmlFor={index}>
                       <div>
                         <div>+</div>
@@ -178,7 +178,7 @@ export default function BoardWriteUI(props: IBoardWriteUIProps) {
 
                       <input
                         id={index}
-                        ref={props.fileRef}
+                        // ref={props.fileRef}
                         type="file"
                         onChange={props.onChangeFile}
                         multiple

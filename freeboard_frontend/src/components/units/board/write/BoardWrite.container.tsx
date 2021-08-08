@@ -271,6 +271,8 @@ export default function BoardWrite(props: IBoardWriteProps) {
   }
   // resultImgUrl, setResultimgUrl;
   return (
+
+   
     <BoardWriteUI
       isOpen={isOpen}
       isEdit={props.isEdit}

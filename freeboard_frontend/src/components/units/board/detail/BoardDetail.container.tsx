@@ -1,14 +1,14 @@
 import { useRouter } from "next/router";
 import { useMutation, useQuery } from "@apollo/client";
 import BoardDetailUI from "./BoardDetail.presenter";
-import { GlobalContext } from "../../../../../pages/_app";
+// import { GlobalContext } from "../../../../../pages/_app";
 import {
   FETCH_BOARD,
   DELETE_BOARD,
   LIKE_BOARD,
   DISLIKE_BOARD,
 } from "./BoardDetail.queries";
-import { useContext, useEffect } from "react";
+// import { useContext, useEffect } from "react";
 
 export default function BoardDetail() {
   const router = useRouter();
@@ -57,14 +57,14 @@ export default function BoardDetail() {
   }
 
   // console.log(data?.fetchBoard.images);
-  const { accessToken } = useContext(GlobalContext);
-  console.log(accessToken, " detail");
-  useEffect(() => {
-    if (!accessToken) router.push("/login");
-    return () => {
-      alert("로그인을 해주시옵서서..");
-    };
-  }, []);
+  // const { accessToken } = useContext(GlobalContext);
+  // console.log(accessToken, " detail");
+  // useEffect(() => {
+  //   if (!accessToken) router.push("/login");
+  //   return () => {
+  //     alert("로그인을 해주시옵서서..");
+  //   };
+  // }, []);
   return (
     <BoardDetailUI
       data={data}

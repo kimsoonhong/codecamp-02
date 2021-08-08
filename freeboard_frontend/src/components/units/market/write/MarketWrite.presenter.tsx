@@ -19,7 +19,6 @@ import {
   LNGDiv,
   AddressWrapper,
   ImgWrapper,
-  ImgUpload,
   RadioButtonWrapper,
   RadioButton,
   RadioLabel,
@@ -101,7 +100,13 @@ export default function marketWriteUI(props) {
           <ImgWrapper>
             {/* <ImgUpload>제품사진</ImgUpload>
             <ImgUpload>제품사진</ImgUpload> */}
-            <ImgFileUploads size={180} number={3} setFiles={props.setFiles} />
+            <ImgFileUploads
+              width={180}
+              height={180}
+              size={180}
+              number={3}
+              setFiles={props.setFiles}
+            />
           </ImgWrapper>
           <Label>메인 사진 설정</Label>
           <RadioButtonWrapper>

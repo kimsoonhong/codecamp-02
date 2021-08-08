@@ -17,6 +17,7 @@ export const schemaSubmit = yup.object().shape({
     .required("판매가격은 필수 입력 입니다."),
   tags: yup.string().required("태그는 필수 입력 입니다."),
   address: yup.string().required("주소는 필수 입력 입니다."),
+  // image: yup.string().required("이미지를 넣어주세요"),
 });
 
 export const schemaLogin = yup.object().shape({

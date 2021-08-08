@@ -52,7 +52,7 @@ import {
   TodayProductTag,
 } from "./MarketList.syles";
 
-export default function marketListUI() {
+export default function marketListUI(props) {
   return (
     <div style={{ display: "flex" }}>
       <Wrapper>
@@ -92,33 +92,41 @@ export default function marketListUI() {
             </ProductListTopSearchWrapper>
           </ProductListTop>
           {/* -제품 하단-? */}
-          <ProductListbottomWrapper>
-            <ProductListbottomPicture>d</ProductListbottomPicture>
-            <ProductListbottomDetail>
-              <ProductListbottomDetailName>
-                삼성전자 갤럭시탭
-              </ProductListbottomDetailName>
-              <ProductListbottomDetailSummary>
-                2958년 tle
-              </ProductListbottomDetailSummary>
-              <ProductListbottomDetailTag>
-                #삼성전자 # 갤럭시텝
-              </ProductListbottomDetailTag>
-              <ProductListbottomFloorDiv>
-                <ProductListbottomFloorAvatar>
-                  사진
-                </ProductListbottomFloorAvatar>
-                <ProductListbottomFloorSeller>
-                  판매자
-                </ProductListbottomFloorSeller>
-                <ProductListbottomFloorLike>하트</ProductListbottomFloorLike>
-                <ProductListbottomFloorLikeNumber>
-                  93
-                </ProductListbottomFloorLikeNumber>
-              </ProductListbottomFloorDiv>
-            </ProductListbottomDetail>
-            <ProductListbottomPrice>234,234원</ProductListbottomPrice>
-          </ProductListbottomWrapper>
+          {props.data?.fetchUseditems.map((data: any, index: number) => (
+            <ProductListbottomWrapper
+              // id={data._id}
+              key={data._id}
+              onClick={props.onClickMoveToBoardDetail(data._id)}
+            >
+              <ProductListbottomPicture
+                src={`https://storage.googleapis.com/${data.images[0]}`}
+              />
+              <ProductListbottomDetail>
+                <ProductListbottomDetailName>
+                  {data.name}
+                </ProductListbottomDetailName>
+                <ProductListbottomDetailSummary>
+                  {data.remarks}
+                </ProductListbottomDetailSummary>
+                <ProductListbottomDetailTag>
+                  {data.tags}
+                </ProductListbottomDetailTag>
+                <ProductListbottomFloorDiv>
+                  <ProductListbottomFloorAvatar>
+                    사진
+                  </ProductListbottomFloorAvatar>
+                  <ProductListbottomFloorSeller>
+                    {data.seller.name}
+                  </ProductListbottomFloorSeller>
+                  <ProductListbottomFloorLike>하트</ProductListbottomFloorLike>
+                  <ProductListbottomFloorLikeNumber>
+                    93
+                  </ProductListbottomFloorLikeNumber>
+                </ProductListbottomFloorDiv>
+              </ProductListbottomDetail>
+              <ProductListbottomPrice>{data.price}</ProductListbottomPrice>
+            </ProductListbottomWrapper>
+          ))}
         </ProductListWrapper>
       </Wrapper>
       {/* -오늘본상품-? */}
@@ -129,7 +137,7 @@ export default function marketListUI() {
             <TodayProductLike>하트</TodayProductLike>
             <TodayProductLikeNumber>20</TodayProductLikeNumber>
           </TodayProductTop>
-          <TodayProductPicture>사진</TodayProductPicture>
+          <TodayProductPicture />
           <TodayProductName>삼성겔럭시 텝</TodayProductName>
           <TodayProductSummary>3923년 엘티이</TodayProductSummary>
           <TodayProductPrice>320,234원</TodayProductPrice>

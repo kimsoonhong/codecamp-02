@@ -4,15 +4,15 @@ import { useRouter } from "next/router";
 import { useQuery } from "@apollo/client";
 import { useContext, useEffect } from "react";
 import { GlobalContext } from "../../../../../pages/_app";
-import { FETCH_USED_ITEM } from "./MarketDetail.queries";
+import { FETCH_USED_ITEM, FETCH_USER_LOGGED_IN } from "./MarketDetail.queries";
+import withAuth from "../../../commons/withAuth";
 
-export default function BoardDetail() {
+const BoardDetail = () => {
   const router = useRouter();
   const { data } = useQuery(FETCH_USED_ITEM, {
     variables: { useditemId: router.query.useditemId },
   });
-
-  console.log(data?.fetchUseditem.name, "asdfasfdasd");
+  const resultUser = useQuery(FETCH_USER_LOGGED_IN);
 
   function onClickMoveToList() {
     router.push("/market");
@@ -35,9 +35,12 @@ export default function BoardDetail() {
   return (
     <MarketDetailUI
       data={data}
+      resultUser={resultUser}
       onClickMoveToList={onClickMoveToList}
       onClickMoveToEdit={onClickMoveToEdit}
       // onClickDelete={onClickDelete}
     />
   );
-}
+};
+
+export default withAuth(BoardDetail);

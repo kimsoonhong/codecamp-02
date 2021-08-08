@@ -10,6 +10,9 @@ export const FETCH_USED_ITEM = gql`
       price
       tags
       images
+      seller {
+        name
+      }
 
       createdAt
       useditemAddress {
@@ -17,6 +20,16 @@ export const FETCH_USED_ITEM = gql`
         address
         addressDetail
       }
+    }
+  }
+`;
+
+export const FETCH_USER_LOGGED_IN = gql`
+  query fetchUserLoggedIn {
+    fetchUserLoggedIn {
+      _id
+      email
+      name
     }
   }
 `;

@@ -64,7 +64,7 @@ export const Body = styled.div`
 `;
 
 export const BodyTopWrapper = styled.div`
-  background-color: red;
+  /* background-color: red; */
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -72,7 +72,7 @@ export const BodyTopWrapper = styled.div`
 `;
 
 export const BodyTopTextWrapper = styled.div`
-  background-color: blue;
+  /* background-color: blue; */
 `;
 
 export const BodyTopRemark = styled.div`
@@ -94,12 +94,12 @@ export const BodyTopPrice = styled.div`
 `;
 
 export const BodyTopPickWrapper = styled.div`
-  background-color: blue;
+  /* background-color: blue; */
   padding-right: 10px;
 `;
 
 export const BodyTopPick = styled.div`
-  background-color: brown;
+  /* background-color: brown; */
   width: 30px;
   height: 30px;
 `;
@@ -111,20 +111,20 @@ export const BodyTopPickNumber = styled.div`
 `;
 
 export const BodyMiddleWrapper = styled.div`
-  background-color: cadetblue;
+  /* background-color: cadetblue; */
   padding-top: 80px;
   border-bottom: 1px solid grey;
 `;
 
 export const BodyMiddleImgWrapper = styled.div`
-  background-color: chartreuse;
+  /* background-color: chartreuse; */
   display: flex;
   flex-direction: column;
   justify-content: center;
 `;
 
 export const BodyMiddleImgMain = styled.img`
-  background-color: green;
+  /* background-color: green; */
   margin: auto;
   width: 383px;
   height: 384px;
@@ -133,7 +133,7 @@ export const BodyMiddleImgMain = styled.img`
 
 export const BodyMiddleImgPreviewWrapper = styled.div`
   width: 384px;
-  background-color: orange;
+  /* background-color: orange; */
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -145,19 +145,19 @@ export const BodyMiddleImgPreview = styled.img`
   width: 80px;
   height: 80px;
 
-  background-color: honeydew;
+  /* background-color: honeydew; */
 `;
 
 export const BodyMiddleContent = styled.div`
   padding-top: 80px;
-  background-color: gainsboro;
+  /* background-color: gainsboro; */
   font-weight: 500;
   font-size: 18px;
 `;
 
 export const BodyMiddleTags = styled.div`
   margin: 40px 0px;
-  background-color: blueviolet;
+  /* background-color: blueviolet; */
   font-weight: 500;
   font-size: 16px;
   color: gray;
@@ -167,11 +167,11 @@ export const BodyMapWrapper = styled.div`
   padding: 80px 0px;
   width: 100%;
 
-  background-color: gold;
+  /* background-color: gold; */
   border-bottom: 1px solid grey;
 `;
 export const BodyBottomMap = styled.div`
-  background-color: honeydew;
+  /* background-color: honeydew; */
 
   width: 100%;
   height: 360px;
@@ -186,13 +186,13 @@ export const BodyButtonWrapper = styled.div`
   padding-top: 80px;
   padding-bottom: 80px;
   margin: auto;
-  background-color: orchid;
+  /* background-color: orchid; */
 `;
 
 export const Button = styled.button`
   width: 179px;
   height: 52px;
-  background-color: #2a652f;
+  /* background-color: #2a652f; */
   border: 1px solid gray;
   margin: 0px 12px;
   font-size: 16px;
@@ -201,7 +201,7 @@ export const Button = styled.button`
   color: white;
 
   :hover {
-    background-color: #142b12;
+    /* background-color: #142b12; */
     border-color: white;
   }
 `;

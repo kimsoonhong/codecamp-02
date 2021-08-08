@@ -8,9 +8,21 @@ export const FETCH_USED_ITEMS = gql`
       remarks
       contents
       price
-      images
       tags
-      createdAt
+      images
+      seller {
+        name
+      }
+    }
+  }
+`;
+
+export const FETCH_USER_LOGGED_IN = gql`
+  query fetchUserLoggedIn {
+    fetchUserLoggedIn {
+      _id
+      email
+      name
     }
   }
 `;

@@ -38,14 +38,13 @@ import {
 } from "./MarketDetail.styles";
 
 export default function MarketDetailUI(props: IMarketDetailUIProps) {
-  console.log(props.data);
   return (
     <Wrapper>
       <Header>
         <HeaderAvatarWrapper>
           <HeaderAvatar src="/images/avatar.png" />
           <HeaderWirterWrapper>
-            <HeaderWriter>{props.data?.fetchUseditem.name}</HeaderWriter>
+            <HeaderWriter>{props.data?.fetchUseditem.seller.name}</HeaderWriter>
             <HeaderCreatedAt>
               {String(props.data?.fetchUseditem.createdAt).slice(0, 10)}
             </HeaderCreatedAt>
@@ -79,7 +78,7 @@ export default function MarketDetailUI(props: IMarketDetailUIProps) {
         <BodyMiddleWrapper>
           <BodyMiddleImgWrapper>
             <BodyMiddleImgMain
-              src={`https://storage.googleapis.com/${props.data?.fetchUseditem?.images[0]}`}
+              src={`https://storage.googleapis.com/${props.data?.fetchUseditem?.images[0]} `}
             />
 
             {/* <BodyMiddleImgMain /> */}
