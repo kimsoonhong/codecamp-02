@@ -6,12 +6,12 @@ const withAuth = (Component: any) => (props: any) => {
   const router = useRouter();
   const { accessToken } = useContext(GlobalContext);
 
-  useEffect(() => {
-    if (!accessToken) {
-      alert("로그인 해주세요 ^^^^^");
-      router.push("/login");
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (!accessToken) {
+  //     alert("로그인 해주세요 ^^^^^");
+  //     router.push("/login");
+  //   }
+  // }, []);
 
   return <Component {...props} />;
 };

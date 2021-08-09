@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import { schemaLogin } from "./login.validation";
 
 import { LOGIN_USER, FETCH_USER_LOGGED_IN } from "./login.queries";
-import { useMutation, useQuery, useApolloClient } from "@apollo/client";
+import { useMutation, useApolloClient } from "@apollo/client";
 import {
   IMutation,
   IMutationLoginUserArgs,
@@ -47,13 +47,37 @@ export default function login() {
           },
         },
       });
-      setUserInfo(resultUser.data?.fetchUserLoggedIn);
-      setAccessToken(result.data?.loginUser.accessToken);
+
+      // ========임시 로그인 코드 ==========
+
+      const localLoginUser = localStorage.setItem(
+        "localLoginUser",
+        result.data?.loginUser.accessToken
+      );
+
+      const localUserData = localStorage.setItem(
+        "localUserData",
+        resultUser.data?.fetchUserLoggedIn
+      );
+
+      const loadlocalLoginUser = localStorage.getItem("localLoginUser");
+      const loadlocalUserData = localStorage.getItem("localUserData");
+
+      console.log("setAccessToken", result.data?.loginUser.accessToken);
+      console.log("setUserInfo", resultUser.data?.fetchUserLoggedIn);
+      // const aaa = JSON.parse(localStorage.getItem("localLoginUser"));
+      // console.log("aaa", aaa);
+
+      setAccessToken(loadlocalLoginUser);
+      setUserInfo(loadlocalUserData);
+
       Modal.info({
         content: `${resultUser.data?.fetchUserLoggedIn.name}님 환영합니다`,
       });
       alert("sdf");
-      router.push("/market/new");
+      router.push("/mypages/");
+
+      // ========임시 로그인 코드 ==========
     } catch (error) {
       // Modal.error({ content: error.massage });
       alert(error.message);

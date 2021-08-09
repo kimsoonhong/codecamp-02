@@ -106,6 +106,22 @@ export default function MarketDetailUI(props: IMarketDetailUIProps) {
         </BodyMapWrapper>
 
         <BodyButtonWrapper>
+          {props.isSetItem && (
+            <Button02
+              buttonName="장바구니 넣기"
+              isActive={props.isActive}
+              onClick={props.onClickBasket(props.data)}
+            ></Button02>
+          )}
+
+          {!props.isSetItem && (
+            <Button02
+              buttonName="장바구니 빼기"
+              isActive={props.isActive}
+              onClick={props.onClickDeleteBasket(props.data)}
+            ></Button02>
+          )}
+
           <Button02
             buttonName="목록으로"
             isActive={props.isActive}

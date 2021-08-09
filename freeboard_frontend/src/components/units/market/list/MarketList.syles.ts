@@ -3,12 +3,12 @@ import styled from "@emotion/styled";
 export const Wrapper = styled.div`
   width: 1200px;
   margin: auto;
-  /* background-color: green; */
+  background-color: green;
 `;
 // ___베스트상품
 export const BestProduct = styled.div`
   width: 100%;
-  /* background-color: greenyellow; */
+  background-color: greenyellow;
   display: flex;
   flex-direction: column;
 `;
@@ -18,11 +18,11 @@ export const BestProductText = styled.div`
   font-family: "live";
   font-size: 60px;
   font-weight: bolder;
-  /* background-color: violet; */
+  background-color: violet;
 `;
 
 export const BestProductDiv = styled.div`
-  /* background-color: blueviolet; */
+  background-color: blueviolet;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -31,20 +31,20 @@ export const BestProductDiv = styled.div`
 
 export const BestProductWrapper = styled.div`
   width: 282px;
-  /* background-color: red; */
+  background-color: red;
   padding: 20px;
 `;
 
 export const BestProductPicture = styled.div`
   width: 100%;
-  /* background-color: beige; */
+  background-color: beige;
   height: 242px;
 `;
 
 export const BestProductTextDiv = styled.div`
   width: 100%;
   padding-top: 20px;
-  /* background-color: bisque; */
+  background-color: bisque;
 `;
 
 export const BestProductName = styled.div`
@@ -52,14 +52,14 @@ export const BestProductName = styled.div`
   font-size: 14px;
   font-weight: 500;
 
-  /* background-color: blanchedalmond; */
+  background-color: blanchedalmond;
 `;
 
 export const BestProductInformation = styled.div`
   width: 100%;
   padding-top: 4px;
   font-size: 12px;
-  /* background-color: darkgreen; */
+  background-color: darkgreen;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -67,25 +67,25 @@ export const BestProductInformation = styled.div`
 
 export const BestProductInformationDetail = styled.div`
   width: 80%;
-  /* background-color: darkkhaki; */
+  background-color: darkkhaki;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 `;
 
 export const BestProductSummary = styled.div`
-  /* background-color: gold; */
+  background-color: gold;
 `;
 
 export const BestProductPrice = styled.div`
   font-size: 18px;
   font-weight: bold;
-  /* background-color: pink; */
+  background-color: pink;
 `;
 
 export const BestProductLikeWrapper = styled.div`
   width: 20%;
-  /* background-color: darkslategray; */
+  background-color: darkslategray;
   display: flex;
   flex-direction: column;
 
@@ -95,7 +95,7 @@ export const BestProductLikeWrapper = styled.div`
 export const BestProductLikeImg = styled.div`
   width: 30px;
   height: 30px;
-  /* background-color: plum; */
+  background-color: plum;
   margin: auto;
 `;
 
@@ -107,12 +107,12 @@ export const BestProductLikeNumber = styled.div`
 
 export const ProductListWrapper = styled.div`
   width: 100%;
-  /* background-color: brown; */
+  background-color: brown;
 `;
 
 export const ProductListTop = styled.div`
   width: 100%;
-  /* background-color: green; */
+  background-color: green;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -124,7 +124,7 @@ export const ProductListTopTextWrapper = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  /* background-color: greenyellow; */
+  background-color: greenyellow;
   width: 185px;
 `;
 
@@ -139,7 +139,7 @@ export const ProductListTopSoldText = styled.div`
 `;
 
 export const ProductListTopSearchWrapper = styled.div`
-  /* background-color: hotpink; */
+  background-color: hotpink;
   display: flex;
   flex-direction: row;
   /* width: ; */
@@ -152,19 +152,19 @@ export const ProductListTopSearchInput = styled.input`
 
 export const ProductListTopSearchDate = styled.div`
   width: 282px;
-  /* background-color: lavender; */
+  background-color: lavender;
   margin: 0px 20px;
 `;
 
 export const ProductListTopSearchButton = styled.div`
   width: 78px;
-  /* background-color: khaki; */
+  background-color: khaki;
 `;
 
 // ___제품하단?
 
 export const ProductListbottomWrapper = styled.div`
-  /* background-color: red; */
+  background-color: red;
   padding: 20px 0px;
   display: flex;
   flex-direction: row;
@@ -176,11 +176,11 @@ export const ProductListbottomWrapper = styled.div`
 export const ProductListbottomPicture = styled.img`
   width: 160px;
   height: 160px;
-  /* background-color: burlywood; */
+  background-color: burlywood;
 `;
 
 export const ProductListbottomDetail = styled.div`
-  /* background-color: cadetblue; */
+  background-color: cadetblue;
   width: 70%;
   display: flex;
   flex-direction: column;
@@ -190,30 +190,30 @@ export const ProductListbottomDetail = styled.div`
 export const ProductListbottomDetailName = styled.div`
   font-size: 24px;
   font-weight: 500;
-  /* background-color: chartreuse; */
+  background-color: chartreuse;
 `;
 
 export const ProductListbottomDetailSummary = styled.div`
   font-weight: 500;
   font-size: 16px;
-  /* background-color: red; */
+  background-color: red;
 `;
 
 export const ProductListbottomDetailTag = styled.div`
   font-weight: 500;
   font-size: 16px;
   color: grey;
-  /* background-color: blue; */
+  background-color: blue;
 `;
 
 export const ProductListbottomFloorDiv = styled.div`
   display: flex;
   flex-direction: row;
-  /* background-color: hotpink; */
+  background-color: hotpink;
   padding-top: 20px;
 `;
 export const ProductListbottomFloorAvatar = styled.div`
-  /* background-color: honeydew; */
+  background-color: honeydew;
   width: 20px;
   height: 20px;
 `;
@@ -225,7 +225,7 @@ export const ProductListbottomFloorSeller = styled.div`
 
 export const ProductListbottomFloorLike = styled.div`
   margin-left: 25px;
-  /* background-color: honeydew; */
+  background-color: honeydew;
   width: 20px;
   height: 20px;
 `;
@@ -239,14 +239,23 @@ export const ProductListbottomPrice = styled.div`
   font-weight: bold;
   font-size: 24px;
   text-align: end;
-  /* background-color: blueviolet; */
+  background-color: blueviolet;
+`;
+
+export const ButtonWrapper = styled.div`
+  background-color: bisque;
+  width: 100%;
+  padding-top: 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
 `;
 
 // ___오늘본상품?
 
 export const TodayProductWrapper = styled.div`
   width: 200px;
-  /* background-color: red; */
+  background-color: red;
   padding: 20px;
   border: 1px solid gray;
   height: fit-content;
@@ -254,14 +263,14 @@ export const TodayProductWrapper = styled.div`
 
 export const TodayProductText = styled.div`
   width: 100%;
-  /* background-color: rosybrown; */
+  background-color: rosybrown;
   font-weight: bold;
   font-size: 18px;
   text-align: center;
 `;
 
 export const TodayProductDiv = styled.div`
-  /* background-color: royalblue; */
+  background-color: royalblue;
   margin-top: 20px;
   border: 1px solid gray;
   padding: 10px;
@@ -277,13 +286,13 @@ export const TodayProductTop = styled.div`
 export const TodayProductLike = styled.div`
   width: 15px;
   height: 15px;
-  /* background-color: greenyellow; */
+  background-color: greenyellow;
 `;
 
 export const TodayProductLikeNumber = styled.div`
   font-weight: 500;
   font-size: 12px;
-  /* background-color: hotpink; */
+  background-color: hotpink;
   padding-left: 6px;
 `;
 
@@ -291,13 +300,13 @@ export const TodayProductPicture = styled.img`
   padding-top: 4px;
   width: 60px;
   height: 60px;
-  /* background-color: indianred; */
+  background-color: indianred;
   margin: auto;
 `;
 
 export const TodayProductName = styled.div`
   padding-top: 12px;
-  /* background-color: indigo; */
+  background-color: indigo;
   font-weight: 500;
   font-size: 12px;
 `;
@@ -305,7 +314,7 @@ export const TodayProductName = styled.div`
 export const TodayProductSummary = styled.div`
   font-size: 12px;
   color: grey;
-  /* background-color: indianred; */
+  background-color: indianred;
 `;
 
 export const TodayProductPrice = styled.div`

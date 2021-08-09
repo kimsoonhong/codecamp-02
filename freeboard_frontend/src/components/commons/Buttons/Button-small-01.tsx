@@ -19,5 +19,9 @@ const MyBtn = styled.button`
 `;
 
 export default function button01(props) {
-  return <MyBtn>스몰버튼1</MyBtn>;
+  return (
+    <MyBtn type={props.type} isActive={props.isActive}>
+      {props.buttonName}
+    </MyBtn>
+  );
 }

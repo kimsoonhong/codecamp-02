@@ -1,3 +1,5 @@
+import WriteItemBtn from "../../../commons/Buttons/Button-small-02";
+
 import {
   Wrapper,
   // ___베스트상품
@@ -38,6 +40,7 @@ import {
   ProductListbottomFloorLike,
   ProductListbottomFloorLikeNumber,
   ProductListbottomPrice,
+  ButtonWrapper,
   // ___오늘본상품?
   TodayProductWrapper,
   TodayProductText,
@@ -127,6 +130,13 @@ export default function marketListUI(props) {
               <ProductListbottomPrice>{data.price}</ProductListbottomPrice>
             </ProductListbottomWrapper>
           ))}
+          <ButtonWrapper>
+            <WriteItemBtn
+              buttonName="등록하기"
+              type="submit"
+              isActive={props.isActive}
+            ></WriteItemBtn>
+          </ButtonWrapper>
         </ProductListWrapper>
       </Wrapper>
       {/* -오늘본상품-? */}
