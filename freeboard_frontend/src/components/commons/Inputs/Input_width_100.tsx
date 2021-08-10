@@ -24,7 +24,13 @@ export default function input100(props) {
   return (
     <div>
       {props.InputName && <Label>{props?.InputName}</Label>}
-      <Input type={props.type} {...props.register} style={props.style} />
+      <Input
+        type={props.type}
+        {...props.register}
+        style={props.style}
+        defaultValue={props.defaultValue}
+        readOnly={props.readOnly}
+      />
       <ErrorMessage>{props?.errorMessage}</ErrorMessage>
     </div>
   );

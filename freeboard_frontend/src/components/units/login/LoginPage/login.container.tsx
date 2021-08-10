@@ -75,7 +75,7 @@ export default function login() {
         content: `${resultUser.data?.fetchUserLoggedIn.name}님 환영합니다`,
       });
       alert("sdf");
-      router.push("/mypages/");
+      router.push("/market/new/");
 
       // ========임시 로그인 코드 ==========
     } catch (error) {

@@ -31,6 +31,7 @@ export default function LoginInput(props) {
         {...props.register}
         style={props.style}
         placeholder={props.placeholder}
+        defaultValue={props.defaultValue}
       />
       <ErrorMessage>{props?.errorMessage}</ErrorMessage>
     </div>

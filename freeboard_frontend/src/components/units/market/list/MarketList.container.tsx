@@ -12,8 +12,12 @@ const marketList = () => {
   const router = useRouter();
 
   console.log(data);
-  const onClickMoveToBoardDetail = (marketId) => () => {
+  const onClickMoveToDetail = (marketId) => () => {
     router.push(`/market/${marketId}`);
+  };
+
+  const onClickMoveToWrite = () => {
+    router.push(`/market/new`);
   };
 
   return (
@@ -21,7 +25,8 @@ const marketList = () => {
       <MarketListUI
         data={data}
         resultUser={resultUser}
-        onClickMoveToBoardDetail={onClickMoveToBoardDetail}
+        onClickMoveToDetail={onClickMoveToDetail}
+        onClickMoveToWrite={onClickMoveToWrite}
       />
     </div>
   );

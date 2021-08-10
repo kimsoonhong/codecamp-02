@@ -22,7 +22,7 @@ export default function input180(props) {
   return (
     <div>
       <Label>인풋 스몰1</Label>
-      <Input />
+      <Input defaultValue={props.defaultValue} />
       <ErrorMessage>에러메시지</ErrorMessage>
     </div>
   );

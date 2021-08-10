@@ -17,10 +17,6 @@ const BoardDetail = () => {
     router.push("/market");
   }
 
-  function onClickMoveToEdit() {
-    router.push(`/boards/${router.query.boardId}/edit`);
-  }
-
   const onClickBasket = (basketData) => () => {
     setIsSetItem(false);
 
@@ -46,6 +42,10 @@ const BoardDetail = () => {
     console.log(baskets.indexOf());
     localStorage.setItem("baskets", JSON.stringify(baskets));
   };
+  function onClickMoveToEdit() {
+    router.push(`/market/${router.query.useditemId}/edit`);
+    console.log("dd");
+  }
 
   return (
     <MarketDetailUI

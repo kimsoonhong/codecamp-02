@@ -99,7 +99,7 @@ export default function marketListUI(props) {
             <ProductListbottomWrapper
               // id={data._id}
               key={data._id}
-              onClick={props.onClickMoveToBoardDetail(data._id)}
+              onClick={props.onClickMoveToDetail(data._id)}
             >
               <ProductListbottomPicture
                 src={`https://storage.googleapis.com/${data.images[0]}`}
@@ -133,7 +133,7 @@ export default function marketListUI(props) {
           <ButtonWrapper>
             <WriteItemBtn
               buttonName="등록하기"
-              type="submit"
+              onClick={props.onClickMoveToWrite}
               isActive={props.isActive}
             ></WriteItemBtn>
           </ButtonWrapper>

@@ -3,7 +3,11 @@ import withAuth from "../../../commons/withAuth";
 
 import { useMutation } from "@apollo/client";
 import { Modal } from "antd";
-import { CREATE_USED_ITEM, UPLOAD_FILE } from "./MarketWrite.queries";
+import {
+  CREATE_USED_ITEM,
+  UPLOAD_FILE,
+  UPDATE_USED_ITEM,
+} from "./MarketWrite.queries";
 
 import { yupResolver } from "@hookform/resolvers/yup";
 import { schemaSubmit } from "./MarketWrite.validation";
@@ -11,9 +15,10 @@ import { useForm } from "react-hook-form";
 import { useState } from "react";
 import { useRouter } from "next/router";
 
-const marketWrite = () => {
+const marketWrite = (props) => {
   const [files, setFiles] = useState([]);
   const [uploadfile] = useMutation(UPLOAD_FILE);
+  const [updateUseditem] = useMutation(UPDATE_USED_ITEM);
   const { register, handleSubmit, formState } = useForm({
     mode: "onChange",
     resolver: yupResolver(schemaSubmit),
@@ -23,7 +28,7 @@ const marketWrite = () => {
   const router = useRouter();
 
   async function onSubmit(data) {
-    console.log("dsafadsf", data);
+    console.log("등록하기입니다.", data);
 
     if (!files.length) {
       alert("이미지를 최소 1개 이상 넣어주세요");
@@ -37,20 +42,6 @@ const marketWrite = () => {
     const images = resultFiles.map((data) => {
       return data.data.uploadFile.url;
     });
-
-    // const profile = {
-    //   name: "철수",
-    //   age: 13
-
-    // }
-
-    // const name = profile.name
-    // const age = profile.age
-
-    // const {name, age, ...rest } = profile
-
-    // // delete data.address;
-    // // delete data.addressDetail;
     const { address, addressDetail, ...rest } = data;
 
     try {
@@ -75,6 +66,42 @@ const marketWrite = () => {
     }
   }
 
+  // /
+  // /
+  // /
+  // /
+  // /
+  // /
+
+  async function onClickUpdate(data) {
+    console.log("수정하기입니다.");
+
+    const resultFiles = await Promise.all(
+      files.map((data) => {
+        return uploadfile({ variables: { file: data } });
+      })
+    );
+    const images = resultFiles.map((data) => {
+      return data.data.uploadFile.url;
+    });
+    const { address, addressDetail, ...rest } = data;
+
+    try {
+      const result = await updateUseditem({
+        variables: {
+          createUseditemInput: {
+            ...rest,
+            images: images,
+          },
+        },
+      });
+      Modal.info({ content: "수정되었습니다." });
+      router.push(`/market/${result.data?.createUseditem._id}`);
+    } catch (error) {
+      alert(error.message);
+    }
+  }
+
   // const onChangeFile = (file, index) => {
   //   setFiles(file);
   // };
@@ -89,6 +116,9 @@ const marketWrite = () => {
         errors={formState.errors}
         setSendImg={setSendImg}
         setFiles={setFiles}
+        data={props.data}
+        isEdit={props.isEdit}
+        onClickUpdate={onClickUpdate}
       />
     </div>
   );
