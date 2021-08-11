@@ -94,8 +94,9 @@ export const BodyTopPrice = styled.div`
 `;
 
 export const BodyTopPickWrapper = styled.div`
-  /* background-color: blue; */
   padding-right: 10px;
+  cursor: pointer;
+  height: 80px;
 `;
 
 export const BodyTopPick = styled.div`

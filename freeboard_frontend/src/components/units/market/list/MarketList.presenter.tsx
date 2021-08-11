@@ -1,4 +1,5 @@
 import WriteItemBtn from "../../../commons/Buttons/Button-small-02";
+import PickCount from "../../../../components/commons/PickedCount/MarketPickedCount";
 
 import {
   Wrapper,
@@ -60,27 +61,40 @@ export default function marketListUI(props) {
     <div style={{ display: "flex" }}>
       <Wrapper>
         {/* -베스트상품-? */}
+        {/* {props.bestItem?.fetchUseditemsOfTheBest.map( */}
+        {/* (data: any, index: number) => ( */}
         <BestProduct>
           <BestProductText>베스트상품</BestProductText>
+
           <BestProductDiv>
-            <BestProductWrapper>
-              <BestProductPicture>사진</BestProductPicture>
-              <BestProductTextDiv>
-                <BestProductName>삼성전자 겔럭시 탭</BestProductName>
-                <BestProductInformation>
-                  <BestProductInformationDetail>
-                    <BestProductSummary>2018 모델</BestProductSummary>
-                    <BestProductPrice>298,234원</BestProductPrice>
-                  </BestProductInformationDetail>
-                  <BestProductLikeWrapper>
-                    <BestProductLikeImg>하트</BestProductLikeImg>
-                    <BestProductLikeNumber>20</BestProductLikeNumber>
-                  </BestProductLikeWrapper>
-                </BestProductInformation>
-              </BestProductTextDiv>
-            </BestProductWrapper>
+            {props.bestItem?.fetchUseditemsOfTheBest.map(
+              (data: any, index: number) => (
+                <BestProductWrapper
+                  key={data._id}
+                  onClick={props.onClickMoveToDetail(data._id)}
+                >
+                  <BestProductPicture
+                    src={`https://storage.googleapis.com/${data.images[0]}`}
+                  />
+                  <BestProductTextDiv>
+                    <BestProductName>{data.name}</BestProductName>
+                    <BestProductInformation>
+                      <BestProductInformationDetail>
+                        <BestProductSummary> {data.remarks}</BestProductSummary>
+                        <BestProductPrice>{data.price}</BestProductPrice>
+                      </BestProductInformationDetail>
+                      <BestProductLikeWrapper>
+                        <PickCount Count={data.pickedCount} />
+                      </BestProductLikeWrapper>
+                    </BestProductInformation>
+                  </BestProductTextDiv>
+                </BestProductWrapper>
+              )
+            )}
           </BestProductDiv>
         </BestProduct>
+        {/* )
+        )} */}
         {/* -제품 상단-? */}
         <ProductListWrapper>
           <ProductListTop>
@@ -97,7 +111,6 @@ export default function marketListUI(props) {
           {/* -제품 하단-? */}
           {props.data?.fetchUseditems.map((data: any, index: number) => (
             <ProductListbottomWrapper
-              // id={data._id}
               key={data._id}
               onClick={props.onClickMoveToDetail(data._id)}
             >
@@ -115,16 +128,7 @@ export default function marketListUI(props) {
                   {data.tags}
                 </ProductListbottomDetailTag>
                 <ProductListbottomFloorDiv>
-                  <ProductListbottomFloorAvatar>
-                    사진
-                  </ProductListbottomFloorAvatar>
-                  <ProductListbottomFloorSeller>
-                    {data.seller.name}
-                  </ProductListbottomFloorSeller>
-                  <ProductListbottomFloorLike>하트</ProductListbottomFloorLike>
-                  <ProductListbottomFloorLikeNumber>
-                    93
-                  </ProductListbottomFloorLikeNumber>
+                  <PickCount Count={data.pickedCount} />
                 </ProductListbottomFloorDiv>
               </ProductListbottomDetail>
               <ProductListbottomPrice>{data.price}</ProductListbottomPrice>
@@ -140,19 +144,29 @@ export default function marketListUI(props) {
         </ProductListWrapper>
       </Wrapper>
       {/* -오늘본상품-? */}
+
       <TodayProductWrapper>
         <TodayProductText>오늘본상품</TodayProductText>
-        <TodayProductDiv>
-          <TodayProductTop>
-            <TodayProductLike>하트</TodayProductLike>
-            <TodayProductLikeNumber>20</TodayProductLikeNumber>
-          </TodayProductTop>
-          <TodayProductPicture />
-          <TodayProductName>삼성겔럭시 텝</TodayProductName>
-          <TodayProductSummary>3923년 엘티이</TodayProductSummary>
-          <TodayProductPrice>320,234원</TodayProductPrice>
-          <TodayProductTag>테그</TodayProductTag>
-        </TodayProductDiv>
+        {props?.baskets?.map((data: any, index: number) => (
+          <TodayProductDiv
+            key={data._id}
+            onClick={props.onClickMoveToDetail(data._id)}
+          >
+            <TodayProductTop>
+              <TodayProductPicture
+                src={`https://storage.googleapis.com/${data.fetchUseditem.images[0]}`}
+              />
+              <PickCount Count={data.fetchUseditem.pickedCount} />
+            </TodayProductTop>
+
+            <TodayProductName>{data.fetchUseditem.name}</TodayProductName>
+            <TodayProductSummary>
+              {data.fetchUseditem.remarks}
+            </TodayProductSummary>
+            <TodayProductPrice>{data.fetchUseditem.price}원</TodayProductPrice>
+            <TodayProductTag>{data.fetchUseditem.tags}</TodayProductTag>
+          </TodayProductDiv>
+        ))}
       </TodayProductWrapper>
     </div>
   );

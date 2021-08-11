@@ -1,8 +1,7 @@
 import MarketDetailUI from "./MarketDetail.presenter";
-
 import { useRouter } from "next/router";
-import { useQuery } from "@apollo/client";
-import { FETCH_USED_ITEM } from "./MarketDetail.queries";
+import { useQuery, useMutation } from "@apollo/client";
+import { FETCH_USED_ITEM, TOGGIE_PICK } from "./MarketDetail.queries";
 import withAuth from "../../../commons/withAuth";
 import { useState } from "react";
 
@@ -11,6 +10,7 @@ const BoardDetail = () => {
   const { data } = useQuery(FETCH_USED_ITEM, {
     variables: { useditemId: router.query.useditemId },
   });
+  const [toggleUseditemPick] = useMutation(TOGGIE_PICK);
   const [isSetItem, setIsSetItem] = useState(true);
 
   function onClickMoveToList() {
@@ -47,6 +47,19 @@ const BoardDetail = () => {
     console.log("dd");
   }
 
+  const onclickPick = () => {
+    console.log("df");
+    toggleUseditemPick({
+      variables: { useditemId: router.query.useditemId },
+      refetchQueries: [
+        {
+          query: FETCH_USED_ITEM,
+          variables: { useditemId: router.query.useditemId },
+        },
+      ],
+    });
+  };
+
   return (
     <MarketDetailUI
       data={data}
@@ -55,6 +68,7 @@ const BoardDetail = () => {
       onClickBasket={onClickBasket}
       onClickDeleteBasket={onClickDeleteBasket}
       isSetItem={isSetItem}
+      onclickPick={onclickPick}
     />
   );
 };

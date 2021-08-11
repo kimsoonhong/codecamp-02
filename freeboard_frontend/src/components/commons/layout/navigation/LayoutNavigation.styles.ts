@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
   position: ${(props) => (props.scrollY >= 376 ? "" : "sticky")};
-  top: 64px;
+  top: 62px;
   width: 100%;
   height: 64px;
   background-image: url(/images/gc/a.png);
@@ -18,6 +18,7 @@ export const Wrapper = styled.div`
   margin-bottom: 90px;
 
   padding: 0 20%;
+  z-index: 99;
 `;
 
 export const MenuItem = styled.div`

@@ -39,7 +39,8 @@ export default function webEditorPage() {
   };
 
   const onChangeContents = (value) => {
-    setValue("contents", value);
+    const isBlank = "<p><br></p>";
+    setValue("contents", value === isBlank ? "" : value);
     trigger("contents");
   };
 

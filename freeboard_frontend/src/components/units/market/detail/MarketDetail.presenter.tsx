@@ -1,5 +1,7 @@
 import Button01 from "../../../commons/Buttons/Button-Middle-01";
 import Button02 from "../../../commons/Buttons/Button-Middle-02";
+import PickCount from "../../../../components/commons/PickedCount/MarketPickedCount";
+import Head from "next/head";
 
 import { Tooltip } from "antd";
 import { IMarketDetailUIProps } from "./MarketDetail.types";
@@ -34,12 +36,21 @@ import {
   BodyMapWrapper,
   BodyBottomMap,
   BodyButtonWrapper,
-  Button,
 } from "./MarketDetail.styles";
 
 export default function MarketDetailUI(props: IMarketDetailUIProps) {
   return (
     <>
+      <Head>
+        <script
+          type="text/javascript"
+          src="https://code.jquery.com/jquery-1.12.4.min.js"
+        ></script>
+        <script
+          type="text/javascript"
+          src="https://cdn.iamport.kr/js/iamport.payment-1.1.8.js"
+        ></script>
+      </Head>
       <Wrapper>
         <Header>
           <HeaderAvatarWrapper>
@@ -76,8 +87,10 @@ export default function MarketDetailUI(props: IMarketDetailUIProps) {
             </BodyTopTextWrapper>
 
             <BodyTopPickWrapper>
-              <BodyTopPick>하트</BodyTopPick>
-              <BodyTopPickNumber>20</BodyTopPickNumber>
+              <PickCount
+                onClick={props.onclickPick}
+                Count={props.data?.fetchUseditem.pickedCount}
+              />
             </BodyTopPickWrapper>
           </BodyTopWrapper>
 

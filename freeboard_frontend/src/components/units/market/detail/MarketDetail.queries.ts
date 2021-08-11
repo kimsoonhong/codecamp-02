@@ -13,7 +13,7 @@ export const FETCH_USED_ITEM = gql`
       seller {
         name
       }
-
+      pickedCount
       createdAt
       useditemAddress {
         zipcode
@@ -30,14 +30,16 @@ export const DELETE_BOARD = gql`
   }
 `;
 
-export const LIKE_BOARD = gql`
-  mutation likeBoard($boardId: ID!) {
-    likeBoard(boardId: $boardId)
+export const CREATE_POINT_TRANSACTION_OF_LOADING = gql`
+  mutation createPointTransactionOfLoading($impUid: ID!) {
+    createPointTransactionOfLoading(impUid: $impUid) {
+      _id
+    }
   }
 `;
 
-export const DISLIKE_BOARD = gql`
-  mutation dislikeBoard($boardId: ID!) {
-    dislikeBoard(boardId: $boardId)
+export const TOGGIE_PICK = gql`
+  mutation toggleUseditemPick($useditemId: ID!) {
+    toggleUseditemPick(useditemId: $useditemId)
   }
 `;

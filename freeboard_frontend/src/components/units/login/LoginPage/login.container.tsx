@@ -57,14 +57,12 @@ export default function login() {
 
       const localUserData = localStorage.setItem(
         "localUserData",
-        resultUser.data?.fetchUserLoggedIn
+        JSON.stringify(resultUser.data?.fetchUserLoggedIn)
       );
 
       const loadlocalLoginUser = localStorage.getItem("localLoginUser");
       const loadlocalUserData = localStorage.getItem("localUserData");
 
-      console.log("setAccessToken", result.data?.loginUser.accessToken);
-      console.log("setUserInfo", resultUser.data?.fetchUserLoggedIn);
       // const aaa = JSON.parse(localStorage.getItem("localLoginUser"));
       // console.log("aaa", aaa);
 
@@ -74,7 +72,7 @@ export default function login() {
       Modal.info({
         content: `${resultUser.data?.fetchUserLoggedIn.name}님 환영합니다`,
       });
-      alert("sdf");
+
       router.push("/market/new/");
 
       // ========임시 로그인 코드 ==========

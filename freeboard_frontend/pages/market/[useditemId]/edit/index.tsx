@@ -15,7 +15,6 @@ export const FETCH_USED_ITEM = gql`
       seller {
         name
       }
-
       createdAt
       useditemAddress {
         zipcode
@@ -32,6 +31,6 @@ export default function BoardsEditPage() {
     variables: { useditemId: router.query.useditemId },
   });
   const isEdit = true;
-  console.log("dsfsdf", data);
+
   return <MarketWrite isEdit={isEdit} data={data} />;
 }

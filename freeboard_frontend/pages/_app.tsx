@@ -11,7 +11,7 @@ import "antd/dist/antd.css";
 import Layout from "../src/components/commons/layout";
 import { Global } from "@emotion/react";
 import { globalStyles } from "../src/commons/styles/globalStyles";
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 
 interface IContext {
   accessToken: string;
@@ -25,6 +25,14 @@ export const GlobalContext = createContext<IContext>({});
 function MyApp({ Component, pageProps }: AppProps) {
   const [accessToken, setAccessToken] = useState();
   const [userInfo, setUserInfo] = useState();
+
+  useEffect(() => {
+    const items = localStorage.getItem("localLoginUser") || "";
+    // const UserData = JSON.parse(localStorage.getItem("localUserData")||"[]");
+
+    setAccessToken(items);
+    // setLocalUserData(UserData);
+  }, []);
 
   const value = {
     accessToken: accessToken,

@@ -22,11 +22,11 @@ export const BestProductText = styled.div`
 `;
 
 export const BestProductDiv = styled.div`
-  background-color: blueviolet;
+  background-color: black;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  width: 100%;
+  width: auto;
 `;
 
 export const BestProductWrapper = styled.div`
@@ -35,7 +35,7 @@ export const BestProductWrapper = styled.div`
   padding: 20px;
 `;
 
-export const BestProductPicture = styled.div`
+export const BestProductPicture = styled.img`
   width: 100%;
   background-color: beige;
   height: 242px;
@@ -259,6 +259,9 @@ export const TodayProductWrapper = styled.div`
   padding: 20px;
   border: 1px solid gray;
   height: fit-content;
+  position: sticky;
+  top: 125px;
+  /* z-index: -1; */
 `;
 
 export const TodayProductText = styled.div`
@@ -277,7 +280,7 @@ export const TodayProductDiv = styled.div`
 `;
 
 export const TodayProductTop = styled.div`
-  /* background-color: gray; */
+  background-color: gray;
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
