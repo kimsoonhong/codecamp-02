@@ -46,6 +46,7 @@ const marketList = () => {
       : todaylist.unshift(marketId) && todaylist.pop();
 
     sessionStorage.setItem("todaylist", JSON.stringify(todaylist));
+
     // =
     // =
     // =

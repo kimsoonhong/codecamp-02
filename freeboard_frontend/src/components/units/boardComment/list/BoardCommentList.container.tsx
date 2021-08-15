@@ -9,5 +9,7 @@ export default function BoardCommentList() {
     variables: { boardId: router.query.boardId },
   });
 
+  console.log("댓글", data);
+
   return <BoardCommentListUI data={data} />;
 }

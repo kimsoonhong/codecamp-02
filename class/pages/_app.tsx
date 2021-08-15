@@ -13,6 +13,8 @@ import firebase from "firebase/app";
 import "firebase/firestore";
 import { createContext, useState } from "react";
 
+import Head from "next/head";
+
 if (typeof window !== "undefined") {
   firebase.initializeApp({
     apiKey: "AIzaSyB2AZodzgw35GmS8qlyy3Z22jFI3Du2GH8",
@@ -57,6 +59,12 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <GlobalContext.Provider value={value}>
       <ApolloProvider client={client}>
+        {/* <Head>
+          <script
+            type="text/javascript"
+            src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ac7229dd27b8430a65dbcbadfca5c2fa"
+          ></script>
+        </Head> */}
         <Component {...pageProps} />
       </ApolloProvider>
     </GlobalContext.Provider>

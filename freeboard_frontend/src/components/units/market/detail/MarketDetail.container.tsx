@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import { useQuery, useMutation } from "@apollo/client";
 import { FETCH_USED_ITEM, TOGGIE_PICK } from "./MarketDetail.queries";
 import withAuth from "../../../commons/withAuth";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const BoardDetail = () => {
   const router = useRouter();
@@ -16,6 +16,7 @@ const BoardDetail = () => {
   function onClickMoveToList() {
     router.push("/market");
   }
+  // console.log(data, "디테일데이터");
 
   const onClickBasket = (basketData) => () => {
     setIsSetItem(false);
@@ -44,7 +45,6 @@ const BoardDetail = () => {
   };
   function onClickMoveToEdit() {
     router.push(`/market/${router.query.useditemId}/edit`);
-    console.log("dd");
   }
 
   const onclickPick = () => {
@@ -58,7 +58,7 @@ const BoardDetail = () => {
       ],
     });
   };
-  console.log(data, "dd");
+  // console.log(data, "dd");
   return (
     <MarketDetailUI
       data={data}

@@ -1,33 +1,14 @@
 import styled from "@emotion/styled";
-import { Rate } from "antd";
 
 export const Wrapper = styled.div`
   width: 1200px;
-  margin: auto;
-  padding-top: 40px;
-  border-top: solid ghostwhite 4px;
-`;
-
-export const Title = styled.div`
-  font-size: 20px;
-
-  /* background-color: saddlebrown; */
-  margin-bottom: 40px;
-`;
-
-export const PencilIcon = styled.img``;
-
-export const Star = styled(Rate)`
-  /* background-color: white;
-  color: white; */
-`;
-
-export const InputWrapper = styled.div`
+  /* background-color: salmon; */
   display: flex;
   flex-direction: row;
-  align-items: center;
-  margin-top: 40px;
-  margin-bottom: 20px;
+  justify-content: flex-end;
+  margin: auto;
+  padding-top: 20px;
+  /* padding-left: 30px; */
 `;
 
 export const ContentsWrapper = styled.div`
@@ -36,16 +17,8 @@ export const ContentsWrapper = styled.div`
   flex-direction: column;
 `;
 
-export const Input = styled.input`
-  width: 180px;
-  height: 52px;
-  padding-left: 20px;
-  border: 1px solid lightgray;
-  margin-right: 20px;
-`;
-
 export const Contents = styled.textarea`
-  width: 100%;
+  width: 1050px;
   min-height: 108px;
   padding: 20px;
   border: none;
