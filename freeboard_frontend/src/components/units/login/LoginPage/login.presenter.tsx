@@ -42,7 +42,7 @@ export default function loginUI(props) {
         <BouttonLogin
           buttonName="로그인하기"
           type="submit"
-          isActive={props.isActive}
+          isActive={props.ibsActive}
         />
         <FindWrapper>
           <Clickdiv>이메일 찾기</Clickdiv>

@@ -211,6 +211,7 @@ export default function BoardWriteUI(props: IBoardWriteUIProps) {
           </SubmitButton>
         </ButtonWrapper>
       </Wrapper>
+      <input type="text" />
     </>
   );
 }

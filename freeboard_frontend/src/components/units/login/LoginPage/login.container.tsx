@@ -35,6 +35,7 @@ export default function login() {
   }
 
   const onSubmit = async (data) => {
+    console.log(data, "dd");
     try {
       const result = await loginUser({
         variables: { ...data },

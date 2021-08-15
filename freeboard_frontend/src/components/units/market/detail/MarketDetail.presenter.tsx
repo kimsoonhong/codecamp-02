@@ -121,7 +121,7 @@ export default function MarketDetailUI(props: IMarketDetailUIProps) {
           </BodyMiddleWrapper>
 
           <BodyMapWrapper>
-            <BodyBottomMap>지도사진입ㄴ디ㅏ.</BodyBottomMap>
+            <BodyBottomMap>지도사진ㄴ디ㅏ.</BodyBottomMap>
           </BodyMapWrapper>
 
           <BodyButtonWrapper>

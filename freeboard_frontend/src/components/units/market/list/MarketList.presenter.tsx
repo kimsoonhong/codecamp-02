@@ -71,7 +71,7 @@ export default function marketListUI(props) {
               (data: any, index: number) => (
                 <BestProductWrapper
                   key={data._id}
-                  onClick={props.onClickMoveToDetail(data._id)}
+                  onClick={props.onClickMoveToDetail(data)}
                 >
                   <BestProductPicture
                     src={`https://storage.googleapis.com/${data.images[0]}`}
@@ -112,7 +112,7 @@ export default function marketListUI(props) {
           {props.data?.fetchUseditems.map((data: any, index: number) => (
             <ProductListbottomWrapper
               key={data._id}
-              onClick={props.onClickMoveToDetail(data._id)}
+              onClick={props.onClickMoveToDetail(data)}
             >
               <ProductListbottomPicture
                 src={`https://storage.googleapis.com/${data.images[0]}`}
@@ -150,21 +150,19 @@ export default function marketListUI(props) {
         {props?.baskets?.map((data: any, index: number) => (
           <TodayProductDiv
             key={data._id}
-            onClick={props.onClickMoveToDetail(data._id)}
+            onClick={props.onClickMoveToDetail(data)}
           >
             <TodayProductTop>
               <TodayProductPicture
-                src={`https://storage.googleapis.com/${data.fetchUseditem.images[0]}`}
+                src={`https://storage.googleapis.com/${data.images[0]}`}
               />
-              <PickCount Count={data.fetchUseditem.pickedCount} />
+              <PickCount Count={data.pickedCount} />
             </TodayProductTop>
 
-            <TodayProductName>{data.fetchUseditem.name}</TodayProductName>
-            <TodayProductSummary>
-              {data.fetchUseditem.remarks}
-            </TodayProductSummary>
-            <TodayProductPrice>{data.fetchUseditem.price}원</TodayProductPrice>
-            <TodayProductTag>{data.fetchUseditem.tags}</TodayProductTag>
+            <TodayProductName>{data.name}</TodayProductName>
+            <TodayProductSummary>{data.remarks}</TodayProductSummary>
+            <TodayProductPrice>{data.price}원</TodayProductPrice>
+            <TodayProductTag>{data.tags}</TodayProductTag>
           </TodayProductDiv>
         ))}
       </TodayProductWrapper>

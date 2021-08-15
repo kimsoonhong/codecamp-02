@@ -10,13 +10,11 @@ export default function Uploads01UI(props: IUploads01UIProps) {
           key={index}
           width={props.width}
           height={props.height}
-          number={props.number}
         >
           <UploadImg
             src={`${props.fileUrl[index]}`}
             width={props.width}
             height={props.height}
-            number={props.number}
           />
           <div style={{ paddingTop: "70px" }}>-</div>
           <div>Delete</div>
@@ -40,9 +38,6 @@ export default function Uploads01UI(props: IUploads01UIProps) {
                   onChange={props.onChangeFile}
                   multiple
                   style={{ display: "none" }}
-                  width={props.width}
-                  height={props.height}
-                  number={props.number}
                 />
               </label>
             </ImgUpload>

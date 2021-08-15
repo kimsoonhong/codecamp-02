@@ -1,13 +1,13 @@
 import { useMutation } from "@apollo/client";
 import { useRouter } from "next/router";
 import { ChangeEvent, MouseEvent, useState } from "react";
-import { FETCH_BOARD_COMMENTS } from "../list/BoardCommentList.queries";
-import BoardCommentWriteUI from "./BoardCommentWrite.presenter";
+import { FETCH_BOARD_COMMENTS } from "../list/MarketCommentList.queries";
+import MarketCommentWriteUI from "./MarketCommentWrite.presenter";
 import {
   CREATE_BOARD_COMMENT,
   UPDATE_BOARD_COMMENT,
-} from "./BoardCommentWrite.queries";
-import { IBoardCommentWriteProps } from "./BoardCommentWrite.types";
+} from "./MarketCommentWrite.queries";
+import { IBoardCommentWriteProps } from "./MarketCommentWrite.types";
 
 export const INPUTS_INIT = {
   writer: "",
@@ -16,7 +16,7 @@ export const INPUTS_INIT = {
   rating: 0,
 };
 
-export default function BoardCommentWrite(props: IBoardCommentWriteProps) {
+export default function MarketCommentWrite(props: IBoardCommentWriteProps) {
   const router = useRouter();
   const [inputs, setInputs] = useState(INPUTS_INIT);
   const [createBoardComment] = useMutation(CREATE_BOARD_COMMENT);
@@ -84,7 +84,7 @@ export default function BoardCommentWrite(props: IBoardCommentWriteProps) {
   }
 
   return (
-    <BoardCommentWriteUI
+    <MarketCommentWriteUI
       inputs={inputs}
       onChangeInput={onChangeInput}
       onChangeStar={onChangeStar}

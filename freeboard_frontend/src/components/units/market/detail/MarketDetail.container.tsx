@@ -48,7 +48,6 @@ const BoardDetail = () => {
   }
 
   const onclickPick = () => {
-    console.log("df");
     toggleUseditemPick({
       variables: { useditemId: router.query.useditemId },
       refetchQueries: [
@@ -59,7 +58,7 @@ const BoardDetail = () => {
       ],
     });
   };
-
+  console.log(data, "dd");
   return (
     <MarketDetailUI
       data={data}

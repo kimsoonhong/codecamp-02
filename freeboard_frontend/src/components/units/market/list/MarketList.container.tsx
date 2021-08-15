@@ -19,16 +19,38 @@ const marketList = () => {
   const router = useRouter();
 
   const [baskets, setBaskets] = useState();
-  // console.log(data);
-  // console.log(baskets);
+  const [isSetItem, setIsSetItem] = useState(true);
 
   useEffect(() => {
-    const items = JSON.parse(localStorage.getItem("baskets") || "[]");
+    const items = JSON.parse(sessionStorage.getItem("todaylist") || "[]");
     setBaskets(items);
   }, []);
 
   const onClickMoveToDetail = (marketId) => () => {
-    router.push(`/market/${marketId}`);
+    // setIsSetItem(false);
+    // =
+    // =
+    // =
+    const todaylist = JSON.parse(sessionStorage.getItem("todaylist") || "[]");
+
+    // let isExists = false;
+
+    // todaylist.forEach((baskets) => {
+    //   if (baskets.fetchUseditems._id === marketId.fetchUseditems._id)
+    //     isExists = true;
+    // });
+    // if (isExists) return;
+
+    todaylist.length > 5
+      ? todaylist.pop()
+      : todaylist.unshift(marketId) && todaylist.pop();
+
+    sessionStorage.setItem("todaylist", JSON.stringify(todaylist));
+    // =
+    // =
+    // =
+
+    router.push(`/market/${marketId._id}`);
   };
 
   const onClickMoveToWrite = () => {
@@ -44,6 +66,7 @@ const marketList = () => {
         onClickMoveToWrite={onClickMoveToWrite}
         bestItem={bestItem}
         baskets={baskets}
+        isSetItem={isSetItem}
       />
     </div>
   );

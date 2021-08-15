@@ -1,4 +1,4 @@
-import paymentUI from "../payment/payment.presenter"
+import paymentUI from "./payment.presenter"
 
 
 export default function payment (){

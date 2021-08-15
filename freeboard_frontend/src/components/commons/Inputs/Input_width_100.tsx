@@ -13,6 +13,7 @@ const Input = styled.input`
   width: 100%;
   border-radius: 0px;
   border: 1px solid gray;
+  padding-left: 12px;
 `;
 
 const ErrorMessage = styled.div`
@@ -30,7 +31,11 @@ export default function input100(props) {
         style={props.style}
         defaultValue={props.defaultValue}
         readOnly={props.readOnly}
-      />
+        placeholder={props.placeholder}
+        onChange={props.onChange}
+      >
+        {props.message}
+      </Input>
       <ErrorMessage>{props?.errorMessage}</ErrorMessage>
     </div>
   );

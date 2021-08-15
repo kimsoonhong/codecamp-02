@@ -1,11 +1,11 @@
-import { ChangeEvent, useEffect, useRef, useState } from "react";
+import { ChangeEvent, useRef, useState } from "react";
 import { imgFilesValidation } from "../../../commons/libraries/ImgFiles_validations";
 import Uploads01UI from "./Uploads01.presenter";
 import { IUploads01Props } from "./Uploads01.types";
 
 export default function Uploads01(props: IUploads01Props) {
   const fileRef = useRef<HTMLInputElement>(null);
-  const [fileUrl, setFileUrl] = useState([]);
+  const [fileUrl, setFileUrl] = useState(props.imgData ? props.imgData : []);
   // const [file, setFile] = useState([]);
   // const [file, setFile] = useState([]);
 
@@ -28,27 +28,26 @@ export default function Uploads01(props: IUploads01Props) {
         return [...prev, file];
       });
     };
-
-    // const realImg = [...file];
-    //   realImg.push(file);
-    //   setFile(realImg);
   }
 
-  // console.log(fileUrl);
   function onClickDeleteImg(index) {
     const imgArr = [...fileUrl];
     imgArr.splice(index, 1);
     setFileUrl(imgArr);
   }
 
-  useEffect(() => {
-    if (props.data?.fetchBoard?.images?.length)
-      setResultimgUrl(
-        [...props.data?.fetchBoard.images].map(
-          (data) => `https://storage.googleapis.com/${data}`
-        )
-      );
-  }, [props.data?.fetchBoard.images]);
+  // useEffect(() => {
+  //   if (props.data?.fetchUseditem?.images?.length)
+  //     setFileUrl(
+  //       [...props.data?.fetchUseditem.images].map(
+  //         (data) => `https://storage.googleapis.com/${data}`
+  //       )
+  //     );
+  // }, [props.data?.fetchUseditem.images]);
+
+  console.log(fileUrl, "인풋 컨테이너");
+  console.log(props.imgData, "이미지데이터");
+
   return (
     <Uploads01UI
       fileRef={fileRef}
@@ -59,6 +58,7 @@ export default function Uploads01(props: IUploads01Props) {
       number={props.number}
       width={props.width}
       height={props.height}
+      fetchImg={props.fetchImg}
     />
   );
 }

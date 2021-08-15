@@ -2,6 +2,9 @@ import Input100 from "../../../commons/Inputs/Input_width_100";
 import InputTextarea from "../../../commons/Inputs/Input_Textarea_01";
 import Button01 from "../../../commons/Buttons/Button-Middle-01";
 import ImgFileUploads from "../../../../components/commons/ImgFile_Uploads01/Uploads01.container";
+import SmallButton from "../../../commons/Buttons/Button-small-01";
+import Modal from "antd/lib/modal/Modal";
+import DaumPostcode from "react-daum-postcode";
 // import dynamic from "next/dynamic";
 // const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 // import "react-quill/dist/quill.snow.css";
@@ -26,14 +29,23 @@ import {
   RadioLabel,
   ButtonWrapper,
 } from "./MarketWrite.syles";
+import { useEffect } from "react";
 
 export default function marketWriteUI(props) {
   return (
     <>
+      {props.isOpen && (
+        <Modal visible={true} onCancel={props.onCancel}>
+          <DaumPostcode onComplete={props.onCompleteAddressSearch} autoClose />
+        </Modal>
+      )}
       <form
-        onSubmit={props.handleSubmit(
-          props.isEdit ? props.onClickUpdate : props.onSubmit
-        )}
+        onSubmit={
+          (props.onClickAddressSearch,
+          props.handleSubmit(
+            props.isEdit ? props.onClickUpdate : props.onSubmit
+          ))
+        }
         style={{ display: "flex" }}
       >
         <Wrapper>
@@ -83,7 +95,7 @@ export default function marketWriteUI(props) {
             <MapWrapper>
               <MapPositionWrapper>
                 <Label>거래위치</Label>
-                <MapPosition>사진</MapPosition>
+                <MapPosition id="map"></MapPosition>
               </MapPositionWrapper>
               <MapRightWrapper>
                 <Label>GPS</Label>
@@ -96,16 +108,31 @@ export default function marketWriteUI(props) {
                   <Input100
                     InputName="주소"
                     type="text"
+                    placeholder={"주소를 검색해 주세요."}
                     register={{ ...props.register("address") }}
+                    readOnly
+                    defaultValue={
+                      props.address || props.data?.fetchUseditem.address
+                    }
+                    onChange={props.onChangeAddress}
+                    errorMessage={props.errors.address?.message}
                   ></Input100>
+
                   <Input100
                     type="text"
+                    placeholder={"상세주소를 입력해주세요."}
                     register={{ ...props.register("addressDetail") }}
-                    errorMessage={
-                      props.errors.address?.message ||
-                      props.errors.addressDetail?.message
+                    errorMessage={props.errors.addressDetail?.message}
+                    onChange={props.onChangeAddressDetail}
+                    defaultValue={
+                      props.address || props.data?.fetchUseditem.addressDetail
                     }
                   ></Input100>
+                  <SmallButton
+                    buttonName="주소검색"
+                    type="button"
+                    onClick={props.onClickAddressSearch}
+                  ></SmallButton>
                 </AddressWrapper>
               </MapRightWrapper>
             </MapWrapper>
@@ -116,9 +143,10 @@ export default function marketWriteUI(props) {
               <ImgFileUploads
                 width={180}
                 height={180}
-                size={180}
                 number={3}
                 setFiles={props.setFiles}
+                imgData={props.imgData}
+                onChangeFile={props.onChangeFile}
               />
             </ImgWrapper>
             <Label>메인 사진 설정</Label>
