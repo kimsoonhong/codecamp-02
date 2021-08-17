@@ -27,11 +27,11 @@ const marketWrite = (props) => {
   const [sendImg, setSendImg] = useState([]);
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
-  const [address, setAddress] = useState("");
-  const [addressDetail, setAddressDetail] =
-    useState("상세주소를 입력해주세요.");
+  // const [address, setAddress] = useState();
+  const [address, setAddress] = useState();
+  const [addressDetail, setAddressDetail] = useState();
 
-  console.log(files, "마켓 컨테이너");
+  // console.log(files, "마켓 컨테이너");
 
   const onChangeFile = (file) => {
     setFiles(file);
@@ -169,7 +169,9 @@ const marketWrite = (props) => {
 
             // 인포윈도우로 장소에 대한 설명을 표시합니다
             var infowindow = new kakao.maps.InfoWindow({
-              content: `<div style="width:150px;text-align:center;padding:6px 0;">${addressDetail}</div>`,
+              content: `<div style="width:150px;text-align:center;padding:6px 0;">${
+                addressDetail || "상세주소를 입력해주세요"
+              }</div>`,
             });
             infowindow.open(map, marker);
 
@@ -188,6 +190,7 @@ const marketWrite = (props) => {
 
   function onCompleteAddressSearch(data: any) {
     setAddress(data.address);
+    console.log("데이타 어드레스", data.address);
     setIsOpen(false);
   }
 
@@ -200,9 +203,8 @@ const marketWrite = (props) => {
 
   function onChangeAddress(event) {
     setAddress(event.target.value);
-    setValue("Address", event.target.value);
-    trigger("Address");
   }
+  console.log("ㅇㅇㅇㅇ", address);
 
   return (
     <div>

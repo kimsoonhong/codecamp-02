@@ -51,6 +51,7 @@ export const Contents = styled.textarea`
   border: none;
   border-bottom: 1px solid lightgray;
   margin: 0px;
+  resize: none;
   /* background-color: royalblue; */
 `;
 

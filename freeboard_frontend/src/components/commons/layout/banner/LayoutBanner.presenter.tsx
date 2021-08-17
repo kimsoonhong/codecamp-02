@@ -16,6 +16,10 @@ export default function LayoutBannerUI() {
     slidesToScroll: 1,
     arrows: false,
     centerMode: false,
+    speed: 2000,
+    autoplaySpeed: 5000,
+    autoplay: true,
+    // autoplayspeed: 2000,
   };
 
   const [scrollY, setScrollY] = useState<number>(0);

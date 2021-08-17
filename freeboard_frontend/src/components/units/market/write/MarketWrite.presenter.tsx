@@ -29,7 +29,6 @@ import {
   RadioLabel,
   ButtonWrapper,
 } from "./MarketWrite.syles";
-import { useEffect } from "react";
 
 export default function marketWriteUI(props) {
   return (
@@ -125,7 +124,8 @@ export default function marketWriteUI(props) {
                     errorMessage={props.errors.addressDetail?.message}
                     onChange={props.onChangeAddressDetail}
                     defaultValue={
-                      props.address || props.data?.fetchUseditem.addressDetail
+                      props.addressDetail ||
+                      props.data?.fetchUseditem.addressDetail
                     }
                   ></Input100>
                   <SmallButton

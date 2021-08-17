@@ -45,8 +45,8 @@ export default function Uploads01(props: IUploads01Props) {
   //     );
   // }, [props.data?.fetchUseditem.images]);
 
-  console.log(fileUrl, "인풋 컨테이너");
-  console.log(props.imgData, "이미지데이터");
+  // console.log(fileUrl, "인풋 컨테이너");
+  // console.log(props.imgData, "이미지데이터");
 
   return (
     <Uploads01UI

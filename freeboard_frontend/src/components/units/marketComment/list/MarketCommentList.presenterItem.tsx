@@ -5,10 +5,7 @@ import { ChangeEvent, useState } from "react";
 import { getDate } from "../../../../commons/libraries/utils";
 import BoardCommentWrite from "../write/MarketCommentWrite.container";
 import { EditOutlined, CloseOutlined, FormOutlined } from "@ant-design/icons";
-import {
-  DELETE_BOARD_COMMENT,
-  FETCH_QUESTION_ANSWER,
-} from "./MarketCommentList.queries";
+import { FETCH_QUESTION_ANSWER } from "./MarketCommentList.queries";
 import {
   RecommentWrapper,
   Avatar,

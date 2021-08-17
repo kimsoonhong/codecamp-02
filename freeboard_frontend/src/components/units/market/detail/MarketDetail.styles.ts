@@ -1,5 +1,9 @@
 import styled from "@emotion/styled";
 
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
 export const Wrapper = styled.div`
   width: 800px;
   margin: auto;
@@ -115,6 +119,7 @@ export const BodyMiddleWrapper = styled.div`
   /* background-color: cadetblue; */
   padding-top: 80px;
   border-bottom: 1px solid grey;
+  /* background-color: saddlebrown; */
 `;
 
 export const BodyMiddleImgWrapper = styled.div`
@@ -140,13 +145,34 @@ export const BodyMiddleImgPreviewWrapper = styled.div`
   justify-content: space-evenly;
   padding-top: 20px;
   margin: auto;
+  padding-top: 50px;
 `;
 
 export const BodyMiddleImgPreview = styled.img`
-  width: 80px;
-  height: 80px;
+  width: 100%;
+  height: 400px;
 
-  /* background-color: honeydew; */
+  background-size: contain;
+
+  /* background-color: red; */
+`;
+
+export const StyleSlider = styled(Slider)`
+  .slick-prev {
+    display: none;
+    /* position: fixed; */
+  }
+
+  .slick-next {
+    display: none;
+  }
+
+  .slick-dots {
+    display: none;
+  }
+  .slick-thumb {
+    display: none;
+  }
 `;
 
 export const BodyMiddleContent = styled.div`
@@ -204,5 +230,17 @@ export const Button = styled.button`
   :hover {
     /* background-color: #142b12; */
     border-color: white;
+  }
+`;
+export const SliderItem = styled.img`
+  /* background-color: red; */
+  width: 80px;
+  height: 80px;
+  transition: ease-in-out all 1000ms;
+  :hover {
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    transition: ease-in-out all 1000ms;
   }
 `;

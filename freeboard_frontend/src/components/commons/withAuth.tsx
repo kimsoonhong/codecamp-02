@@ -7,7 +7,7 @@ const withAuth = (Component: any) => (props: any) => {
   const { accessToken } = useContext(GlobalContext);
 
   // useEffect(() => {
-  //   if (!localStorage.getItem("accessToken")) {
+  //   if (!localStorage.getItem("localLoginUser")) {
   //     alert("로그인 해주세요 ^^^^^");
   //     router.push("/login");
   //   }

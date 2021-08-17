@@ -41,10 +41,10 @@ const marketList = () => {
     // });
     // if (isExists) return;
 
-    todaylist.length > 5
-      ? todaylist.pop()
-      : todaylist.unshift(marketId) && todaylist.pop();
-
+    // todaylist.length > 5
+    //   ? todaylist.pop()
+    //   : todaylist.unshift(marketId) && todaylist.pop();
+    todaylist.unshift(marketId);
     sessionStorage.setItem("todaylist", JSON.stringify(todaylist));
 
     // =
