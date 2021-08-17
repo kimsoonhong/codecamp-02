@@ -17,7 +17,7 @@ export default function loginsuccesspage() {
   const { accessToken } = useContext(GlobalContext);
 
   useEffect(() => {
-    if (!accessToken) router.push("/22-login");
+    if (!localStorage.getItem("refreshToken")) router.push("/22-login");
   }, []);
   return (
     <div>

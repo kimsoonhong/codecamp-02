@@ -6,6 +6,7 @@ export const Wrapper = styled.div`
   padding: 80px 120px;
   border: 2px gray solid;
   margin: auto;
+  box-shadow: 0px 0px 10px gray;
 `;
 export const Header = styled.div`
   width: 100%;

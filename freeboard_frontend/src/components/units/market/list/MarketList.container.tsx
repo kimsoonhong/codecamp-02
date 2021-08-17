@@ -27,7 +27,7 @@ const marketList = () => {
   }, []);
 
   const onClickMoveToDetail = (marketId) => () => {
-    // setIsSetItem(false);
+    setIsSetItem(false);
     // =
     // =
     // =

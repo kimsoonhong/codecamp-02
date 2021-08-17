@@ -13,7 +13,6 @@ export default function MarketRecommentUI(props) {
   return (
     <div>
       {/* {props.data?.} */}
-
       <Wrapper>
         <FormOutlined style={{ fontSize: "20px", marginRight: "25px" }} />
         <ContentsWrapper>
@@ -25,11 +24,18 @@ export default function MarketRecommentUI(props) {
           />
           <BottomWrapper>
             <ContentsLength>0/100</ContentsLength>
-            <Button onClick={props.onClickAnswer}>답글등록</Button>
+            <Button
+              onClick={
+                props.isEditAnswer
+                  ? props.onClickUpdateAnswer
+                  : props.onClickAnswer
+              }
+            >
+              {props.isEditAnswer ? "답글수정" : "답글등록"}
+            </Button>
           </BottomWrapper>
         </ContentsWrapper>
       </Wrapper>
-      <Wrapper></Wrapper>
     </div>
   );
 }

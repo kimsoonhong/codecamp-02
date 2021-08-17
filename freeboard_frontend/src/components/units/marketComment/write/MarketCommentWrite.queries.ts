@@ -28,36 +28,27 @@ export const CREATE_ITEM_QUESTION = gql`
   }
 `;
 
-export const FETCH_USED_ITEM = gql`
-  query fetchUseditem($useditemId: ID!) {
-    fetchUseditem(useditemId: $useditemId) {
-      _id
-      name
-      remarks
-      contents
-      price
-      tags
-      images
-      seller {
-        name
-      }
-      pickedCount
-      createdAt
-      useditemAddress {
-        zipcode
-        address
-        addressDetail
-      }
-    }
-  }
-`;
-
 export const FETCH_QUESTIONS = gql`
   query fetchUseditemQuestions($useditemId: ID!) {
     fetchUseditemQuestions(useditemId: $useditemId) {
       contents
       _id
       updatedAt
+    }
+  }
+`;
+
+export const UPDATE_QUESTION = gql`
+  mutation updateUseditemQuestion(
+    $updateUseditemQuestionInput: UpdateUseditemQuestionInput!
+    $useditemQuestionId: ID!
+  ) {
+    updateUseditemQuestion(
+      updateUseditemQuestionInput: $updateUseditemQuestionInput
+
+      useditemQuestionId: $useditemQuestionId
+    ) {
+      _id
     }
   }
 `;

@@ -191,20 +191,22 @@ export const BodyMiddleTags = styled.div`
 `;
 
 export const BodyMapWrapper = styled.div`
-  padding: 80px 0px;
+  padding-bottom: 80px;
   width: 100%;
+  display: flex;
+  flex-direction: column;
 
   /* background-color: gold; */
   border-bottom: 1px solid grey;
 `;
-export const BodyBottomMap = styled.div`
+export const BodyBottom = styled.div`
   /* background-color: honeydew; */
 
   width: 100%;
   height: 360px;
 `;
 
-// __
+// __`
 export const BodyButtonWrapper = styled.div`
   width: 400px;
   display: flex;
@@ -236,11 +238,11 @@ export const SliderItem = styled.img`
   /* background-color: red; */
   width: 80px;
   height: 80px;
-  transition: ease-in-out all 1000ms;
+  transition: ease-in-out all 200ms;
   :hover {
     width: 100%;
     height: 100%;
     cursor: pointer;
-    transition: ease-in-out all 1000ms;
+    transition: ease-in-out all 200ms;
   }
 `;

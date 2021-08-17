@@ -9,7 +9,7 @@ export const Wrapper = styled.div`
   align-items: center;
   background-color: whitesmoke;
   width: 100%;
-  z-index: 1;
+  z-index: 99;
   position: fixed;
   /* opacity: ${(props) => 1 - props.scrollY / 350}; */
   /* animation: 200ms ease-in all; */

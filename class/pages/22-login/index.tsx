@@ -9,8 +9,8 @@ import { GlobalContext } from "../_app";
 import { useRouter } from "next/router";
 
 export const LOGIN_USER = gql`
-  mutation loginUser($email: String!, $password: String!) {
-    loginUser(email: $email, password: $password) {
+  mutation loginUserExample($email: String!, $password: String!) {
+    loginUserExample(email: $email, password: $password) {
       accessToken
     }
   }
@@ -52,11 +52,15 @@ export default function signupPage() {
       //     },
       //   },
       // });
-      setAccessToken(result.data?.loginUser.accessToken || "");
+      setAccessToken(result.data?.loginUserExample.accessToken || "");
       // router.push("/22-loginSuccess");
-      router.push("/23-hoc");
+      localStorage.setItem("refreshToken", "true");
+      router.push("/22-loginSuccess");
 
-      console.log(result.data?.loginUser.accessToken);
+      console.log(
+        result.data?.loginUserExample.accessToken,
+        "loginUserExample"
+      );
     } catch (error) {
       alert(error.massage);
     }

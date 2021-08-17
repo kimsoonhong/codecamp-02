@@ -204,7 +204,6 @@ const marketWrite = (props) => {
   function onChangeAddress(event) {
     setAddress(event.target.value);
   }
-  console.log("ㅇㅇㅇㅇ", address);
 
   return (
     <div>

@@ -2,7 +2,7 @@ import Button01 from "../../../commons/Buttons/Button-Middle-01";
 import Button02 from "../../../commons/Buttons/Button-Middle-02";
 import PickCount from "../../../../components/commons/PickedCount/MarketPickedCount";
 import Head from "next/head";
-import DOMpurify from "dompurify";
+// import DOMpurify from "dompurify";
 
 import { Tooltip } from "antd";
 import { IMarketDetailUIProps } from "./MarketDetail.types";
@@ -62,13 +62,7 @@ export default function MarketDetailUI(props: IMarketDetailUIProps) {
     autoplay: true,
   };
 
-  const slick = styled.button`
-    .slick-next {
-      color: red;
-    }
-  `;
-
-  if (typeof window === "undefined") return <></>;
+  // if (typeof window === "undefined") return <></>;
   return (
     <>
       <Head>
@@ -105,7 +99,6 @@ export default function MarketDetailUI(props: IMarketDetailUIProps) {
           </HeaderIconWrapper>
         </Header>
         <Body>
-          {/* -- */}
           <BodyTopWrapper>
             <BodyTopTextWrapper>
               <BodyTopRemark>
@@ -146,16 +139,26 @@ export default function MarketDetailUI(props: IMarketDetailUIProps) {
             </BodyMiddleImgWrapper>
 
             <BodyMiddleContent
-              dangerouslySetInnerHTML={{
-                __html: DOMpurify.sanitize(props.data?.fetchUseditem.contents),
-              }}
-            ></BodyMiddleContent>
+            // dangerouslySetInnerHTML={{
+            //   __html: DOMpurify.sanitize(props.data?.fetchUseditem.contents),
+            // }}
+            >
+              {props.data?.fetchUseditem.contents}
+            </BodyMiddleContent>
 
             <BodyMiddleTags>{props.data?.fetchUseditem.tags}</BodyMiddleTags>
           </BodyMiddleWrapper>
 
           <BodyMapWrapper>
-            <BodyBottom Mapid="map"></BodyBottom>
+            <span style={{ marginTop: "20px" }}>
+              {props.data?.fetchUseditem.useditemAddress?.address}
+            </span>{" "}
+            <br />
+            <span>
+              {props.data?.fetchUseditem.useditemAddress?.addressDetail}
+            </span>
+            <br />
+            <BodyBottom id="map"></BodyBottom>
           </BodyMapWrapper>
 
           <BodyButtonWrapper>
