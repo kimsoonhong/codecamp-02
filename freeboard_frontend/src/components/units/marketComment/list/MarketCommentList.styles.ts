@@ -32,7 +32,7 @@ export const Writer = styled.div`
   font-size: 20px;
   font-weight: bold;
 `;
-export const Contents = styled.textarea`
+export const Contents = styled.div`
   overflow: hidden;
   width: 100%;
   width: 1000px;

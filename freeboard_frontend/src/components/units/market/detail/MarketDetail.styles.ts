@@ -208,7 +208,7 @@ export const BodyBottom = styled.div`
 
 // __`
 export const BodyButtonWrapper = styled.div`
-  width: 400px;
+  width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;

@@ -8,6 +8,7 @@ export default function MarketCommentList() {
   const { data } = useQuery(FETCH_QUESTIONS, {
     variables: { useditemId: router.query.useditemId },
   });
-  console.log("데이터아이디", data?.fetchUseditemQuestions._id);
+
+  // console.log("데이터아이디", data?.fetchUseditemQuestions._id);
   return <MarketCommentListUI data={data} />;
 }

@@ -24,8 +24,6 @@ export const FETCH_QUESTION_ANSWER = gql`
   }
 `;
 
-
-
 export const UPDATE_QUESTION_ANSWER = gql`
   mutation updateUseditemQuestionAnswer(
     $updateUseditemQuestionAnswerInput: UpdateUseditemQuestionAnswerInput!

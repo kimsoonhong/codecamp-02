@@ -182,21 +182,37 @@ export default function MarketDetailUI(props: IMarketDetailUIProps) {
               buttonName="목록으로"
               isActive={props.isActive}
               onClick={props.onClickMoveToList}
-            >
-              목록으로
-            </Button02>
-            <Button01
-              buttonName="구매하기"
-              type="submit"
-              isActive={props.isActive}
-            >
-              구매하기
-            </Button01>
-            <Button01
-              buttonName="수정하기"
-              onClick={props.onClickMoveToEdit}
-              isActive={props.isActive}
-            />
+            ></Button02>
+
+            {props.userData?.fetchUserLoggedIn._id !==
+            props.data?.fetchUseditem.seller._id ? (
+              <></>
+            ) : (
+              <>
+                <Button01
+                  buttonName="삭제하기"
+                  onClick={props.onClickDeletItem}
+                  isActive={props.isActive}
+                />
+              </>
+            )}
+
+            {props.userData?.fetchUserLoggedIn._id !==
+            props.data?.fetchUseditem.seller._id ? (
+              <Button01
+                buttonName="구매하기"
+                type="submit"
+                isActive={props.isActive}
+              ></Button01>
+            ) : (
+              <>
+                <Button01
+                  buttonName="수정하기"
+                  onClick={props.onClickMoveToEdit}
+                  isActive={props.isActive}
+                />
+              </>
+            )}
           </BodyButtonWrapper>
         </Body>
       </Wrapper>

@@ -16,6 +16,8 @@ import FileUpload from "../../src/components/commons/ImgFile_Uploads01/Uploads01
 import MarketCommentList from "../../src/components/units/marketComment/list/MarketCommentList.container";
 import MarketCommentWrite from "../../src/components/units/marketComment/write/MarketCommentWrite.container";
 
+import Mypage from "../../src/components/units/market/mypages/Mypages.presenter";
+
 export default function marketList() {
   return (
     <div>
@@ -36,6 +38,7 @@ export default function marketList() {
       <Input486 />
       <Input588 />
       <InputTextarea />
+      <Mypage />
     </div>
   );
 }

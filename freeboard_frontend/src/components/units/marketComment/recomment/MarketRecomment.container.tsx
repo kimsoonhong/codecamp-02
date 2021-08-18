@@ -47,26 +47,28 @@ export default function MarketRecomment(props) {
   }
 
   async function onClickUpdateAnswer(event) {
-    // alert("수정연결됨");
+    alert("수정연결됨");
     // props.setIsEditAnswer(false);
-    console.log(props.data?._id, "질문데이테!");
+    console.log(props.data._id, "질문데이테!");
     try {
       await updateUseditemQuestionAnswer({
         variables: {
           updateUseditemQuestionAnswerInput: {
             contents: contents,
           },
-          useditemQuestionAnswerId: props.data?._id,
+          useditemQuestionAnswerId: props.data._id,
         },
         refetchQueries: [
           {
             query: FETCH_QUESTION_ANSWER,
-            variables: { useditemQuestionId: props.data?._id },
+            variables: { useditemQuestionId: props.questionID },
           },
           // alert('리패치함')
         ],
       });
-      // props.setIsEditAnswer(false);
+      const newIsEditAnswer = [...props.isEditAnswer];
+      newIsEditAnswer[props.index] = false;
+      props.setIsEditAnswer(newIsEditAnswer);
     } catch (error) {
       alert(error.message);
     }

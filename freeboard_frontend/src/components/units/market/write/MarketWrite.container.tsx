@@ -31,7 +31,9 @@ const marketWrite = (props) => {
   const [address, setAddress] = useState();
   const [addressDetail, setAddressDetail] = useState();
 
-  // console.log(files, "마켓 컨테이너");
+  console.log(address, "<<<");
+
+  // const newAddress =
 
   const onChangeFile = (file) => {
     setFiles(file);
@@ -93,7 +95,7 @@ const marketWrite = (props) => {
   // /
 
   async function onClickUpdate(data) {
-    console.log("수정하기입니다.", data);
+    console.log("수정하기입니다.", data, data.addressDetail);
 
     const resultFiles = await Promise.all(
       files.map((data) => {
@@ -109,14 +111,20 @@ const marketWrite = (props) => {
     try {
       const result = await updateUseditem({
         variables: {
-          createUseditemInput: {
+          updateUseditemInput: {
             ...rest,
             images: images,
+            useditemAddress: {
+              address: data.address,
+              addressDetail: data.addressDetail,
+            },
           },
+          useditemId: router.query.useditemId,
         },
       });
+
       Modal.info({ content: "수정되었습니다." });
-      router.push(`/market/${result.data?.createUseditem._id}`);
+      router.push(`/market/${result.data?.updateUseditem._id}`);
     } catch (error) {
       alert(error.message);
     }
@@ -182,7 +190,7 @@ const marketWrite = (props) => {
         marker.setMap(map);
       });
     };
-  });
+  }, [address]);
 
   function onClickAddressSearch() {
     setIsOpen(true);

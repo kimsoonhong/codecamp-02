@@ -10,6 +10,7 @@ import {
   DELETE_QUESTIONS,
   FETCH_QUESTIONS,
   DELETE_QUESTIONS_ANSWER,
+  FETCH_USER_LOGGED_IN,
 } from "./MarketCommentList.queries";
 import {
   RecommentWrapper,
@@ -36,6 +37,10 @@ export default function MarketCommentListUIItem(
   const [isEdit, setIsEdit] = useState(false);
   const [isEditAnswer, setIsEditAnswer] = useState([]);
   const [isOpenDeleteModal, setIsOpenDeleteModal] = useState(false);
+  const { data: userData } = useQuery(FETCH_USER_LOGGED_IN);
+  const { data: questionsData } = useQuery(FETCH_QUESTIONS, {
+    variables: { useditemId: router.query.useditemId },
+  });
 
   useEffect(() => {
     setIsEditAnswer(
@@ -125,7 +130,9 @@ export default function MarketCommentListUIItem(
   }
 
   // const isEditAnswer = [false, false, true, false];
-  console.log("데이터", props.data.contents);
+
+
+
   return (
     <>
       <Contents>{props.data.contents}</Contents>
@@ -141,14 +148,22 @@ export default function MarketCommentListUIItem(
                 <Contents>{props.data.contents}</Contents>
               </MainWrapper>
               <OptionWrapper>
-                <EditOutlined
-                  onClick={onClickUpdate}
-                  style={{ fontSize: "20px" }}
-                />
-                <CloseOutlined
-                  onClick={onClickOpenDeleteModal}
-                  style={{ fontSize: "20px" }}
-                />
+                {userData?.fetchUserLoggedIn._id !== props.data.user._id ? (
+                  <></>
+                ) : (
+                  <>
+                    {" "}
+                    <EditOutlined
+                      onClick={onClickUpdate}
+                      style={{ fontSize: "20px" }}
+                    />
+                    <CloseOutlined
+                      onClick={onClickOpenDeleteModal}
+                      style={{ fontSize: "20px" }}
+                    />
+                  </>
+                )}
+
                 <FormOutlined
                   onClick={onClickRecomment}
                   style={{ fontSize: "20px" }}
@@ -171,6 +186,8 @@ export default function MarketCommentListUIItem(
                     isEditAnswer={isEditAnswer}
                     setIsEditAnswer={setIsEditAnswer}
                     data={data}
+                    index={index}
+                    questionID={props.data?._id}
                   />
                 )}
                 {!isEditAnswer[index] && (
@@ -191,16 +208,23 @@ export default function MarketCommentListUIItem(
                           <Contents>{data.contents}</Contents>
                         </MainWrapper>
                         <OptionWrapper>
-                          <EditOutlined
-                            onClick={onClickUpdateAnswer(index)}
-                            style={{ fontSize: "20px" }}
-                          />
-                          <CloseOutlined
-                            onClick={() => {
-                              onClickOpenDeleteModalQuestAnswr(data._id);
-                            }}
-                            style={{ fontSize: "20px" }}
-                          />
+                          { recomment?.fetchUseditemQuestionAnswers[index]?.user._id !==
+                         userData?.fetchUserLoggedIn._id ? (
+                            <></>
+                          ) : (
+                            <>
+                              <EditOutlined
+                                onClick={onClickUpdateAnswer(index)}
+                                style={{ fontSize: "20px" }}
+                              />
+                              <CloseOutlined
+                                onClick={() => {
+                                  onClickOpenDeleteModalQuestAnswr(data._id);
+                                }}
+                                style={{ fontSize: "20px" }}
+                              />
+                            </>
+                          )}
                         </OptionWrapper>
                       </FlexWrapper>
                       <DateString>{getDate(data.createdAt)}</DateString>

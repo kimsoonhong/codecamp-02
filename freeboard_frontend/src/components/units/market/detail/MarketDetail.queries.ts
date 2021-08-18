@@ -12,6 +12,7 @@ export const FETCH_USED_ITEM = gql`
       images
       seller {
         name
+        _id
       }
       pickedCount
       createdAt
@@ -19,6 +20,8 @@ export const FETCH_USED_ITEM = gql`
         zipcode
         address
         addressDetail
+        lat
+        lng
       }
     }
   }
@@ -41,5 +44,21 @@ export const CREATE_POINT_TRANSACTION_OF_LOADING = gql`
 export const TOGGIE_PICK = gql`
   mutation toggleUseditemPick($useditemId: ID!) {
     toggleUseditemPick(useditemId: $useditemId)
+  }
+`;
+
+export const DELETE_USED_ITEM = gql`
+  mutation deleteUseditem($useditemId: ID!) {
+    deleteUseditem(useditemId: $useditemId)
+  }
+`;
+
+export const FETCH_USER_LOGGED_IN = gql`
+  query fetchUserLoggedIn {
+    fetchUserLoggedIn {
+      _id
+      email
+      name
+    }
   }
 `;

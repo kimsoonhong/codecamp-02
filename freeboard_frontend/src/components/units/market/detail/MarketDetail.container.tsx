@@ -1,22 +1,34 @@
 import MarketDetailUI from "./MarketDetail.presenter";
 import { useRouter } from "next/router";
 import { useQuery, useMutation } from "@apollo/client";
-import { FETCH_USED_ITEM, TOGGIE_PICK } from "./MarketDetail.queries";
+import {
+  FETCH_USED_ITEM,
+  TOGGIE_PICK,
+  DELETE_USED_ITEM,
+  FETCH_USER_LOGGED_IN,
+} from "./MarketDetail.queries";
 import withAuth from "../../../commons/withAuth";
 import { useEffect, useState } from "react";
+import { Modal } from "antd";
 
 const BoardDetail = () => {
   const router = useRouter();
   const { data } = useQuery(FETCH_USED_ITEM, {
     variables: { useditemId: router.query.useditemId },
   });
+  const { data: userData } = useQuery(FETCH_USER_LOGGED_IN);
   const [toggleUseditemPick] = useMutation(TOGGIE_PICK);
   const [isSetItem, setIsSetItem] = useState(true);
+  const [deleteUseditem] = useMutation(DELETE_USED_ITEM);
 
   function onClickMoveToList() {
     router.push("/market");
   }
-  // console.log(data, "디테일데이터");
+  console.log(
+    userData?.fetchUserLoggedIn._id,
+    data?.fetchUseditem.seller._id,
+    "유져데이터"
+  );
 
   const onClickBasket = (basketData) => () => {
     setIsSetItem(false);
@@ -58,7 +70,11 @@ const BoardDetail = () => {
       ],
     });
   };
-  // console.log(data, "dd");
+  console.log(
+    data?.fetchUseditem.useditemAddress?.lat,
+    data?.fetchUseditem.useditemAddress?.lng,
+    "dd"
+  );
 
   useEffect(() => {
     const script = document.createElement("script");
@@ -81,8 +97,8 @@ const BoardDetail = () => {
 
         // 마커가 표시될 위치입니다
         const markerPosition = new kakao.maps.LatLng(
-          35.18350248075207,
-          128.99241069612935
+          data?.fetchUseditem.useditemAddress?.lat,
+          data?.fetchUseditem.useditemAddress?.lng
         );
 
         // 마커를 생성합니다
@@ -126,6 +142,20 @@ const BoardDetail = () => {
     };
   });
 
+  function onClickDeletItem() {
+    try {
+      deleteUseditem({
+        variables: {
+          useditemId: router.query.useditemId,
+        },
+      });
+      router.push("/market");
+      Modal.info({ content: "삭제되었습니다." });
+    } catch (error) {
+      Modal.error({ content: error.message });
+    }
+  }
+
   return (
     <MarketDetailUI
       data={data}
@@ -133,8 +163,10 @@ const BoardDetail = () => {
       onClickMoveToEdit={onClickMoveToEdit}
       onClickBasket={onClickBasket}
       onClickDeleteBasket={onClickDeleteBasket}
+      onClickDeletItem={onClickDeletItem}
       isSetItem={isSetItem}
       onclickPick={onclickPick}
+      userData={userData}
     />
   );
 };

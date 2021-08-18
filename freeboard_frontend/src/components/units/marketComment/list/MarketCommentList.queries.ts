@@ -9,20 +9,11 @@ export const FETCH_QUESTIONS = gql`
       updatedAt
       user {
         name
+        _id
       }
     }
   }
 `;
-
-// fetchBoardComments(
-//   page: Int
-//   boardId: ID!
-//   ): [BoardComment!]!
-
-//   fetchUseditemQuestions(
-//     page: Int
-//     useditemId: ID!
-//     ): [UseditemQuestion!]!
 
 export const FETCH_QUESTION_ANSWER = gql`
   query fetchUseditemQuestionAnswers($useditemQuestionId: ID!) {
@@ -49,5 +40,15 @@ export const DELETE_QUESTIONS_ANSWER = gql`
     deleteUseditemQuestionAnswer(
       useditemQuestionAnswerId: $useditemQuestionAnswerId
     )
+  }
+`;
+
+export const FETCH_USER_LOGGED_IN = gql`
+  query fetchUserLoggedIn {
+    fetchUserLoggedIn {
+      _id
+      email
+      name
+    }
   }
 `;
