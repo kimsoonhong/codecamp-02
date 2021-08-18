@@ -48,11 +48,12 @@ export default function MarketCommentWrite(props: IBoardCommentWriteProps) {
   async function onClickUpdateQuestion(event) {
     // alert("연결됨");
     // if (contents) props.data?.contents = contents;
+    props.setIsEdit?.(false);
     try {
       await updateUseditemQuestion({
         variables: {
           updateUseditemQuestionInput: {
-            contents: contents || props.data?.contents,
+            contents: contents,
           },
 
           useditemQuestionId: (event.target as Element).id,
@@ -64,8 +65,8 @@ export default function MarketCommentWrite(props: IBoardCommentWriteProps) {
           },
           // alert('리패치함')
         ],
+        
       });
-      props.setIsEdit?.(false);
     } catch (error) {
       alert(error.message);
     }

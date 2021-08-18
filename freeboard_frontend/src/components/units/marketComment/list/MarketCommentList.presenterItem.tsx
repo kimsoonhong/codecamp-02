@@ -26,6 +26,7 @@ import {
 } from "./MarketCommentList.styles";
 import { IBoardCommentListUIItemProps } from "./MarketCommentList.types";
 import RecommentUI from "../recomment/MarketRecomment.container";
+import { useEffect } from "react";
 
 export default function MarketCommentListUIItem(
   props: IBoardCommentListUIItemProps
@@ -33,9 +34,15 @@ export default function MarketCommentListUIItem(
   const [recommentID, setRecommentID] = useState();
   const router = useRouter();
   const [isEdit, setIsEdit] = useState(false);
-  const [isEditAnswer, setIsEditAnswer] = useState(false);
+  const [isEditAnswer, setIsEditAnswer] = useState([]);
   const [isOpenDeleteModal, setIsOpenDeleteModal] = useState(false);
-  const [password, setPassword] = useState("");
+
+  useEffect(() => {
+    setIsEditAnswer(
+      new Array(recomment?.fetchUseditemQuestionAnswers.length).fill(false)
+    );
+  }, []);
+
   // const [deleteBoardComment] = useMutation(DELETE_BOARD_COMMENT);
   const [isRecomment, setIsRecomment] = useState(false);
   const { data: recomment } = useQuery(FETCH_QUESTION_ANSWER, {
@@ -49,11 +56,14 @@ export default function MarketCommentListUIItem(
     setIsEdit(true);
   }
 
-  function onClickUpdateAnswer() {
-    setIsEditAnswer(true);
-  }
+  const onClickUpdateAnswer = (index) => () => {
+    const newIsEditAnswer = [...isEditAnswer];
+    newIsEditAnswer[index] = true;
+    setIsEditAnswer(newIsEditAnswer);
+    // alert("d");
+  };
   // console.log(props.data?._id, "대댓글에 사용되는 아이디 qid");
-  console.log(recomment?.fetchUseditemQuestionAnswers[0]?._id, "dd");
+  // console.log(recomment?.fetchUseditemQuestionAnswers[0]?._id, "dd");
   function onClickOpenDeleteModal() {
     Modal.confirm({
       content: "삭제할꺼얌?",
@@ -80,8 +90,6 @@ export default function MarketCommentListUIItem(
   }
 
   function onClickOpenDeleteModalQuestAnswr(answerID) {
-    console.log(recomment._id);
-    console.log(props.data?._id);
     Modal.confirm({
       content: "대댓글삭제할꺼얌?",
       onCancel: () => {
@@ -116,8 +124,11 @@ export default function MarketCommentListUIItem(
     setIsOpenDeleteModal(false);
   }
 
+  // const isEditAnswer = [false, false, true, false];
+  console.log("데이터", props.data.contents);
   return (
     <>
+      <Contents>{props.data.contents}</Contents>
       {!isEdit && (
         <>
           <ItemWrapper>
@@ -153,9 +164,16 @@ export default function MarketCommentListUIItem(
             />
           )}
           <>
-            {!isEditAnswer && (
+            {recomment?.fetchUseditemQuestionAnswers.map((data, index) => (
               <>
-                {recomment?.fetchUseditemQuestionAnswers.map((data) => (
+                {isEditAnswer[index] && (
+                  <RecommentUI
+                    isEditAnswer={isEditAnswer}
+                    setIsEditAnswer={setIsEditAnswer}
+                    data={data}
+                  />
+                )}
+                {!isEditAnswer[index] && (
                   <RecommentWrapper key={data._id}>
                     <RecommentImg src="/images/Recomment.png" />
                     <ItemWrapper
@@ -174,7 +192,7 @@ export default function MarketCommentListUIItem(
                         </MainWrapper>
                         <OptionWrapper>
                           <EditOutlined
-                            onClick={onClickUpdateAnswer}
+                            onClick={onClickUpdateAnswer(index)}
                             style={{ fontSize: "20px" }}
                           />
                           <CloseOutlined
@@ -188,16 +206,9 @@ export default function MarketCommentListUIItem(
                       <DateString>{getDate(data.createdAt)}</DateString>
                     </ItemWrapper>
                   </RecommentWrapper>
-                ))}
+                )}
               </>
-            )}
-            {isEditAnswer && (
-              <RecommentUI
-                isEditAnswer={isEditAnswer}
-                setIsEditAnswer={setIsEditAnswer}
-                data={props.data}
-              />
-            )}
+            ))}
           </>
         </>
       )}

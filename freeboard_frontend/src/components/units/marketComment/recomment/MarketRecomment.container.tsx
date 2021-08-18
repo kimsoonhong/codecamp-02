@@ -11,7 +11,7 @@ import { useState } from "react";
 
 export default function MarketRecomment(props) {
   const router = useRouter();
-  const { data } = useQuery(FETCH_QUESTION_ANSWER, {
+  const { data: QuestionAnswrData } = useQuery(FETCH_QUESTION_ANSWER, {
     variables: { useditemQuestionId: props.FetchQuestId },
   });
   const [createUseditemQuestionAnswer] = useMutation(CREATE_QUESTION_ANSWER);
@@ -22,7 +22,7 @@ export default function MarketRecomment(props) {
   function onChangeRecommnet(event) {
     setContents(event.target.value);
   }
-  console.log(data?.fetchUseditemQuestionAnswers[0]._id, "질문데이테!");
+
   async function onClickAnswer() {
     alert("등록연결됨");
     try {
@@ -49,24 +49,24 @@ export default function MarketRecomment(props) {
   async function onClickUpdateAnswer(event) {
     // alert("수정연결됨");
     // props.setIsEditAnswer(false);
-
+    console.log(props.data?._id, "질문데이테!");
     try {
       await updateUseditemQuestionAnswer({
         variables: {
           updateUseditemQuestionAnswerInput: {
-            contents: "하드코딩입니다.",
+            contents: contents,
           },
-          useditemQuestionAnswerId: props.FetchQuestId,
+          useditemQuestionAnswerId: props.data?._id,
         },
         refetchQueries: [
           {
             query: FETCH_QUESTION_ANSWER,
-            variables: { useditemQuestionId: router.query.useditemQuestionId },
+            variables: { useditemQuestionId: props.data?._id },
           },
           // alert('리패치함')
         ],
       });
-      props.setIsEditAnswer(false);
+      // props.setIsEditAnswer(false);
     } catch (error) {
       alert(error.message);
     }
