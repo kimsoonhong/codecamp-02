@@ -236,6 +236,7 @@ const marketWrite = (props) => {
         onChangeAddress={onChangeAddress}
         imgData={props.imgData}
         onChangeFile={onChangeFile}
+        formState={formState}
       />
     </div>
   );

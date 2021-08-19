@@ -13,8 +13,8 @@ import InputTextarea from "../../src/components/commons/Inputs/Input_Textarea_01
 
 import FileUpload from "../../src/components/commons/ImgFile_Uploads01/Uploads01.container";
 
-import MarketCommentList from "../../src/components/units/marketComment/list/MarketCommentList.container";
-import MarketCommentWrite from "../../src/components/units/marketComment/write/MarketCommentWrite.container";
+import MarketCommentList from "../../src/components/units/marketComment.prototpye/list/MarketCommentList.container";
+import MarketCommentWrite from "../../src/components/units/marketComment.prototpye/write/MarketCommentWrite.container";
 
 import Mypage from "../../src/components/units/market/mypages/Mypages.presenter";
 

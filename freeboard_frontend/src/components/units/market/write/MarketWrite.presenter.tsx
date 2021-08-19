@@ -162,6 +162,7 @@ export default function marketWriteUI(props) {
                   buttonName="등록하기"
                   type="submit"
                   isActive={props.isActive}
+                  disabled={props.formState.isSubmitting}
                 />
               )}
               {props.isEdit && (
@@ -169,6 +170,7 @@ export default function marketWriteUI(props) {
                   buttonName="수정하기"
                   type="submit"
                   isActive={props.isActive}
+                  disabled={props.formState.isSubmitting}
                 />
               )}
 

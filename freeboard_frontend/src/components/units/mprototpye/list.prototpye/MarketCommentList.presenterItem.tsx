@@ -131,11 +131,8 @@ export default function MarketCommentListUIItem(
 
   // const isEditAnswer = [false, false, true, false];
 
-
-
   return (
     <>
-      <Contents>{props.data.contents}</Contents>
       {!isEdit && (
         <>
           <ItemWrapper>
@@ -208,8 +205,8 @@ export default function MarketCommentListUIItem(
                           <Contents>{data.contents}</Contents>
                         </MainWrapper>
                         <OptionWrapper>
-                          { recomment?.fetchUseditemQuestionAnswers[index]?.user._id !==
-                         userData?.fetchUserLoggedIn._id ? (
+                          {recomment?.fetchUseditemQuestionAnswers[index]?.user
+                            ._id !== userData?.fetchUserLoggedIn._id ? (
                             <></>
                           ) : (
                             <>
