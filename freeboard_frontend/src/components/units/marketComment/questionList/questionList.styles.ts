@@ -42,7 +42,7 @@ export const Contents = styled.div`
 export const OptionWrapper = styled.div`
   display: flex;
   flex-direction: row;
-  width: 60px;
+  width: 100px;
   justify-content: space-between;
   /* background-color: violet; */
 `;

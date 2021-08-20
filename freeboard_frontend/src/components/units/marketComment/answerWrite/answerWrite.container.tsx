@@ -12,10 +12,10 @@ export default function answerWrite(props) {
   const [contents, setContents] = useState();
   const [createUseditemQuestionAnswer] = useMutation(CREATE_QUESTION_ANSWER);
   const [updateUseditemQuestionAnswer] = useMutation(UPDATE_QUESTION_ANSWER);
-  const { data } = useQuery(FETCH_QUESTION_ANSWER, {
-    variables: { useditemQuestionId: props.data_id },
-  });
-  console.log(props.data, "<<<2");
+  // const { data } = useQuery(FETCH_QUESTION_ANSWER, {
+  //   variables: { useditemQuestionId: props.data_id },
+  // });
+
   function onChangeContents(event) {
     setContents(event.target.value);
   }
@@ -25,13 +25,13 @@ export default function answerWrite(props) {
       await createUseditemQuestionAnswer({
         variables: {
           createUseditemQuestionAnswerInput: { contents: contents },
-          useditemQuestionId: props.data?._id,
+          useditemQuestionId: props.questionData,
         },
 
         refetchQueries: [
           {
             query: FETCH_QUESTION_ANSWER,
-            variables: { useditemQuestionId: props.data?._id },
+            variables: { useditemQuestionId: props.questionData },
           },
         ],
       });
@@ -55,7 +55,7 @@ export default function answerWrite(props) {
         refetchQueries: [
           {
             query: FETCH_QUESTION_ANSWER,
-            variables: { useditemQuestionId: props.data_id },
+            variables: { useditemQuestionId: props.questionData },
           },
         ],
       });

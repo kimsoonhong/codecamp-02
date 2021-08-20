@@ -24,7 +24,6 @@ export default function Layout(props: IProps) {
       <LayoutHeader />
       <LayoutBanner />
       <LayoutNavigation />
-
       <Body>{props.children}</Body>
       <LayoutFooter />
     </Wrapper>

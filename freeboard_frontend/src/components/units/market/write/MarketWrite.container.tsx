@@ -19,10 +19,12 @@ const marketWrite = (props) => {
   const [files, setFiles] = useState([]);
   const [uploadfile] = useMutation(UPLOAD_FILE);
   const [updateUseditem] = useMutation(UPDATE_USED_ITEM);
-  const { register, handleSubmit, formState, setValue, trigger } = useForm({
-    mode: "onChange",
-    resolver: yupResolver(schemaSubmit),
-  });
+  const { register, handleSubmit, formState, setValue, trigger, reset } =
+    useForm({
+      mode: "onChange",
+      resolver: yupResolver(schemaSubmit),
+      defaultValues: {},
+    });
   const [createUseditem] = useMutation(CREATE_USED_ITEM);
   const [sendImg, setSendImg] = useState([]);
   const router = useRouter();
@@ -31,7 +33,7 @@ const marketWrite = (props) => {
   const [address, setAddress] = useState();
   const [addressDetail, setAddressDetail] = useState();
 
-  console.log(address, "<<<");
+
 
   // const newAddress =
 
@@ -40,7 +42,7 @@ const marketWrite = (props) => {
   };
 
   async function onSubmit(data) {
-    console.log("등록하기입니다.", data);
+
 
     if (!files.length) {
       alert("이미지를 최소 1개 이상 넣어주세요");
@@ -63,7 +65,7 @@ const marketWrite = (props) => {
             ...rest,
             images: images,
             useditemAddress: {
-              address: address,
+              address: data.address,
               addressDetail: addressDetail,
             },
           },
@@ -77,7 +79,7 @@ const marketWrite = (props) => {
       Modal.error({ content: error.message });
     }
   }
-  // console.log(fetchImg, "**^^");
+
   // /
   // /
   // /
@@ -95,7 +97,7 @@ const marketWrite = (props) => {
   // /
 
   async function onClickUpdate(data) {
-    console.log("수정하기입니다.", data, data.addressDetail);
+
 
     const resultFiles = await Promise.all(
       files.map((data) => {
@@ -131,6 +133,14 @@ const marketWrite = (props) => {
   }
 
   useEffect(() => {
+    if (props.data) {
+      setValue("name", props.data?.fetchUseditem.name);
+      setValue("remarks", props.data?.fetchUseditem.remarks);
+      setValue("contents", props.data?.fetchUseditem.contents);
+      setValue("price", props.data?.fetchUseditem.price);
+      setValue("tags", props.data?.fetchUseditem.tags);
+    }
+
     const script = document.createElement("script");
     script.src =
       "//dapi.kakao.com/v2/maps/sdk.js?appkey=ac7229dd27b8430a65dbcbadfca5c2fa&libraries=services&autoload=false";
@@ -178,7 +188,7 @@ const marketWrite = (props) => {
             // 인포윈도우로 장소에 대한 설명을 표시합니다
             var infowindow = new kakao.maps.InfoWindow({
               content: `<div style="width:150px;text-align:center;padding:6px 0;">${
-                addressDetail || "상세주소를 입력해주세요"
+                addressDetail ? addressDetail : "상세주소를 입력해주세요"
               }</div>`,
             });
             infowindow.open(map, marker);
@@ -190,7 +200,7 @@ const marketWrite = (props) => {
         marker.setMap(map);
       });
     };
-  }, [address]);
+  }, [address, addressDetail, props.data]);
 
   function onClickAddressSearch() {
     setIsOpen(true);
@@ -198,7 +208,9 @@ const marketWrite = (props) => {
 
   function onCompleteAddressSearch(data: any) {
     setAddress(data.address);
-    console.log("데이타 어드레스", data.address);
+
+    setValue("address", data.address);
+    trigger("address");
     setIsOpen(false);
   }
 
@@ -207,6 +219,9 @@ const marketWrite = (props) => {
   }
   function onChangeAddressDetail(event: ChangeEvent<HTMLInputElement>) {
     setAddressDetail(event.target.value);
+
+    // setValue("AddressDetail", data.AddressDetail);
+    // trigger("AddressDetail");
   }
 
   function onChangeAddress(event) {

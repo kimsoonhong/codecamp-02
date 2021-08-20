@@ -16,7 +16,7 @@ import FileUpload from "../../src/components/commons/ImgFile_Uploads01/Uploads01
 import MarketCommentList from "../../src/components/units/marketComment.prototpye/list/MarketCommentList.container";
 import MarketCommentWrite from "../../src/components/units/marketComment.prototpye/write/MarketCommentWrite.container";
 
-import Mypage from "../../src/components/units/market/mypages/Mypages.presenter";
+import Mypage from "../../src/components/units/mypages/Mypages.presenter";
 
 export default function marketList() {
   return (

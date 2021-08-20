@@ -16,7 +16,7 @@ export default function OpenAPI() {
     let articles = response["articles"];
     for (let i = 0; i < articles.length; i++) {
       let article = articles[i];
-      console.log(article);
+
     }
   }
 

@@ -47,7 +47,7 @@ export default function answerListUIItem(props) {
               {
                 query: FETCH_QUESTION_ANSWER,
                 variables: {
-                  useditemQuestionId: props.data?._id,
+                  useditemQuestionId: props.questionData,
                 },
               },
             ],
@@ -85,7 +85,7 @@ export default function answerListUIItem(props) {
                     />
                     <CloseOutlined
                       onClick={onClickOpenDeleteModalQuestAnswr}
-                      style={{ fontSize: "20px" }}
+                      style={{ fontSize: "20px", color: "red" }}
                     />
                   </>
                 )}
@@ -97,7 +97,12 @@ export default function answerListUIItem(props) {
       )}
 
       {isEdit && (
-        <AnswerWrite isEdit={isEdit} setIsEdit={setIsEdit} data={props.data} />
+        <AnswerWrite
+          isEdit={isEdit}
+          setIsEdit={setIsEdit}
+          data={props.data}
+          questionData={props.questionData}
+        />
       )}
     </div>
   );

@@ -18,7 +18,7 @@ export default function MarketCommentWrite(props: IBoardCommentWriteProps) {
   });
   const [updateUseditemQuestion] = useMutation(UPDATE_QUESTION);
   // const [updateBoardComment] = useMutation(UPDATE_BOARD_COMMENT);
-  // console.log(contents);
+
   function onChangeContents(event) {
     setContents(event.target.value);
   }

@@ -49,7 +49,7 @@ export default function MarketRecomment(props) {
   async function onClickUpdateAnswer(event) {
     alert("수정연결됨");
     // props.setIsEditAnswer(false);
-    // console.log(props.data._id, "질문데이테!");
+
     try {
       await updateUseditemQuestionAnswer({
         variables: {

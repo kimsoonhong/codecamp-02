@@ -6,6 +6,6 @@ export default function answerList(props) {
   const { data } = useQuery(FETCH_QUESTION_ANSWER, {
     variables: { useditemQuestionId: props.data._id },
   });
-  // console.log(data, "7&&");
-  return <AnswerListUI data={data} />;
+
+  return <AnswerListUI data={data} questionData={props.data._id} />;
 }

@@ -46,7 +46,7 @@ export default function BoardWrite(props: IBoardWriteProps) {
   function onChangeAddressDetail(event: ChangeEvent<HTMLInputElement>) {
     setAddressDetail(event.target.value);
   }
-  console.log(imgUrl);
+
 
   function onChangeInputs(
     event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -78,7 +78,7 @@ export default function BoardWrite(props: IBoardWriteProps) {
 
         const resultFiles = await Promise.all(
           file.map((data) => {
-            // console.log(data);
+     
             return uploadfile({ variables: { file: data } });
           })
 
@@ -105,13 +105,13 @@ export default function BoardWrite(props: IBoardWriteProps) {
         //       file: file,
         //     },
         //   });
-        // console.log(result.data.uploadFile.url);
+
         // setImgUrl(result.data.uploadFile.url);
 
         //   const imageArr = [...imgUrl];
         //   imageArr.push(result?.data?.uploadFile.url);
         //   setImgUrl(imageArr);
-        //   console.log(imageArr);
+      
         // } catch (error) {
         //   alert(error.massage);
         // }
@@ -143,7 +143,7 @@ export default function BoardWrite(props: IBoardWriteProps) {
   async function onClickUpdate() {
     const resultFiles = await Promise.all(
       file.map((data) => {
-        // console.log(data);
+
         return uploadfile({ variables: { file: data } });
       })
     );
@@ -174,7 +174,7 @@ export default function BoardWrite(props: IBoardWriteProps) {
           },
         },
       });
-      console.log(result);
+
       Modal.confirm({
         content: "게시물이 성공적으로 수정되었습니다.",
         onOk: () => router.push(`/boards/${result.data.updateBoard._id}`),
@@ -205,7 +205,7 @@ export default function BoardWrite(props: IBoardWriteProps) {
   async function onChangeFile(event: ChangeEvent<HTMLInputElement>) {
     const fileInfo = event.target.files?.[0];
     setIsUpload(false);
-    // console.log(event.target.files?.[0]);
+
     if (!fileInfo?.size) {
       alert("파이리 없습니다.");
       return;
@@ -225,13 +225,13 @@ export default function BoardWrite(props: IBoardWriteProps) {
     //       file: file,
     //     },
     //   });
-    //   // console.log(result.data.uploadFile.url);
+
     //   // setImgUrl(result.data.uploadFile.url);
 
     //   const imageArr = [...imgUrl];
     //   imageArr.push(result?.data?.uploadFile.url);
     //   setImgUrl(imageArr);
-    //   console.log(imageArr);
+
     // } catch (error) {
     //   alert(error.massage);
     // }
@@ -239,7 +239,7 @@ export default function BoardWrite(props: IBoardWriteProps) {
     const fileReader = new FileReader();
     fileReader.readAsDataURL(fileInfo);
     fileReader.onload = (data) => {
-      // console.log(data.target.result);
+
       // data >읽힌 결과물
 
       const resultImgArr = [...resultImgUrl];
@@ -252,10 +252,10 @@ export default function BoardWrite(props: IBoardWriteProps) {
     };
   }
 
-  console.log(file);
+
 
   function onClickGreyBox(event) {
-    // console.log(event.target?.children);
+
     event.target?.children[2]?.click();
     // fileRef.current?.click();
   }
@@ -264,7 +264,7 @@ export default function BoardWrite(props: IBoardWriteProps) {
     const imgArr = [...resultImgUrl];
     imgArr.splice(index, 1);
     // imgUrl.splice(index, 1);
-    // console.log(imgUrl);
+
 
     setResultimgUrl(imgArr);
     // setImgUrl([""]);

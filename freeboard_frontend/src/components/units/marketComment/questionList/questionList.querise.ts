@@ -21,8 +21,6 @@ export const DELETE_QUESTIONS = gql`
   }
 `;
 
-
-
 export const FETCH_QUESTION_ANSWER = gql`
   query fetchUseditemQuestionAnswers($useditemQuestionId: ID!) {
     fetchUseditemQuestionAnswers(useditemQuestionId: $useditemQuestionId) {
@@ -36,5 +34,12 @@ export const FETCH_QUESTION_ANSWER = gql`
     }
   }
 `;
-
-
+export const FETCH_USER_LOGGED_IN = gql`
+  query fetchUserLoggedIn {
+    fetchUserLoggedIn {
+      _id
+      email
+      name
+    }
+  }
+`;

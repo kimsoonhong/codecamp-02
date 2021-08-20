@@ -39,12 +39,9 @@ export default function marketWriteUI(props) {
         </Modal>
       )}
       <form
-        onSubmit={
-          (props.onClickAddressSearch,
-          props.handleSubmit(
-            props.isEdit ? props.onClickUpdate : props.onSubmit
-          ))
-        }
+        onSubmit={props.handleSubmit(
+          props.isEdit ? props.onClickUpdate : props.onSubmit
+        )}
         style={{ display: "flex" }}
       >
         <Wrapper>
@@ -59,21 +56,21 @@ export default function marketWriteUI(props) {
               type="text"
               register={{ ...props.register("name") }}
               errorMessage={props.errors.name?.message}
-              defaultValue={props.data?.fetchUseditem.name}
+              // defaultValue={props.data?.fetchUseditem.name}
             ></Input100>
             <Input100
               InputName="한줄요약"
               type="text"
               register={{ ...props.register("remarks") }}
               errorMessage={props.errors.remarks?.message}
-              defaultValue={props.data?.fetchUseditem.remarks}
+              // defaultValue={props.data?.fetchUseditem.remarks}
             ></Input100>
             <InputTextarea
               InputName="상품설명"
               type="text"
               register={{ ...props.register("contents") }}
               errorMessage={props.errors.contents?.message}
-              defaultValue={props.data?.fetchUseditem.contents}
+              // defaultValue={props.data?.fetchUseditem.contents}
               onChange={props.onChangeContents}
             ></InputTextarea>
             <Input100
@@ -81,7 +78,7 @@ export default function marketWriteUI(props) {
               type="text"
               register={{ ...props.register("price") }}
               errorMessage={props.errors.price?.message}
-              defaultValue={props.data?.fetchUseditem.price}
+              // defaultValue={props.data?.fetchUseditem.price}
             ></Input100>
 
             <Input100
@@ -89,7 +86,7 @@ export default function marketWriteUI(props) {
               type="text"
               register={{ ...props.register("tags") }}
               errorMessage={props.errors.tags?.message}
-              defaultValue={props.data?.fetchUseditem.tags}
+              // defaultValue={props.data?.fetchUseditem.tags}
             ></Input100>
             <MapWrapper>
               <MapPositionWrapper>
@@ -110,10 +107,8 @@ export default function marketWriteUI(props) {
                     placeholder={"주소를 검색해 주세요."}
                     register={{ ...props.register("address") }}
                     readOnly
-                    defaultValue={
-                      props.address || props.data?.fetchUseditem.address
-                    }
-                    onChange={props.onChangeAddress}
+                    defaultValue={props.data?.fetchUseditem.address || ""}
+                    // onChange={props.onChangeAddress}
                     errorMessage={props.errors.address?.message}
                   ></Input100>
 
@@ -123,9 +118,9 @@ export default function marketWriteUI(props) {
                     register={{ ...props.register("addressDetail") }}
                     errorMessage={props.errors.addressDetail?.message}
                     onChange={props.onChangeAddressDetail}
+                    value={props.AddressDetail}
                     defaultValue={
-                      props.addressDetail ||
-                      props.data?.fetchUseditem.addressDetail
+                      props.data?.fetchUseditem.addressDetail || " "
                     }
                   ></Input100>
                   <SmallButton

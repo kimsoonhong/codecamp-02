@@ -19,7 +19,7 @@ export default function BoardList() {
   const { data, refetch } = useQuery<IQuery>(FETCH_BOARDS, {
     variables: { aaa: startpage },
   });
-  console.log(data);
+
   const { data: dataBoardCount, refetch: searchRefetch } =
     useQuery<IQuery>(FETCH_BOARDS_COUNT);
   const lastPage = Math.ceil(Number(dataBoardCount?.fetchBoardsCount) / 10);
@@ -44,7 +44,7 @@ export default function BoardList() {
 
   function onClickPage(event: MouseEvent<HTMLSpanElement>) {
     refetch({ aaa: Number((event.target as Element).id) });
-    // console.log(event.target.id);
+  
     const activedPage = Number((event.target as Element).id);
     setActivedPage(activedPage);
   }
@@ -73,7 +73,6 @@ export default function BoardList() {
     setKeyword(event.target.value);
   }
 
-  // console.log(keyword, searchPage);
   return (
     <BoardListUI
       data={data}

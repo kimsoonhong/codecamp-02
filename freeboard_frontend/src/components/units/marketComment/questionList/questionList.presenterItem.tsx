@@ -2,6 +2,7 @@ import {
   DELETE_QUESTIONS,
   FETCH_QUESTIONS,
   FETCH_QUESTION_ANSWER,
+  FETCH_USER_LOGGED_IN,
 } from "./questionList.querise";
 
 import {
@@ -31,6 +32,7 @@ export default function questionListUIItem(props) {
   const [isRecomment, setIsRecomment] = useState(false);
   const router = useRouter();
   const [deleteUseditemQuestion] = useMutation(DELETE_QUESTIONS);
+  const { data: userData } = useQuery(FETCH_USER_LOGGED_IN);
 
   function onClickOpenDeleteModal() {
     Modal.confirm({
@@ -65,6 +67,7 @@ export default function questionListUIItem(props) {
     setIsRecomment(true);
   }
 
+
   return (
     <div>
       {!isEdit && (
@@ -78,18 +81,24 @@ export default function questionListUIItem(props) {
               <Contents>{props.data.contents}</Contents>
             </MainWrapper>
             <OptionWrapper>
-              <EditOutlined
-                onClick={onClickUpdate}
-                style={{ fontSize: "20px" }}
-              />
-              <CloseOutlined
-                onClick={onClickOpenDeleteModal}
-                style={{ fontSize: "20px" }}
-              />
               <FormOutlined
                 onClick={onClickRecomment}
                 style={{ fontSize: "20px" }}
               />
+              {props.data?.user._id !== userData?.fetchUserLoggedIn._id ? (
+                <></>
+              ) : (
+                <>
+                  <EditOutlined
+                    onClick={onClickUpdate}
+                    style={{ fontSize: "20px" }}
+                  />{" "}
+                  <CloseOutlined
+                    onClick={onClickOpenDeleteModal}
+                    style={{ fontSize: "20px", color: "red" }}
+                  />
+                </>
+              )}
             </OptionWrapper>
           </FlexWrapper>
           <DateString> {String(props.data.createdAt).slice(0, 10)}</DateString>
@@ -103,7 +112,11 @@ export default function questionListUIItem(props) {
         />
       )}
       {isRecomment && (
-        <AnswerWrite data={props.data} setIsRecomment={setIsRecomment} />
+        <AnswerWrite
+          data={props.data}
+          setIsRecomment={setIsRecomment}
+          questionData={props.data?._id}
+        />
       )}
 
       <AnswerList data={props.data} />

@@ -26,6 +26,6 @@ export default function BoardsEditPage() {
     variables: { boardId: router.query.boardId },
   });
   const isEdit = true;
-  console.log("dsfsdf", data);
+ 
   return <BoardWrite isEdit={isEdit} data={data} />;
 }

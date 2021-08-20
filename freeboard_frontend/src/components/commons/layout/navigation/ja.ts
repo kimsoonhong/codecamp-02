@@ -13,5 +13,5 @@ document.addEventListener('scroll',()=>{
 
 function onScroll (){
 
-  console.log(dd)
+
 }

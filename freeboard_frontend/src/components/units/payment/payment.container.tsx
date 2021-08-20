@@ -25,13 +25,12 @@ const FETCH_USER_LOGGED_IN = gql`
   }
 `;
 
-export default function basketloggedin() {
+export default function payment() {
   const [baskets, setBaskets] = useState([]);
   const [localUserData, setLocalUserData] = useState({});
 
   const { data: loginData } = useQuery(FETCH_USER_LOGGED_IN);
 
-  console.log(localUserData);
   useEffect(() => {
     const items = JSON.parse(localStorage.getItem("baskets") || "[]");
     const UserData = JSON.parse(localStorage.getItem("localUserData") || "");
@@ -109,8 +108,7 @@ export default function basketloggedin() {
             }}
           >
             <div>{data.fetchUseditem.name}</div>
-            <div>{data.fetchUseditem.price}</div>
-            <div></div>
+            <div>{data.fetchUseditem.price}</div>1<div></div>
             <div></div>
           </div>
         ))}

@@ -56,7 +56,7 @@ export default function MarketCommentListUIItem(
   const [deleteUseditemQuestion] = useMutation(DELETE_QUESTIONS);
   const [deleteUseditemQuestionAnswer] = useMutation(DELETE_QUESTIONS_ANSWER);
 
-  // console.log(recomment, "리코맨트 데이터");
+
   function onClickUpdate() {
     setIsEdit(true);
   }
@@ -65,10 +65,9 @@ export default function MarketCommentListUIItem(
     const newIsEditAnswer = [...isEditAnswer];
     newIsEditAnswer[index] = true;
     setIsEditAnswer(newIsEditAnswer);
-    // alert("d");
+
   };
-  // console.log(props.data?._id, "대댓글에 사용되는 아이디 qid");
-  // console.log(recomment?.fetchUseditemQuestionAnswers[0]?._id, "dd");
+
   function onClickOpenDeleteModal() {
     Modal.confirm({
       content: "삭제할꺼얌?",

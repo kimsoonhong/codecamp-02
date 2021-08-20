@@ -22,11 +22,15 @@ export default function webEditerData() {
       작성자 <div>{data?.fetchBoard.writer}</div>
       제목<div>{data?.fetchBoard.title}</div>
       내용
-      <span
-        dangerouslySetInnerHTML={{
-          __html: DOMpurify.sanitize(data?.fetchBoard.contents),
-        }}
-      ></span>
+      {typeof window !== "undefined" ? (
+        <span
+          dangerouslySetInnerHTML={{
+            __html: DOMpurify.sanitize(data?.fetchBoard.contents),
+          }}
+        ></span>
+      ) : (
+        <div />
+      )}
       {/* <textarea value={data?.fetchBoard.contents} /> */}
     </div>
   );

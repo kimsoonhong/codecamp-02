@@ -35,7 +35,7 @@ export default function login() {
   }
 
   const onSubmit = async (data) => {
-    console.log(data, "dd");
+
     try {
       const result = await loginUser({
         variables: { ...data },
@@ -65,7 +65,7 @@ export default function login() {
       const loadlocalUserData = localStorage.getItem("localUserData");
 
       // const aaa = JSON.parse(localStorage.getItem("localLoginUser"));
-      // console.log("aaa", aaa);
+
 
       setAccessToken(loadlocalLoginUser);
       setUserInfo(loadlocalUserData);

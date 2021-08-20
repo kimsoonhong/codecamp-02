@@ -9,6 +9,6 @@ export default function MarketCommentList() {
     variables: { useditemId: router.query.useditemId },
   });
 
-  // console.log("데이터아이디", data?.fetchUseditemQuestions._id);
+
   return <MarketCommentListUI data={data} />;
 }

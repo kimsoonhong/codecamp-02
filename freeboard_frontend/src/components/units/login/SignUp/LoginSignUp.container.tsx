@@ -45,7 +45,7 @@ export default function signUp() {
             },
           },
         });
-        console.log(result.data?.createUser._id);
+
         router.push("/login");
         alert("회원가입");
       } catch (error) {

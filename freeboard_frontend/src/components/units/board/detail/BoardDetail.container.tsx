@@ -56,9 +56,9 @@ export default function BoardDetail() {
     });
   }
 
-  // console.log(data?.fetchBoard.images);
+
   // const { accessToken } = useContext(GlobalContext);
-  // console.log(accessToken, " detail");
+ 
   // useEffect(() => {
   //   if (!accessToken) router.push("/login");
   //   return () => {
