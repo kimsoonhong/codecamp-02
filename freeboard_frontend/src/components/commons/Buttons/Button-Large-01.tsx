@@ -20,7 +20,7 @@ const MyBtn = styled.button`
 
 export default function button01(props) {
   return (
-    <MyBtn type={props.type} isActive={props.isActive}>
+    <MyBtn type={props.type} isActive={props.isActive} onClick={props.onClick}>
       {props.buttonName}
     </MyBtn>
   );

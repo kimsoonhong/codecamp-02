@@ -6,6 +6,7 @@ import {
   TOGGIE_PICK,
   DELETE_USED_ITEM,
   FETCH_USER_LOGGED_IN,
+  CREATE_POINT_TRANSACTION,
 } from "./MarketDetail.queries";
 import withAuth from "../../../commons/withAuth";
 import { useEffect, useState } from "react";
@@ -16,6 +17,9 @@ const BoardDetail = () => {
   const { data } = useQuery(FETCH_USED_ITEM, {
     variables: { useditemId: router.query.useditemId },
   });
+  const [createPointTransactionOfBuyingAndSelling] = useMutation(
+    CREATE_POINT_TRANSACTION
+  );
   const { data: userData } = useQuery(FETCH_USER_LOGGED_IN);
   const [toggleUseditemPick] = useMutation(TOGGIE_PICK);
   const [isSetItem, setIsSetItem] = useState(true);
@@ -146,6 +150,21 @@ const BoardDetail = () => {
     }
   }
 
+  async function onclickTransaction() {
+    try {
+      await createPointTransactionOfBuyingAndSelling({
+        variables: {
+          useritemId: router.query.useditemId,
+        },
+      });
+
+      Modal.info({ content: "구매완료 하였습니다." });
+    } catch (error) {
+      Modal.error({ content: error.message });
+    }
+    // alert("d");
+  }
+
   return (
     <MarketDetailUI
       data={data}
@@ -157,6 +176,7 @@ const BoardDetail = () => {
       isSetItem={isSetItem}
       onclickPick={onclickPick}
       userData={userData}
+      onclickTransaction={onclickTransaction}
     />
   );
 };

@@ -203,6 +203,7 @@ export default function MarketDetailUI(props: IMarketDetailUIProps) {
                 buttonName="구매하기"
                 type="submit"
                 isActive={props.isActive}
+                onClick={props.onclickTransaction}
               ></Button01>
             ) : (
               <>

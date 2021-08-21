@@ -29,11 +29,10 @@ function MyApp({ Component, pageProps }: AppProps) {
   const [userInfo, setUserInfo] = useState();
 
   useEffect(() => {
-    const items = localStorage.getItem("localLoginUser") || "";
-    // const UserData = JSON.parse(localStorage.getItem("localUserData")||"[]");
-
-    setAccessToken(items);
-    // setLocalUserData(UserData);
+    const userToken = localStorage.getItem("localLoginUser") || "";
+    setAccessToken(userToken);
+    const userInfo = localStorage.getItem("localUserData") || "";
+    setUserInfo(userInfo);
   }, []);
 
   const value = {

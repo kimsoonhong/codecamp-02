@@ -261,6 +261,7 @@ export const TodayProductWrapper = styled.div`
   height: fit-content;
   position: sticky;
   top: 125px;
+  
   /* z-index: -1; */
 `;
 

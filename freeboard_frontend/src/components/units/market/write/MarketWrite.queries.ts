@@ -1,8 +1,11 @@
 import { gql } from "@apollo/client";
 
 export const CREATE_USED_ITEM = gql`
-  mutation createUseditem($createUseditemInput: CreateUseditemInput!) {
-    createUseditem(createUseditemInput: $createUseditemInput) {
+  mutation createUseditem(
+    $createUseditemInput: CreateUseditemInput!
+    $page: Int
+  ) {
+    createUseditem(createUseditemInput: $createUseditemInput, page: $page) {
       _id
     }
   }

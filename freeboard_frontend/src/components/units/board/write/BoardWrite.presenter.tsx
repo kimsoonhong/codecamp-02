@@ -51,7 +51,6 @@ interface IBoardWriteUIProps {
 }
 
 export default function BoardWriteUI(props: IBoardWriteUIProps) {
-
   return (
     <>
       {props.isOpen && (

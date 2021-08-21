@@ -62,3 +62,16 @@ export const FETCH_USER_LOGGED_IN = gql`
     }
   }
 `;
+
+export const CREATE_POINT_TRANSACTION = gql`
+  mutation createPointTransactionOfBuyingAndSelling($useritemId: ID!) {
+    createPointTransactionOfBuyingAndSelling(useritemId: $useritemId) {
+      _id
+      seller {
+        _id
+        name
+        email
+      }
+    }
+  }
+`;

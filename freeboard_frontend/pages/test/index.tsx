@@ -11,18 +11,12 @@ import Input486 from "../../src/components/commons/Inputs/Input_Middle_486";
 import Input588 from "../../src/components/commons/Inputs/Input_Middle_588";
 import InputTextarea from "../../src/components/commons/Inputs/Input_Textarea_01";
 
-import FileUpload from "../../src/components/commons/ImgFile_Uploads01/Uploads01.container";
-
-import MarketCommentList from "../../src/components/units/marketComment.prototpye/list/MarketCommentList.container";
-import MarketCommentWrite from "../../src/components/units/marketComment.prototpye/write/MarketCommentWrite.container";
-
-import Mypage from "../../src/components/units/mypages/Mypages.presenter";
+import Payment from "../../src/components/units/payment/payment.container";
 
 export default function marketList() {
   return (
     <div>
-      <MarketCommentList />
-      <MarketCommentWrite />
+      <Payment />
 
       {/* <FileUpload /> */}
 
@@ -38,7 +32,6 @@ export default function marketList() {
       <Input486 />
       <Input588 />
       <InputTextarea />
-      <Mypage />
     </div>
   );
 }

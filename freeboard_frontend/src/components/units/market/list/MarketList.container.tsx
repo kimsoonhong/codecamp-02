@@ -11,9 +11,11 @@ import { useEffect } from "react";
 import { useState } from "react";
 
 const marketList = () => {
-  const { data } = useQuery(FETCH_USED_ITEMS, {
+  const [hasMore, setHasMore] = useState(true);
+  const { data, fetchMore } = useQuery(FETCH_USED_ITEMS, {
     variables: { page: 1 },
   });
+
   const resultUser = useQuery(FETCH_USER_LOGGED_IN);
   const { data: bestItem } = useQuery(FETCH_USED_BEST_ITEM);
   const router = useRouter();
@@ -28,34 +30,31 @@ const marketList = () => {
 
   const onClickMoveToDetail = (marketId) => () => {
     setIsSetItem(false);
-    // =
-    // =
-    // =
     const todaylist = JSON.parse(sessionStorage.getItem("todaylist") || "[]");
-
-    // let isExists = false;
-
-    // todaylist.forEach((baskets) => {
-    //   if (baskets.fetchUseditems._id === marketId.fetchUseditems._id)
-    //     isExists = true;
-    // });
-    // if (isExists) return;
-
-    // todaylist.length > 5
-    //   ? todaylist.pop()
-    //   : todaylist.unshift(marketId) && todaylist.pop();
     todaylist.unshift(marketId);
     sessionStorage.setItem("todaylist", JSON.stringify(todaylist));
-
-    // =
-    // =
-    // =
-
     router.push(`/market/${marketId._id}`);
   };
 
   const onClickMoveToWrite = () => {
     router.push(`/market/new`);
+  };
+
+  const onLoadMore = () => {
+    if (!data) return;
+
+    fetchMore({
+      variables: { page: Math.floor(data?.fetchUseditems.length / 10 + 1) },
+      updateQuery: (prev, { fetchMoreResult }) => {
+        if (!fetchMoreResult.fetchUseditems.length) setHasMore(false);
+        return {
+          fetchUseditems: [
+            ...prev.fetchUseditems,
+            ...fetchMoreResult.fetchUseditems,
+          ],
+        };
+      },
+    });
   };
 
   return (
@@ -68,6 +67,8 @@ const marketList = () => {
         bestItem={bestItem}
         baskets={baskets}
         isSetItem={isSetItem}
+        onLoadMore={onLoadMore}
+        hasMore={hasMore}
       />
     </div>
   );

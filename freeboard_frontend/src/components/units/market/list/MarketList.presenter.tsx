@@ -1,5 +1,6 @@
 import WriteItemBtn from "../../../commons/Buttons/Button-small-02";
 import PickCount from "../../../../components/commons/PickedCount/MarketPickedCount";
+import InfiniteScroll from "react-infinite-scroller";
 
 import {
   Wrapper,
@@ -60,9 +61,6 @@ export default function marketListUI(props) {
   return (
     <div style={{ display: "flex" }}>
       <Wrapper>
-        {/* -베스트상품-? */}
-        {/* {props.bestItem?.fetchUseditemsOfTheBest.map( */}
-        {/* (data: any, index: number) => ( */}
         <BestProduct>
           <BestProductText>베스트상품</BestProductText>
 
@@ -93,9 +91,7 @@ export default function marketListUI(props) {
             )}
           </BestProductDiv>
         </BestProduct>
-        {/* )
-        )} */}
-        {/* -제품 상단-? */}
+
         <ProductListWrapper>
           <ProductListTop>
             <ProductListTopTextWrapper>
@@ -109,31 +105,47 @@ export default function marketListUI(props) {
             </ProductListTopSearchWrapper>
           </ProductListTop>
           {/* -제품 하단-? */}
-          {props.data?.fetchUseditems.map((data: any, index: number) => (
-            <ProductListbottomWrapper
-              key={data._id}
-              onClick={props.onClickMoveToDetail(data)}
+
+          <div style={{ height: "1000px", overflow: "auto" }}>
+            <InfiniteScroll
+              pageStart={0}
+              useWindow={false}
+              loadMore={props.onLoadMore}
+              hasMore={props.hasMore}
+              loader={
+                <div className="loader" key={0}>
+                  기다료봐아~
+                </div>
+              }
             >
-              <ProductListbottomPicture
-                src={`https://storage.googleapis.com/${data.images[0]}`}
-              />
-              <ProductListbottomDetail>
-                <ProductListbottomDetailName>
-                  {data.name}
-                </ProductListbottomDetailName>
-                <ProductListbottomDetailSummary>
-                  {data.remarks}
-                </ProductListbottomDetailSummary>
-                <ProductListbottomDetailTag>
-                  {data.tags}
-                </ProductListbottomDetailTag>
-                <ProductListbottomFloorDiv>
-                  <PickCount Count={data.pickedCount} />
-                </ProductListbottomFloorDiv>
-              </ProductListbottomDetail>
-              <ProductListbottomPrice>{data.price}</ProductListbottomPrice>
-            </ProductListbottomWrapper>
-          ))}
+              {props.data?.fetchUseditems.map((data: any, index: number) => (
+                <ProductListbottomWrapper
+                  key={data._id}
+                  onClick={props.onClickMoveToDetail(data)}
+                >
+                  <ProductListbottomPicture
+                    src={`https://storage.googleapis.com/${data.images[0]}`}
+                  />
+                  <ProductListbottomDetail>
+                    <ProductListbottomDetailName>
+                      {data.name}
+                    </ProductListbottomDetailName>
+                    <ProductListbottomDetailSummary>
+                      {data.remarks}
+                    </ProductListbottomDetailSummary>
+                    <ProductListbottomDetailTag>
+                      {data.tags}
+                    </ProductListbottomDetailTag>
+                    <ProductListbottomFloorDiv>
+                      <PickCount Count={data.pickedCount} />
+                    </ProductListbottomFloorDiv>
+                  </ProductListbottomDetail>
+                  <ProductListbottomPrice>{data.price}</ProductListbottomPrice>
+                </ProductListbottomWrapper>
+              ))}
+            </InfiniteScroll>
+          </div>
+
           <ButtonWrapper>
             <WriteItemBtn
               buttonName="등록하기"
