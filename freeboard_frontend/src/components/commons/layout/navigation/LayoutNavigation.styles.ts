@@ -18,7 +18,7 @@ export const Wrapper = styled.div`
   margin-bottom: 90px;
 
   padding: 0 20%;
-  z-index: 1;
+  z-index: 2;
 `;
 
 export const MenuItem = styled.div`

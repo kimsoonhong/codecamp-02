@@ -4,14 +4,16 @@ export const Wrapper = styled.div`
   background-color: gray;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: end;
   /* width: 1500px; */
   margin: auto;
+  position: sticky;
+  top: 120px;
 `;
 
 export const LiftWrapper = styled.div`
   width: 200px;
-  background-color: blue;
+  background-color: yellow;
   text-align: center;
   margin-right: 80px;
 `;
@@ -51,41 +53,18 @@ export const LiftWrapperPageWrapper = styled.div`
   padding-top: 78px;
 `;
 
-export const LiftWrapperMyItem = styled.div`
+export const LiftWrapperMenu = styled.div`
   height: 30px;
   font-size: 18px;
   font-weight: 700;
   margin-bottom: 20px;
   transition: ease-in-out 200ms all;
   cursor: pointer;
-  :hover {
-    font-size: 22px;
-    transition: ease-in-out 200ms all;
-  }
-`;
+  font-size: ${(props) => (props.isActive ? "20px" : "")};
+  color: ${(props) => (props.isActive ? "#84b96e" : "")};
 
-export const LiftWrapperMyPoint = styled.div`
-  height: 30px;
-  font-size: 18px;
-  font-weight: 700;
-  margin-bottom: 20px;
-  transition: ease-in-out 200ms all;
-  cursor: pointer;
   :hover {
-    font-size: 22px;
-    transition: ease-in-out 200ms all;
-  }
-`;
-
-export const LiftWrapperMyProflie = styled.div`
-  height: 30px;
-  font-size: 18px;
-  font-weight: 700;
-  margin-bottom: 20px;
-  transition: ease-in-out 200ms all;
-  cursor: pointer;
-  :hover {
-    font-size: 22px;
+    font-size: 20px;
     transition: ease-in-out 200ms all;
   }
 `;

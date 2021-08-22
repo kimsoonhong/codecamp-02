@@ -9,24 +9,26 @@ import { useState } from "react";
 const Wrapper = styled.div`
   width: 1200px;
   margin: auto;
-  background-color: blue;
+  /* background-color: blue; */
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
 `;
 const Body = styled.div``;
 
 export default function mypage(props) {
-  const [page, setPage] = useState("myMarket");
+  const [page, setPage] = useState("myPoint");
 
   return (
     <Wrapper>
-      <Sidebar setPage={setPage} />
+      <div>
+        <Sidebar setPage={setPage} />
+      </div>
       {/* <MyMarket /> */}
       {/* <Body> */}
       {page == "myMarket" && <MyMarket />}
-      {page == "myPoint" && <MyProfile />}
-      {page == "myprofile" && <MyPoint />}
+      {page == "myPoint" && <MyPoint />}
+      {page == "myprofile" && <MyProfile />}
       {/* </Body> */}
     </Wrapper>
   );

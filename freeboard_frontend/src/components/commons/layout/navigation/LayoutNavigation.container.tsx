@@ -17,7 +17,6 @@ export default function LayoutNavigation() {
     router.push(`/${(event.target as Element).id}`);
     const activedPage = event.target.id;
     setIsClick(activedPage);
-
   }
 
   return <LayoutNavigationUI EnterToMenu={EnterToMenu} isClick={isClick} />;

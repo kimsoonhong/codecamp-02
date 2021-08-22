@@ -7,13 +7,10 @@ import {
   LiftWrapperUserName,
   LiftWrapperUserPoint,
   LiftWrapperPageWrapper,
-  LiftWrapperMyItem,
-  LiftWrapperMyPoint,
-  LiftWrapperMyProflie,
+  LiftWrapperMenu,
 } from "./Sidebar.styles";
 
 export default function mypageUi(props) {
-
   return (
     <Wrapper>
       {/* <InnerDiv> */}
@@ -29,15 +26,27 @@ export default function mypageUi(props) {
           </LiftWrapperUserPoint>
         </LiftWrapperProfileWrapper>
         <LiftWrapperPageWrapper>
-          <LiftWrapperMyItem id="myMarket" onClick={props.onClickMenu}>
+          <LiftWrapperMenu
+            id="myMarket"
+            onClick={props.onClickMenu}
+            isActive={props.activePage === "myMarket"}
+          >
             내장터
-          </LiftWrapperMyItem>
-          <LiftWrapperMyPoint id="myPoint" onClick={props.onClickMenu}>
+          </LiftWrapperMenu>
+          <LiftWrapperMenu
+            id="myPoint"
+            onClick={props.onClickMenu}
+            isActive={props.activePage === "myPoint"}
+          >
             내 포인트
-          </LiftWrapperMyPoint>
-          <LiftWrapperMyProflie id="myprofile" onClick={props.onClickMenu}>
+          </LiftWrapperMenu>
+          <LiftWrapperMenu
+            id="myprofile"
+            onClick={props.onClickMenu}
+            isActive={props.activePage === "myprofile"}
+          >
             내 프로필
-          </LiftWrapperMyProflie>
+          </LiftWrapperMenu>
         </LiftWrapperPageWrapper>
       </LiftWrapper>
     </Wrapper>

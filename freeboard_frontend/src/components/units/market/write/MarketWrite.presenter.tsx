@@ -139,9 +139,12 @@ export default function marketWriteUI(props) {
                 width={180}
                 height={180}
                 number={3}
+                files={props.files}
                 setFiles={props.setFiles}
-                imgData={props.imgData}
+                sendImg={props.sendImg}
+                setSendImg={props.setSendImg}
                 onChangeFile={props.onChangeFile}
+                data={props.data}
               />
             </ImgWrapper>
             <Label>메인 사진 설정</Label>

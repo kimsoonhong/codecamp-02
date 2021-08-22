@@ -17,6 +17,9 @@ import { useRouter } from "next/router";
 
 const marketWrite = (props) => {
   const [files, setFiles] = useState([]);
+  // const [upDateFiles, setUpDateFiles] = useState();
+  const [sendImg, setSendImg] = useState(props.imgData);
+
   const [uploadfile] = useMutation(UPLOAD_FILE);
   const [updateUseditem] = useMutation(UPDATE_USED_ITEM);
   const { register, handleSubmit, formState, setValue, trigger, reset } =
@@ -26,26 +29,26 @@ const marketWrite = (props) => {
       defaultValues: {},
     });
   const [createUseditem] = useMutation(CREATE_USED_ITEM);
-  const [sendImg, setSendImg] = useState([]);
+
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
-  // const [address, setAddress] = useState();
+
   const [address, setAddress] = useState();
   const [addressDetail, setAddressDetail] = useState();
-
-
-
-  // const newAddress =
 
   const onChangeFile = (file) => {
     setFiles(file);
   };
 
+  console.log("++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+  console.log(files, "files");
+  console.log(sendImg, "sendImg");
+
+  console.log("++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+
   async function onSubmit(data) {
-
-
     if (!files.length) {
-      alert("이미지를 최소 1개 이상 넣어주세요");
+      Modal.error({ content: "이미지를 최소 1개 이상 첨부해주세요." });
       return;
     }
     const resultFiles = await Promise.all(
@@ -80,25 +83,7 @@ const marketWrite = (props) => {
     }
   }
 
-  // /
-  // /
-  // /
-
-  // useEffect(() => {
-  //   if (props.data?.fetchUseditem?.images?.length)
-  //     setFetchImg(
-  //       [props.data?.fetchUseditem.images].map(
-  //         (data) => `https://storage.googleapis.com/${data}`
-  //       )
-  //     );
-  // }, [props.data?.fetchUseditem.images]);
-  // /
-  // /
-  // /
-
   async function onClickUpdate(data) {
-
-
     const resultFiles = await Promise.all(
       files.map((data) => {
         return uploadfile({ variables: { file: data } });
@@ -115,7 +100,7 @@ const marketWrite = (props) => {
         variables: {
           updateUseditemInput: {
             ...rest,
-            images: images,
+            images: [...sendImg, ...images],
             useditemAddress: {
               address: data.address,
               addressDetail: data.addressDetail,
@@ -236,8 +221,6 @@ const marketWrite = (props) => {
         onSubmit={onSubmit}
         isActive={formState.isValid}
         errors={formState.errors}
-        setSendImg={setSendImg}
-        setFiles={setFiles}
         data={props.data}
         isEdit={props.isEdit}
         onClickUpdate={onClickUpdate}
@@ -249,9 +232,12 @@ const marketWrite = (props) => {
         address={address}
         addressDetail={addressDetail}
         onChangeAddress={onChangeAddress}
-        imgData={props.imgData}
-        onChangeFile={onChangeFile}
         formState={formState}
+        setSendImg={setSendImg}
+        sendImg={sendImg}
+        setFiles={setFiles}
+        files={files}
+        onChangeFile={onChangeFile}
       />
     </div>
   );

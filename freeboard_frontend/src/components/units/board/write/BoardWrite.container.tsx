@@ -6,6 +6,7 @@ import { CREATE_BOARD, UPDATE_BOARD, UPLOAD_FILE } from "./BoardWrite.queries";
 import { IBoardWriteProps } from "./BoardWrite.types";
 import { Modal } from "antd";
 import { useRef } from "react";
+import { ConsoleSqlOutlined } from "@ant-design/icons";
 
 export const INPUTS_INIT = {
   writer: "",
@@ -28,11 +29,19 @@ export default function BoardWrite(props: IBoardWriteProps) {
   const [zipcode, setZipcode] = useState("");
   const [address, setAddress] = useState("");
   const [addressDetail, setAddressDetail] = useState("");
-  const [imgUrl, setImgUrl] = useState<string[]>([]);
+
   const fileRef = useRef<HTMLInputElement>(null);
   const [isUpload, setIsUpload] = useState(true);
   const [resultImgUrl, setResultimgUrl] = useState([]);
   const [file, setFile] = useState([]);
+  const [imgUrl, setImgUrl] = useState<string[]>([]);
+  console.log("----------------------------------------");
+  console.log("resultImgUrl", resultImgUrl);
+  console.log("file", file);
+  console.log("isUpload", isUpload);
+  console.log("imgUrl", imgUrl);
+
+  console.log("----------------------------------------");
 
   useEffect(() => {
     if (props.data?.fetchBoard?.images?.length)
@@ -46,7 +55,6 @@ export default function BoardWrite(props: IBoardWriteProps) {
   function onChangeAddressDetail(event: ChangeEvent<HTMLInputElement>) {
     setAddressDetail(event.target.value);
   }
-
 
   function onChangeInputs(
     event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -78,7 +86,6 @@ export default function BoardWrite(props: IBoardWriteProps) {
 
         const resultFiles = await Promise.all(
           file.map((data) => {
-     
             return uploadfile({ variables: { file: data } });
           })
 
@@ -111,7 +118,7 @@ export default function BoardWrite(props: IBoardWriteProps) {
         //   const imageArr = [...imgUrl];
         //   imageArr.push(result?.data?.uploadFile.url);
         //   setImgUrl(imageArr);
-      
+
         // } catch (error) {
         //   alert(error.massage);
         // }
@@ -143,7 +150,6 @@ export default function BoardWrite(props: IBoardWriteProps) {
   async function onClickUpdate() {
     const resultFiles = await Promise.all(
       file.map((data) => {
-
         return uploadfile({ variables: { file: data } });
       })
     );
@@ -239,7 +245,6 @@ export default function BoardWrite(props: IBoardWriteProps) {
     const fileReader = new FileReader();
     fileReader.readAsDataURL(fileInfo);
     fileReader.onload = (data) => {
-
       // data >읽힌 결과물
 
       const resultImgArr = [...resultImgUrl];
@@ -252,10 +257,7 @@ export default function BoardWrite(props: IBoardWriteProps) {
     };
   }
 
-
-
   function onClickGreyBox(event) {
-
     event.target?.children[2]?.click();
     // fileRef.current?.click();
   }
@@ -265,14 +267,11 @@ export default function BoardWrite(props: IBoardWriteProps) {
     imgArr.splice(index, 1);
     // imgUrl.splice(index, 1);
 
-
     setResultimgUrl(imgArr);
     // setImgUrl([""]);
   }
   // resultImgUrl, setResultimgUrl;
   return (
-
-   
     <BoardWriteUI
       isOpen={isOpen}
       isEdit={props.isEdit}

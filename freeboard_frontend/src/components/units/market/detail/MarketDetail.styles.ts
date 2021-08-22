@@ -239,10 +239,4 @@ export const SliderItem = styled.img`
   width: 80px;
   height: 80px;
   transition: ease-in-out all 200ms;
-  :hover {
-    width: 100%;
-    height: 100%;
-    cursor: pointer;
-    transition: ease-in-out all 200ms;
-  }
 `;

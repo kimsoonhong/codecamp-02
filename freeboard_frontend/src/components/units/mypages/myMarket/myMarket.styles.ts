@@ -8,11 +8,46 @@ export const RightWrapper = styled.div`
 export const RightWrapperHead = styled.div`
   background-color: greenyellow;
   width: 100%;
+  height: 52px;
   text-align: end;
   font-size: 16px;
   padding-bottom: 20px;
+  display: flex;
+  flex-direction: row;
+  line-height: 52px;
+  justify-content: flex-end;
+  margin-bottom: 20px;
 `;
 
+export const TopTextMyItem = styled.div`
+  font-weight: ${(props) => (props.isMyItem ? "bold" : "")};
+  color: ${(props) => (props.isMyItem ? "#84b96e" : "")};
+  height: 20px;
+  width: 100px;
+  text-align: center;
+  transition: ease-in-out 200ms all;
+  :hover {
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 18px;
+    transition: ease-in-out 200ms all;
+  }
+`;
+
+export const TopTextMyPick = styled.div`
+  font-weight: ${(props) => (props.isMyItem ? "" : "bold")};
+  color: ${(props) => (props.isMyItem ? "" : "#84b96e")};
+  height: 20px;
+  width: 100px;
+  text-align: center;
+  transition: ease-in-out 200ms all;
+  :hover {
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 18px;
+    transition: ease-in-out 200ms all;
+  }
+`;
 export const RightWrapperBody = styled.div`
   background-color: gold;
   border-top: 2px solid gray;
@@ -36,12 +71,19 @@ export const RightWrapperNumber = styled.div`
 
 export const RightWrapperTitle = styled.div`
   background-color: khaki;
-  width: 35%;
+  width: 55%;
+`;
+
+export const RightWrapperTitleSold = styled.div`
+  background-color: gray;
+  width: 45%;
+  position: relative;
 `;
 
 export const RightWrapperCondition = styled.div`
   background-color: lavender;
-  width: 20%;
+  width: 10%;
+  /* position: absolute; */
 `;
 
 export const RightWrapperPrice = styled.div`

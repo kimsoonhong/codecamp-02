@@ -16,3 +16,20 @@ export const FETCH_ISOLD = gql`
     }
   }
 `;
+
+export const FETCH_IPICKED = gql`
+  query fetchUseditemsIPicked {
+    fetchUseditemsIPicked {
+      _id
+      name
+      remarks
+      contents
+      tags
+      price
+      buyer {
+        _id
+      }
+      createdAt
+    }
+  }
+`;

@@ -34,16 +34,5 @@ export default function BoardsEditPage() {
   });
   const isEdit = true;
 
-  const [imgData, setImgData] = useState();
-
-  useEffect(() => {
-    if (data?.fetchUseditem?.images?.length)
-      setImgData(
-        [...data?.fetchUseditem.images].map(
-          (data) => `https://storage.googleapis.com/${data}`
-        )
-      );
-  }, [data?.fetchUseditem.images]);
-
-  return <MarketWrite isEdit={isEdit} data={data} imgData={imgData} />;
+  return <MarketWrite isEdit={isEdit} data={data} />;
 }

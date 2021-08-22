@@ -83,7 +83,10 @@ const BoardDetail = () => {
         const container = document.getElementById("map"); // 지도를 담을 영역의 DOM 레퍼런스
         const options = {
           // 지도를 생성할 때 필요한 기본 옵션
-          center: new kakao.maps.LatLng(35.18350248075207, 128.99241069612935), // 지도의 중심좌표.
+          center: new kakao.maps.LatLng(
+            data?.fetchUseditem.useditemAddress?.lat,
+            data?.fetchUseditem.useditemAddress?.lng
+          ), // 지도의 중심좌표.
           level: 5, // 지도의 레벨(확대, 축소 정도)
         };
 
@@ -112,17 +115,14 @@ const BoardDetail = () => {
               var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
 
               // 결과값으로 받은 위치를 마커로 표시합니다
-              var marker = new kakao.maps.Marker({
-                map: map,
-                position: coords,
-              });
+              // var marker = new kakao.maps.Marker({
+              //   map: map,
+              //   position: coords,
+              // });
 
               // 인포윈도우로 장소에 대한 설명을 표시합니다
               var infowindow = new kakao.maps.InfoWindow({
-                content: `<div style="width:150px;text-align:center;padding:6px 0;">${
-                  data?.fetchUseditem.useditemAddress?.addressDetail ||
-                  "상세주소를 입력해주세요"
-                }</div>`,
+                content: `<div style="width:150px;text-align:center;padding:6px 0;">${data?.fetchUseditem.useditemAddress?.addressDetail}</div>`,
               });
               infowindow.open(map, marker);
 
