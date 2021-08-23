@@ -53,7 +53,7 @@ export default function BoardCommentWrite(props: IBoardCommentWriteProps) {
   }
 
   async function onClickUpdate(event: MouseEvent<HTMLButtonElement>) {
-    if (inputs.password == "") {
+    if (inputs.password === "") {
       alert("비밀번호를 입력해주세요.");
       return;
     }

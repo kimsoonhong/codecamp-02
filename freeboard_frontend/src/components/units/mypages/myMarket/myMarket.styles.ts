@@ -20,8 +20,8 @@ export const RightWrapperHead = styled.div`
 `;
 
 export const TopTextMyItem = styled.div`
-  font-weight: ${(props) => (props.isMyItem ? "bold" : "")};
-  color: ${(props) => (props.isMyItem ? "#84b96e" : "")};
+  font-weight: ${(props: any) => (props.isMyItem ? "bold" : "")};
+  color: ${(props: any) => (props.isMyItem ? "#84b96e" : "")};
   height: 20px;
   width: 100px;
   text-align: center;
@@ -35,8 +35,8 @@ export const TopTextMyItem = styled.div`
 `;
 
 export const TopTextMyPick = styled.div`
-  font-weight: ${(props) => (props.isMyItem ? "" : "bold")};
-  color: ${(props) => (props.isMyItem ? "" : "#84b96e")};
+  font-weight: ${(props: any) => (props.isMyItem ? "" : "bold")};
+  color: ${(props: any) => (props.isMyItem ? "" : "#84b96e")};
   height: 20px;
   width: 100px;
   text-align: center;

@@ -18,8 +18,9 @@ const MyBtn = styled.button`
   }
 `;
 
-export default function button01(props) {
+export default function button01(props: any) {
   return (
+    // @ts-ignore
     <MyBtn type={props.type} isActive={props.isActive} onClick={props.onClick}>
       {props.buttonName}
     </MyBtn>

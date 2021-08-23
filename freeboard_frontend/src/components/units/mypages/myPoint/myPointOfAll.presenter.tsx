@@ -5,8 +5,9 @@ import {
   RightWrapperDiv,
   RightWrapperTableBottom,
 } from "./myPoint.styles";
+import { ImyPointUIProps } from "./myPoint.types";
 
-export default function myPointOfAllUI(props) {
+export default function myPointOfAllUI(props: ImyPointUIProps) {
   return (
     <RightWrapper>
       <RightWrapperBody>
@@ -20,7 +21,7 @@ export default function myPointOfAllUI(props) {
 
         <>
           {props.allData?.fetchPointTransactions
-            .map((data, index) => (
+            .map((data: any, index: any) => (
               <RightWrapperTableBottom key={data._id}>
                 <RightWrapperDiv width={25}>
                   {String(data.createdAt).slice(0, 10)}

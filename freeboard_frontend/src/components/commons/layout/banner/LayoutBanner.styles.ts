@@ -15,12 +15,14 @@ export const SliderItem = styled.img`
   width: 100%;
   /* margin: auto; */
   height: 400px;
-  opacity: ${(props) => 1.2 - props.scrollY / 430};
+  // @ts-ignore
+  opacity: ${(props: any) => 1.2 - props.scrollY / 430};
   /* background-size: cover; */
   /* background-position-y: 1000px; */
   /* overflow: hidden; */
   object-fit: none;
-  object-position: ${(props) => props.scrollY / 50}%;
+
+  object-position: ${(props: any) => props.scrollY / 50}%;
 `;
 
 // export const Slider = styled(slider)`

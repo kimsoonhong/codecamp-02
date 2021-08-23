@@ -1,6 +1,6 @@
 import LayoutNavigationUI from "./LayoutNavigation.presenter";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { MouseEvent, useState } from "react";
 export default function LayoutNavigation() {
   const router = useRouter();
   const [isClick, setIsClick] = useState("");
@@ -15,7 +15,7 @@ export default function LayoutNavigation() {
 
   function EnterToMenu(event: MouseEvent<HTMLDivElement>) {
     router.push(`/${(event.target as Element).id}`);
-    const activedPage = event.target.id;
+    const activedPage = (event.target as any).id;
     setIsClick(activedPage);
   }
 

@@ -1,3 +1,4 @@
+import { IQuery } from "../../../../commons/types/generated/types";
 import {
   RightWrapper,
   RightWrapperHead,
@@ -14,7 +15,16 @@ import {
   RightWrapperTableBottom,
 } from "./myMarket.styles";
 
-export default function myMarketUI(props) {
+interface ImyMarketUIProps {
+  pickData: Pick<IQuery, "fetchUseditemsIPicked"> | undefined;
+  data: any;
+  onClickItem: (marketId: any) => () => void;
+  isMyItem: boolean;
+  onClickMyItem: () => void;
+  onClickMyPick: () => void;
+}
+
+export default function myMarketUI(props: ImyMarketUIProps) {
   return (
     <RightWrapper>
       <RightWrapperHead>
@@ -38,7 +48,7 @@ export default function myMarketUI(props) {
         {props.isMyItem && (
           <>
             {props.data?.fetchUseditemsISold
-              .map((data, index) => (
+              .map((data: any, index: any) => (
                 <RightWrapperTableBottom
                   key={data._id}
                   onClick={props.onClickItem(data)}

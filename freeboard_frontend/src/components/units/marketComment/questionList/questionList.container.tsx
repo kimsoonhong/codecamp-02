@@ -2,7 +2,6 @@ import { useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
 import QuestionListUI from "./questionList.presenter";
 import { FETCH_QUESTIONS } from "./questionList.querise";
-import QuestionListUIItem from "./questionList.presenterItem";
 
 export default function QuestionList() {
   const router = useRouter();

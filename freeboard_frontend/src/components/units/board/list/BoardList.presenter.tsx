@@ -1,4 +1,3 @@
-import _ from "lodash";
 import styled from "@emotion/styled";
 import { getDate } from "../../../../commons/libraries/utils";
 import { LeftOutlined, RightOutlined } from "@ant-design/icons";
@@ -21,9 +20,7 @@ import {
 import { IBoardListUIProps } from "./BoardList.types";
 
 const Word = styled.span`
-  /* padding: 0px, 10px; */
-  font-weight: ${(props: Iprops) => (props.isMatched ? "bolder" : "")};
-  font-weight: ;
+  font-weight: ${(props: {isMatched : boolean}) => (props.isMatched ? "bolder" : "")};
 `;
 
 export default function BoardListUI(props: IBoardListUIProps) {
@@ -57,9 +54,10 @@ export default function BoardListUI(props: IBoardListUIProps) {
           <ColumnTitle id={data._id} onClick={props.onClickMoveToBoardDetail}>
             {/* {data.title} */}
             {data.title
+
               .replaceAll(props.keyword, `$!${props.keyword}$!`)
               .split("$!")
-              .map((data2, index) => (
+              .map((data2: any, index: any) => (
                 <Word
                   id={data._id}
                   key={index}
@@ -79,6 +77,7 @@ export default function BoardListUI(props: IBoardListUIProps) {
       <Footer>
         <WrapperList>
           <LeftOutlined
+            // @ts-ignore
             onClick={props.onClickPrevPage}
             style={{ fontSize: "30px", marginRight: "30px" }}
           />
@@ -89,6 +88,7 @@ export default function BoardListUI(props: IBoardListUIProps) {
       +${(props: Iprops) => (props.isMatched ? "props.searchPage" : "10 ")};
        */}
           {new Array(10).fill(1).map((_, index) => {
+            // @ts-ignore
             const currentPage = props.startpage + index;
             return (
               currentPage <= props.lastPage && (
@@ -96,6 +96,7 @@ export default function BoardListUI(props: IBoardListUIProps) {
                   key={currentPage}
                   onClick={props.onClickPage}
                   id={String(currentPage)}
+                  // @ts-ignore
                   isActive={currentPage === props.activedPage}
                 >
                   {currentPage}

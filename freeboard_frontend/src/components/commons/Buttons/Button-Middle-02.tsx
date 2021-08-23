@@ -1,7 +1,6 @@
 import styled from "@emotion/styled";
 
 const MyBtn = styled.button`
-  /* background-color: ${(props) => (props.isActive ? "aqua" : "")}; */
   width: 180px;
   height: 52px;
   border: none;
@@ -18,8 +17,9 @@ const MyBtn = styled.button`
   }
 `;
 
-export default function button02(props) {
+export default function button02(props: any) {
   return (
+    // @ts-ignore
     <MyBtn type={props.type} isActive={props.isActive} onClick={props.onClick}>
       {props.buttonName}
     </MyBtn>

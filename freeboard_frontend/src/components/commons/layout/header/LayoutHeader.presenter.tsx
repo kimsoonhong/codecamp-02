@@ -18,14 +18,24 @@ import {
 import Button01 from "../../Buttons/Button-small-01";
 import Head from "next/head";
 
-import { useContext, useState } from "react";
-import { useEffect } from "react";
+import { useContext, useState, useEffect, MouseEvent } from "react";
 import { GlobalContext } from "../../../../../pages/_app";
 
 import { Menu, Dropdown, Modal } from "antd";
 import { DownOutlined } from "@ant-design/icons";
 
-export default function LayoutHeaderUI(props) {
+interface ILayoutHeaderUIProps {
+  onClickLogin: () => void;
+  onClickSignUp: () => void;
+  data: any;
+  onClickOpenPayment: () => void;
+  isOpen: boolean;
+  onClickPayment: () => void;
+  onChangeAmount: (event: MouseEvent<HTMLDivElement>) => void;
+  onClose: () => void;
+}
+
+export default function LayoutHeaderUI(props: ILayoutHeaderUIProps) {
   const [scrollY, setScrollY] = useState<number>(0);
   const listener = () => {
     setScrollY(window.pageYOffset);
@@ -132,7 +142,7 @@ export default function LayoutHeaderUI(props) {
                   </a>
                 </Dropdown>
               ) : (
-                <span onClick={props.onClickSignUp}>"회원가입하기"</span>
+                <span onClick={props.onClickSignUp}>회원가입하기</span>
               )}
             </InnerButton>
           </div>

@@ -1,10 +1,12 @@
-import { MenuItem, Wrapper, Testdiv } from "./LayoutNavigation.styles";
-import { useEffect, useState } from "react";
-import styled from "@emotion/styled";
+import { MenuItem, Wrapper } from "./LayoutNavigation.styles";
+import { MouseEvent, useEffect } from "react";
 
-export default function LayoutNavigationUI(props) {
-  const [scrollY, setScrollY] = useState<number>(0);
+interface ILayoutNavigationUIProps {
+  EnterToMenu: (event: MouseEvent<HTMLDivElement>) => void;
+  isClick: any;
+}
 
+export default function LayoutNavigationUI(props: ILayoutNavigationUIProps) {
   const listener = () => {
     setScrollY(window.pageYOffset);
   };

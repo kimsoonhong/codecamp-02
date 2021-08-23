@@ -36,7 +36,7 @@ export default function signUp() {
 
     if (Object.values(newInputsErrors).every((data) => !data)) {
       try {
-        const result = await createUser({
+        await createUser({
           variables: {
             createUserInput: {
               email: inputs.email,

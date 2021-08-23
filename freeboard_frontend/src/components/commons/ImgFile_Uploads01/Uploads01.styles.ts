@@ -16,8 +16,8 @@ export const ImgUpload = styled.div`
   text-align: center;
   position: relative;
   /* background-color: beige; */
-  width: ${(props) => props.width}px;
-  height: ${(props) => props.height}px;
+  width: ${(props: any) => props.width}px;
+  height: ${(props: any) => props.height}px;
 `;
 
 export const UploadImg = styled.img`

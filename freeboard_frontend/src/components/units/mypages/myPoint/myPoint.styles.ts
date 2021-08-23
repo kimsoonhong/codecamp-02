@@ -19,8 +19,8 @@ export const RightWrapperHead = styled.div`
 `;
 
 export const TopText = styled.div`
-  font-weight: ${(props) => (props.isActive ? "bold" : "")};
-  color: ${(props) => (props.isActive ? "#84b96e" : "")};
+  font-weight: ${(props: any) => (props.isActive ? "bold" : "")};
+  color: ${(props: any) => (props.isActive ? "#84b96e" : "")};
   height: 20px;
   width: 100px;
   text-align: center;
@@ -51,7 +51,7 @@ export const RightWrapperTableTop = styled.div`
 `;
 
 export const RightWrapperDiv = styled.div`
-  width: ${(props) => props.width}%;
+  width: ${(props: any) => props.width}%;
   text-align: center;
 `;
 

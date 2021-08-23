@@ -8,7 +8,6 @@ import {
   ContentsWrapper,
   Input,
   InputWrapper,
-  PencilIcon,
   Star,
   Wrapper,
 } from "./BoardCommentWrite.styles";

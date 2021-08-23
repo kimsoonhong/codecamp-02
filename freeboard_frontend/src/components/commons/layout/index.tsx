@@ -4,7 +4,6 @@ import LayoutNavigation from "./navigation/LayoutNavigation.container";
 import LayoutFooter from "./Footer/LayoutFooter.container";
 import styled from "@emotion/styled";
 import { ReactNode } from "react";
-import { Footer } from "../../units/board/list/BoardList.styles";
 
 const Wrapper = styled.div`
   /* background-image: url(/images/gc/1.jpeg); */

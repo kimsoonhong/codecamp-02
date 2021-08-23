@@ -11,36 +11,41 @@ import MyPointOfSellingUI from "./myPointOfSelling.presenter";
 import MyPointOfLoadingUI from "./myPointOfLoading.presenter";
 import MyPointOfBuyingUI from "./myPointOfBuying.presenter";
 import MyPointOfAllUI from "./myPointOfAll.presenter";
+import { ImyPointUIProps } from "./myPoint.types";
 
-export default function myPointUI(props) {
+export default function myPointUI(props: ImyPointUIProps) {
   return (
     <RightWrapper>
       <RightWrapperHead>
         <TopText
           id="all"
           onClick={props.onClickMenu}
-          isActive={"all" == props.activedPage}
+          // @ts-ignore
+          isActive={props.activedPage === "all"}
         >
           전체내역
         </TopText>
         <TopText
           id="loading"
           onClick={props.onClickMenu}
-          isActive={"loading" == props.activedPage}
+          // @ts-ignore
+          isActive={props.activedPage === "loading"}
         >
           충전내역
         </TopText>
         <TopText
           id="buying"
           onClick={props.onClickMenu}
-          isActive={"buying" == props.activedPage}
+          // @ts-ignore
+          isActive={props.activedPage === "buying"}
         >
           구매내역
         </TopText>
         <TopText
           id="selling"
           onClick={props.onClickMenu}
-          isActive={"selling" == props.activedPage}
+          // @ts-ignore
+          isActive={props.activedPage === "selling"}
         >
           판매내역
         </TopText>

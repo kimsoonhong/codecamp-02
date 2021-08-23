@@ -16,9 +16,9 @@ export const Wrapper = styled.div`
 `;
 
 export const LeftWrapper = styled.div`
-  /* width: ${(props) => 100 - props.scrollY / 5}%; */
   background-image: url(/images/landingpage/main.png);
-  width: ${(props) => (props.scrollY > 350 ? 40 : 100 - props.scrollY / 5)}%;
+  width: ${(props: any) =>
+    props.scrollY > 350 ? 40 : 100 - props.scrollY / 5}%;
   min-width: 40%;
   /* min-width: 50%; */
   height: 100vh;
@@ -71,7 +71,7 @@ export const ShowPage = styled.div`
 // 68
 // props.scrollY > 350 ? 40 : 100 - props.scrollY / 5
 export const Mant = styled.div`
-  font-size: ${(props) => (props.scrollY > 200 ? 35 : 68)}px;
+  font-size: ${(props: any) => (props.scrollY > 200 ? 35 : 68)}px;
   text-align: center;
   font-family: "live";
   color: white;
@@ -96,7 +96,7 @@ export const Mant = styled.div`
     height: 65px;
     width: 3px;
     border-radius: 15px;
-    display: ${(props) => (props.isActive ? "block" : "none")};
+    display: ${(props: any) => (props.isActive ? "block" : "none")};
     background-color: white;
     /* animation: 0.5s; */
     /* animation-iteration-count: infinite; */
@@ -108,7 +108,7 @@ export const Mant = styled.div`
 // `;
 
 export const Banner = styled.div`
-  padding-top: ${(props) => (props.scrollY > 200 ? 20 : 60)}px;
+  padding-top: ${(props: any) => (props.scrollY > 200 ? 20 : 60)}px;
   font-size: 30px;
   color: white;
   /* background-color: violet; */
@@ -135,7 +135,7 @@ export const InnerText = styled.p`
   color: white;
   /* width: 80%; */
   padding: 0 10%;
-  opacity: ${(props) => -1.2 + props.scrollY / 130};
+  opacity: ${(props: any) => -1.2 + props.scrollY / 130};
 `;
 
 export const EnterBtn = styled.button`
@@ -143,8 +143,8 @@ export const EnterBtn = styled.button`
   height: 50px;
   background-color: tomato;
   margin-top: 100px;
-  opacity: ${(props) => (props.isOpen ? "1" : "0")};
-  pointer-events: ${(props) => (props.isOpen ? "" : "none")};
+  opacity: ${(props: any) => (props.isOpen ? "1" : "0")};
+  pointer-events: ${(props: any) => (props.isOpen ? "" : "none")};
 `;
 
 // +
@@ -160,7 +160,7 @@ export const BlockDiv = styled.div`
   padding-right: 200px;
 
   height: 3000px;
-  /* position: ${(props) => (props.scrollY >= 160 ? "" : "sticky")}; */
+
   /* padding-bottom: 200px; */
   /* height: 300px; */
   /* position: fixed; */
@@ -181,22 +181,19 @@ export const RightWrapper = styled.div`
   position: fixed;
   width: 60%;
   padding-top: 10%;
-  padding-top: ${(props) =>
+  padding-top: ${(props: any) =>
     props.scrollY > 300 ? 10 : 50 - props.scrollY / 10}%;
 
-  padding-top: ${(props) => (props.scrollY > 2200 ? 4 : "")}%;
+  padding-top: ${(props: any) => (props.scrollY > 2200 ? 4 : "")}%;
 
   /* height: 2000px; */
   transition: 500ms all ease-out;
-  margin-left: ${(props) => (props.scrollY > 2200 ? 55 : 40)}%;
+  margin-left: ${(props: any) => (props.scrollY > 2200 ? 55 : 40)}%;
   /* margin-bottom: 150px; */
   /* background-color: blue; */
   /* background-color: #f8fff552; */
   /* padding-top: 700px; */
-  /* margin-top: ${(props) => (props.scrollY > 300 ? "500" : "700")}px; */
-  /* min-width: 50%; */
-  /* position: relative; */
-  /* width: ${(props) => (props.scrollY > 1 ? "50" : "100")}%; */
+
   /* background-color: tomato; */
   /* box-sizing: border-box; */
   display: flex;
@@ -205,8 +202,8 @@ export const RightWrapper = styled.div`
   /* align-items: center; */
 
   /* padding-top: 20%; */
-  opacity: ${(props) => -1.5 + props.scrollY / 200};
-  width: ${(props) => (props.scrollY >= 2200 ? 40 : 70)}%;
+  opacity: ${(props: any) => -1.5 + props.scrollY / 200};
+  width: ${(props: any) => (props.scrollY >= 2200 ? 40 : 70)}%;
   /* transition: ease-in 100ms all; */
 `;
 export const ShowLoginPage = styled.div`
@@ -234,10 +231,10 @@ export const LoginWrapper = styled.div`
 
 export const Image = styled.img`
   width: 200px;
-  height: ${(props) => (props.scrollY > 2200 ? "0" : "200")}px;
+  height: ${(props: any) => (props.scrollY > 2200 ? "0" : "200")}px;
   margin: auto;
   padding-bottom: 50px;
-  /* display: ${(props) => (props.scrollY > 2500 ? "none" : "")}; */
+
   transition: all ease-in 300ms;
 `;
 

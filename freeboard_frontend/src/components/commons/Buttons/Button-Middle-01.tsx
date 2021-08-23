@@ -9,7 +9,6 @@ const MyBtn = styled.button`
   margin: 0px;
   font-size: 16px;
   font-weight: 500;
-  /* pointer-events: ${(props) => (props.isActive ? "all" : "none")}; */
 
   :hover {
     background-color: #142b12;
@@ -17,8 +16,9 @@ const MyBtn = styled.button`
   }
 `;
 
-export default function button01(props) {
+export default function button01(props: any) {
   return (
+    // @ts-ignore
     <MyBtn type={props.type} isActive={props.isActive} onClick={props.onClick}>
       {props.buttonName}
     </MyBtn>

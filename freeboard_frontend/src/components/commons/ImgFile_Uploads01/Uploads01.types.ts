@@ -8,6 +8,8 @@ export interface IUploads01Props {
 export interface IUploads01UIProps {
   fileRef: RefObject<HTMLInputElement>;
   fileUrl: string;
+  number: Number;
   onClickUpload: () => void;
+
   onChangeFile: (event: ChangeEvent<HTMLInputElement>) => void;
 }

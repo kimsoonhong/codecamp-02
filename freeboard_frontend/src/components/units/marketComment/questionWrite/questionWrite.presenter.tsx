@@ -8,8 +8,17 @@ import {
   ContentsWrapper,
 } from "./questionWrite.styles";
 import { FormOutlined } from "@ant-design/icons";
+import { ChangeEvent, MouseEvent } from "react";
 
-export default function QuestionWriteUI(props) {
+interface IQuestionWriteUIProps {
+  isEdit: boolean;
+  onClickWrite: () => void;
+  onChangeContents: (event: ChangeEvent<HTMLTextAreaElement>) => void;
+  onClickUpdateQuestion: (event: MouseEvent<HTMLDivElement>) => void;
+  data: any;
+}
+
+export default function QuestionWriteUI(props: IQuestionWriteUIProps) {
   return (
     <Wrapper>
       {/* {!props.isEdit && ( */}

@@ -7,8 +7,17 @@ import {
   ContentsWrapper,
 } from "./answerWrite.styles";
 import { FormOutlined } from "@ant-design/icons";
+import { ChangeEvent } from "react";
 
-export default function AnswerWriteUI(props) {
+interface IAnswerWriteUIProps {
+  onChangeContents: (event: ChangeEvent<HTMLTextAreaElement>) => void;
+  onClickAnswerSubmit: () => void;
+  onClickUpdateAnswer: () => void;
+  isEdit: boolean;
+  data: any;
+}
+
+export default function AnswerWriteUI(props: IAnswerWriteUIProps) {
   return (
     <div>
       <Wrapper>

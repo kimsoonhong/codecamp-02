@@ -26,6 +26,6 @@ export default function BoardsEditPage() {
     variables: { boardId: router.query.boardId },
   });
   const isEdit = true;
- 
+  // @ts-ignore
   return <BoardWrite isEdit={isEdit} data={data} />;
 }

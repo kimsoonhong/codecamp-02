@@ -1,5 +1,6 @@
 import { useQuery } from "@apollo/client";
-import { useState } from "react";
+import { MouseEvent, useState } from "react";
+import { IQuery } from "../../../../commons/types/generated/types";
 import MyPointUI from "./myPoint.presenter";
 
 import {
@@ -10,16 +11,24 @@ import {
 } from "./myPoint.queries";
 
 export default function myPoint() {
-  const { data: allData } = useQuery(FETCH_TRANSACTIONS_ALL);
-  const { data: BuyingData } = useQuery(FETCH_TRANSACTIONS_BUYING);
-  const { data: LoadingData } = useQuery(FETCH_TRANSACTIONS_LOADING);
-  const { data: SellingData } = useQuery(FETCH_TRANSACTIONS_SELLING);
+  const { data: allData } = useQuery<Pick<IQuery, "fetchPointTransactions">>(
+    FETCH_TRANSACTIONS_ALL
+  );
+  const { data: BuyingData } = useQuery<
+    Pick<IQuery, "fetchPointTransactionsOfBuying">
+  >(FETCH_TRANSACTIONS_BUYING);
+  const { data: LoadingData } = useQuery<
+    Pick<IQuery, "fetchPointTransactionsOfLoading">
+  >(FETCH_TRANSACTIONS_LOADING);
+  const { data: SellingData } = useQuery<
+    Pick<IQuery, "fetchPointTransactionsOfSelling">
+  >(FETCH_TRANSACTIONS_SELLING);
   const [activedPage, setActivedPage] = useState("all");
 
   console.log(activedPage);
 
-  function onClickMenu(event) {
-    const activedPage = event?.target.id;
+  function onClickMenu(event: MouseEvent<HTMLDivElement>) {
+    const activedPage = (event?.target as any).id;
     setActivedPage(activedPage);
   }
 

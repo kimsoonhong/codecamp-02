@@ -5,7 +5,7 @@ import Head from "next/head";
 // import DOMpurify from "dompurify";
 
 import { Tooltip } from "antd";
-import { IMarketDetailUIProps } from "./MarketDetail.types";
+import { IBoardDetailUIProps } from "./MarketDetail.types";
 import { LinkOutlined, AimOutlined } from "@ant-design/icons";
 import {
   Wrapper,
@@ -25,11 +25,8 @@ import {
   BodyTopName,
   BodyTopPrice,
   BodyTopPickWrapper,
-  BodyTopPick,
-  BodyTopPickNumber,
   BodyMiddleWrapper,
   BodyMiddleImgWrapper,
-  BodyMiddleImgMain,
   BodyMiddleImgPreviewWrapper,
   BodyMiddleImgPreview,
   BodyMiddleContent,
@@ -40,19 +37,17 @@ import {
   SliderItem,
   StyleSlider,
 } from "./MarketDetail.styles";
+// @ts-ignore
 
-import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-import styled from "@emotion/styled";
 // import { baseUrl } from "./config";
 
-export default function MarketDetailUI(props: IMarketDetailUIProps) {
+export default function MarketDetailUI(props: IBoardDetailUIProps) {
   const settings = {
     dots: true,
     infinite: true,
-    speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
     arrows: false,
@@ -120,21 +115,25 @@ export default function MarketDetailUI(props: IMarketDetailUIProps) {
           <BodyMiddleWrapper>
             <BodyMiddleImgWrapper>
               <StyleSlider {...settings}>
-                {props.data?.fetchUseditem.images.map((date, index) => (
-                  <BodyMiddleImgPreview
-                    key={index}
-                    src={`https://storage.googleapis.com/${props.data?.fetchUseditem?.images[index]}`}
-                  />
-                ))}
+                {props.data?.fetchUseditem.images.map(
+                  (date: any, index: any) => (
+                    <BodyMiddleImgPreview
+                      key={index}
+                      src={`https://storage.googleapis.com/${props.data?.fetchUseditem?.images[index]}`}
+                    />
+                  )
+                )}
               </StyleSlider>
 
               <BodyMiddleImgPreviewWrapper>
-                {props.data?.fetchUseditem.images.map((date, index) => (
-                  <SliderItem
-                    key={index}
-                    src={`https://storage.googleapis.com/${props.data?.fetchUseditem?.images[index]}`}
-                  />
-                ))}
+                {props.data?.fetchUseditem.images.map(
+                  (date: any, index: any) => (
+                    <SliderItem
+                      key={index}
+                      src={`https://storage.googleapis.com/${props.data?.fetchUseditem?.images[index]}`}
+                    />
+                  )
+                )}
               </BodyMiddleImgPreviewWrapper>
             </BodyMiddleImgWrapper>
 

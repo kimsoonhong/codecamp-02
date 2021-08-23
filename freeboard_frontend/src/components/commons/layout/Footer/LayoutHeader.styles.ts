@@ -36,8 +36,9 @@ export const ArrowUP = styled(UpCircleFilled)`
   font-size: 40px;
   bottom: 40px;
   right: 40px;
-  opacity: ${(props) => props.scrollY - 530};
-  pointer-events: ${(props) => (props.scrollY >= 477 ? "auto" : "none")};
+
+  opacity: ${(props: any) => props.scrollY - 530};
+  pointer-events: ${(props: any) => (props.scrollY >= 477 ? "auto" : "none")};
   cursor: pointer;
   border-radius: 50%;
   border: none;

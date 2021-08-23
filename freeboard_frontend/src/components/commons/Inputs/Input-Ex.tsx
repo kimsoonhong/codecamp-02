@@ -10,7 +10,7 @@ const Input = styled.input`
   background-color: yellow;
 `;
 
-export default function input01(props) {
+export default function input01(props: any) {
   return (
     <div>
       <div>{props.inputName}</div>

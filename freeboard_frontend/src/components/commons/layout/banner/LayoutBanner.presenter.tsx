@@ -1,8 +1,9 @@
 import { SliderItem, Wrapper } from "./LayoutBanner.styles";
+// @ts-ignore
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import styled from "@emotion/styled";
+
 import { useEffect, useState } from "react";
 
 // import styled from "styled-components";
@@ -11,7 +12,6 @@ export default function LayoutBannerUI() {
   const settings = {
     dots: true,
     infinite: true,
-    speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
     arrows: false,
@@ -42,6 +42,7 @@ export default function LayoutBannerUI() {
         <div>
           <SliderItem
             // style={{ backgroundPositionY: scrollY / 20 }}
+            // @ts-ignore
             scrollY={scrollY}
             src="/images/layout/no_3.jpg"
           />
@@ -49,6 +50,7 @@ export default function LayoutBannerUI() {
         <div>
           <SliderItem
             // style={{ backgroundPositionY: scrollY / 20 }}
+            // @ts-ignore
             scrollY={scrollY}
             src="/images/layout/no_2.jpg"
           />
@@ -61,6 +63,7 @@ export default function LayoutBannerUI() {
                 // backgroundPositionY: scrollY / -200,
               }
             }
+            // @ts-ignore
             scrollY={scrollY}
             src="/images/layout/no_1.jpg"
           />
@@ -68,6 +71,7 @@ export default function LayoutBannerUI() {
         <div>
           <SliderItem
             // style={{ backgroundPositionY: scrollY / 20 }}
+            // @ts-ignore
             scrollY={scrollY}
             src="/images/layout/no_4.jpg"
           />

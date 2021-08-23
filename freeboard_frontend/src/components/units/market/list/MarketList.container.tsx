@@ -7,8 +7,8 @@ import {
 import { useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
 import withAuth from "../../../commons/withAuth";
-import { useEffect } from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { IQuery } from "../../../../commons/types/generated/types";
 
 const marketList = () => {
   const [hasMore, setHasMore] = useState(true);
@@ -16,8 +16,10 @@ const marketList = () => {
     variables: { page: 1 },
   });
 
-  const resultUser = useQuery(FETCH_USER_LOGGED_IN);
-  const { data: bestItem } = useQuery(FETCH_USED_BEST_ITEM);
+  const { data: resultUser } =
+    useQuery<Pick<IQuery, "fetchUserLoggedIn">>(FETCH_USER_LOGGED_IN);
+  const { data: bestItem } =
+    useQuery<Pick<IQuery, "fetchUseditemsOfTheBest">>(FETCH_USED_BEST_ITEM);
   const router = useRouter();
 
   const [baskets, setBaskets] = useState();
@@ -28,7 +30,7 @@ const marketList = () => {
     setBaskets(items);
   }, []);
 
-  const onClickMoveToDetail = (marketId) => () => {
+  const onClickMoveToDetail = (marketId: any) => () => {
     setIsSetItem(false);
     const todaylist = JSON.parse(sessionStorage.getItem("todaylist") || "[]");
     todaylist.unshift(marketId);

@@ -48,6 +48,10 @@ interface IBoardWriteUIProps {
   onCompleteAddressSearch: (data: any) => void;
   onChangeAddressDetail: (event: ChangeEvent<HTMLInputElement>) => void;
   onClickGreyBox: () => void;
+  onClickMoveToList: () => void;
+  resultImgUrl: any;
+  onChangeFile: any;
+  onClickDeleteImg: any;
 }
 
 export default function BoardWriteUI(props: IBoardWriteUIProps) {
@@ -144,7 +148,7 @@ export default function BoardWriteUI(props: IBoardWriteUIProps) {
             {/* =
 = */}
 
-            {props.resultImgUrl.map((data, index) => (
+            {props.resultImgUrl.map((data: any, index: any) => (
               <UploadButton
                 onClick={() => props.onClickDeleteImg(index)}
                 key={index}

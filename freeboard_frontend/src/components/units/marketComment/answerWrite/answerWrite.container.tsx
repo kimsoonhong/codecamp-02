@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, ChangeEvent } from "react";
 import { Modal } from "antd";
 import AnswerWriteUI from "./answerWrite.presenter";
 import {
@@ -6,9 +6,9 @@ import {
   FETCH_QUESTION_ANSWER,
   UPDATE_QUESTION_ANSWER,
 } from "./answerWrite.querise";
-import { useMutation, useQuery } from "@apollo/client";
+import { useMutation } from "@apollo/client";
 
-export default function answerWrite(props) {
+export default function answerWrite(props: any) {
   const [contents, setContents] = useState();
   const [createUseditemQuestionAnswer] = useMutation(CREATE_QUESTION_ANSWER);
   const [updateUseditemQuestionAnswer] = useMutation(UPDATE_QUESTION_ANSWER);
@@ -16,8 +16,8 @@ export default function answerWrite(props) {
   //   variables: { useditemQuestionId: props.data_id },
   // });
 
-  function onChangeContents(event) {
-    setContents(event.target.value);
+  function onChangeContents(event: ChangeEvent<HTMLTextAreaElement>) {
+    setContents((event.target as any).value);
   }
 
   async function onClickAnswerSubmit() {

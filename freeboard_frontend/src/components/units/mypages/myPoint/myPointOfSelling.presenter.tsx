@@ -1,3 +1,4 @@
+import { ImyPointUIProps } from "./myPoint.types";
 import {
   RightWrapper,
   RightWrapperBody,
@@ -6,7 +7,7 @@ import {
   RightWrapperTableBottom,
 } from "./myPoint.styles";
 
-export default function myPointOfSellingUI(props) {
+export default function myPointOfSellingUI(props: ImyPointUIProps) {
   return (
     <RightWrapper>
       <RightWrapperBody>
@@ -20,14 +21,18 @@ export default function myPointOfSellingUI(props) {
 
         <>
           {props.SellingData?.fetchPointTransactionsOfSelling
-            .map((data, index) => (
+            .map((data: any, index: any) => (
               <RightWrapperTableBottom key={data._id}>
-                <RightWrapperDiv>
+                <RightWrapperDiv width={25}>
                   {String(data.createdAt).slice(0, 10)}
                 </RightWrapperDiv>
-                <RightWrapperDiv> {data.useditem.name}</RightWrapperDiv>
-                <RightWrapperDiv> {data.statusDetail}</RightWrapperDiv>
-                <RightWrapperDiv>{data.balance}</RightWrapperDiv>
+                <RightWrapperDiv width={25}>
+                  {data.useditem.name}
+                </RightWrapperDiv>
+                <RightWrapperDiv width={25}>
+                  {data.statusDetail}
+                </RightWrapperDiv>
+                <RightWrapperDiv width={25}>{data.balance}</RightWrapperDiv>
               </RightWrapperTableBottom>
             ))
             .reverse()}

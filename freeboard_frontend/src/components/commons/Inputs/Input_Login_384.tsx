@@ -1,12 +1,5 @@
 import styled from "@emotion/styled";
 
-const Label = styled.div`
-  font-weight: bolder;
-  font-size: 16px;
-  padding-top: 40px;
-  padding-bottom: 16px;
-`;
-
 const Input = styled.input`
   border: 1px gray solid;
   width: 100%;
@@ -22,7 +15,7 @@ const ErrorMessage = styled.div`
   font-size: 12px;
 `;
 
-export default function LoginInput(props) {
+export default function LoginInput(props: any) {
   return (
     <div>
       {/* <Label>인풋 로그인</Label> */}

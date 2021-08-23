@@ -8,7 +8,8 @@ const RESTORE_ACCESS_TOKEN = gql`
     }
   }
 `;
-//1. 리프레쉬 토큰으로 새로운 엑세스 토큰 발급받기
+
+// @ts-ignore
 export const getAccessToken = async (setAccessToken) => {
   try {
     const graphQLClient = new GraphQLClient(

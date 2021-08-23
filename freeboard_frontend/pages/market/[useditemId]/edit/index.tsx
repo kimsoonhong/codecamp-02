@@ -1,8 +1,6 @@
 import MarketWrite from "../../../../src/components/units/market/write/MarketWrite.container";
 import { useQuery, gql } from "@apollo/client";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
-import { useState } from "react";
 
 export const FETCH_USED_ITEM = gql`
   query fetchUseditem($useditemId: ID!) {

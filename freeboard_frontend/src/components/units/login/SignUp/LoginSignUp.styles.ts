@@ -26,7 +26,7 @@ export const InputWrapper = styled.div`
 export const ErrorTextDiv = styled.div`
   background-color: red;
   /* display: none; */
-  color: ${(props) => (props.isActive ? "red" : "blue")};
+  color: ${(props: any) => (props.isActive ? "red" : "blue")};
   padding-left: 20px;
   font-weight: bolder;
 `;

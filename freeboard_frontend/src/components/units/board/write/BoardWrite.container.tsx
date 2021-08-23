@@ -1,12 +1,10 @@
 import { useMutation } from "@apollo/client";
 import { useRouter } from "next/router";
-import { ChangeEvent, useEffect, useState } from "react";
+import { ChangeEvent, useEffect, useState, useRef } from "react";
 import BoardWriteUI from "./BoardWrite.presenter";
 import { CREATE_BOARD, UPDATE_BOARD, UPLOAD_FILE } from "./BoardWrite.queries";
 import { IBoardWriteProps } from "./BoardWrite.types";
 import { Modal } from "antd";
-import { useRef } from "react";
-import { ConsoleSqlOutlined } from "@ant-design/icons";
 
 export const INPUTS_INIT = {
   writer: "",
@@ -46,6 +44,7 @@ export default function BoardWrite(props: IBoardWriteProps) {
   useEffect(() => {
     if (props.data?.fetchBoard?.images?.length)
       setResultimgUrl(
+        // @ts-ignore
         [...props.data?.fetchBoard.images].map(
           (data) => `https://storage.googleapis.com/${data}`
         )
@@ -78,9 +77,13 @@ export default function BoardWrite(props: IBoardWriteProps) {
         //   contents: inputs.contents ? "" : "내용을 입력해주세요.",
         // });
         setInputsErrors({
+          // @ts-ignore
           writer: inputs.writer ? "" : alert("작성자를 입력해주세요."),
+          // @ts-ignore
           password: inputs.password ? "" : alert("비밀번호를 입력해주세요."),
+          // @ts-ignore
           title: inputs.title ? "" : alert("제목을 입력해주세요."),
+          // @ts-ignore
           contents: inputs.contents ? "" : alert("내용을 입력해주세요."),
         });
 
@@ -132,7 +135,7 @@ export default function BoardWrite(props: IBoardWriteProps) {
                 createBoardInput: {
                   ...inputs,
                   boardAddress: { zipcode, address, addressDetail },
-                  images: aa, //["https://2111", "https://22222"],
+                  images: aa,
                 },
               },
             });
@@ -170,9 +173,11 @@ export default function BoardWrite(props: IBoardWriteProps) {
             images: [
               ...resultImgUrl
                 .filter((data) =>
+                  // @ts-ignore
                   data.includes("https://storage.googleapis.com/")
                 )
                 .map((data) =>
+                  // @ts-ignore
                   data.replace("https://storage.googleapis.com/", "")
                 ),
               ...aa,
@@ -248,21 +253,25 @@ export default function BoardWrite(props: IBoardWriteProps) {
       // data >읽힌 결과물
 
       const resultImgArr = [...resultImgUrl];
+      // @ts-ignore
+
       resultImgArr.push(data.target.result);
       setResultimgUrl(resultImgArr); // 임시주소
 
       const realImg = [...file];
+      // @ts-ignore
+
       realImg.push(fileInfo);
       setFile(realImg);
     };
   }
 
-  function onClickGreyBox(event) {
-    event.target?.children[2]?.click();
+  function onClickGreyBox(event: any) {
+    (event.target as any)?.children[2]?.click();
     // fileRef.current?.click();
   }
 
-  function onClickDeleteImg(index) {
+  function onClickDeleteImg(index: any) {
     const imgArr = [...resultImgUrl];
     imgArr.splice(index, 1);
     // imgUrl.splice(index, 1);
@@ -291,12 +300,14 @@ export default function BoardWrite(props: IBoardWriteProps) {
       onClickMoveToList={onClickMoveToList}
       onChangeFile={onChangeFile}
       imgUrl={imgUrl}
+      // @ts-ignore
       onClickGreyBox={onClickGreyBox}
       fileRef={fileRef}
       setImgUrl={setImgUrl}
       isUpload={isUpload}
       onClickDeleteImg={onClickDeleteImg}
       resultImgUrl={resultImgUrl}
+      visible={visible}
     />
   );
 }

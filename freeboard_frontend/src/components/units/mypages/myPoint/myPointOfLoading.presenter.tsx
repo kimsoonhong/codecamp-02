@@ -5,8 +5,9 @@ import {
   RightWrapperDiv,
   RightWrapperTableBottom,
 } from "./myPoint.styles";
+import { ImyPointUIProps } from "./myPoint.types";
 
-export default function myPointOfLoadingUI(props) {
+export default function myPointOfLoadingUI(props: ImyPointUIProps) {
   return (
     <RightWrapper>
       <RightWrapperBody>
@@ -20,7 +21,7 @@ export default function myPointOfLoadingUI(props) {
 
         <>
           {props.LoadingData?.fetchPointTransactionsOfLoading
-            .map((data, index) => (
+            .map((data: any, index: any) => (
               <RightWrapperTableBottom key={data._id}>
                 <RightWrapperDiv width={25}>
                   {String(data.createdAt).slice(0, 10)}

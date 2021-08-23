@@ -54,7 +54,7 @@ export default function BoardDetailUI(props: IBoardDetailUIProps) {
           <Title>{props.data?.fetchBoard.title}</Title>
           <Contents>{props.data?.fetchBoard.contents}</Contents>
 
-          {props.data?.fetchBoard.images.map((date, index) => (
+          {props.data?.fetchBoard.images.map((date: any, index: any) => (
             <ImgWrapper
               key={index}
               src={`https://storage.googleapis.com/${props.data?.fetchBoard?.images[index]}`}

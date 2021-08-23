@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
-  height: ${(props) => (props.scrollY > 50 ? 64 : 100)}px;
+  height: ${(props: any) => (props.scrollY > 50 ? 64 : 100)}px;
   /* background-color: red; */
   display: flex;
   flex-direction: row;
@@ -11,7 +11,7 @@ export const Wrapper = styled.div`
   width: 100%;
   z-index: 99;
   position: fixed;
-  /* opacity: ${(props) => 1 - props.scrollY / 350}; */
+
   /* animation: 200ms ease-in all; */
   transition: ease-in 200ms all;
   /* transition: 350ms all ease-in-out; */

@@ -18,7 +18,7 @@ const ErrorMessage = styled.div`
   font-size: 12px;
 `;
 
-export default function input588(props) {
+export default function input588(props: any) {
   return (
     <div>
       <Label>인풋 미들2</Label>

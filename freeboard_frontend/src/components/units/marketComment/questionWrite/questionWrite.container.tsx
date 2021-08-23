@@ -1,7 +1,7 @@
-import { useMutation, useQuery } from "@apollo/client";
+import { useMutation } from "@apollo/client";
 import { Modal } from "antd";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { ChangeEvent, MouseEvent, useState } from "react";
 import QuestionWriteUI from "./questionWrite.presenter";
 import {
   CREATE_QUESTION,
@@ -9,7 +9,7 @@ import {
   UPDATE_QUESTION,
 } from "./questionWrite.querise";
 
-export default function questionWrite(props) {
+export default function questionWrite(props: any) {
   const router = useRouter();
   const [createUseditemQuestion] = useMutation(CREATE_QUESTION);
   // const { data: questionData, refetch } = useQuery(FETCH_QUESTIONS, {
@@ -40,7 +40,7 @@ export default function questionWrite(props) {
     }
   }
 
-  async function onClickUpdateQuestion(event) {
+  async function onClickUpdateQuestion(event: MouseEvent<HTMLDivElement>) {
     props.setIsEdit?.(false);
     try {
       await updateUseditemQuestion({
@@ -63,8 +63,8 @@ export default function questionWrite(props) {
     }
   }
 
-  function onChangeContents(event) {
-    setContents(event.target.value);
+  function onChangeContents(event: ChangeEvent<HTMLTextAreaElement>) {
+    setContents((event.target as any).value);
   }
 
   return (

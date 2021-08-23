@@ -1,12 +1,10 @@
 import {
   DELETE_QUESTIONS,
   FETCH_QUESTIONS,
-  FETCH_QUESTION_ANSWER,
   FETCH_USER_LOGGED_IN,
 } from "./questionList.querise";
 
 import {
-  RecommentWrapper,
   Avatar,
   Contents,
   DateString,
@@ -16,7 +14,6 @@ import {
   WriterWrapper,
   OptionWrapper,
   Writer,
-  RecommentImg,
 } from "./questionList.styles";
 import { EditOutlined, CloseOutlined, FormOutlined } from "@ant-design/icons";
 import QuestionWrite from "../questionWrite/questionWrite.container";
@@ -27,7 +24,7 @@ import { useState } from "react";
 import { useMutation, useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
 
-export default function questionListUIItem(props) {
+export default function questionListUIItem(props: any) {
   const [isEdit, setIsEdit] = useState(false);
   const [isRecomment, setIsRecomment] = useState(false);
   const router = useRouter();
@@ -66,7 +63,6 @@ export default function questionListUIItem(props) {
   function onClickRecomment() {
     setIsRecomment(true);
   }
-
 
   return (
     <div>

@@ -4,10 +4,9 @@ import BoardListUI from "./BoardList.presenter";
 import { useQuery } from "@apollo/client";
 import { FETCH_BOARDS_COUNT, FETCH_BOARDS } from "./BoardList.queries";
 import { useRouter } from "next/router";
-import { MouseEvent } from "react";
-import { useState } from "react";
-import { useRef } from "react";
-import { useEffect } from "react";
+import { MouseEvent, useState, useRef, useEffect, ChangeEvent } from "react";
+import { IQuery } from "../../../../commons/types/generated/types";
+
 // import { IQueryFetchBoardArgs } from "../../../../commons/types/generated/types";
 
 export default function BoardList() {
@@ -16,12 +15,12 @@ export default function BoardList() {
   const [startpage, setStartpage] = useState(1);
   const [search, setSearch] = useState("");
   const [keyword, setKeyword] = useState("");
-  const { data, refetch } = useQuery<IQuery>(FETCH_BOARDS, {
+  const { data, refetch } = useQuery(FETCH_BOARDS, {
     variables: { aaa: startpage },
   });
 
   const { data: dataBoardCount, refetch: searchRefetch } =
-    useQuery<IQuery>(FETCH_BOARDS_COUNT);
+    useQuery<Pick<IQuery, "fetchBoardsCount">>(FETCH_BOARDS_COUNT);
   const lastPage = Math.ceil(Number(dataBoardCount?.fetchBoardsCount) / 10);
   const searchPage = isNaN(
     Math.ceil(Number(dataBoardCount?.fetchBoardsCount) / 10)
@@ -44,18 +43,18 @@ export default function BoardList() {
 
   function onClickPage(event: MouseEvent<HTMLSpanElement>) {
     refetch({ aaa: Number((event.target as Element).id) });
-  
+
     const activedPage = Number((event.target as Element).id);
     setActivedPage(activedPage);
   }
 
-  function onClickPrevPage(event) {
+  function onClickPrevPage(event: MouseEvent<HTMLDivElement>) {
     if (startpage <= 1) {
       return;
     }
     setStartpage((prev) => prev - 9);
   }
-  function onClickNextPage(event) {
+  function onClickNextPage() {
     if (startpage + 10 > lastPage) {
       return;
     }
@@ -63,6 +62,7 @@ export default function BoardList() {
   }
 
   const getDebounce = _.debounce((data) => {
+    // @ts-ignore
     refetch({ search: data });
     setSearch(data);
     searchRefetch({ search: data });
@@ -76,6 +76,7 @@ export default function BoardList() {
   return (
     <BoardListUI
       data={data}
+      // @ts-ignore
       dataBoardCount={dataBoardCount}
       onClickMoveToBoardNew={onClickMoveToBoardNew}
       onClickMoveToBoardDetail={onClickMoveToBoardDetail}
@@ -89,6 +90,7 @@ export default function BoardList() {
       keyword={keyword}
       inputRef={inputRef}
       searchPage={searchPage}
+      search={search}
     />
   );
 }

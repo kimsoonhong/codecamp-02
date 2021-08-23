@@ -11,13 +11,9 @@ import Input486 from "../../src/components/commons/Inputs/Input_Middle_486";
 import Input588 from "../../src/components/commons/Inputs/Input_Middle_588";
 import InputTextarea from "../../src/components/commons/Inputs/Input_Textarea_01";
 
-import Payment from "../../src/components/units/payment/payment.container";
-
 export default function marketList() {
   return (
     <div>
-      <Payment />
-
       {/* <FileUpload /> */}
 
       <ButtonMiddle01 />

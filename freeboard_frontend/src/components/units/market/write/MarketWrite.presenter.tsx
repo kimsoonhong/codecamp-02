@@ -30,7 +30,7 @@ import {
   ButtonWrapper,
 } from "./MarketWrite.syles";
 
-export default function marketWriteUI(props) {
+export default function marketWriteUI(props: any) {
   return (
     <>
       {props.isOpen && (
@@ -136,6 +136,7 @@ export default function marketWriteUI(props) {
               {/* <ImgUpload>제품사진</ImgUpload>
             <ImgUpload>제품사진</ImgUpload> */}
               <ImgFileUploads
+                // @ts-ignore
                 width={180}
                 height={180}
                 number={3}
@@ -150,8 +151,10 @@ export default function marketWriteUI(props) {
             <Label>메인 사진 설정</Label>
             <RadioButtonWrapper>
               <RadioButton />
+              {/* @ts-ignore */}
               <RadioLabel htmlFor="youtube">사진1</RadioLabel>
               <RadioButton />
+              {/* @ts-ignore */}
               <RadioLabel htmlFor="image">사진2</RadioLabel>
             </RadioButtonWrapper>
             <ButtonWrapper>

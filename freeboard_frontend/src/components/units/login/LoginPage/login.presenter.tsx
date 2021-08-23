@@ -5,16 +5,13 @@ import {
   Wrapper,
   Img,
   InputWrapper,
-  EmailInput,
-  PasswordInput,
   ErrorText,
   KeepLonin,
-  LoginButton,
   FindWrapper,
   Clickdiv,
 } from "./login.styles";
 
-export default function loginUI(props) {
+export default function loginUI(props: any) {
   return (
     <form onSubmit={props.handleSubmit(props.onSubmit)}>
       <Wrapper>

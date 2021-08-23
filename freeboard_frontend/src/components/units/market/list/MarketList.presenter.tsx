@@ -17,8 +17,7 @@ import {
   BestProductSummary,
   BestProductPrice,
   BestProductLikeWrapper,
-  BestProductLikeImg,
-  BestProductLikeNumber,
+
   // ___제품상단?
   ProductListWrapper,
   ProductListTop,
@@ -37,18 +36,12 @@ import {
   ProductListbottomDetailSummary,
   ProductListbottomDetailTag,
   ProductListbottomFloorDiv,
-  ProductListbottomFloorAvatar,
-  ProductListbottomFloorSeller,
-  ProductListbottomFloorLike,
-  ProductListbottomFloorLikeNumber,
   ProductListbottomPrice,
   ButtonWrapper,
   // ___오늘본상품?
   TodayProductWrapper,
   TodayProductText,
   TodayProductDiv,
-  TodayProductLike,
-  TodayProductLikeNumber,
   TodayProductTop,
   TodayProductPicture,
   TodayProductName,
@@ -56,8 +49,9 @@ import {
   TodayProductPrice,
   TodayProductTag,
 } from "./MarketList.syles";
+import { IMarketListUIProps } from "./MarketList.types";
 
-export default function marketListUI(props) {
+export default function marketListUI(props: IMarketListUIProps) {
   return (
     <div style={{ display: "flex" }}>
       <Wrapper>

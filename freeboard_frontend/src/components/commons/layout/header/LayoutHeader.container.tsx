@@ -1,8 +1,7 @@
 import LayoutHeaderUI from "./LayoutHeader.presenter";
 import { useRouter } from "next/router";
 import { gql, useMutation, useQuery } from "@apollo/client";
-import { useContext, useState } from "react";
-import { GlobalContext } from "../../../../../pages/_app";
+import { MouseEvent, useState } from "react";
 
 import { Modal } from "antd";
 
@@ -27,6 +26,10 @@ const CREATE_POINT_TRANSACTION_OF_LOADING = gql`
   }
 `;
 
+declare const window: typeof globalThis & {
+  IMP: any;
+};
+
 export default function LayoutHeader() {
   const { data } = useQuery(FETCH_USER_LOGGED_IN);
   const [createPointTransactionOfLoading] = useMutation(
@@ -35,7 +38,6 @@ export default function LayoutHeader() {
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   const [amount, setAmount] = useState(0);
-  const { userInfo } = useContext(GlobalContext);
 
   function onClickLogin() {
     router.push("/login");
@@ -50,8 +52,8 @@ export default function LayoutHeader() {
   };
 
   function onClickPayment() {
-    IMP.init("imp49910675");
-    IMP.request_pay(
+    window.IMP.init("imp49910675");
+    window.IMP.request_pay(
       {
         // param
         pg: "html5_inicis",
@@ -65,7 +67,7 @@ export default function LayoutHeader() {
         buyer_postcode: "01181",
         // m_redirect_url: `/28-payment-success`,
       },
-      async (rsp) => {
+      async (rsp: any) => {
         // callback
         if (rsp.success) {
           // 결제 성공 시 로직,
@@ -85,8 +87,8 @@ export default function LayoutHeader() {
     setIsOpen(false);
   }
 
-  function onChangeAmount(event) {
-    setAmount(event.target.value);
+  function onChangeAmount(event: MouseEvent<HTMLDivElement>) {
+    setAmount((event.target as any).value);
   }
 
   function onClose() {

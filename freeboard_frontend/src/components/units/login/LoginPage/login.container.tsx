@@ -34,7 +34,7 @@ export default function login() {
     router.push("/login/signUp");
   }
 
-  const onSubmit = async (data) => {
+  const onSubmit = async (data: any) => {
     try {
       const result = await loginUser({
         variables: { ...data },
@@ -50,15 +50,15 @@ export default function login() {
 
       // ========임시 로그인 코드 ==========
 
-      const localLoginUser = localStorage.setItem(
-        "localLoginUser",
-        result.data?.loginUser.accessToken
-      );
+      // const localLoginUser = localStorage.setItem(
+      //   "localLoginUser",
+      //   result.data?.loginUser.accessToken
+      // );
 
-      const localUserData = localStorage.setItem(
-        "localUserData",
-        JSON.stringify(resultUser.data?.fetchUserLoggedIn)
-      );
+      // const localUserData = localStorage.setItem(
+      //   "localUserData",
+      //   JSON.stringify(resultUser.data?.fetchUserLoggedIn)
+      // );
 
       const loadlocalLoginUser = localStorage.getItem("localLoginUser");
       const loadlocalUserData = localStorage.getItem("localUserData");

@@ -16,10 +16,11 @@ import { globalStyles } from "../src/commons/styles/globalStyles";
 import { createContext, useEffect, useState } from "react";
 
 interface IContext {
-  accessToken: string;
-  setAccessToken: string;
-  userInfo: string;
-  setUserInfo: string;
+  accessToken?: string;
+  setAccessToken?: any;
+  userInfo?: string;
+  setUserInfo?: any;
+  userToken?: string;
 }
 
 export const GlobalContext = createContext<IContext>({});
@@ -30,8 +31,10 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   useEffect(() => {
     const userToken = localStorage.getItem("localLoginUser") || "";
+    // @ts-ignore
     setAccessToken(userToken);
     const userInfo = localStorage.getItem("localUserData") || "";
+    // @ts-ignore
     setUserInfo(userInfo);
   }, []);
 
@@ -50,7 +53,6 @@ function MyApp({ Component, pageProps }: AppProps) {
     if (graphQLErrors) {
       for (const err of graphQLErrors) {
         if (err.extensions?.code === "UNAUTHENTICATED") {
-          //2. 발급받은 엑세스 토큰으로 방금 실패했던 쿼리 재실행하기
           operation.setContext({
             headers: {
               ...operation.getContext().headers,
@@ -77,6 +79,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     cache: new InMemoryCache(),
   });
   return (
+    // @ts-ignore
     <GlobalContext.Provider value={value}>
       <ApolloProvider client={client}>
         <Layout>

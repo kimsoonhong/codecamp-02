@@ -21,7 +21,7 @@ const ErrorMessage = styled.div`
   font-size: 12px;
 `;
 
-export default function input100(props) {
+export default function input100(props: any) {
   return (
     <div>
       {props.InputName && <Label>{props?.InputName}</Label>}

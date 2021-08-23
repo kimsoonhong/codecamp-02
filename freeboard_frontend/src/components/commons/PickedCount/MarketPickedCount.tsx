@@ -22,7 +22,7 @@ const Count = styled.div`
   margin: 0px;
 `;
 
-export default function MarKetPickedCount(props) {
+export default function MarKetPickedCount(props: any) {
   return (
     <>
       <Wrapper onClick={props.onClick}>

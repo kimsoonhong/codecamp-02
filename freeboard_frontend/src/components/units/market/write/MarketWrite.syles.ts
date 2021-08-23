@@ -76,11 +76,7 @@ export const AddressWrapper = styled.div`
   flex-direction: column;
   justify-content: space-between;
 `;
-export const Input_2 = styled.input`
-  margin-top: 16px;
-  width: 100%;
-  height: 52px;
-`;
+
 export const ImgWrapper = styled.div`
   width: 100%;
   /* background-color: chocolate; */

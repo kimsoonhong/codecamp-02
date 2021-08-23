@@ -2,7 +2,12 @@ export interface IBoardDetailUIProps {
   data: any;
   onClickMoveToList: () => void;
   onClickMoveToEdit: () => void;
-  onClickDelete: () => void;
-  onClickLike: () => void;
-  onClickDislike: () => void;
+  onClickBasket: (basketData: any) => () => void;
+  onClickDeleteBasket: (basketData: any) => () => void;
+  onClickDeletItem: () => void;
+  isSetItem: boolean;
+  onclickPick: () => void;
+  userData: any;
+  onclickTransaction: () => void;
+  isActive?: boolean;
 }

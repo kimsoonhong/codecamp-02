@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
-  position: ${(props) => (props.scrollY >= 376 ? "" : "sticky")};
+  position: ${(props: any) => (props.scrollY >= 376 ? "" : "sticky")};
   top: 62px;
   width: 100%;
   height: 64px;
@@ -33,10 +33,10 @@ export const MenuItem = styled.div`
   /* margin: auto; */
   /* justify-content: center; */
   /* border-bottom: 2px; */
-  /* font-weight: ${(props) => (props.isClickd ? "bold" : "normal")}; */
-  cursor: ${(props) => (props.isClickd ? "" : "pointer")};
-  color: ${(props) => (props.isClickd ? "#84b96e" : "")};
-  pointer-events: ${(props) => (props.isClickd ? "none" : "")};
+
+  cursor: ${(props: any) => (props.isClickd ? "" : "pointer")};
+  color: ${(props: any) => (props.isClickd ? "#84b96e" : "")};
+  pointer-events: ${(props: any) => (props.isClickd ? "none" : "")};
 
   :hover {
     /* background-color: #142b1244; */
@@ -52,7 +52,7 @@ export const MenuItem = styled.div`
 // `;
 
 export const Testdiv = styled.div`
-  color: ${(props) => (props.scrollY < 200 ? "blue" : "red")};
-  /* position: ${(props) => (props.scrollY > 340 ? "static" : "fixed")}; */
+  color: ${(props: any) => (props.scrollY < 200 ? "blue" : "red")};
+
   /* position: ; */
 `;

@@ -91,9 +91,9 @@ export const Page = styled.div`
   font-size: 22px;
   width: 20px;
   text-align: center;
-  font-weight: ${(props) => (props.isActive ? "bold" : "normal")};
-  cursor: ${(props) => (props.isActive ? "" : "pointer")};
-  color: ${(props) => (props.isActive ? "#84b96e" : "")};
+  font-weight: ${(props: any) => (props.isActive ? "bold" : "normal")};
+  cursor: ${(props: any) => (props.isActive ? "" : "pointer")};
+  color: ${(props: any) => (props.isActive ? "#84b96e" : "")};
 
   :hover {
     font-weight: bold;

@@ -18,7 +18,7 @@ const ErrorMessage = styled.div`
   font-size: 12px;
 `;
 
-export default function input180(props) {
+export default function input180(props: any) {
   return (
     <div>
       <Label>인풋 스몰1</Label>

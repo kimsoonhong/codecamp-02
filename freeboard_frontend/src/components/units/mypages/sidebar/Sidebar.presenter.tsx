@@ -10,7 +10,7 @@ import {
   LiftWrapperMenu,
 } from "./Sidebar.styles";
 
-export default function mypageUi(props) {
+export default function mypageUi(props: any) {
   return (
     <Wrapper>
       {/* <InnerDiv> */}
@@ -29,6 +29,7 @@ export default function mypageUi(props) {
           <LiftWrapperMenu
             id="myMarket"
             onClick={props.onClickMenu}
+            // @ts-ignore
             isActive={props.activePage === "myMarket"}
           >
             내장터
@@ -36,6 +37,7 @@ export default function mypageUi(props) {
           <LiftWrapperMenu
             id="myPoint"
             onClick={props.onClickMenu}
+            // @ts-ignore
             isActive={props.activePage === "myPoint"}
           >
             내 포인트
@@ -43,6 +45,7 @@ export default function mypageUi(props) {
           <LiftWrapperMenu
             id="myprofile"
             onClick={props.onClickMenu}
+            // @ts-ignore
             isActive={props.activePage === "myprofile"}
           >
             내 프로필

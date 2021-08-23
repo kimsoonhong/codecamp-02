@@ -60,8 +60,8 @@ export const LiftWrapperMenu = styled.div`
   margin-bottom: 20px;
   transition: ease-in-out 200ms all;
   cursor: pointer;
-  font-size: ${(props) => (props.isActive ? "20px" : "")};
-  color: ${(props) => (props.isActive ? "#84b96e" : "")};
+  font-size: ${(props: any) => (props.isActive ? "20px" : "")};
+  color: ${(props: any) => (props.isActive ? "#84b96e" : "")};
 
   :hover {
     font-size: 20px;

@@ -1,5 +1,4 @@
 import styled from "@emotion/styled";
-
 import Sidebar from "../../src/components/units/mypages/sidebar/Sidebar.container";
 import MyPoint from "../../src/components/units/mypages/myPoint/myPoint.container";
 import MyProfile from "../../src/components/units/mypages/myProfile/myProfile.container";
@@ -14,9 +13,8 @@ const Wrapper = styled.div`
   flex-direction: row;
   justify-content: space-between;
 `;
-const Body = styled.div``;
 
-export default function mypage(props) {
+export default function mypage() {
   const [page, setPage] = useState("myPoint");
 
   return (
@@ -24,12 +22,10 @@ export default function mypage(props) {
       <div>
         <Sidebar setPage={setPage} />
       </div>
-      {/* <MyMarket /> */}
-      {/* <Body> */}
-      {page == "myMarket" && <MyMarket />}
-      {page == "myPoint" && <MyPoint />}
-      {page == "myprofile" && <MyProfile />}
-      {/* </Body> */}
+
+      {page === "myMarket" && <MyMarket />}
+      {page === "myPoint" && <MyPoint />}
+      {page === "myprofile" && <MyProfile />}
     </Wrapper>
   );
 }
