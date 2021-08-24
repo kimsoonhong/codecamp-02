@@ -52,12 +52,15 @@ export default function BoardCommentWrite(props: IBoardCommentWriteProps) {
     }
   }
 
+  interface INewInputs {
+    contents?: string;
+  }
   async function onClickUpdate(event: MouseEvent<HTMLButtonElement>) {
     if (inputs.password === "") {
       alert("비밀번호를 입력해주세요.");
       return;
     }
-    const newInputs = {};
+    const newInputs: INewInputs = {};
     if (inputs.contents) newInputs.contents = inputs.contents;
     try {
       await updateBoardComment({

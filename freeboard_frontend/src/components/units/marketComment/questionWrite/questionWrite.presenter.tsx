@@ -12,9 +12,9 @@ import { ChangeEvent, MouseEvent } from "react";
 
 interface IQuestionWriteUIProps {
   isEdit: boolean;
-  onClickWrite: () => void;
+  onClickWrite: (event: MouseEvent<HTMLButtonElement>) => void;
   onChangeContents: (event: ChangeEvent<HTMLTextAreaElement>) => void;
-  onClickUpdateQuestion: (event: MouseEvent<HTMLDivElement>) => void;
+  onClickUpdateQuestion: (event: MouseEvent<HTMLButtonElement>) => void;
   data: any;
 }
 

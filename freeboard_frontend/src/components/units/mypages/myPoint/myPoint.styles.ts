@@ -50,8 +50,11 @@ export const RightWrapperTableTop = styled.div`
   font-weight: 400px;
 `;
 
+interface IProps {
+  width: any;
+}
 export const RightWrapperDiv = styled.div`
-  width: ${(props: any) => props.width}%;
+  width: ${(props: IProps) => props.width}%;
   text-align: center;
 `;
 
