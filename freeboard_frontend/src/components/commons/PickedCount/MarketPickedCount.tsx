@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 
 const Wrapper = styled.div`
-  background-color: black;
+  /* background-color: black; */
   padding-right: 10px;
   cursor: pointer;
 
@@ -18,7 +18,7 @@ const Count = styled.div`
   font-weight: 500;
   font-size: 18px;
   text-align: center;
-  background-color: salmon;
+  /* background-color: salmon; */
   margin: 0px;
 `;
 

@@ -2,11 +2,11 @@ import styled from "@emotion/styled";
 
 export const RightWrapper = styled.div`
   width: 980px;
-  background-color: blanchedalmond; ;
+  /* background-color: blanchedalmond; ; */
 `;
 
 export const RightWrapperHead = styled.div`
-  background-color: greenyellow;
+  /* background-color: greenyellow; */
   width: 100%;
   height: 52px;
   text-align: end;
@@ -52,13 +52,13 @@ export const TopTextMyPick = styled.div`
   }
 `;
 export const RightWrapperBody = styled.div`
-  background-color: gold;
+  /* background-color: gold; */
   border-top: 2px solid gray;
   border-bottom: 2px solid gray;
 `;
 
 export const RightWrapperTableTop = styled.div`
-  background-color: hotpink;
+  /* background-color: hotpink; */
   display: flex;
   flex-direction: row;
   text-align: center;
@@ -68,34 +68,34 @@ export const RightWrapperTableTop = styled.div`
 `;
 
 export const RightWrapperNumber = styled.div`
-  background-color: indigo;
+  /* background-color: indigo; */
   width: 5%;
 `;
 
 export const RightWrapperTitle = styled.div`
-  background-color: khaki;
+  /* background-color: khaki; */
   width: 55%;
 `;
 
 export const RightWrapperTitleSold = styled.div`
-  background-color: gray;
+  /* background-color: gray; */
   width: 45%;
   position: relative;
 `;
 
 export const RightWrapperCondition = styled.div`
-  background-color: lavender;
+  /* background-color: lavender; */
   width: 10%;
   /* position: absolute; */
 `;
 
 export const RightWrapperPrice = styled.div`
-  background-color: lemonchiffon;
+  /* background-color: lemonchiffon; */
   width: 20%;
 `;
 
 export const RightWrapperDate = styled.div`
-  background-color: lightcoral;
+  /* background-color: lightcoral; */
   width: 20%;
 `;
 

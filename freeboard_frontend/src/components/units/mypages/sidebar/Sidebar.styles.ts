@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
-  background-color: gray;
+  /* background-color: gray; */
   display: flex;
   flex-direction: row;
   justify-content: end;
@@ -13,13 +13,13 @@ export const Wrapper = styled.div`
 
 export const LiftWrapper = styled.div`
   width: 200px;
-  background-color: yellow;
+  /* background-color: yellow; */
   text-align: center;
   margin-right: 80px;
 `;
 
 export const LiftWrapperProfileWrapper = styled.div`
-  background-color: blueviolet;
+  /* background-color: blueviolet; */
 `;
 
 export const LiftWrapperMypage = styled.div`
@@ -39,17 +39,17 @@ export const LiftWrapperUserName = styled.div`
   font-style: 24px;
   font-weight: 700;
   padding-top: 28px;
-  background-color: chartreuse;
+  /* background-color: chartreuse; */
 `;
 
 export const LiftWrapperUserPoint = styled.div`
   padding-top: 10px;
-  background-color: coral;
+  /* background-color: coral; */
   font-style: 16px;
 `;
 
 export const LiftWrapperPageWrapper = styled.div`
-  background-color: cornsilk;
+  /* background-color: cornsilk; */
   padding-top: 78px;
 `;
 

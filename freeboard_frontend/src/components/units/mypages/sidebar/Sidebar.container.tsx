@@ -5,7 +5,7 @@ import { useState } from "react";
 
 export default function Sidebar(props: any) {
   const { data: loginData } = useQuery(FETCH_USER_LOGGED_IN);
-  const [activePage, setActivePage] = useState("myMarket");
+  const [activePage, setActivePage] = useState("myprofile");
 
   const onClickMenu = (event: MouseEvent) => {
     props.setPage((event.target as any).id);

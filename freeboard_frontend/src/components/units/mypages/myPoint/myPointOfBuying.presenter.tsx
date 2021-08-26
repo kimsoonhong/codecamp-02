@@ -4,6 +4,7 @@ import {
   RightWrapperTableTop,
   RightWrapperDiv,
   RightWrapperTableBottom,
+  Word,
 } from "./myPoint.styles";
 import { ImyPointUIProps } from "./myPoint.types";
 
@@ -28,13 +29,25 @@ export default function myPointOfBuyingUI(props: ImyPointUIProps) {
                   {String(data.createdAt).slice(0, 10)}
                 </RightWrapperDiv>
                 <RightWrapperDiv width={25}>
-                  {data.useditem.name}
-                </RightWrapperDiv>
-                <RightWrapperDiv width={20}>
-                  {data.statusDetail}
+                  {data.useditem.name
+                    .replaceAll(props.keyword, `$!${props.keyword}$!`)
+                    .split("$!")
+                    .map((data2: any, index: any) => (
+                      <Word
+                        id={data._id}
+                        key={index}
+                        isMatched={props.keyword === data2}
+                        // onClick={props.onClickMoveToBoardDetail}
+                      >
+                        {data2}
+                      </Word>
+                    ))}
                 </RightWrapperDiv>
                 <RightWrapperDiv width={20}>{data.amount}</RightWrapperDiv>
-                <RightWrapperDiv width={15}>{data.balance}</RightWrapperDiv>
+                <RightWrapperDiv width={20}>{data.balance}</RightWrapperDiv>
+                <RightWrapperDiv width={15}>
+                  {data.useditem.name}
+                </RightWrapperDiv>
               </RightWrapperTableBottom>
             ))
             .reverse()}

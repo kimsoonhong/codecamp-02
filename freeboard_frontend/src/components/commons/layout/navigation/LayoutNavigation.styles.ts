@@ -21,29 +21,22 @@ export const Wrapper = styled.div`
   z-index: 2;
 `;
 
+interface Iprops {
+  isClick: boolean;
+}
+
 export const MenuItem = styled.div`
-  /* cursor: pointer; */
   color: white;
   padding: 3px 24px;
-  /* display: flex; */
-  /* box-sizing: unset; */
   border: 2px solid transparent;
 
-  /* width: 50%; */
-  /* margin: auto; */
-  /* justify-content: center; */
-  /* border-bottom: 2px; */
-
-  cursor: ${(props: any) => (props.isClickd ? "" : "pointer")};
-  color: ${(props: any) => (props.isClickd ? "#84b96e" : "")};
-  pointer-events: ${(props: any) => (props.isClickd ? "none" : "")};
+  color: ${(props: Iprops) => (props.isClick ? "#84b96e" : "")};
 
   :hover {
-    /* background-color: #142b1244; */
     border-bottom: 2px solid white;
     box-sizing: unset;
     transition: all 400ms ease;
-    /* border-bottom-width: 20%; */
+    cursor: pointer;
   }
 `;
 

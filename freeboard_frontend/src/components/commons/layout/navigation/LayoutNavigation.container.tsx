@@ -12,6 +12,7 @@ export default function LayoutNavigation() {
   // function EnterToOpenAPI() {
   //   router.push("/openAPI");
   // }
+  console.log(isClick, "<<<");
 
   function EnterToMenu(event: MouseEvent<HTMLDivElement>) {
     router.push(`/${(event.target as Element).id}`);

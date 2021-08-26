@@ -1,5 +1,5 @@
 import { MenuItem, Wrapper } from "./LayoutNavigation.styles";
-import { MouseEvent, useEffect } from "react";
+import { MouseEvent } from "react";
 
 interface ILayoutNavigationUIProps {
   EnterToMenu: (event: MouseEvent<HTMLDivElement>) => void;
@@ -7,25 +7,24 @@ interface ILayoutNavigationUIProps {
 }
 
 export default function LayoutNavigationUI(props: ILayoutNavigationUIProps) {
-  const listener = () => {
-    setScrollY(window.pageYOffset);
-  };
+  // const [scrollY, setScrollY] = useState();
+  // const listener = () => {
+  //   setScrollY(window.pageYOffset);
+  // };
 
-  useEffect(() => {
-    window.addEventListener("scroll", listener);
-    return () => {
-      window.removeEventListener("scroll", listener);
-    };
-  });
-  const openAPIs = "openAPI";
-  const boardss = "boards";
+  // useEffect(() => {
+  //   window.addEventListener("scroll", listener);
+  //   return () => {
+  //     window.removeEventListener("scroll", listener);
+  //   };
+  // });
 
   return (
     <Wrapper>
       <MenuItem
         id="openAPI"
         onClick={props.EnterToMenu}
-        isClickd={openAPIs === props.isClick}
+        isClick={"openAPI" === props.isClick}
       >
         Open API
       </MenuItem>
@@ -33,16 +32,24 @@ export default function LayoutNavigationUI(props: ILayoutNavigationUIProps) {
       <MenuItem
         id="boards"
         onClick={props.EnterToMenu}
-        isClickd={boardss === props.isClick}
+        isClick={"boards" === props.isClick}
       >
         자유게시판
       </MenuItem>
       <>|</>
-      <MenuItem id="market/" onClick={props.EnterToMenu}>
+      <MenuItem
+        id="market"
+        onClick={props.EnterToMenu}
+        isClick={"market" === props.isClick}
+      >
         중고마켓
       </MenuItem>
       <>|</>
-      <MenuItem id="mypages/" onClick={props.EnterToMenu}>
+      <MenuItem
+        id="mypages"
+        onClick={props.EnterToMenu}
+        isClick={"mypages" === props.isClick}
+      >
         마이페이지
       </MenuItem>
       {/* <div>{scrollY}</div> */}

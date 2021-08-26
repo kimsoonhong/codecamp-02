@@ -18,7 +18,7 @@ import {
 import Button01 from "../../Buttons/Button-small-01";
 import Head from "next/head";
 
-import { useContext, useState, useEffect, MouseEvent } from "react";
+import { useContext, useState, useEffect, ChangeEvent } from "react";
 import { GlobalContext } from "../../../../../pages/_app";
 
 import { Menu, Dropdown, Modal } from "antd";
@@ -31,7 +31,7 @@ interface ILayoutHeaderUIProps {
   onClickOpenPayment: () => void;
   isOpen: boolean;
   onClickPayment: () => void;
-  onChangeAmount: (event: MouseEvent<HTMLDivElement>) => void;
+  onChangeAmount: (event: ChangeEvent<HTMLInputElement>) => void;
   onClose: () => void;
 }
 
@@ -126,7 +126,9 @@ export default function LayoutHeaderUI(props: ILayoutHeaderUIProps) {
                       <Menu3 key="2" onClick={props.onClickOpenPayment}>
                         충전하기
                       </Menu3>
-                      <Menu3 key="3">로그아웃</Menu3>
+                      <Menu3 key="3" onClick={props.onClickLogout}>
+                        로그아웃
+                      </Menu3>
                     </Menu>
                   }
                 >

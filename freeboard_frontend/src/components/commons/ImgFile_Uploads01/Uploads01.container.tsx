@@ -14,11 +14,6 @@ export default function Uploads01(props: IUploads01Props) {
     fileRef.current?.click();
   }
 
-  console.log("__________________________________________");
-  console.log(fileUrl, "fileUrl");
-
-  console.log("__________________________________________");
-
   async function onChangeFile(event: ChangeEvent<HTMLInputElement>) {
     const file: any = event.target.files?.[0];
 

@@ -50,22 +50,34 @@ export default function myPointUI(props: ImyPointUIProps) {
           판매내역
         </TopText>
         <div style={{ marginLeft: "auto" }}>
-          <SearchInput placeholder="# 검색하기" />
-          <SearchButton>검색</SearchButton>
+          <SearchInput
+            placeholder="# 검색하기"
+            onChange={props.onChangeSearch}
+            ref={props.inputRef}
+          />
         </div>
       </RightWrapperHead>
       <RightWrapperBody>
         {props.activedPage === "all" && (
-          <MyPointOfAllUI allData={props.allData} />
+          <MyPointOfAllUI allData={props.allData} keyword={props.keyword} />
         )}
         {props.activedPage === "loading" && (
-          <MyPointOfLoadingUI LoadingData={props.LoadingData} />
+          <MyPointOfLoadingUI
+            LoadingData={props.LoadingData}
+            keyword={props.keyword}
+          />
         )}
         {props.activedPage === "buying" && (
-          <MyPointOfBuyingUI BuyingData={props.BuyingData} />
+          <MyPointOfBuyingUI
+            BuyingData={props.BuyingData}
+            keyword={props.keyword}
+          />
         )}
         {props.activedPage === "selling" && (
-          <MyPointOfSellingUI SellingData={props.SellingData} />
+          <MyPointOfSellingUI
+            SellingData={props.SellingData}
+            keyword={props.keyword}
+          />
         )}
       </RightWrapperBody>
     </RightWrapper>

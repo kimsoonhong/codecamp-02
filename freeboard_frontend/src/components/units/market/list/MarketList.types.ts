@@ -24,15 +24,15 @@ export interface IMarketListUIProps {
   // isActive?: boolean;
 }
 
-const { data: allData } = useQuery<Pick<IQuery, "fetchPointTransactions">>(
-  FETCH_TRANSACTIONS_ALL
-);
+// const { data: allData } = useQuery<Pick<IQuery, "fetchPointTransactions">>(
+//   FETCH_TRANSACTIONS_ALL
+// );
 
-allData: Pick<IQuery, "fetchPointTransactions"> | undefined;
+// allData: Pick<IQuery, "fetchPointTransactions"> | undefined;
 
-function onChangeContents(event: ChangeEvent<HTMLDivElement>) {
-  setContents((event.target as any).value);
-}
+// function onChangeContents(event: ChangeEvent<HTMLDivElement>) {
+//   setContents((event.target as any).value);
+// }
 
-onClickPage: (event: MouseEvent<HTMLDivElement>) => void;
-onChangeSearch: (event: ChangeEvent<HTMLInputElement>) => void;
+// onClickPage: (event: MouseEvent<HTMLDivElement>) => void;
+// onChangeSearch: (event: ChangeEvent<HTMLInputElement>) => void;

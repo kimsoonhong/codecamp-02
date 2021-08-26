@@ -1,5 +1,5 @@
 import Sidebar from "./sidebar/Sidebar.container";
-import MyMarket from "./myMarket/myMarket.container";
+
 import styled from "@emotion/styled";
 
 const Wrapper = styled.div`
@@ -11,7 +11,7 @@ const Wrapper = styled.div`
 `;
 const Body = styled.div``;
 
-export default function mypage(props) {
+export default function mypage(props: any) {
   return (
     <Wrapper>
       <Sidebar />

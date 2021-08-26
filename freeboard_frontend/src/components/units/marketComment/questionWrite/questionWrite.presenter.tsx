@@ -15,6 +15,7 @@ interface IQuestionWriteUIProps {
   onClickWrite: (event: MouseEvent<HTMLButtonElement>) => void;
   onChangeContents: (event: ChangeEvent<HTMLTextAreaElement>) => void;
   onClickUpdateQuestion: (event: MouseEvent<HTMLButtonElement>) => void;
+
   data: any;
 }
 

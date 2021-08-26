@@ -40,7 +40,7 @@ export default function questionWrite(props: any) {
     }
   }
 
-  async function onClickUpdateQuestion(event: MouseEvent<HTMLDivElement>) {
+  async function onClickUpdateQuestion(event: MouseEvent<HTMLButtonElement>) {
     props.setIsEdit?.(false);
     try {
       await updateUseditemQuestion({

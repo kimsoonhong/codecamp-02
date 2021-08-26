@@ -10,8 +10,6 @@ import {
   Banner,
   Title,
   InnerText,
-  EnterBtn,
-  Navigator,
   ShowLoginPage,
   Login,
   LoginWrapper,

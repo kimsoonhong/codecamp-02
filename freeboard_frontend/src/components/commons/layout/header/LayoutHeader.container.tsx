@@ -1,8 +1,8 @@
 import LayoutHeaderUI from "./LayoutHeader.presenter";
 import { useRouter } from "next/router";
-import { gql, useMutation, useQuery } from "@apollo/client";
-import { MouseEvent, useState } from "react";
-
+import { gql, useMutation, useQuery, useApolloClient } from "@apollo/client";
+import { ChangeEvent, useContext, useState } from "react";
+import { GlobalContext } from "../../../../../pages/_app";
 import { Modal } from "antd";
 
 const FETCH_USER_LOGGED_IN = gql`
@@ -26,6 +26,12 @@ const CREATE_POINT_TRANSACTION_OF_LOADING = gql`
   }
 `;
 
+const LOG_OUT = gql`
+  mutation logoutUser {
+    logoutUser
+  }
+`;
+
 declare const window: typeof globalThis & {
   IMP: any;
 };
@@ -35,9 +41,12 @@ export default function LayoutHeader() {
   const [createPointTransactionOfLoading] = useMutation(
     CREATE_POINT_TRANSACTION_OF_LOADING
   );
+  const [logoutUser] = useMutation(LOG_OUT);
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   const [amount, setAmount] = useState(0);
+  const client = useApolloClient();
+  const { setAccessToken } = useContext(GlobalContext);
 
   function onClickLogin() {
     router.push("/login");
@@ -87,12 +96,25 @@ export default function LayoutHeader() {
     setIsOpen(false);
   }
 
-  function onChangeAmount(event: MouseEvent<HTMLDivElement>) {
+  function onChangeAmount(event: ChangeEvent<HTMLInputElement>) {
     setAmount((event.target as any).value);
   }
 
   function onClose() {
     setIsOpen(false);
+  }
+
+  async function onClickLogout() {
+    await logoutUser();
+    await client.clearStore();
+    if (setAccessToken) setAccessToken("");
+
+    // await client.clearStore().then(() => {
+    //   client.resetStore();
+    // });
+    localStorage.removeItem("localLoginUser");
+    localStorage.removeItem("localUserData");
+    Modal.info({ content: "감사했습니다.." });
   }
   return (
     <LayoutHeaderUI
@@ -104,6 +126,7 @@ export default function LayoutHeader() {
       onClickPayment={onClickPayment}
       onChangeAmount={onChangeAmount}
       onClose={onClose}
+      onClickLogout={onClickLogout}
     />
   );
 }

@@ -24,7 +24,7 @@ import {
 import { useState } from "react";
 import AnswerWrite from "../answerWrite/answerWrite.container";
 
-export default function answerListUIItem(props) {
+export default function answerListUIItem(props: any) {
   const { data: userData } = useQuery(FETCH_USER_LOGGED_IN);
   const [deleteUseditemQuestionAnswer] = useMutation(DELETE_QUESTIONS_ANSWER);
   const [isEdit, setIsEdit] = useState(false);

@@ -22,12 +22,10 @@ import {
   ProductListWrapper,
   ProductListTop,
   ProductListTopTextWrapper,
-  ProductListTopSaleText,
-  ProductListTopSoldText,
+  ProductListTopText,
   ProductListTopSearchWrapper,
-  ProductListTopSearchInput,
-  ProductListTopSearchDate,
-  ProductListTopSearchButton,
+  Word,
+
   // ___제품하단?
   ProductListbottomWrapper,
   ProductListbottomPicture,
@@ -50,6 +48,7 @@ import {
   TodayProductTag,
 } from "./MarketList.syles";
 import { IMarketListUIProps } from "./MarketList.types";
+import { SearchInput } from "../../board/list/BoardList.styles";
 
 export default function marketListUI(props: IMarketListUIProps) {
   return (
@@ -89,13 +88,27 @@ export default function marketListUI(props: IMarketListUIProps) {
         <ProductListWrapper>
           <ProductListTop>
             <ProductListTopTextWrapper>
-              <ProductListTopSaleText>판매중상품</ProductListTopSaleText>
-              <ProductListTopSoldText>판매된상품</ProductListTopSoldText>
+              <ProductListTopText
+                id="selling"
+                onClick={props.onClickIsSoldout}
+                isActive={props.isSoldout === "selling"}
+              >
+                판매중상품
+              </ProductListTopText>
+              <ProductListTopText
+                id="soldout"
+                onClick={props.onClickIsSoldout}
+                isActive={props.isSoldout === "soldout"}
+              >
+                판매된상품
+              </ProductListTopText>
             </ProductListTopTextWrapper>
             <ProductListTopSearchWrapper>
-              <ProductListTopSearchInput></ProductListTopSearchInput>
-              <ProductListTopSearchDate>d</ProductListTopSearchDate>
-              <ProductListTopSearchButton>d</ProductListTopSearchButton>
+              <SearchInput
+                placeholder="# 상품명 검색하기"
+                onChange={props.onChangeSearch}
+                ref={props.inputRef}
+              />
             </ProductListTopSearchWrapper>
           </ProductListTop>
           {/* -제품 하단-? */}
@@ -122,7 +135,18 @@ export default function marketListUI(props: IMarketListUIProps) {
                   />
                   <ProductListbottomDetail>
                     <ProductListbottomDetailName>
-                      {data.name}
+                      {data.name
+                        .replaceAll(props.keyword, `$!${props.keyword}$!`)
+                        .split("$!")
+                        .map((data2: any, index: any) => (
+                          <Word
+                            id={data._id}
+                            key={index}
+                            isMatched={props.keyword === data2}
+                          >
+                            {data2}
+                          </Word>
+                        ))}
                     </ProductListbottomDetailName>
                     <ProductListbottomDetailSummary>
                       {data.remarks}

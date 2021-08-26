@@ -1,7 +1,11 @@
 import styled from "@emotion/styled";
 
+interface IProps {
+  scrollY: any;
+}
+
 export const Wrapper = styled.div`
-  height: ${(props: any) => (props.scrollY > 50 ? 64 : 100)}px;
+  height: ${(props: IProps) => (props.scrollY > 50 ? 64 : 100)}px;
   /* background-color: red; */
   display: flex;
   flex-direction: row;

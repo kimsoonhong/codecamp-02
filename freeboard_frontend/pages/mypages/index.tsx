@@ -15,17 +15,16 @@ const Wrapper = styled.div`
 `;
 
 export default function mypage() {
-  const [page, setPage] = useState("myPoint");
+  const [page, setPage] = useState("myprofile");
 
   return (
     <Wrapper>
       <div>
         <Sidebar setPage={setPage} />
       </div>
-
+      {page === "myprofile" && <MyProfile />}
       {page === "myMarket" && <MyMarket />}
       {page === "myPoint" && <MyPoint />}
-      {page === "myprofile" && <MyProfile />}
     </Wrapper>
   );
 }

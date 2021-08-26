@@ -1,8 +1,8 @@
 import { gql } from "@apollo/client";
 
 export const FETCH_TRANSACTIONS_ALL = gql`
-  query fetchPointTransactions {
-    fetchPointTransactions {
+  query fetchPointTransactions($search: String) {
+    fetchPointTransactions(search: $search) {
       _id
       impUid
       amount
@@ -18,8 +18,8 @@ export const FETCH_TRANSACTIONS_ALL = gql`
 `;
 
 export const FETCH_TRANSACTIONS_BUYING = gql`
-  query fetchPointTransactionsOfBuying {
-    fetchPointTransactionsOfBuying {
+  query fetchPointTransactionsOfBuying($search: String) {
+    fetchPointTransactionsOfBuying(search: $search) {
       _id
       impUid
       amount
@@ -35,8 +35,8 @@ export const FETCH_TRANSACTIONS_BUYING = gql`
 `;
 
 export const FETCH_TRANSACTIONS_LOADING = gql`
-  query fetchPointTransactionsOfLoading {
-    fetchPointTransactionsOfLoading {
+  query fetchPointTransactionsOfLoading($search: String) {
+    fetchPointTransactionsOfLoading(search: $search) {
       _id
       impUid
       amount
@@ -53,8 +53,8 @@ export const FETCH_TRANSACTIONS_LOADING = gql`
 `;
 
 export const FETCH_TRANSACTIONS_SELLING = gql`
-  query fetchPointTransactionsOfSelling {
-    fetchPointTransactionsOfSelling {
+  query fetchPointTransactionsOfSelling($search: String) {
+    fetchPointTransactionsOfSelling(search: $search) {
       _id
       impUid
       amount

@@ -23,7 +23,7 @@ const ErrorMessage = styled.div`
 
 export default function input100(props: any) {
   return (
-    <div>
+    <>
       {props.InputName && <Label>{props?.InputName}</Label>}
       <Input
         type={props.type}
@@ -37,6 +37,6 @@ export default function input100(props: any) {
         {props.message}
       </Input>
       <ErrorMessage>{props?.errorMessage}</ErrorMessage>
-    </div>
+    </>
   );
 }

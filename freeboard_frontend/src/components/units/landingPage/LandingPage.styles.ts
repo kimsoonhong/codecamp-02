@@ -25,11 +25,11 @@ export const BackgroundImg = styled.img`
 `;
 
 export const MainWrapper = styled.div`
-  width: 70%;
-  height: 70%;
-  min-width: 1500px;
+  width: 1366px;
+  height: 768px;
+
   display: flex;
-  /* background-color: blanchedalmond; */
+  background-color: blanchedalmond;
 
   position: absolute;
   left: 50%;
@@ -48,7 +48,7 @@ export const LiftWrapper = styled.div`
 export const MainText = styled.div`
   color: #2c2942;
   /* color: black; */
-  font-size: 80px;
+  font-size: 70px;
   font-weight: bolder;
   text-align: center;
   padding-bottom: 40px;
@@ -101,12 +101,25 @@ export const Blog = styled.div`
 `;
 export const RightWrapper = styled.div`
   background: rgba(0, 0, 0, 0.3);
-  padding: 40px;
 
-  width: 70%;
-
+  width: 80%;
+  background-color: blueviolet;
   overflow: scroll;
+  scroll-snap-type: y mandatory;
+  /* overflow: scroll; */
 `;
+
+export const InnerWraaper = styled.div`
+  width: 100%;
+  height: 100%;
+  background-color: blue;
+  padding: 40px;
+  scroll-snap-align: start;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+`;
+
 export const ProjectImg = styled.div`
   width: 100%;
   background-color: green;
@@ -129,6 +142,7 @@ export const ProjectStack = styled.div`
   padding: 40px;
   height: 30%;
   font-size: 30px;
+  background-color: blue;
 `;
 
 export const EnterToProJect = styled.div`
@@ -140,34 +154,18 @@ export const EnterToProJect = styled.div`
   padding: 40px;
 `;
 export const SideWrapper = styled.div`
-  width: 10%;
-  margin-left: 10px;
-  padding: 20px;
+  width: 3%;
+
+  /* padding: 5px; */
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
 `;
 export const Project1 = styled.div`
-  width: 100px;
-  height: 100px;
-  background-color: rosybrown;
-  border-radius: 50%;
-`;
-export const Project2 = styled.div`
-  width: 100px;
-  height: 100px;
-  background-color: rosybrown;
-  border-radius: 50%;
-`;
-export const Project3 = styled.div`
-  width: 100px;
-  height: 100px;
-  background-color: rosybrown;
-  border-radius: 50%;
-`;
-export const Project4 = styled.div`
-  width: 100px;
-  height: 100px;
-  background-color: rosybrown;
-  border-radius: 50%;
+  width: 100%;
+  height: 30%;
+  background-color: violet;
+
+  border-top-right-radius: 50%;
+  border-bottom-right-radius: 50%;
 `;

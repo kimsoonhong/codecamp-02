@@ -2,11 +2,11 @@ import styled from "@emotion/styled";
 
 export const RightWrapper = styled.div`
   width: 980px;
-  background-color: blanchedalmond; ;
+  /* background-color: blanchedalmond; ; */
 `;
 
 export const RightWrapperHead = styled.div`
-  background-color: greenyellow;
+  /* background-color: greenyellow; */
   width: 100%;
   height: 52px;
   text-align: end;
@@ -35,13 +35,11 @@ export const TopText = styled.div`
 `;
 
 export const RightWrapperBody = styled.div`
-  background-color: gold;
   border-top: 2px solid gray;
   border-bottom: 2px solid gray;
 `;
 
 export const RightWrapperTableTop = styled.div`
-  background-color: hotpink;
   display: flex;
   flex-direction: row;
   text-align: center;
@@ -52,6 +50,7 @@ export const RightWrapperTableTop = styled.div`
 
 interface IProps {
   width: any;
+  Word: boolean;
 }
 export const RightWrapperDiv = styled.div`
   width: ${(props: IProps) => props.width}%;
@@ -72,4 +71,9 @@ export const SerachInput = styled.input`
   height: 52px;
   border: none;
   padding-left: 20px;
+`;
+
+export const Word = styled.span`
+  font-weight: ${(props: { isMatched: IProps }) =>
+    props.isMatched ? "bolder" : ""};
 `;

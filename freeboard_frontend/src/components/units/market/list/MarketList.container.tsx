@@ -7,13 +7,30 @@ import {
 import { useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
 import withAuth from "../../../commons/withAuth";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { IQuery } from "../../../../commons/types/generated/types";
+import _ from "lodash";
 
 const marketList = () => {
   const [hasMore, setHasMore] = useState(true);
-  const { data, fetchMore } = useQuery(FETCH_USED_ITEMS, {
-    variables: { page: 1 },
+  const [isSoldout, setIsSoldout] = useState("selling");
+  const [keyword, setKeyword] = useState("");
+  const { data, refetch, fetchMore } = useQuery(FETCH_USED_ITEMS, {
+    variables: { page: 1, isSoldout: false },
+  });
+
+  const getDebounce = _.debounce((data) => {
+    refetch({ search: data });
+  }, 500);
+
+  function onChangeSearch(event: ChangeEvent<HTMLInputElement>) {
+    getDebounce(event.target.value);
+    setKeyword(event.target.value);
+  }
+
+  const inputRef = useRef<HTMLInputElement>(null);
+  useEffect(() => {
+    inputRef.current?.focus();
   });
 
   const { data: resultUser } =
@@ -59,6 +76,17 @@ const marketList = () => {
     });
   };
 
+  function onClickIsSoldout(event) {
+    if (event.target.id === "selling") {
+      refetch({ isSoldout: false });
+    }
+    if (event.target.id === "soldout") {
+      refetch({ isSoldout: true });
+    }
+    setIsSoldout(event.target.id);
+  }
+  console.log(keyword);
+  // console.log(data, "<<<");
   return (
     <div>
       <MarketListUI
@@ -71,6 +99,11 @@ const marketList = () => {
         isSetItem={isSetItem}
         onLoadMore={onLoadMore}
         hasMore={hasMore}
+        onClickIsSoldout={onClickIsSoldout}
+        isSoldout={isSoldout}
+        inputRef={inputRef}
+        keyword={keyword}
+        onChangeSearch={onChangeSearch}
       />
     </div>
   );
