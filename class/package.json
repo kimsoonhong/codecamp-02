@@ -22,7 +22,7 @@
     "apollo-upload-client": "^16.0.0",
     "axios": "^0.21.1",
     "dompurify": "^2.3.0",
-    "firebase": "^8.8.0",
+    "firebase": "^9.0.1",
     "graphql": "^15.5.1",
     "graphql-request": "^3.5.0",
     "lodash": "^4.17.21",
@@ -33,6 +33,7 @@
     "react-hook-form": "^7.12.2",
     "react-infinite-scroller": "^1.2.4",
     "react-player": "^2.9.0",
+    "react-project": "^0.0.30",
     "react-quill": "^1.3.5",
     "yup": "^0.32.9"
   },

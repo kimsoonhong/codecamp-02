@@ -10,7 +10,7 @@ import "../styles/globals.css";
 import "antd/dist/antd.css";
 import { createUploadLink } from "apollo-upload-client";
 
-import firebase from "firebase/app";
+// import firebase from "firebase/app";
 import "firebase/firestore";
 import { createContext, useState } from "react";
 
@@ -20,15 +20,15 @@ import * as Sentry from "@sentry/nextjs";
 Sentry.init({
   dsn: "https://0f7fdee62033447fa15febd510c38f79@o965502.ingest.sentry.io/5916348",
 });
-if (typeof window !== "undefined") {
-  firebase.initializeApp({
-    apiKey: "AIzaSyB2AZodzgw35GmS8qlyy3Z22jFI3Du2GH8",
-    authDomain: "codecomp-01.firebaseapp.com",
-    databaseURL: "https://codecamp-01.firebaseio.com",
-    projectId: "codecamp-01",
-    storageBucket: "codecamp-01.appspot.com",
-  });
-}
+// if (typeof window !== "undefined") {
+//   firebase.initializeApp({
+//     apiKey: "AIzaSyB2AZodzgw35GmS8qlyy3Z22jFI3Du2GH8",
+//     authDomain: "codecomp-01.firebaseapp.com",
+//     databaseURL: "https://codecamp-01.firebaseio.com",
+//     projectId: "codecamp-01",
+//     storageBucket: "codecamp-01.appspot.com",
+//   });
+// }
 interface IContext {
   accessToken: string;
   setAccessToken: string;

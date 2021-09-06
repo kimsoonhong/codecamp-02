@@ -56,7 +56,6 @@ export default function MarketCommentListUIItem(
   const [deleteUseditemQuestion] = useMutation(DELETE_QUESTIONS);
   const [deleteUseditemQuestionAnswer] = useMutation(DELETE_QUESTIONS_ANSWER);
 
-
   function onClickUpdate() {
     setIsEdit(true);
   }
@@ -65,7 +64,6 @@ export default function MarketCommentListUIItem(
     const newIsEditAnswer = [...isEditAnswer];
     newIsEditAnswer[index] = true;
     setIsEditAnswer(newIsEditAnswer);
-
   };
 
   function onClickOpenDeleteModal() {
@@ -85,7 +83,7 @@ export default function MarketCommentListUIItem(
               },
             ],
           });
-          Modal.info({ content: "삭제되었다.." });
+          Modal.info({ content: "삭제되었다." });
         } catch (error) {
           Modal.error({ content: error.message });
         }
