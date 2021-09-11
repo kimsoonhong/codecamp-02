@@ -1,6 +1,5 @@
 import { ChangeEvent, MouseEvent } from "react";
 import { IBoardComment } from "../../../../commons/types/generated/types";
-import { INPUTS_INIT } from "./BoardCommentWrite.container";
 
 export interface IBoardCommentWriteProps {
   isEdit?: boolean;
@@ -9,13 +8,25 @@ export interface IBoardCommentWriteProps {
 }
 
 export interface IBoardCommentWriteUIProps {
-  inputs: typeof INPUTS_INIT;
   onClickWrite: () => void;
   onClickUpdate: (event: MouseEvent<HTMLButtonElement>) => void;
-  onChangeInput: (
+
+  onChangeWriter: (
     event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => void;
-  onChangeStar: (value: number) => void;
+  onChangePassword: (
+    event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => void;
+  onChangeContents: (
+    event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => void;
+  onChangeRating: (value: number) => void;
+
+  inputsWriter: string;
+  inputsContents: string;
+  inputsRating: number;
+  inputsPassword: string;
+
   isEdit?: boolean;
   data?: IBoardComment;
 }

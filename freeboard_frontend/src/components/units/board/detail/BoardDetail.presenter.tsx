@@ -1,5 +1,5 @@
 import { Tooltip } from "antd";
-import { LinkOutlined, AimOutlined } from "@ant-design/icons";
+import { AimOutlined } from "@ant-design/icons";
 import {
   Avatar,
   AvatarWrapper,
@@ -41,7 +41,7 @@ export default function BoardDetailUI(props: IBoardDetailUIProps) {
             </Info>
           </AvatarWrapper>
           <IconWrapper>
-            <LinkOutlined style={{ fontSize: "30px" }} />
+            {/* <LinkOutlined style={{ fontSize: "30px", display: "none" }} /> */}
             <Tooltip
               placement="topRight"
               title={`${props.data?.fetchBoard.boardAddress?.address} ${props.data?.fetchBoard.boardAddress?.addressDetail}`}

@@ -20,7 +20,8 @@ import {
 import { IBoardListUIProps } from "./BoardList.types";
 
 const Word = styled.span`
-  font-weight: ${(props: {isMatched : boolean}) => (props.isMatched ? "bolder" : "")};
+  font-weight: ${(props: { isMatched: boolean }) =>
+    props.isMatched ? "bolder" : ""};
 `;
 
 export default function BoardListUI(props: IBoardListUIProps) {
@@ -72,7 +73,7 @@ export default function BoardListUI(props: IBoardListUIProps) {
           <ColumnBasic>{getDate(data.createdAt)}</ColumnBasic>
         </Row>
       ))}
-
+      ``
       <TableBottom />
       <Footer>
         <WrapperList>

@@ -35,9 +35,9 @@ export default function answerListUIItem(props: any) {
 
   function onClickOpenDeleteModalQuestAnswr() {
     Modal.confirm({
-      content: "대댓글삭제할꺼얌?",
+      content: "대댓글을 삭제하시겠습니까??",
       onCancel: () => {
-        Modal.info({ content: "고맙다..." });
+        Modal.info({ content: "취소되었습니다." });
       },
       onOk: async () => {
         try {
@@ -52,7 +52,7 @@ export default function answerListUIItem(props: any) {
               },
             ],
           });
-          Modal.info({ content: "삭제되었다.." });
+          Modal.info({ content: "대댓글이 삭제되었습니다." });
         } catch (error) {
           Modal.error({ content: error.message });
         }

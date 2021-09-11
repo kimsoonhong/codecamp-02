@@ -45,7 +45,7 @@ export default function Uploads01(props: IUploads01Props) {
     // @ts-ignore
     props.setSendImg(DeleteUrlImg);
   }
-  // console.log(props.data?.fetchUseditem?.images, "<<<");
+
   useEffect(() => {
     // @ts-ignore
     if (props.data?.fetchUseditem?.images?.length)

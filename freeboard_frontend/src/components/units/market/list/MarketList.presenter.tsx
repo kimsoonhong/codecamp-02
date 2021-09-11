@@ -1,4 +1,3 @@
-import WriteItemBtn from "../../../commons/Buttons/Button-small-02";
 import PickCount from "../../../../components/commons/PickedCount/MarketPickedCount";
 import InfiniteScroll from "react-infinite-scroller";
 
@@ -36,6 +35,7 @@ import {
   ProductListbottomFloorDiv,
   ProductListbottomPrice,
   ButtonWrapper,
+  WriteItemBtn,
   // ___오늘본상품?
   TodayProductWrapper,
   TodayProductText,
@@ -90,6 +90,7 @@ export default function marketListUI(props: IMarketListUIProps) {
             <ProductListTopTextWrapper>
               <ProductListTopText
                 id="selling"
+                // @ts-ignore
                 onClick={props.onClickIsSoldout}
                 isActive={props.isSoldout === "selling"}
               >
@@ -97,6 +98,7 @@ export default function marketListUI(props: IMarketListUIProps) {
               </ProductListTopText>
               <ProductListTopText
                 id="soldout"
+                // @ts-ignore
                 onClick={props.onClickIsSoldout}
                 isActive={props.isSoldout === "soldout"}
               >
@@ -165,11 +167,11 @@ export default function marketListUI(props: IMarketListUIProps) {
           </div>
 
           <ButtonWrapper>
-            <WriteItemBtn
-              buttonName="등록하기"
-              onClick={props.onClickMoveToWrite}
-              isActive={props.isActive}
-            ></WriteItemBtn>
+            <WriteItemBtn onClick={props.onClickMoveToWrite}>
+              {" "}
+              <img src="/images/board/list/Vector.png" />
+              상품 등록하기
+            </WriteItemBtn>
           </ButtonWrapper>
         </ProductListWrapper>
       </Wrapper>

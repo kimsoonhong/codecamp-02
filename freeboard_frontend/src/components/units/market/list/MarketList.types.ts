@@ -1,3 +1,4 @@
+import { ChangeEvent, MouseEvent } from "react";
 import { IQuery } from "../../../../commons/types/generated/types";
 
 export interface IMarketListUIProps {
@@ -22,6 +23,11 @@ export interface IMarketListUIProps {
   // userData: any;
   // onclickTransaction: () => void;
   // isActive?: boolean;
+  onClickIsSoldout: (event: MouseEvent<HTMLButtonElement>) => void;
+  isSoldout: string;
+  inputRef: any;
+  keyword: string;
+  onChangeSearch: (event: ChangeEvent<HTMLInputElement>) => void;
 }
 
 // const { data: allData } = useQuery<Pick<IQuery, "fetchPointTransactions">>(

@@ -33,9 +33,9 @@ export default function questionListUIItem(props: any) {
 
   function onClickOpenDeleteModal() {
     Modal.confirm({
-      content: "삭제할꺼얌?",
+      content: "댓글을 삭제 하시겠습니까?",
       onCancel: () => {
-        Modal.info({ content: "고맙다..." });
+        Modal.info({ content: "취소되었습니다." });
       },
       onOk: async () => {
         try {
@@ -48,7 +48,7 @@ export default function questionListUIItem(props: any) {
               },
             ],
           });
-          Modal.info({ content: "삭제되었다.." });
+          Modal.info({ content: "댓글을 삭제하였습니다." });
         } catch (error) {
           Modal.error({ content: error.message });
         }

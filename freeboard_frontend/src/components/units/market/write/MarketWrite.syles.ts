@@ -37,7 +37,7 @@ export const MapPositionWrapper = styled.div``;
 export const MapPosition = styled.div`
   width: 400px;
   height: 500px;
-  background-color: hotpink;
+  /* background-color: hotpink; */
   z-index: 0;
 `;
 export const MapRightWrapper = styled.div`
@@ -53,7 +53,7 @@ export const GPSWrapper = styled.div`
 export const LATDiv = styled.div`
   width: 108px;
   height: 52px;
-  background-color: violet;
+  /* background-color: violet; */
 `;
 export const PositionIcon = styled.div`
   width: 30px;
@@ -65,13 +65,13 @@ export const PositionIcon = styled.div`
 export const LNGDiv = styled.div`
   width: 108px;
   height: 52px;
-  background-color: violet;
+  /* background-color: violet; */
 `;
 export const AddressWrapper = styled.div`
   width: 100%;
   height: 300px;
   /* background-color: beige; */
-  background-color: yellow;
+  /* background-color: yellow; */
   display: flex;
   flex-direction: column;
   justify-content: space-between;

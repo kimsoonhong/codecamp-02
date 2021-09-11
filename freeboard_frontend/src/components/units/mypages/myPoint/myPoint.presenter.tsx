@@ -1,5 +1,5 @@
 import { SearchInput } from "../../board/list/BoardList.styles";
-import { SearchButton } from "../../board/write/BoardWrite.styles";
+
 import {
   RightWrapper,
   RightWrapperHead,
@@ -59,24 +59,51 @@ export default function myPointUI(props: ImyPointUIProps) {
       </RightWrapperHead>
       <RightWrapperBody>
         {props.activedPage === "all" && (
-          <MyPointOfAllUI allData={props.allData} keyword={props.keyword} />
+          // @ts-ignore
+          <MyPointOfAllUI
+            onClickPrevPage={props.onClickPrevPage}
+            onClickPage={props.onClickPage}
+            buyinglastPage={props.buyinglastPage}
+            startpage={props.startpage}
+            allData={props.allData}
+            keyword={props.keyword}
+            activedPages={props.activedPages}
+          />
         )}
         {props.activedPage === "loading" && (
+          // @ts-ignore
           <MyPointOfLoadingUI
             LoadingData={props.LoadingData}
             keyword={props.keyword}
+            onClickPrevPage={props.onClickPrevPage}
+            onClickPage={props.onClickPage}
+            loadinglastPage={props.loadinglastPage}
+            startpage={props.startpage}
+            activedPages={props.activedPages}
           />
         )}
         {props.activedPage === "buying" && (
+          // @ts-ignore
           <MyPointOfBuyingUI
             BuyingData={props.BuyingData}
             keyword={props.keyword}
+            onClickPrevPage={props.onClickPrevPage}
+            onClickPage={props.onClickPage}
+            buyinglastPage={props.buyinglastPage}
+            startpage={props.startpage}
+            activedPages={props.activedPages}
           />
         )}
         {props.activedPage === "selling" && (
+          // @ts-ignore
           <MyPointOfSellingUI
             SellingData={props.SellingData}
             keyword={props.keyword}
+            onClickPrevPage={props.onClickPrevPage}
+            onClickPage={props.onClickPage}
+            sellinglastPage={props.sellinglastPage}
+            startpage={props.startpage}
+            activedPages={props.activedPages}
           />
         )}
       </RightWrapperBody>

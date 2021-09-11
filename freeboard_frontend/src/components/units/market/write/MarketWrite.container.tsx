@@ -42,6 +42,7 @@ const marketWrite = (props: IMarketWriteUIProps) => {
     props.data?.fetchUseditem.useditemAddress.addressDetail || ""
   );
 
+
   const onChangeFile = (file: any) => {
     setFiles(file);
   };
@@ -131,8 +132,9 @@ const marketWrite = (props: IMarketWriteUIProps) => {
       setValue("tags", props.data?.fetchUseditem.tags);
       // @ts-ignore
       setValue("address", props.data?.fetchUseditem.useditemAddress.address);
-      // @ts-ignore
+
       setValue(
+        // @ts-ignore
         "addressDetail",
         props.data?.fetchUseditem.useditemAddress.addressDetail
       );

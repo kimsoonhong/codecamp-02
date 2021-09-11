@@ -2,8 +2,9 @@ import SidebarUi from "./Sidebar.presenter";
 import { FETCH_USER_LOGGED_IN } from "./Sidebar.queries";
 import { useQuery } from "@apollo/client";
 import { useState } from "react";
+import withAuth from "../../../commons/withAuth";
 
-export default function Sidebar(props: any) {
+const Sidebar = (props: any) => {
   const { data: loginData } = useQuery(FETCH_USER_LOGGED_IN);
   const [activePage, setActivePage] = useState("myprofile");
 
@@ -21,4 +22,6 @@ export default function Sidebar(props: any) {
       activePage={activePage}
     />
   );
-}
+};
+
+export default withAuth(Sidebar);

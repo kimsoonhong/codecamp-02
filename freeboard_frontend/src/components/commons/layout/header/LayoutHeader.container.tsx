@@ -114,7 +114,8 @@ export default function LayoutHeader() {
     // });
     localStorage.removeItem("localLoginUser");
     localStorage.removeItem("localUserData");
-    Modal.info({ content: "감사했습니다.." });
+    Modal.info({ content: "로그아웃 되었습니다." });
+    router.push("/login");
   }
   return (
     <LayoutHeaderUI

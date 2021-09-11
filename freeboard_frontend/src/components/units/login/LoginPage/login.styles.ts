@@ -68,6 +68,7 @@ export const FindWrapper = styled.div`
 `;
 export const Clickdiv = styled.div`
   /* background-color: honeydew; */
+  margin-top: 5px;
   padding: 4px;
   cursor: pointer;
   color: "#142b12";

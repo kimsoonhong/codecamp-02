@@ -33,6 +33,7 @@ interface ILayoutHeaderUIProps {
   onClickPayment: () => void;
   onChangeAmount: (event: ChangeEvent<HTMLInputElement>) => void;
   onClose: () => void;
+  onClickLogout: () => void;
 }
 
 export default function LayoutHeaderUI(props: ILayoutHeaderUIProps) {

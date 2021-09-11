@@ -31,16 +31,16 @@ export const Contents = styled.textarea`
 export const BottomWrapper = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: end;
 `;
 
-export const ContentsLength = styled.div`
-  width: 100%;
-  height: 51px;
-  line-height: 51px;
-  padding-left: 20px;
-  color: gray;
-`;
+// export const ContentsLength = styled.div`
+//   width: 100%;
+//   height: 51px;
+//   line-height: 51px;
+//   padding-left: 20px;
+//   color: gray;
+// `;
 
 export const Button = styled.button`
   width: 91px;

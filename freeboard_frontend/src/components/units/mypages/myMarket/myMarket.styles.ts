@@ -86,6 +86,7 @@ export const RightWrapperTitleSold = styled.div`
 export const RightWrapperCondition = styled.div`
   /* background-color: lavender; */
   width: 10%;
+  color: red;
   /* position: absolute; */
 `;
 

@@ -9,34 +9,48 @@ import {
 } from "./BoardCommentWrite.queries";
 import { IBoardCommentWriteProps } from "./BoardCommentWrite.types";
 
-export const INPUTS_INIT = {
-  writer: "",
-  contents: "",
-  password: "",
-  rating: 0,
-};
-
 export default function BoardCommentWrite(props: IBoardCommentWriteProps) {
   const router = useRouter();
-  const [inputs, setInputs] = useState(INPUTS_INIT);
+  const [inputsWriter, setInputsWriter] = useState("");
+  const [inputsPassword, setInputsPassword] = useState("");
+  const [inputsContents, setInputsContents] = useState("");
+  const [inputsRating, setInputsRating] = useState(0);
   const [createBoardComment] = useMutation(CREATE_BOARD_COMMENT);
   const [updateBoardComment] = useMutation(UPDATE_BOARD_COMMENT);
 
-  function onChangeInput(
+  function onChangeWriter(
     event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) {
-    setInputs({ ...inputs, [event.target.name]: event.target.value });
+    setInputsWriter(event.target.value);
   }
-
-  function onChangeStar(value: number) {
-    setInputs({ ...inputs, rating: value });
+  function onChangePassword(
+    event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) {
+    setInputsPassword(event.target.value);
+  }
+  function onChangeContents(
+    event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) {
+    setInputsContents(event.target.value);
+  }
+  function onChangeRating(value: number) {
+    setInputsRating(value);
   }
 
   async function onClickWrite() {
+    if (inputsPassword === "") {
+      alert("비밀번호를 입력해주세요.");
+      return;
+    }
     try {
       await createBoardComment({
         variables: {
-          createBoardCommentInput: { ...inputs },
+          createBoardCommentInput: {
+            writer: inputsWriter,
+            contents: inputsContents,
+            rating: inputsRating,
+            password: inputsPassword,
+          },
           boardId: router.query.boardId,
         },
         refetchQueries: [
@@ -46,30 +60,30 @@ export default function BoardCommentWrite(props: IBoardCommentWriteProps) {
           },
         ],
       });
-      setInputs(INPUTS_INIT);
+      setInputsWriter("");
+      setInputsPassword("");
+      setInputsContents("");
+      setInputsRating(0);
     } catch (error) {
       alert(error.message);
     }
   }
 
-  interface INewInputs {
-    contents?: string;
-  }
   async function onClickUpdate(event: MouseEvent<HTMLButtonElement>) {
-    if (inputs.password === "") {
+    if (inputsPassword === "") {
       alert("비밀번호를 입력해주세요.");
       return;
     }
-    const newInputs: INewInputs = {};
-    if (inputs.contents) newInputs.contents = inputs.contents;
+    // const newInputs: INewInputs = {};
+    // if (inputs.contents) newInputs.contents = inputs.contents;
     try {
       await updateBoardComment({
         variables: {
           updateBoardCommentInput: {
-            contents: inputs.contents || props.data?.contents,
-            rating: inputs.rating || props.data?.rating,
+            contents: inputsContents || props.data?.contents,
+            rating: inputsRating || props.data?.rating,
           },
-          password: inputs.password,
+          password: inputsPassword,
           boardCommentId: (event.target as Element).id,
         },
         refetchQueries: [
@@ -79,7 +93,10 @@ export default function BoardCommentWrite(props: IBoardCommentWriteProps) {
           },
         ],
       });
-      setInputs(INPUTS_INIT);
+      setInputsWriter("");
+      setInputsPassword("");
+      setInputsContents("");
+      setInputsRating(0);
       props.setIsEdit?.(false);
     } catch (error) {
       alert(error.message);
@@ -88,9 +105,14 @@ export default function BoardCommentWrite(props: IBoardCommentWriteProps) {
 
   return (
     <BoardCommentWriteUI
-      inputs={inputs}
-      onChangeInput={onChangeInput}
-      onChangeStar={onChangeStar}
+      onChangeWriter={onChangeWriter}
+      onChangePassword={onChangePassword}
+      onChangeContents={onChangeContents}
+      onChangeRating={onChangeRating}
+      inputsWriter={inputsWriter}
+      inputsContents={inputsContents}
+      inputsRating={inputsRating}
+      inputsPassword={inputsPassword}
       onClickWrite={onClickWrite}
       onClickUpdate={onClickUpdate}
       isEdit={props.isEdit}

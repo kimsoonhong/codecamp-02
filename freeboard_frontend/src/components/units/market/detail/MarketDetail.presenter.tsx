@@ -6,7 +6,7 @@ import Head from "next/head";
 
 import { Tooltip } from "antd";
 import { IBoardDetailUIProps } from "./MarketDetail.types";
-import { LinkOutlined, AimOutlined } from "@ant-design/icons";
+import { AimOutlined } from "@ant-design/icons";
 import {
   Wrapper,
   Header,
@@ -84,7 +84,7 @@ export default function MarketDetailUI(props: IBoardDetailUIProps) {
             </HeaderWirterWrapper>
           </HeaderAvatarWrapper>
           <HeaderIconWrapper>
-            <LinkOutlined style={{ fontSize: "30px" }} />
+            {/* <LinkOutlined style={{ fontSize: "30px" }} /> */}
             <Tooltip
               placement="topRight"
               title={`${props.data?.fetchUseditem.useditemAddress?.address} ${props.data?.fetchUseditem.useditemAddress?.addressDetail}`}

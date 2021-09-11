@@ -57,7 +57,7 @@ export const HeaderCreatedAt = styled.div`
 
 export const HeaderIconWrapper = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: end;
   width: 100px;
   /* background-color: darkblue; */
 `;

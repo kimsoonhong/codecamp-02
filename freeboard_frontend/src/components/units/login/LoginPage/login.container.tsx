@@ -72,7 +72,7 @@ export default function login() {
         content: `${resultUser.data?.fetchUserLoggedIn.name}님 환영합니다`,
       });
 
-      router.push("/market/new/");
+      router.push("/market/");
 
       // ========임시 로그인 코드 ==========
     } catch (error) {

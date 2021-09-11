@@ -49,8 +49,9 @@ export const RightWrapperTableTop = styled.div`
 `;
 
 interface IProps {
-  width: any;
-  Word: boolean;
+  width?: number;
+  Word?: boolean;
+  isMatched?: boolean;
 }
 export const RightWrapperDiv = styled.div`
   width: ${(props: IProps) => props.width}%;
@@ -74,6 +75,30 @@ export const SerachInput = styled.input`
 `;
 
 export const Word = styled.span`
-  font-weight: ${(props: { isMatched: IProps }) =>
-    props.isMatched ? "bolder" : ""};
+  font-weight: ${(props: IProps) => (props.isMatched ? "bolder" : "")};
+`;
+
+export const WrapperList = styled.div`
+  /* background-color: aqua; */
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 20px 0;
+`;
+
+export const Page = styled.div`
+  margin: 0px 15px;
+
+  font-size: 22px;
+  width: 20px;
+  text-align: center;
+  font-weight: ${(props: any) => (props.isActive ? "bold" : "normal")};
+  cursor: ${(props: any) => (props.isActive ? "" : "pointer")};
+  color: ${(props: any) => (props.isActive ? "#84b96e" : "")};
+
+  :hover {
+    font-weight: bold;
+    animation: all 3000ms ease-in;
+  }
 `;

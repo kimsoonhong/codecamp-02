@@ -6,14 +6,21 @@ import {
   Title,
   PasswordInnerWrapper,
   ContentsWrapper,
-  PictureWrapper,
-  PictuerInnerWrapper,
-  PictuerLiftWrapper,
   InnerText,
-  PictuerBox,
 } from "./myProfile.styles";
+import { ChangeEvent } from "react";
 
-export default function myProfileUI(props) {
+interface ImyProfileUI {
+  register: any;
+  handleSubmit: any;
+  errors: any;
+  onSubmit: any;
+  onChangePasswordCheck: (
+    event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => void;
+}
+
+export default function myProfileUI(props: ImyProfileUI) {
   return (
     <>
       <form onSubmit={props.handleSubmit(props.onSubmit)}>
@@ -52,16 +59,12 @@ export default function myProfileUI(props) {
                   justifyContent: "flex-end",
                 }}
               >
-                <Button01
-                  type="submit"
-                  buttonName="비밀번호변경"
-                  onClick={props.onClickChangePassword}
-                />
+                <Button01 type="submit" buttonName="비밀번호변경" />
               </div>
             </PasswordInnerWrapper>
           </PasswordWrapper>
 
-          <PictureWrapper>
+          {/* <PictureWrapper>
             <Title>대표사진 변경</Title>
             <PictuerInnerWrapper>
               <PictuerLiftWrapper>
@@ -78,7 +81,7 @@ export default function myProfileUI(props) {
                 <Button01 />
               </div>
             </PictuerInnerWrapper>
-          </PictureWrapper>
+          </PictureWrapper> */}
         </Wrapper>
       </form>
     </>

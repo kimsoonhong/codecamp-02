@@ -18,10 +18,7 @@ import {
   MapPositionWrapper,
   MapPosition,
   MapRightWrapper,
-  GPSWrapper,
-  LATDiv,
-  PositionIcon,
-  LNGDiv,
+
   AddressWrapper,
   ImgWrapper,
   RadioButtonWrapper,
@@ -94,12 +91,6 @@ export default function marketWriteUI(props: any) {
                 <MapPosition id="map"></MapPosition>
               </MapPositionWrapper>
               <MapRightWrapper>
-                <Label>GPS</Label>
-                <GPSWrapper>
-                  <LATDiv>위도</LATDiv>
-                  <PositionIcon>ㅁ</PositionIcon>
-                  <LNGDiv>경도</LNGDiv>
-                </GPSWrapper>
                 <AddressWrapper>
                   <Input100
                     InputName="주소"

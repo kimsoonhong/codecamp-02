@@ -6,7 +6,7 @@ import { useRouter } from "next/dist/client/router";
 
 import MyProfileUI from "./myProfile.presenter";
 import { RESET_PASSWORD } from "./myProfile.queries";
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 import { Modal } from "antd";
 
 export default function myProfile() {
@@ -19,13 +19,14 @@ export default function myProfile() {
     resolver: yupResolver(schemaSubmit),
   });
 
-  function onChangePasswordCheck(event) {
+  function onChangePasswordCheck(
+    event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) {
+    // @ts-ignore
     setPassword(event.target.value);
   }
-  console.log(password);
+
   async function onSubmit(data: any) {
-    console.log(data.password, "$$");
-    console.log(password, "$2");
     if (password !== data.password) {
       return Modal.error({ content: "비밀번호를 확인해주세요" });
     }

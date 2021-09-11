@@ -11,6 +11,7 @@ import {
 import withAuth from "../../../commons/withAuth";
 import { useEffect, useState } from "react";
 import { Modal } from "antd";
+
 declare const window: typeof globalThis & {
   kakao: any;
 };
@@ -72,6 +73,7 @@ const BoardDetail = () => {
     });
   };
 
+
   useEffect(() => {
     const script = document.createElement("script");
     script.src =
@@ -120,10 +122,11 @@ const BoardDetail = () => {
               );
 
               // 결과값으로 받은 위치를 마커로 표시합니다
-              // var marker = new kakao.maps.Marker({
-              //   map: map,
-              //   position: coords,
-              // });
+
+              const marker = new window.kakao.maps.Marker({
+                map: map,
+                position: coords,
+              });
 
               // 인포윈도우로 장소에 대한 설명을 표시합니다
               const infowindow = new window.kakao.maps.InfoWindow({

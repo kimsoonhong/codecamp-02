@@ -1,8 +1,11 @@
-import { useEffect, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 
 import Head from "next/head";
 import { gql, useMutation, useQuery } from "@apollo/client";
-import { useRouter } from "next/router";
+
+declare const window: typeof globalThis & {
+  IMP: any;
+};
 
 const CREATE_POINT_TRANSACTION_OF_LOADING = gql`
   mutation createPointTransactionOfLoading($impUid: ID!) {
@@ -39,31 +42,32 @@ export default function payment() {
     setLocalUserData(UserData);
   }, []);
 
-  const router = useRouter();
-  const [amount, setAmount] = useState(0);
+  const [amount, setAmount] = useState("");
   const [createPointTransactionOfLoading] = useMutation(
     CREATE_POINT_TRANSACTION_OF_LOADING
   );
-  function onChangeAmount(event) {
+  function onChangeAmount(event: ChangeEvent<HTMLInputElement>) {
     setAmount(event.target.value);
   }
   function onClickPayment() {
-    IMP.init("imp49910675");
-    IMP.request_pay(
+    window.IMP.init("imp49910675");
+    window.IMP.request_pay(
       {
         // param
         pg: "html5_inicis",
         pay_method: "card",
         name: "노르웨이 회전 의자",
         amount: amount,
+        // @ts-ignore
         buyer_email: localUserData.email,
+        // @ts-ignore
         buyer_name: localUserData.name,
         buyer_tel: "010-4242-4242",
         buyer_addr: "서울특별시 강남구 신사동",
         buyer_postcode: "01181",
         // m_redirect_url: `/28-payment-success`,
       },
-      async (rsp) => {
+      async (rsp: any) => {
         // callback
         if (rsp.success) {
           // 결제 성공 시 로직,
@@ -98,6 +102,7 @@ export default function payment() {
       {baskets &&
         baskets.map((data) => (
           <div
+            // @ts-ignore
             key={data.fetchUseditem._id}
             style={{
               backgroundColor: "bisque",
@@ -107,7 +112,9 @@ export default function payment() {
               marginTop: "30px",
             }}
           >
+            {/* @ts-ignore */}
             <div>{data.fetchUseditem.name}</div>
+            {/* @ts-ignore */}
             <div>{data.fetchUseditem.price}</div>1<div></div>
             <div></div>
           </div>

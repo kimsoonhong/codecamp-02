@@ -47,30 +47,28 @@ export default function myMarketUI(props: ImyMarketUIProps) {
         {/* {=====나의상품=====} */}
         {props.isMyItem && (
           <>
-            {props.data?.fetchUseditemsISold
-              .map((data: any, index: any) => (
-                <RightWrapperTableBottom
-                  key={data._id}
-                  onClick={props.onClickItem(data)}
-                >
-                  <RightWrapperNumber>{index + 1}</RightWrapperNumber>
+            {props.data?.fetchUseditemsISold.map((data: any, index: any) => (
+              <RightWrapperTableBottom
+                key={data._id}
+                onClick={props.onClickItem(data)}
+              >
+                <RightWrapperNumber>{index + 1}</RightWrapperNumber>
 
-                  {!data.buyer ? (
-                    <RightWrapperTitle>{data.name}</RightWrapperTitle>
-                  ) : (
-                    <>
-                      <RightWrapperTitleSold>{data.name}</RightWrapperTitleSold>
-                      <RightWrapperCondition>판매완료</RightWrapperCondition>
-                    </>
-                  )}
+                {!data.buyer ? (
+                  <RightWrapperTitle>{data.name}</RightWrapperTitle>
+                ) : (
+                  <>
+                    <RightWrapperTitleSold>{data.name}</RightWrapperTitleSold>
+                    <RightWrapperCondition>판매완료</RightWrapperCondition>
+                  </>
+                )}
 
-                  <RightWrapperPrice>{data.price}</RightWrapperPrice>
-                  <RightWrapperDate>
-                    {String(data.createdAt).slice(0, 10)}
-                  </RightWrapperDate>
-                </RightWrapperTableBottom>
-              ))
-              .reverse()}
+                <RightWrapperPrice>{data.price}</RightWrapperPrice>
+                <RightWrapperDate>
+                  {String(data.createdAt).slice(0, 10)}
+                </RightWrapperDate>
+              </RightWrapperTableBottom>
+            ))}
           </>
         )}
 

@@ -20,7 +20,7 @@ export default function BoardWrite(props: IBoardWriteProps) {
   const [active, setActive] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
   const [inputs, setInputs] = useState(INPUTS_INIT);
-  const [inputsErrors, setInputsErrors] = useState(INPUTS_INIT);
+  const [inputsErrors, setInputsErrors] = useState(INPUTS_INIT)
   const [createBoard] = useMutation(CREATE_BOARD);
   const [updateBoard] = useMutation(UPDATE_BOARD);
   const [uploadfile] = useMutation(UPLOAD_FILE);
@@ -33,13 +33,7 @@ export default function BoardWrite(props: IBoardWriteProps) {
   const [resultImgUrl, setResultimgUrl] = useState([]);
   const [file, setFile] = useState([]);
   const [imgUrl, setImgUrl] = useState<string[]>([]);
-  console.log("----------------------------------------");
-  console.log("resultImgUrl", resultImgUrl);
-  console.log("file", file);
-  console.log("isUpload", isUpload);
-  console.log("imgUrl", imgUrl);
 
-  console.log("----------------------------------------");
 
   useEffect(() => {
     if (props.data?.fetchBoard?.images?.length)

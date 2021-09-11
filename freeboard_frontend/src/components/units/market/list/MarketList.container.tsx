@@ -7,7 +7,7 @@ import {
 import { useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
 import withAuth from "../../../commons/withAuth";
-import { useEffect, useRef, useState } from "react";
+import { ChangeEvent, MouseEvent, useEffect, useRef, useState } from "react";
 import { IQuery } from "../../../../commons/types/generated/types";
 import _ from "lodash";
 
@@ -20,6 +20,7 @@ const marketList = () => {
   });
 
   const getDebounce = _.debounce((data) => {
+    // @ts-ignore
     refetch({ search: data });
   }, 500);
 
@@ -76,17 +77,16 @@ const marketList = () => {
     });
   };
 
-  function onClickIsSoldout(event) {
-    if (event.target.id === "selling") {
+  function onClickIsSoldout(event: MouseEvent<HTMLButtonElement>) {
+    if ((event.target as Element).id === "selling") {
       refetch({ isSoldout: false });
     }
-    if (event.target.id === "soldout") {
+    if ((event.target as Element).id === "soldout") {
       refetch({ isSoldout: true });
     }
-    setIsSoldout(event.target.id);
+    setIsSoldout((event.target as Element).id);
   }
-  console.log(keyword);
-  // console.log(data, "<<<");
+
   return (
     <div>
       <MarketListUI

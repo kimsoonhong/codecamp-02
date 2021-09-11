@@ -21,18 +21,12 @@ export default function LayoutNavigationUI(props: ILayoutNavigationUIProps) {
 
   return (
     <Wrapper>
-      <MenuItem
-        id="openAPI"
-        onClick={props.EnterToMenu}
-        isClick={"openAPI" === props.isClick}
-      >
-        Open API
-      </MenuItem>
       <>|</>
       <MenuItem
         id="boards"
         onClick={props.EnterToMenu}
-        isClick={"boards" === props.isClick}
+        //  @ts-ignore
+        isClick={props.isClick === "boards"}
       >
         자유게시판
       </MenuItem>
@@ -40,7 +34,7 @@ export default function LayoutNavigationUI(props: ILayoutNavigationUIProps) {
       <MenuItem
         id="market"
         onClick={props.EnterToMenu}
-        isClick={"market" === props.isClick}
+        isClick={props.isClick === "market"}
       >
         중고마켓
       </MenuItem>
@@ -48,7 +42,7 @@ export default function LayoutNavigationUI(props: ILayoutNavigationUIProps) {
       <MenuItem
         id="mypages"
         onClick={props.EnterToMenu}
-        isClick={"mypages" === props.isClick}
+        isClick={props.isClick === "mypages"}
       >
         마이페이지
       </MenuItem>

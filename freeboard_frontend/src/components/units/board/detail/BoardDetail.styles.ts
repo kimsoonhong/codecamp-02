@@ -65,7 +65,7 @@ export const CreatedAt = styled.div`
 
 export const IconWrapper = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: end;
   width: 100px;
   /* background-color: darkblue; */
 `;

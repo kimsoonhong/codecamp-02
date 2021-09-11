@@ -7,10 +7,7 @@ import {
   ImageWrapper,
   InputWrapper,
   Label,
-  OptionWrapper,
   Password,
-  RadioButton,
-  RadioLabel,
   SearchButton,
   Subject,
   SubmitButton,
@@ -194,13 +191,7 @@ export default function BoardWriteUI(props: IBoardWriteUIProps) {
  = */}
           </ImgButtonWrapper>
         </ImageWrapper>
-        <OptionWrapper>
-          <Label>메인설정</Label>
-          <RadioButton type="radio" id="youtube" name="radio-button" />
-          <RadioLabel htmlFor="youtube">유튜브</RadioLabel>
-          <RadioButton type="radio" id="image" name="radio-button" />
-          <RadioLabel htmlFor="image">사진</RadioLabel>
-        </OptionWrapper>
+
         <ButtonWrapper>
           <CancelBoutton onClick={props.onClickMoveToList}>
             돌아가기

@@ -31,23 +31,24 @@ export default function loginUI(props: any) {
             placeholder="비밀번호를 입력해주세요"
           />
           <ErrorText>비밀번호는 필수 입력 입니다.</ErrorText>
+
+          <KeepLonin>
+            <Checkbox style={{ color: "#142b12" }} />
+            로그인 상태 유지
+          </KeepLonin>
+          <BouttonLogin
+            buttonName="로그인하기"
+            type="submit"
+            isActive={props.ibsActive}
+          />
+          <FindWrapper>
+            <Clickdiv onClick={props.onClickSignUp}>회원가입</Clickdiv>
+          </FindWrapper>
         </InputWrapper>
-        <KeepLonin>
-          <Checkbox style={{ color: "#142b12" }} />
-          로그인 상태 유지
-        </KeepLonin>
-        <BouttonLogin
-          buttonName="로그인하기"
-          type="submit"
-          isActive={props.ibsActive}
-        />
-        <FindWrapper>
-          <Clickdiv>이메일 찾기</Clickdiv>
-          <>|</>
-          <Clickdiv>비밀번호 찾기</Clickdiv>
-          <>|</>
-          <Clickdiv onClick={props.onClickSignUp}>회원가입</Clickdiv>
-        </FindWrapper>
+        <div style={{ backgroundColor: "red" }}>
+          {" "}
+          ID : i@i.i / PW : 123123123{" "}
+        </div>
       </Wrapper>
     </form>
   );

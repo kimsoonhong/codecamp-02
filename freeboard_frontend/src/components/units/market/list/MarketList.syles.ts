@@ -254,6 +254,24 @@ export const ButtonWrapper = styled.div`
   justify-content: flex-end;
 `;
 
+export const WriteItemBtn = styled.button`
+  width: 171px;
+  height: 52px;
+  border: 2px solid #142b12;
+  background-color: white;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  cursor: pointer;
+
+  :hover {
+    background-color: whitesmoke;
+    font-weight: bold;
+    animation: all 3000ms ease-in;
+  }
+`;
 // ___오늘본상품?
 
 export const TodayProductWrapper = styled.div`

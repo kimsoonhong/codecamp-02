@@ -49,7 +49,7 @@ export const Contents = styled.textarea`
 export const BottomWrapper = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: end;
 `;
 
 export const ContentsLength = styled.div`
