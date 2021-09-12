@@ -46,7 +46,7 @@ export default function LayoutHeader() {
   const [isOpen, setIsOpen] = useState(false);
   const [amount, setAmount] = useState(0);
   const client = useApolloClient();
-  const { setAccessToken } = useContext(GlobalContext);
+  const { setAccessToken, setUserInfo } = useContext(GlobalContext);
 
   function onClickLogin() {
     router.push("/login");
@@ -58,6 +58,7 @@ export default function LayoutHeader() {
 
   const onClickOpenPayment = () => {
     setIsOpen(true);
+    window.scrollTo(0, 1);
   };
 
   function onClickPayment() {
@@ -93,6 +94,7 @@ export default function LayoutHeader() {
         }
       }
     );
+
     setIsOpen(false);
   }
 
@@ -105,18 +107,24 @@ export default function LayoutHeader() {
   }
 
   async function onClickLogout() {
-    await logoutUser();
-    await client.clearStore();
-    if (setAccessToken) setAccessToken("");
+    try {
+      await logoutUser();
+      await client.clearStore();
+      if (setAccessToken) setAccessToken("");
+      if (setUserInfo) setUserInfo({});
 
-    // await client.clearStore().then(() => {
-    //   client.resetStore();
-    // });
-    localStorage.removeItem("localLoginUser");
-    localStorage.removeItem("localUserData");
-    Modal.info({ content: "로그아웃 되었습니다." });
-    router.push("/login");
+      // await client.clearStore().then(() => {
+      //   client.resetStore();
+      // });
+      localStorage.removeItem("localLoginUser");
+      localStorage.removeItem("localUserData");
+      Modal.info({ content: "로그아웃 되었습니다." });
+      router.push("/login");
+    } catch (error) {
+      alert(error.message);
+    }
   }
+
   return (
     <LayoutHeaderUI
       onClickLogin={onClickLogin}
@@ -128,6 +136,7 @@ export default function LayoutHeader() {
       onChangeAmount={onChangeAmount}
       onClose={onClose}
       onClickLogout={onClickLogout}
+      amount={amount}
     />
   );
 }

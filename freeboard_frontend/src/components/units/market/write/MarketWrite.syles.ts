@@ -125,4 +125,8 @@ export const RadioLabel = styled.div`
 export const ButtonWrapper = styled.button`
   width: 100%;
   margin-top: 80px;
+  /* background-color: red; */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
 `;

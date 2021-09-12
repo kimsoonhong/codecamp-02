@@ -38,6 +38,15 @@ export default function BoardCommentWrite(props: IBoardCommentWriteProps) {
   }
 
   async function onClickWrite() {
+    if (inputsWriter === "") {
+      alert("작성자를 입력해주세요.");
+      return;
+    }
+    if (inputsContents === "") {
+      alert("내용을 입력해주세요.");
+      return;
+    }
+
     if (inputsPassword === "") {
       alert("비밀번호를 입력해주세요.");
       return;

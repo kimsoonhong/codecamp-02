@@ -50,10 +50,7 @@ export default function login() {
 
       // ========임시 로그인 코드 ==========
 
-      localStorage.setItem(
-        "localLoginUser",
-        JSON.stringify(result.data?.loginUser.accessToken)
-      );
+      localStorage.setItem("localLoginUser", "true");
 
       localStorage.setItem(
         "localUserData",

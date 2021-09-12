@@ -102,7 +102,7 @@ export default function myPoint() {
     setActivedPage(activedPage);
   }
 
-  // console.log(LoadingData, "<<<<<<<<<<<<<");
+
 
   // +++++++검색기능===+++++
 

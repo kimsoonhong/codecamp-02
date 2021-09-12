@@ -45,7 +45,7 @@ export default function loginUI(props: any) {
             <Clickdiv onClick={props.onClickSignUp}>회원가입</Clickdiv>
           </FindWrapper>
         </InputWrapper>
-        <div style={{ backgroundColor: "red" }}>
+        <div style={{ backgroundColor: "red", fontSize: "20px" }}>
           {" "}
           ID : i@i.i / PW : 123123123{" "}
         </div>

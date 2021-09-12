@@ -276,12 +276,14 @@ export const WriteItemBtn = styled.button`
 
 export const TodayProductWrapper = styled.div`
   width: 200px;
+  min-width: 200px;
   /* background-color: red; */
   padding: 20px;
   border: 1px solid gray;
   height: fit-content;
   position: sticky;
   top: 125px;
+  margin-right: 20px;
 
   /* z-index: -1; */
 `;

@@ -18,12 +18,8 @@ import {
   MapPositionWrapper,
   MapPosition,
   MapRightWrapper,
-
   AddressWrapper,
   ImgWrapper,
-  RadioButtonWrapper,
-  RadioButton,
-  RadioLabel,
   ButtonWrapper,
 } from "./MarketWrite.syles";
 
@@ -139,15 +135,7 @@ export default function marketWriteUI(props: any) {
                 data={props.data}
               />
             </ImgWrapper>
-            <Label>메인 사진 설정</Label>
-            <RadioButtonWrapper>
-              <RadioButton />
-              {/* @ts-ignore */}
-              <RadioLabel htmlFor="youtube">사진1</RadioLabel>
-              <RadioButton />
-              {/* @ts-ignore */}
-              <RadioLabel htmlFor="image">사진2</RadioLabel>
-            </RadioButtonWrapper>
+
             <ButtonWrapper>
               {!props.isEdit && (
                 <Button01
@@ -165,12 +153,6 @@ export default function marketWriteUI(props: any) {
                   disabled={props.formState.isSubmitting}
                 />
               )}
-
-              <Button01
-                buttonName="tese"
-                type="button"
-                isActive={props.isActive}
-              ></Button01>
             </ButtonWrapper>
           </Body>
         </Wrapper>

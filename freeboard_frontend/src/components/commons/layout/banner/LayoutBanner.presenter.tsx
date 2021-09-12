@@ -44,7 +44,7 @@ export default function LayoutBannerUI() {
             // style={{ backgroundPositionY: scrollY / 20 }}
             // @ts-ignore
             scrollY={scrollY}
-            src="/images/layout/no_3.jpg"
+            src="/images/layout/no1.jpeg"
           />
         </div>
         <div>
@@ -52,7 +52,7 @@ export default function LayoutBannerUI() {
             // style={{ backgroundPositionY: scrollY / 20 }}
             // @ts-ignore
             scrollY={scrollY}
-            src="/images/layout/no_2.jpg"
+            src="/images/layout/no2.jpeg"
           />
         </div>
         <div>
@@ -65,7 +65,7 @@ export default function LayoutBannerUI() {
             }
             // @ts-ignore
             scrollY={scrollY}
-            src="/images/layout/no_1.jpg"
+            src="/images/layout/no3.jpg"
           />
         </div>
         <div>
@@ -73,7 +73,7 @@ export default function LayoutBannerUI() {
             // style={{ backgroundPositionY: scrollY / 20 }}
             // @ts-ignore
             scrollY={scrollY}
-            src="/images/layout/no_4.jpg"
+            src="/images/layout/no4.jpeg"
           />
         </div>
       </Slider>

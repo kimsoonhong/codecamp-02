@@ -50,9 +50,23 @@ const marketList = () => {
 
   const onClickMoveToDetail = (marketId: any) => () => {
     setIsSetItem(false);
-    const todaylist = JSON.parse(sessionStorage.getItem("todaylist") || "[]");
-    todaylist.unshift(marketId);
-    sessionStorage.setItem("todaylist", JSON.stringify(todaylist));
+
+    // const todaylist = JSON.parse(sessionStorage.getItem("todaylist") || "[]");
+
+    // todaylist.unshift(marketId);
+
+    // sessionStorage.setItem("todaylist", JSON.stringify(todaylist));
+
+    // ===========
+    const newBaskets = [marketId];
+    const baskets = JSON.parse(
+      sessionStorage.getItem("todaylist") || "[]"
+    ).filter((el: any, i: any) => i < 4 && el._id !== marketId._id);
+    sessionStorage.setItem(
+      "todaylist",
+      JSON.stringify(newBaskets.concat(baskets))
+    );
+    // ===========
     router.push(`/market/${marketId._id}`);
   };
 

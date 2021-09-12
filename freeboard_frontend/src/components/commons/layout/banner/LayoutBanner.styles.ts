@@ -12,12 +12,12 @@ export const Wrapper = styled.div`
 `;
 
 export const SliderItem = styled.img`
-  width: 100%;
+  max-width: 100vh;
   /* margin: auto; */
   height: 400px;
   // @ts-ignore
   opacity: ${(props: any) => 1.2 - props.scrollY / 430};
-  /* background-size: cover; */
+  /* background-size: 12000px; */
   /* background-position-y: 1000px; */
   /* overflow: hidden; */
   object-fit: none;

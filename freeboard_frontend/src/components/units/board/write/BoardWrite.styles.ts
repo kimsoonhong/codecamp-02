@@ -223,5 +223,5 @@ export const UploadClickbtn = styled.div`
   height: 78px;
   width: 78px;
   position: absolute;
-  z-index: 999;
+  z-index: 0.7;
 `;

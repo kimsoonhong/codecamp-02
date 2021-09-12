@@ -16,7 +16,7 @@ export default function questionWrite(props: any) {
   //   variables: { useditemId: router.query.useditemId },
   // });
   const [updateUseditemQuestion] = useMutation(UPDATE_QUESTION);
-  const [contents, setContents] = useState();
+  const [contents, setContents] = useState("");
 
   async function onClickWrite() {
     try {
@@ -34,6 +34,7 @@ export default function questionWrite(props: any) {
           },
         ],
       });
+
       Modal.info({ content: "댓글을 등록하였습니다." });
     } catch (error) {
       Modal.error({ content: error.message });

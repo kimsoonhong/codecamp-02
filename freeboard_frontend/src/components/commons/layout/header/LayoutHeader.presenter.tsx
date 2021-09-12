@@ -34,6 +34,7 @@ interface ILayoutHeaderUIProps {
   onChangeAmount: (event: ChangeEvent<HTMLInputElement>) => void;
   onClose: () => void;
   onClickLogout: () => void;
+  amount: number;
 }
 
 export default function LayoutHeaderUI(props: ILayoutHeaderUIProps) {
@@ -50,6 +51,10 @@ export default function LayoutHeaderUI(props: ILayoutHeaderUIProps) {
     };
   });
 
+  const afterAmount =
+    Number(props.data?.fetchUserLoggedIn.userPoint.amount) +
+    Number(props.amount);
+
   return (
     <>
       <Head>
@@ -62,6 +67,7 @@ export default function LayoutHeaderUI(props: ILayoutHeaderUIProps) {
           src="https://cdn.iamport.kr/js/iamport.payment-1.1.8.js"
         ></script>
       </Head>
+
       {props.isOpen && (
         <Modal visible={true} footer={null} closable={false}>
           <ModalWrapper>
@@ -74,16 +80,18 @@ export default function LayoutHeaderUI(props: ILayoutHeaderUIProps) {
                 보유포인트 : {props.data?.fetchUserLoggedIn.userPoint.amount} p
               </LiftWrapperAmountText>
               <LiftWrapperAmountText>
-                충전 후 포인트 :14,000 p
+                충전 후 포인트 :{afterAmount} p
               </LiftWrapperAmountText>
             </LiftWrapper>
             <RightWrapper>
               <RightWrapperText>
                 충전하신 금액만큼 포인트가 충전됩니다.
               </RightWrapperText>
+
               <RightWrapperText style={{ paddingBottom: "60px" }}>
                 충전하신 금액은 환불이 불가합니다.
               </RightWrapperText>
+
               <div
                 style={{
                   display: "flex",
@@ -91,7 +99,8 @@ export default function LayoutHeaderUI(props: ILayoutHeaderUIProps) {
                 }}
               >
                 <RightWrapperInput
-                  placeholder={"2,000"}
+                  type="number"
+                  placeholder={"ex) 2000"}
                   onChange={props.onChangeAmount}
                 />
                 <Button01

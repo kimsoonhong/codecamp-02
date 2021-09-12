@@ -4,6 +4,7 @@ export const Wrapper = styled.div`
   position: ${(props: any) => (props.scrollY >= 376 ? "" : "sticky")};
   top: 62px;
   width: 100%;
+
   height: 64px;
   background-image: url(/images/gc/a.png);
   background-size: cover;
@@ -18,7 +19,7 @@ export const Wrapper = styled.div`
   margin-bottom: 90px;
 
   padding: 0 20%;
-  z-index: 2;
+  z-index: 999;
 `;
 
 interface Iprops {
@@ -28,8 +29,12 @@ interface Iprops {
 export const MenuItem = styled.div`
   color: white;
   padding: 3px 24px;
+  /* background-color: aqua; */
+  /* width: 101px;
+  min-width: 100px; */
+  text-align: center;
   border: 2px solid transparent;
-
+  margin: auto;
   color: ${(props: Iprops) => (props.isClick ? "#84b96e" : "")};
 
   :hover {
