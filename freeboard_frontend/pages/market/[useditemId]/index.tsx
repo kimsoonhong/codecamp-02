@@ -17,7 +17,7 @@ const FETCH_USEDITEM = gql`
 export default function BoardsDetailPage(props: any) {
   return (
     <>
-      <Head>
+      {/* <Head>
         <meta property="og:name" content={props.fetchUseditem.name} />
         <meta property="og:description" content={props.fetchUseditem.remarks} />
         <meta
@@ -27,19 +27,19 @@ export default function BoardsDetailPage(props: any) {
       </Head>
       <MarketDetail />
       <QuestionWrite />
-      <QuestionList />
+      <QuestionList /> */}
     </>
   );
 }
 
-export const getServerSideProps = async (context: any) => {
-  const result = await request(
-    "https://backend02.codebootcamp.co.kr/graphql",
-    FETCH_USEDITEM,
-    {
-      useditemId: context.query.useditemId,
-    }
-  );
+// export const getServerSideProps = async (context: any) => {
+//   const result = await request(
+//     "https://backend02.codebootcamp.co.kr/graphql",
+//     FETCH_USEDITEM,
+//     {
+//       useditemId: context.query.useditemId,
+//     }
+//   );
 
-  return { props: { fetchUseditem: result.fetchUseditem } };
-};
+//   return { props: { fetchUseditem: result.fetchUseditem } };
+// };

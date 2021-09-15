@@ -17,7 +17,7 @@ export const FETCH_BOARD = gql`
 export default function BoardsDetailPage(props: any) {
   return (
     <>
-      <Head>
+      {/* <Head>
         <meta property="og:title" content={props.fetchBoard.title} />
         <meta property="og:contents" content={props.fetchBoard.contents} />
         <meta
@@ -27,19 +27,19 @@ export default function BoardsDetailPage(props: any) {
       </Head>
       <BoardDetail />
       <BoardCommentWrite />
-      <BoardCommentList />
+      <BoardCommentList /> */}
     </>
   );
 }
-export const getServerSideProps = async (context: any) => {
-  const result = await request(
+// export const getServerSideProps = async (context: any) => {
+//   const result = await request(
 
-    "https://backend02.codebootcamp.co.kr/graphql",
-    FETCH_BOARD,
-    {
-      boardId: context.query.boardId,
-    }
-  );
+//     "https://backend02.codebootcamp.co.kr/graphql",
+//     FETCH_BOARD,
+//     {
+//       boardId: context.query.boardId,
+//     }
+//   );
 
-  return { props: { fetchBoard: result.fetchBoard } };
-};
+//   return { props: { fetchBoard: result.fetchBoard } };
+// };
