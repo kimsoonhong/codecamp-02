@@ -1,18 +1,18 @@
-import { request, gql } from "graphql-request";
-import MarketDetail from "../../../src/components/units/market/detail/MarketDetail.container";
-import QuestionList from "../../../src/components/units/marketComment/questionList/questionList.container";
-import QuestionWrite from "../../../src/components/units/marketComment/questionWrite/questionWrite.container";
-import Head from "next/head";
+// import { request, gql } from "graphql-request";
+// import MarketDetail from "../../../src/components/units/market/detail/MarketDetail.container";
+// import QuestionList from "../../../src/components/units/marketComment/questionList/questionList.container";
+// import QuestionWrite from "../../../src/components/units/marketComment/questionWrite/questionWrite.container";
+// import Head from "next/head";
 
-const FETCH_USEDITEM = gql`
-  query fetchUseditem($useditemId: ID!) {
-    fetchUseditem(useditemId: $useditemId) {
-      name
-      remarks
-      images
-    }
-  }
-`;
+// const FETCH_USEDITEM = gql`
+//   query fetchUseditem($useditemId: ID!) {
+//     fetchUseditem(useditemId: $useditemId) {
+//       name
+//       remarks
+//       images
+//     }
+//   }
+// `;
 
 export default function BoardsDetailPage(props: any) {
   return (
