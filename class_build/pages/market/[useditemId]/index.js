@@ -23,7 +23,7 @@ export default function marketPage(props) {
 					content={`https://storage.googleapis.com/${props.fetchUseditem.images[0]}`}
 				/>
 			</Head>
-			<div>마켓입니다.</div>
+
 		</>
 	);
 }
