@@ -284,8 +284,6 @@ export const TodayProductWrapper = styled.div`
   position: sticky;
   top: 125px;
   margin-right: 20px;
-
-  /* z-index: -1; */
 `;
 
 export const TodayProductText = styled.div`

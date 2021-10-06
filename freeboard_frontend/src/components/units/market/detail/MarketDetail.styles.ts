@@ -127,7 +127,7 @@ export const BodyMiddleImgWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  z-index: 0.8;
+  z-index: 1;
 `;
 
 export const BodyMiddleImgMain = styled.img`
@@ -147,20 +147,20 @@ export const BodyMiddleImgPreviewWrapper = styled.div`
   padding-top: 20px;
   margin: auto;
   padding-top: 50px;
-  z-index: 0.8;
+  z-index: 1;
 `;
 
 export const BodyMiddleImgPreview = styled.img`
   width: 100%;
   height: 400px;
-  z-index: 0.8;
+  z-index: 1;
   background-size: contain;
 
   /* background-color: red; */
 `;
 
 export const StyleSlider = styled(Slider)`
-  z-index: 0.8;
+  z-index: 1;
   .slick-prev {
     display: none;
     /* position: fixed; */
@@ -204,7 +204,7 @@ export const BodyMapWrapper = styled.div`
 `;
 export const BodyBottom = styled.div`
   /* background-color: honeydew; */
-  z-index: 0.8;
+  z-index: 1;
   width: 100%;
   height: 360px;
 `;

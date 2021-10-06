@@ -34,14 +34,11 @@ export default function LayoutBannerUI() {
     };
   });
 
-  // <div className="App" style={{ backgroundColor: '#ccf2f4', height: '100vh', }}>
-
   return (
     <Wrapper>
       <Slider {...settings}>
         <div>
           <SliderItem
-            // style={{ backgroundPositionY: scrollY / 20 }}
             // @ts-ignore
             scrollY={scrollY}
             src="/images/layout/no1.jpeg"
@@ -49,7 +46,6 @@ export default function LayoutBannerUI() {
         </div>
         <div>
           <SliderItem
-            // style={{ backgroundPositionY: scrollY / 20 }}
             // @ts-ignore
             scrollY={scrollY}
             src="/images/layout/no2.jpeg"
@@ -57,20 +53,13 @@ export default function LayoutBannerUI() {
         </div>
         <div>
           <SliderItem
-            style={
-              {
-                // backgroundImage:url("/images/layout/no_3.jpg"),
-                // backgroundPositionY: scrollY / -200,
-              }
-            }
             // @ts-ignore
             scrollY={scrollY}
-            src="/images/layout/no3.jpg"
+            src="/images/layout/no3.jpeg"
           />
         </div>
         <div>
           <SliderItem
-            // style={{ backgroundPositionY: scrollY / 20 }}
             // @ts-ignore
             scrollY={scrollY}
             src="/images/layout/no4.jpeg"

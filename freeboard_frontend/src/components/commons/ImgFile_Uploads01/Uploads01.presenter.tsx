@@ -46,7 +46,7 @@ export default function Uploads01UI(props: IUploads01UIProps) {
                   type="file"
                   onChange={props.onChangeFile}
                   multiple
-                  style={{ display: "none" }}
+                  style={{ display: "none", cursor: "pointer" }}
                 />
               </label>
             </ImgUpload>

@@ -19,7 +19,7 @@ export const Wrapper = styled.div`
   margin-bottom: 90px;
 
   padding: 0 20%;
-  z-index: 999;
+  z-index: 12;
 `;
 
 interface Iprops {

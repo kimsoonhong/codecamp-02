@@ -37,8 +37,8 @@ export const MapPositionWrapper = styled.div``;
 export const MapPosition = styled.div`
   width: 400px;
   height: 500px;
+  z-index: 1;
   /* background-color: hotpink; */
-  z-index: 0;
 `;
 export const MapRightWrapper = styled.div`
   /* background-color: white; */

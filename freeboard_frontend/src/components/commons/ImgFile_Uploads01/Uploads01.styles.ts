@@ -5,6 +5,7 @@ export const Wrapper = styled.div`
   flex-direction: row;
   justify-content: flex-start;
   width: 100%;
+  cursor: pointer;
 `;
 
 export const ImgUpload = styled.div`
@@ -24,6 +25,7 @@ export const UploadImg = styled.img`
   width: ${(props) => props.width}px;
   height: ${(props) => props.height}px;
   opacity: 0.6;
+  cursor: pointer;
   position: absolute;
   transform: translate(-50%, 0%);
   background-size: cover;
