@@ -6,7 +6,7 @@ const withAuth = (Component: any) => (props: any) => {
 
   useEffect(() => {
     if (!localStorage.getItem("localLoginUser")) {
-      alert("로그인 해주세요 ^^^^^");
+      alert("로그인 이후 이용해주세요.");
       router.push("/login");
     }
   }, []);

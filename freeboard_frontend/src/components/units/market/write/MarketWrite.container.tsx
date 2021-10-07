@@ -20,9 +20,7 @@ declare const window: typeof globalThis & {
 
 const marketWrite = (props: IMarketWriteUIProps) => {
   const [files, setFiles] = useState([]);
-  // const [upDateFiles, setUpDateFiles] = useState();
   const [sendImg, setSendImg] = useState(props.imgData);
-
   const [uploadfile] = useMutation(UPLOAD_FILE);
   const [updateUseditem] = useMutation(UPDATE_USED_ITEM);
   const { register, handleSubmit, formState, setValue, trigger } = useForm({
@@ -31,17 +29,16 @@ const marketWrite = (props: IMarketWriteUIProps) => {
     defaultValues: {},
   });
   const [createUseditem] = useMutation(CREATE_USED_ITEM);
-
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
-
   const [address, setAddress] = useState(
     props.data?.fetchUseditem.useditemAddress.address || ""
   );
   const [addressDetail, setAddressDetail] = useState(
     props.data?.fetchUseditem.useditemAddress.addressDetail || ""
   );
-
+  const [lat, setLat] = useState();
+  const [lng, setLng] = useState();
 
   const onChangeFile = (file: any) => {
     setFiles(file);
@@ -71,6 +68,8 @@ const marketWrite = (props: IMarketWriteUIProps) => {
             useditemAddress: {
               address: data.address,
               addressDetail: addressDetail,
+              lat: lat,
+              lng: lng,
             },
           },
         },
@@ -105,6 +104,8 @@ const marketWrite = (props: IMarketWriteUIProps) => {
             useditemAddress: {
               address: data.address,
               addressDetail: data.addressDetail,
+              lat: lat,
+              lng: lng,
             },
           },
           useditemId: router.query.useditemId,
@@ -129,7 +130,7 @@ const marketWrite = (props: IMarketWriteUIProps) => {
       // @ts-ignore
       setValue("price", props.data?.fetchUseditem.price);
       // @ts-ignore
-      setValue("tags", props.data?.fetchUseditem.tags);
+      setValue("tags", String(props.data?.fetchUseditem.tags));
       // @ts-ignore
       setValue("address", props.data?.fetchUseditem.useditemAddress.address);
 
@@ -139,7 +140,9 @@ const marketWrite = (props: IMarketWriteUIProps) => {
         props.data?.fetchUseditem.useditemAddress.addressDetail
       );
     }
+  }, [props.data]);
 
+  useEffect(() => {
     const script = document.createElement("script");
     script.src =
       "//dapi.kakao.com/v2/maps/sdk.js?appkey=ac7229dd27b8430a65dbcbadfca5c2fa&libraries=services&autoload=false";
@@ -149,35 +152,42 @@ const marketWrite = (props: IMarketWriteUIProps) => {
       window.kakao.maps.load(function () {
         // v3가 모두 로드된 후, 이 콜백 함수가 실행됩니다.
 
-        const container = document.getElementById("map"); // 지도를 담을 영역의 DOM 레퍼런스
-        const options = {
+        const mapContainer = document.getElementById("map"); // 지도를 담을 영역의 DOM 레퍼런스
+        const mapOption = {
           // 지도를 생성할 때 필요한 기본 옵션
           center: new window.kakao.maps.LatLng(
-            35.18350248075207,
-            128.99241069612935
+            props.data?.fetchUseditem.useditemAddress.lat
+              ? props.data?.fetchUseditem.useditemAddress.lat
+              : 37.577948,
+            props.data?.fetchUseditem.useditemAddress.lng
+              ? props.data?.fetchUseditem.useditemAddress.lng
+              : 126.976781
           ), // 지도의 중심좌표.
           level: 5, // 지도의 레벨(확대, 축소 정도)
         };
 
-        const map = new window.kakao.maps.Map(container, options); // 지도 생성 및 객체 리턴
+        const map = new window.kakao.maps.Map(mapContainer, mapOption); // 지도 생성 및 객체 리턴
 
-        // 마커가 표시될 위치입니다
+        // // 마커가 표시될 위치입니다
         const markerPosition = new window.kakao.maps.LatLng(
-          35.18350248075207,
-          128.99241069612935
+          props.data?.fetchUseditem.useditemAddress.lat
+            ? props.data?.fetchUseditem.useditemAddress.lat
+            : 37.577948,
+          props.data?.fetchUseditem.useditemAddress.lng
+            ? props.data?.fetchUseditem.useditemAddress.lng
+            : 126.976781
         );
 
-        // 마커를 생성합니다
+        // // 마커를 생성합니다
         const marker = new window.kakao.maps.Marker({
           position: markerPosition,
         });
 
-        // 주소-좌표 변환 객체를 생성합니다
         const geocoder = new window.kakao.maps.services.Geocoder();
-
-        // 주소로 좌표를 검색합니다
         geocoder.addressSearch(
-          props.data?.fetchUseditem.useditemAddress.address || address,
+          props.data?.fetchUseditem.useditemAddress.address === address
+            ? props.data?.fetchUseditem.useditemAddress.address
+            : address,
           function (result: any, status: any) {
             // 정상적으로 검색이 완료됐으면
             if (status === window.kakao.maps.services.Status.OK) {
@@ -186,34 +196,25 @@ const marketWrite = (props: IMarketWriteUIProps) => {
                 result[0].x
               );
 
-              // 결과값으로 받은 위치를 마커로 표시합니다
+              setLng(coords.La);
+              setLat(coords.Ma);
 
+              // 결과값으로 받은 위치를 마커로 표시합니다
               const marker = new window.kakao.maps.Marker({
                 map: map,
                 position: coords,
               });
+              console.log(marker);
 
-              // 인포윈도우로 장소에 대한 설명을 표시합니다
-
-              const infowindow = new window.kakao.maps.InfoWindow({
-                content: `<div style="width:150px;text-align:center;padding:6px 0;">${
-                  !addressDetail
-                    ? props.data?.fetchUseditem.useditemAddress.addressDetail ||
-                      "상세주소를 입력해주세요"
-                    : addressDetail
-                }</div>`,
-              });
-              infowindow.open(map, marker);
-
-              // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
               map.setCenter(coords);
             }
           }
         );
+
         marker.setMap(map);
       });
     };
-  }, [props.data]);
+  }, [address, props.data]);
 
   function onClickAddressSearch() {
     setIsOpen(true);
@@ -233,9 +234,6 @@ const marketWrite = (props: IMarketWriteUIProps) => {
   }
   function onChangeAddressDetail(event: ChangeEvent<HTMLInputElement>) {
     setAddressDetail((event.target as any).value);
-
-    // setValue("AddressDetail", data.AddressDetail);
-    // trigger("AddressDetail");
   }
 
   function onChangeAddress(event: ChangeEvent) {

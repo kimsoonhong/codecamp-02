@@ -160,7 +160,9 @@ export default function marketListUI(props: IMarketListUIProps) {
                       <PickCount Count={data.pickedCount} />
                     </ProductListbottomFloorDiv>
                   </ProductListbottomDetail>
-                  <ProductListbottomPrice>{data.price}</ProductListbottomPrice>
+                  <ProductListbottomPrice>
+                    {data.price} 원
+                  </ProductListbottomPrice>
                 </ProductListbottomWrapper>
               ))}
             </InfiniteScroll>

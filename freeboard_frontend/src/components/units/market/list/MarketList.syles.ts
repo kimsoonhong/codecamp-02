@@ -242,6 +242,7 @@ export const ProductListbottomPrice = styled.div`
   font-weight: bold;
   font-size: 24px;
   text-align: end;
+  padding-right: 10px;
   /* background-color: blueviolet; */
 `;
 

@@ -49,6 +49,7 @@ export default function loginUI(props: any) {
           {" "}
           ID : i@i.i / PW : 123123123{" "}
         </div>
+      
       </Wrapper>
     </form>
   );

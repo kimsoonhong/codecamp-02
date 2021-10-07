@@ -68,7 +68,7 @@ export default function LayoutHeader() {
         // param
         pg: "html5_inicis",
         pay_method: "card",
-        name: "노르웨이 회전 의자",
+        name: "상품명",
         amount: amount,
         buyer_email: data?.fetchUserLoggedIn.email,
         buyer_name: data?.fetchUserLoggedIn.name,

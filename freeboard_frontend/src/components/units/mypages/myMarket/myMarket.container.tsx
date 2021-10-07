@@ -22,8 +22,7 @@ export default function myMarket() {
     setIsItem(false);
   };
 
-  console.log(pickData, "<<<");
-  console.log(data, ">>>");
+
 
   return (
     <MyMarketUI

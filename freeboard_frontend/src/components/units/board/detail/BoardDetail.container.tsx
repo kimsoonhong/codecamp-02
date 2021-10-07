@@ -56,15 +56,6 @@ export default function BoardDetail() {
     });
   }
 
-
-  // const { accessToken } = useContext(GlobalContext);
- 
-  // useEffect(() => {
-  //   if (!accessToken) router.push("/login");
-  //   return () => {
-  //     alert("로그인을 해주시옵서서..");
-  //   };
-  // }, []);
   return (
     <BoardDetailUI
       data={data}
