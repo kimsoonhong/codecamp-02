@@ -73,7 +73,6 @@ const BoardDetail = () => {
     });
   };
 
-
   useEffect(() => {
     const script = document.createElement("script");
     script.src =

@@ -38,6 +38,7 @@ export default function answerWrite(props: any) {
 
       Modal.info({ content: "대댓글을 등록하였습니다." });
       props.setIsRecomment(false);
+      
     } catch (error) {
       Modal.error({ content: error.message });
     }

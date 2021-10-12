@@ -19,6 +19,11 @@ export default function questionWrite(props: any) {
   const [contents, setContents] = useState("");
 
   async function onClickWrite() {
+    if (contents === "") {
+      alert("댓글을 입력해주세요.");
+      return;
+    }
+
     try {
       await createUseditemQuestion({
         variables: {
@@ -36,6 +41,7 @@ export default function questionWrite(props: any) {
       });
 
       Modal.info({ content: "댓글을 등록하였습니다." });
+      setContents("");
     } catch (error) {
       Modal.error({ content: error.message });
     }
@@ -75,6 +81,7 @@ export default function questionWrite(props: any) {
       onClickUpdateQuestion={onClickUpdateQuestion}
       data={props.data}
       isEdit={props.isEdit}
+      contents={contents}
     />
   );
 }
