@@ -143,9 +143,9 @@ const BoardDetail = () => {
     };
   });
 
-  function onClickDeletItem() {
+  async function onClickDeletItem() {
     try {
-      deleteUseditem({
+      await deleteUseditem({
         variables: {
           useditemId: router.query.useditemId,
         },

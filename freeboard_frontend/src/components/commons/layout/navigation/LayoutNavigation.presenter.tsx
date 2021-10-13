@@ -7,17 +7,7 @@ interface ILayoutNavigationUIProps {
 }
 
 export default function LayoutNavigationUI(props: ILayoutNavigationUIProps) {
-  // const [scrollY, setScrollY] = useState();
-  // const listener = () => {
-  //   setScrollY(window.pageYOffset);
-  // };
 
-  // useEffect(() => {
-  //   window.addEventListener("scroll", listener);
-  //   return () => {
-  //     window.removeEventListener("scroll", listener);
-  //   };
-  // });
 
   return (
     <Wrapper>
