@@ -3,9 +3,6 @@ import {
   LiftWrapper,
   LiftWrapperProfileWrapper,
   LiftWrapperMypage,
-  LiftWrapperAvatar,
-  LiftWrapperUserName,
-  LiftWrapperUserPoint,
   LiftWrapperPageWrapper,
   LiftWrapperMenu,
 } from "./Sidebar.styles";
@@ -17,13 +14,13 @@ export default function mypageUi(props: any) {
       <LiftWrapper>
         <LiftWrapperProfileWrapper>
           <LiftWrapperMypage>My page</LiftWrapperMypage>
-          <LiftWrapperAvatar></LiftWrapperAvatar>
+          {/* <LiftWrapperAvatar></LiftWrapperAvatar>
           <LiftWrapperUserName>
             {props.loginData?.fetchUserLoggedIn.name}
           </LiftWrapperUserName>
           <LiftWrapperUserPoint>
             {props.loginData?.fetchUserLoggedIn.userPoint.amount}
-          </LiftWrapperUserPoint>
+          </LiftWrapperUserPoint> */}
         </LiftWrapperProfileWrapper>
         <LiftWrapperPageWrapper>
           <LiftWrapperMenu

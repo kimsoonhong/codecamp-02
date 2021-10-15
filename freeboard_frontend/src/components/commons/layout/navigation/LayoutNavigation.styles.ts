@@ -20,6 +20,7 @@ export const Wrapper = styled.div`
 
   padding: 0 20%;
   z-index: 12;
+  min-width: 880px;
 `;
 
 interface Iprops {

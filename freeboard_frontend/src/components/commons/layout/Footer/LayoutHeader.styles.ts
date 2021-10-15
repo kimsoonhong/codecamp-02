@@ -6,6 +6,7 @@ export const Wrapper = styled.div`
   flex-direction: column;
   margin-top: 90px;
   padding-top: 20px;
+
   /* background-color: #2a652f; */
   background-image: url(/images/gc/a.png);
   background-size: cover;

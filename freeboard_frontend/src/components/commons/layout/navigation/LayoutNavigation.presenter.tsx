@@ -7,10 +7,17 @@ interface ILayoutNavigationUIProps {
 }
 
 export default function LayoutNavigationUI(props: ILayoutNavigationUIProps) {
-
-
   return (
     <Wrapper>
+      <>|</>
+      <MenuItem
+        id="proflie"
+        onClick={props.EnterToMenu}
+        //  @ts-ignore
+        isClick={props.isClick === "proflie"}
+      >
+        자기소개서
+      </MenuItem>
       <>|</>
       <MenuItem
         id="boards"

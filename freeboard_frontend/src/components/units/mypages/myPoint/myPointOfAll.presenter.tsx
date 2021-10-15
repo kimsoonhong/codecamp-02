@@ -12,7 +12,6 @@ import { ImyPointUIProps } from "./myPoint.types";
 import { LeftOutlined, RightOutlined } from "@ant-design/icons";
 
 export default function myPointOfAllUI(props: ImyPointUIProps) {
-
   return (
     <>
       <RightWrapper>
@@ -20,7 +19,7 @@ export default function myPointOfAllUI(props: ImyPointUIProps) {
           <RightWrapperTableTop>
             <RightWrapperDiv width={25}>날짜</RightWrapperDiv>
             <RightWrapperDiv width={25}>내용</RightWrapperDiv>
-            <RightWrapperDiv width={25}>거래 및 충전 내역ddd</RightWrapperDiv>
+            <RightWrapperDiv width={25}>거래 및 충전 내역</RightWrapperDiv>
             <RightWrapperDiv width={25}>잔액</RightWrapperDiv>
           </RightWrapperTableTop>
           {/* {=============하단=================} */}

@@ -1,7 +1,7 @@
 import { useMutation } from "@apollo/client";
 import { Modal } from "antd";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
+
 import { ChangeEvent, MouseEvent, useState } from "react";
 import QuestionWriteUI from "./questionWrite.presenter";
 import {
@@ -18,8 +18,6 @@ export default function questionWrite(props: any) {
   // });
   const [updateUseditemQuestion] = useMutation(UPDATE_QUESTION);
   const [contents, setContents] = useState("");
-
-
 
   async function onClickWrite() {
     if (contents === "") {

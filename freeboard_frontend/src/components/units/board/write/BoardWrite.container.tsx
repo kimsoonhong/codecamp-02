@@ -20,7 +20,7 @@ export default function BoardWrite(props: IBoardWriteProps) {
   const [active, setActive] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
   const [inputs, setInputs] = useState(INPUTS_INIT);
-  const [inputsErrors, setInputsErrors] = useState(INPUTS_INIT)
+  const [inputsErrors, setInputsErrors] = useState(INPUTS_INIT);
   const [createBoard] = useMutation(CREATE_BOARD);
   const [updateBoard] = useMutation(UPDATE_BOARD);
   const [uploadfile] = useMutation(UPLOAD_FILE);
@@ -34,7 +34,6 @@ export default function BoardWrite(props: IBoardWriteProps) {
   const [file, setFile] = useState([]);
   const [imgUrl, setImgUrl] = useState<string[]>([]);
 
-
   useEffect(() => {
     if (props.data?.fetchBoard?.images?.length)
       setResultimgUrl(
@@ -43,7 +42,28 @@ export default function BoardWrite(props: IBoardWriteProps) {
           (data) => `https://storage.googleapis.com/${data}`
         )
       );
-  }, [props.data?.fetchBoard.images]);
+
+    setZipcode(
+      props.data?.fetchBoard.boardAddress?.zipcode
+        ? props.data?.fetchBoard.boardAddress?.zipcode
+        : ""
+    );
+
+    setAddress(
+      props.data?.fetchBoard.boardAddress?.address
+        ? props.data?.fetchBoard.boardAddress?.address
+        : ""
+    );
+
+    setAddressDetail(
+      props.data?.fetchBoard.boardAddress?.addressDetail
+        ? props.data?.fetchBoard.boardAddress?.addressDetail
+        : ""
+    );
+  }, [
+    props.data?.fetchBoard.images,
+    props.data?.fetchBoard.boardAddress?.address,
+  ]);
 
   function onChangeAddressDetail(event: ChangeEvent<HTMLInputElement>) {
     setAddressDetail(event.target.value);

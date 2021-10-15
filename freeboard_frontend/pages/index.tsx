@@ -1,5 +1,5 @@
-import Login from "../src/components/units/login/LoginPage/login.container";
+import Proflie from "../pages/proflie/index";
 
 export default function LandingPageIndex() {
-  return <Login />;
+  return <Proflie />;
 }

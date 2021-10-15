@@ -220,7 +220,13 @@ export const globalStyles = css`
     border: 2px solid var(--color-light-white);
   }
 
-  .home__title,
+  .home__title {
+    color: var(--color-white);
+    font-weight: 2000;
+    font-size: 60px;
+    font-family: "normal";
+    src: url("/fonts/normal4.ttf");
+  }
   .home__description {
     color: var(--color-white);
   }
@@ -233,7 +239,7 @@ export const globalStyles = css`
     border: 2px solid var(--color-white);
     border-radius: var(--size-border-radius);
     color: var(--color-white);
-    background-color: var(--color-blue);
+    /* background-color: var(--color-blue); */
   }
 
   .home_contact:hover {
@@ -248,8 +254,57 @@ export const globalStyles = css`
     margin: 80px 0px;
   }
 
+  .aboutContent {
+    font-size: 24px;
+    font-family: "normal";
+    src: url("/fonts/normal4.ttf");
+  }
   .career {
     width: 30%;
+  }
+
+  .my-bell {
+    transform-origin: top;
+    animation: bell 3s infinite linear;
+    :hover {
+      animation: none;
+    }
+  }
+
+  @keyframes bell {
+    0%,
+    2% {
+      transform: rotate(0deg);
+      ::hover {
+        transform: none;
+      }
+    }
+    1%,
+    2%,
+    4%,
+    5%,
+    6% {
+      transform: rotate(1deg);
+      :hover {
+        transform: none;
+      }
+    }
+    2%,
+    3%,
+    6%,
+    50% {
+      transform: rotate(-1deg);
+      :hover {
+        transform: none;
+      }
+    }
+  }
+  .secondBell {
+    animation-delay: 0.7s;
+  }
+
+  .thirdBell {
+    animation-delay: 0.3s;
   }
 
   .career__icon {
@@ -272,7 +327,7 @@ export const globalStyles = css`
   }
 
   .career img:hover {
-    transform: rotate(-5deg) scale(1.1);
+    transform: rotate(-5deg) scale(1.1) !important;
   }
 
   .career img {
@@ -285,7 +340,12 @@ export const globalStyles = css`
   }
 
   .career__description {
-    font-size: var(--font-small);
+    font-size: 16px;
+    background-color: var(--color-light-white);
+    width: 400px;
+    padding: 24px;
+    border-radius: 20px;
+    border: 2px gray solid;
   }
 
   .jop {
@@ -296,8 +356,10 @@ export const globalStyles = css`
   }
 
   .jop__period {
-    font-size: var(--font-micro);
+    font-size: 18px;
     color: var(--color-light-grey);
+    font-family: "normal";
+    src: url("/fonts/normal4.ttf");
   }
 
   /* skill */
@@ -477,15 +539,17 @@ export const globalStyles = css`
     background-color: #2a653f;
     width: 170px;
     height: 52px;
-    line-height: 52px;
+    line-height: 48px;
 
-    font-size: var(--font-regular);
+    font-size: 24px;
     font-weight: var(--weight-bold);
     margin: auto;
 
     border: 2px solid var(--color-white);
     border-radius: var(--size-border-radius);
     color: var(--color-white);
+    font-family: "normal";
+    src: url("/fonts/normal4.ttf");
   }
 
   /* testimonial */

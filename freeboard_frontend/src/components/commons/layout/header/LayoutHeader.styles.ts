@@ -18,6 +18,7 @@ export const Wrapper = styled.div`
 
   /* animation: 200ms ease-in all; */
   transition: ease-in 200ms all;
+  min-width: 600px;
   /* transition: 350ms all ease-in-out; */
 `;
 

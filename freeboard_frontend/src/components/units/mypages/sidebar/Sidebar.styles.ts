@@ -9,13 +9,21 @@ export const Wrapper = styled.div`
   margin: auto;
   position: sticky;
   top: 120px;
+
+  /* background-color: red; */
 `;
 
 export const LiftWrapper = styled.div`
   width: 200px;
-  /* background-color: yellow; */
+  background-color: #1b521f14;
   text-align: center;
-  margin-right: 80px;
+  margin-right: 40px;
+  margin-left: 40px;
+  padding-top: 20px;
+  margin-top: 15px;
+
+  border-radius: 20px;
+  /* border: 2px gray solid; */
 `;
 
 export const LiftWrapperProfileWrapper = styled.div`

@@ -55,7 +55,10 @@ export default function myMarketUI(props: ImyMarketUIProps) {
                 <RightWrapperNumber>{index + 1}</RightWrapperNumber>
 
                 {!data.buyer ? (
-                  <RightWrapperTitle>{data.name}</RightWrapperTitle>
+                  <>
+                    <RightWrapperTitleSold>{data.name}</RightWrapperTitleSold>{" "}
+                    <RightWrapperCondition></RightWrapperCondition>
+                  </>
                 ) : (
                   <>
                     <RightWrapperTitleSold>{data.name}</RightWrapperTitleSold>

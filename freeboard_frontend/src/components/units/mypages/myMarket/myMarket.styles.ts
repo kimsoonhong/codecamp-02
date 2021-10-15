@@ -15,7 +15,7 @@ export const RightWrapperHead = styled.div`
   display: flex;
   flex-direction: row;
   line-height: 52px;
-  justify-content: flex-end;
+  justify-content: flex-start;
   margin-bottom: 20px;
 `;
 
@@ -75,6 +75,7 @@ export const RightWrapperNumber = styled.div`
 export const RightWrapperTitle = styled.div`
   /* background-color: khaki; */
   width: 55%;
+  padding-right: 90px;
 `;
 
 export const RightWrapperTitleSold = styled.div`

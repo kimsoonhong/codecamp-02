@@ -22,8 +22,6 @@ export default function myMarket() {
     setIsItem(false);
   };
 
-
-
   return (
     <MyMarketUI
       pickData={pickData}

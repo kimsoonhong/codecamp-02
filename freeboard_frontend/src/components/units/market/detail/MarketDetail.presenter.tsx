@@ -101,7 +101,7 @@ export default function MarketDetailUI(props: IBoardDetailUIProps) {
                 {props.data?.fetchUseditem.remarks}
               </BodyTopRemark>
               <BodyTopName>{props.data?.fetchUseditem.name}</BodyTopName>
-              <BodyTopPrice>{props.data?.fetchUseditem.price}</BodyTopPrice>
+              <BodyTopPrice>{props.data?.fetchUseditem.price} 원</BodyTopPrice>
             </BodyTopTextWrapper>
 
             <BodyTopPickWrapper>
