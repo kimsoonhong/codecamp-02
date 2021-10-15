@@ -65,6 +65,7 @@ export const RightWrapperTableTop = styled.div`
   line-height: 52px;
   font-size: 18px;
   font-weight: 400px;
+  padding-left: 20px;
 `;
 
 export const RightWrapperNumber = styled.div`
@@ -109,4 +110,7 @@ export const RightWrapperTableBottom = styled.div`
   height: 52px;
   font-size: 18px;
   line-height: 52px;
+  padding-left: 20px;
+
+  /* background-color: green; */
 `;

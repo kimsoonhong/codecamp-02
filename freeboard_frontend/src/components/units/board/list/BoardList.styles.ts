@@ -42,7 +42,6 @@ export const ColumnHeaderTitle = styled.div`
 export const ColumnBasic = styled.div`
   width: 10%;
   text-align: center;
-  overflow: auto;
 `;
 
 export const ColumnTitle = styled.div`

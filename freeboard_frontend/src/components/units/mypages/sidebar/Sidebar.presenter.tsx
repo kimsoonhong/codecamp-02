@@ -22,6 +22,7 @@ export default function mypageUi(props: any) {
             {props.loginData?.fetchUserLoggedIn.userPoint.amount}
           </LiftWrapperUserPoint> */}
         </LiftWrapperProfileWrapper>
+
         <LiftWrapperPageWrapper>
           <LiftWrapperMenu
             id="myMarket"

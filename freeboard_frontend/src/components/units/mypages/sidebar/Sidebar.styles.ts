@@ -33,6 +33,9 @@ export const LiftWrapperProfileWrapper = styled.div`
 export const LiftWrapperMypage = styled.div`
   font-size: 24px;
   font-weight: 700;
+  /* background-color: aqua; */
+  padding-bottom: 10px;
+  border-bottom: 2px gray solid;
 `;
 
 export const LiftWrapperAvatar = styled.img`
@@ -58,7 +61,7 @@ export const LiftWrapperUserPoint = styled.div`
 
 export const LiftWrapperPageWrapper = styled.div`
   /* background-color: cornsilk; */
-  padding-top: 78px;
+  padding-top: 20px;
 `;
 
 export const LiftWrapperMenu = styled.div`

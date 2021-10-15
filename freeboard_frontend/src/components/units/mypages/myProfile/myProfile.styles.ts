@@ -3,6 +3,7 @@ import styled from "@emotion/styled";
 export const Wrapper = styled.div`
   /* background-color: brown; */
   width: 980px;
+  padding-right: 380px;
 `;
 export const PasswordWrapper = styled.div`
   /* background-color: cadetblue; */
