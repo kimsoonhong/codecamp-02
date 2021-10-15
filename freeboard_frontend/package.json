@@ -6,6 +6,7 @@
     "dev": "next dev",
     "build:ssg": "next build && next export",
     "build:ssr": "next build",
+    "build:prod:ssg": "cp .env-prod .env && next build && next export",
     "start": "next start",
     "lint": "next lint"
   },
