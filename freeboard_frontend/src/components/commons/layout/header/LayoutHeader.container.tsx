@@ -121,7 +121,7 @@ export default function LayoutHeader() {
       Modal.info({ content: "로그아웃 되었습니다." });
       router.push("/login");
     } catch (error) {
-      alert(error.message);
+      console.log(error.message);
     }
   }
 
