@@ -33,6 +33,8 @@ export default function input100(props: any) {
         readOnly={props.readOnly}
         placeholder={props.placeholder}
         onChange={props.onChange}
+        onKeyDown={props.onKeyDown}
+        value={props.value}
       >
         {props.message}
       </Input>

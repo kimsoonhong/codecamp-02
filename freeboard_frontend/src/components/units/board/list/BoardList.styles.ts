@@ -2,11 +2,15 @@ import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
   width: 100%;
+  padding: 0 20%;
+
+  /* background-color: red; */
 `;
 export const InnerWrapper = styled.div`
-  width: 1200px;
+  /* width: 1200px; */
   margin: 100px;
   margin: auto;
+  /* background-color: aqua; */
 `;
 export const TableTop = styled.div`
   border-top: 2px solid gray;
@@ -30,22 +34,22 @@ export const Row = styled.div`
 `;
 
 export const ColumnHeaderBasic = styled.div`
-  width: 10%;
+  width: 20%;
   text-align: center;
 `;
 
 export const ColumnHeaderTitle = styled.div`
-  width: 70%;
+  width: 40%;
   text-align: center;
 `;
 
 export const ColumnBasic = styled.div`
-  width: 10%;
+  width: 20%;
   text-align: center;
 `;
 
 export const ColumnTitle = styled.div`
-  width: 70%;
+  width: 40%;
   text-align: center;
   cursor: pointer;
 
@@ -60,6 +64,7 @@ export const Footer = styled.div`
   flex-direction: row;
   justify-content: flex-end;
   padding-top: 50px;
+ 
 `;
 
 export const Button = styled.button`
@@ -79,12 +84,15 @@ export const Button = styled.button`
     font-weight: bold;
     animation: all 3000ms ease-in;
   }
+
 `;
 
 export const WrapperList = styled.div`
   margin: auto;
   display: flex;
   flex-direction: row;
+  background-color: red;
+  /* width: 50px; */
 `;
 
 export const Page = styled.div`
@@ -96,6 +104,7 @@ export const Page = styled.div`
   font-weight: ${(props: any) => (props.isActive ? "bold" : "normal")};
   cursor: ${(props: any) => (props.isActive ? "" : "pointer")};
   color: ${(props: any) => (props.isActive ? "#84b96e" : "")};
+  /* background-color: red; */
 
   :hover {
     font-weight: bold;

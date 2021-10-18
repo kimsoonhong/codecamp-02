@@ -27,6 +27,7 @@ const Word = styled.span`
 
 export default function BoardListUI(props: IBoardListUIProps) {
   return (
+    <>
     <Wrapper>
       <InnerWrapper>
         <SearchWrapper>
@@ -120,5 +121,6 @@ export default function BoardListUI(props: IBoardListUIProps) {
         </Footer>
       </InnerWrapper>
     </Wrapper>
+    </>
   );
 }

@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 
+
 interface IProps {
   scrollY: any;
 }
@@ -20,6 +21,7 @@ export const Wrapper = styled.div`
   transition: ease-in 200ms all;
   min-width: 600px;
   /* transition: 350ms all ease-in-out; */
+
 `;
 
 export const InnerWrapper = styled.div`
@@ -31,6 +33,7 @@ export const InnerWrapper = styled.div`
   align-items: center;
   font-size: 18px;
   line-height: 100px;
+
 `;
 
 export const InnerLogo = styled.div`
@@ -41,6 +44,7 @@ export const InnerLogo = styled.div`
   font-weight: bold;
   font-family: "live";
   font-style: italic;
+
 `;
 
 export const InnerButton = styled.span`

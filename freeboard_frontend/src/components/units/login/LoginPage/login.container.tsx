@@ -74,7 +74,7 @@ export default function login() {
       // ========임시 로그인 코드 ==========
     } catch (error) {
       // Modal.error({ content: error.massage });
-      alert(error.message);
+      console.log(error.message);
     }
   };
   return (

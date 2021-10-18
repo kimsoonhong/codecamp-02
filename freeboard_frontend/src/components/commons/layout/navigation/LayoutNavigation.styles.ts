@@ -21,6 +21,7 @@ export const Wrapper = styled.div`
   padding: 0 20%;
   z-index: 12;
   min-width: 880px;
+
 `;
 
 interface Iprops {
@@ -44,6 +45,11 @@ export const MenuItem = styled.div`
     transition: all 400ms ease;
     cursor: pointer;
   }
+
+
+`;
+export const Ber = styled.div`
+
 `;
 
 // const Testdiv = styled.div`

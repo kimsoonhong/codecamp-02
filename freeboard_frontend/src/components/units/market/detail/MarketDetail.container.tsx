@@ -169,7 +169,6 @@ const BoardDetail = () => {
     } catch (error) {
       Modal.error({ content: error.message });
     }
-    // alert("d");
   }
 
   return (

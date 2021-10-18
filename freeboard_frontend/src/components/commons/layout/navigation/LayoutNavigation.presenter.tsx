@@ -1,4 +1,4 @@
-import { MenuItem, Wrapper } from "./LayoutNavigation.styles";
+import { MenuItem, Wrapper, Ber } from "./LayoutNavigation.styles";
 import { MouseEvent } from "react";
 
 interface ILayoutNavigationUIProps {
@@ -9,7 +9,6 @@ interface ILayoutNavigationUIProps {
 export default function LayoutNavigationUI(props: ILayoutNavigationUIProps) {
   return (
     <Wrapper>
-      <>|</>
       <MenuItem
         id="proflie"
         onClick={props.EnterToMenu}
@@ -18,7 +17,7 @@ export default function LayoutNavigationUI(props: ILayoutNavigationUIProps) {
       >
         자기소개서
       </MenuItem>
-      <>|</>
+      <Ber>|</Ber>
       <MenuItem
         id="boards"
         onClick={props.EnterToMenu}
@@ -27,7 +26,7 @@ export default function LayoutNavigationUI(props: ILayoutNavigationUIProps) {
       >
         자유게시판
       </MenuItem>
-      <>|</>
+      <Ber>|</Ber>
       <MenuItem
         id="market"
         onClick={props.EnterToMenu}
@@ -35,7 +34,7 @@ export default function LayoutNavigationUI(props: ILayoutNavigationUIProps) {
       >
         중고마켓
       </MenuItem>
-      <>|</>
+      <Ber>|</Ber>
       <MenuItem
         id="mypages"
         onClick={props.EnterToMenu}
@@ -43,9 +42,6 @@ export default function LayoutNavigationUI(props: ILayoutNavigationUIProps) {
       >
         마이페이지
       </MenuItem>
-      {/* <div>{scrollY}</div> */}
-
-      {/* <Testdiv scrollY={scrollY}>dd</Testdiv> */}
     </Wrapper>
   );
 }

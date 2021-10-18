@@ -78,7 +78,11 @@ export default function marketWriteUI(props: any) {
               InputName="태그입력"
               type="text"
               register={{ ...props.register("tags") }}
+              onChange={props.onChangeTag}
               errorMessage={props.errors.tags?.message}
+              // placeholder="스페이스키를 활용하여 태그를 입력해 보세요."
+              // onKeyDown={props.onKeyDown}
+              // value={props.tagValue}
               // defaultValue={props.data?.fetchUseditem.tags}
             ></Input100>
             <MapWrapper>

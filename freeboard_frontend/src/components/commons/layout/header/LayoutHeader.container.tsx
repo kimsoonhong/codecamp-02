@@ -108,7 +108,6 @@ export default function LayoutHeader() {
 
   async function onClickLogout() {
     try {
-      await logoutUser();
       await client.clearStore();
       if (setAccessToken) setAccessToken("");
       if (setUserInfo) setUserInfo({});
@@ -120,6 +119,7 @@ export default function LayoutHeader() {
       localStorage.removeItem("localUserData");
       Modal.info({ content: "로그아웃 되었습니다." });
       router.push("/login");
+      await logoutUser();
     } catch (error) {
       console.log(error.message);
     }

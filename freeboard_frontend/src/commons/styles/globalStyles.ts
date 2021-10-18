@@ -342,7 +342,7 @@ export const globalStyles = css`
   .career__description {
     font-size: 16px;
     background-color: var(--color-light-white);
-    width: 400px;
+    width: 360px;
     padding: 24px;
     border-radius: 20px;
     border: 2px gray solid;
