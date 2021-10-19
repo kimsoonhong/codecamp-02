@@ -218,6 +218,15 @@ export default function ProfilePage() {
           </div>
 
           <div className="jop">
+            <h2 className="jop__name">LS solution</h2>
+            <p className="jop__description">
+              인력 아웃소싱 업체 공동 대표로서 영업 및 정산업무를 수행하였으며
+              인원공고 및 인원 관리 업무를 수행함.
+            </p>
+            <p className="jop__period">2020.11.04. ~ 2021.04.26.</p>
+          </div>
+
+          <div className="jop">
             <h2 className="jop__name">리더스</h2>
             <p className="jop__description">
               건설업 안전팀장으로서 근무하며 건설현장의 문서, 자원관리 업무를
@@ -377,6 +386,12 @@ export default function ProfilePage() {
               <div onClick={onClicknd} className="project__Enter">
                 자세히보기
               </div>
+              <a
+                href="https://pensooz-fire.web.app/"
+                className="project__Enter"
+              >
+                배포링크
+              </a>
             </div>
           </div>
 

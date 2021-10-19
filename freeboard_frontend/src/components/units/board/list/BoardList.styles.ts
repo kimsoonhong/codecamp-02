@@ -2,13 +2,13 @@ import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
   width: 100%;
-  padding: 0 20%;
+  /* padding: 0 20%; */
 
   /* background-color: red; */
 `;
 export const InnerWrapper = styled.div`
-  /* width: 1200px; */
-  margin: 100px;
+  width: 1200px;
+  /* margin: 800px; */
   margin: auto;
   /* background-color: aqua; */
 `;
@@ -64,7 +64,6 @@ export const Footer = styled.div`
   flex-direction: row;
   justify-content: flex-end;
   padding-top: 50px;
- 
 `;
 
 export const Button = styled.button`
@@ -84,14 +83,13 @@ export const Button = styled.button`
     font-weight: bold;
     animation: all 3000ms ease-in;
   }
-
 `;
 
 export const WrapperList = styled.div`
   margin: auto;
   display: flex;
   flex-direction: row;
-  background-color: red;
+  /* background-color: red; */
   /* width: 50px; */
 `;
 

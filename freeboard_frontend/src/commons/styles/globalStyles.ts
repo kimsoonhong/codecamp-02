@@ -537,7 +537,7 @@ export const globalStyles = css`
   .project__Enter {
     cursor: pointer;
     background-color: #2a653f;
-    width: 170px;
+    width: 120px;
     height: 52px;
     line-height: 48px;
 
